@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block title %}{% trans "Products" %} - {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+<section class="hero" style="background-image: url('{{ MEDIA_URL }}backgrounds/hero_bg.png'); height: 60vh;">
+    <div class="hero-content">
+        <h1>{% trans "Our Products" %}</h1>
+        <p>{% trans "Discover our premium selection of authentic Moroccan condiments." %}</p>
+    </div>
+</section>
+
+<section class="section-padding container">
+    <!-- Vinegars -->
+    <h2 class="section-title fade-up">🍾 {% trans "Premium Vinegars" %}</h2>
+    <div class="product-grid" style="margin-bottom: 4rem;">
+        {% for product in vinegars %}
+            {% include 'core/includes/product_card.html' %}
+        {% endfor %}
+    </div>
+
+    <!-- Pickles -->
+    <h2 class="section-title fade-up">🫒 {% trans "Pickled Vegetables & Condiments" %}</h2>
+    <div class="product-grid" style="margin-bottom: 4rem;">
+        {% for product in pickles %}
+            {% include 'core/includes/product_card.html' %}
+        {% endfor %}
+    </div>
+
+    <!-- Spicy -->
+    <h2 class="section-title fade-up">🌶️ {% trans "Hot & Spicy" %}</h2>
+    <div class="product-grid" style="margin-bottom: 4rem;">
+        {% for product in spicy %}
+            {% include 'core/includes/product_card.html' %}
+        {% endfor %}
+    </div>
+</section>
+
+<section class="section-padding" style="background: var(--dark-brown); color: var(--white);">
+    <div class="container fade-up text-center">
+        <h2 style="color: var(--primary-gold); margin-bottom: 2rem;">📦 {% trans "Packaging Options" %}</h2>
+        <div class="features-grid" style="color: var(--dark-brown);">
+            <div class="feature-box">
+                <h3>{% trans "Retail Glass Jars" %}</h3>
+                <p>370g, 720g</p>
+            </div>
+            <div class="feature-box">
+                <h3>{% trans "Bulk Containers" %}</h3>
+                <p>3L, 5L, 10L</p>
+            </div>
+            <div class="feature-box">
+                <h3>{% trans "Custom Labeling" %}</h3>
+                <p>{% trans "Available" %}</p>
+            </div>
+            <div class="feature-box">
+                <h3>{% trans "Export Packaging" %}</h3>
+                <p>{% trans "Secure & Compliant" %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

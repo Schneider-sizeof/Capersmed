@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "About Us" %} - {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+<section class="hero" style="background-image: url('{{ MEDIA_URL }}backgrounds/hero_bg.png'); height: 60vh;">
+    <div class="hero-content">
+        <h1>{% trans "About Us" %}</h1>
+    </div>
+</section>
+
+<section class="section-padding container">
+    <div class="text-center fade-up" style="max-width: 900px; margin: 0 auto 4rem;">
+        <h2 class="section-title">{% trans "Our Story" %}</h2>
+        <p style="font-size: 1.2rem;">{% trans "Founded in the heart of Morocco, CAPERSMED.SARL was established with a vision to bring the authentic flavors of Moroccan agriculture to the world. We specialize in the meticulous processing and packaging of premium capers, vinegars, and a variety of traditional condiments." %}</p>
+    </div>
+
+    <div class="about-preview fade-up" style="margin-bottom: 4rem;">
+        <div>
+            <h2 class="text-green">{% trans "Mission & Values" %}</h2>
+            <p>{% trans "Our mission is to deliver the highest quality gourmet food products while supporting local farmers and sustainable agricultural practices. We value integrity, authenticity, and uncompromising quality." %}</p>
+        </div>
+        <div style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); height: 300px;">
+            <img src="{{ MEDIA_URL }}products/vinegar_placeholder.png" alt="CAPERSMED Factory" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+    </div>
+
+    <h2 class="section-title fade-up">{% trans "Certifications" %}</h2>
+    <div class="features-grid fade-up">
+        <div class="feature-box">
+            <h3 class="text-gold">ISO 22000</h3>
+            <p>{% trans "Food Safety Management" %}</p>
+        </div>
+        <div class="feature-box">
+            <h3 class="text-gold">HACCP</h3>
+            <p>{% trans "Hazard Analysis" %}</p>
+        </div>
+        <div class="feature-box">
+            <h3 class="text-gold">Halal</h3>
+            <p>{% trans "Certified Halal" %}</p>
+        </div>
+        <div class="feature-box">
+            <h3 class="text-gold">FDA</h3>
+            <p>{% trans "Export Standards" %}</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding text-center" style="background: var(--cream-bg);">
+    <div class="container fade-up">
+        <h2>{% trans "Experience Moroccan Quality" %}</h2>
+        <br>
+        <a href="{% url 'products' %}" class="btn btn-primary">{% trans "View Our Products" %}</a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,63 @@
+/* Mobile Styles (< 768px) */
+@media screen and (max-width: 767px) {
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: rgba(255, 255, 255, 0.98);
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.4s ease;
+  }
+  
+  .nav-links.active {
+    left: 0;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .hero {
+    min-height: 80vh;
+    padding-top: 100px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .about-preview,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .section-padding {
+    padding: 5rem 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-grid {
+    text-align: center;
+  }
+}
+
+/* Tablet Styles (768px - 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .hero-content h1 {
+    font-size: 3.5rem;
+  }
+}
+

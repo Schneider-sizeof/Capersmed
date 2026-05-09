@@ -1,0 +1,48 @@
+{% load i18n %}
+<a href="{% url 'product_detail' product.slug %}" style="text-decoration: none; display: block; color: inherit; height: 100%;">
+<div class="product-card fade-up">
+    <div class="product-img-wrapper">
+        {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.name_en }}" loading="lazy">
+        {% else %}
+            <!-- Fallback placeholders -->
+            {% if product.category == 'pickles' %}
+                <img src="{{ MEDIA_URL }}products/pickles_placeholder.png" alt="Pickles" loading="lazy">
+            {% elif product.category == 'vinegars' %}
+                <img src="{{ MEDIA_URL }}products/vinegar_placeholder.png" alt="Vinegar" loading="lazy">
+            {% elif product.category == 'spicy' %}
+                <img src="{{ MEDIA_URL }}products/spicy_placeholder.png" alt="Spicy" loading="lazy">
+            {% endif %}
+        {% endif %}
+    </div>
+    <div class="product-info">
+        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
+            <h3 style="margin-bottom: 0; text-align: center;">
+                {% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}
+                {% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}
+                {% else %}{{ product.name_en }}{% endif %}
+            </h3>
+            {% if product.is_premium %}
+                <span style="color: var(--primary-gold); font-size: 1.2rem;" title="Premium">★</span>
+            {% endif %}
+        </div>
+        <p>
+            {% if LANGUAGE_CODE == 'fr' %}{{ product.short_description_fr|truncatewords:15 }}
+            {% elif LANGUAGE_CODE == 'ar' %}{{ product.short_description_ar|truncatewords:15 }}
+            {% else %}{{ product.short_description_en|truncatewords:15 }}{% endif %}
+        </p>
+        <ul class="product-features">
+            {% if LANGUAGE_CODE == 'fr' %}
+                {% for feature in product.features_fr|slice:":2" %}<li>{{ feature }}</li>{% endfor %}
+            {% elif LANGUAGE_CODE == 'ar' %}
+                {% for feature in product.features_ar|slice:":2" %}<li>{{ feature }}</li>{% endfor %}
+            {% else %}
+                {% for feature in product.features_en|slice:":2" %}<li>{{ feature }}</li>{% endfor %}
+            {% endif %}
+        </ul>
+        <div style="margin-top: 1rem; text-align: center; border-top: 1px solid #eee; padding-top: 1rem;">
+            <span class="text-gold" style="font-weight: 600; font-size: 0.9rem; text-transform: uppercase;">{% trans "View Details" %} →</span>
+        </div>
+    </div>
+</div>
+</a>

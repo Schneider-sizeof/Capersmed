@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Services" %} - {{ site_settings.site_name }}{% endblock %}
+
+{% block content %}
+<section class="hero" style="background-image: url('{{ MEDIA_URL }}backgrounds/hero_bg.png'); height: 60vh;">
+    <div class="hero-content">
+        <h1>{% trans "Our Services" %}</h1>
+        <p>{% trans "Comprehensive solutions for wholesale, export, and private label." %}</p>
+    </div>
+</section>
+
+<section class="section-padding container">
+    <div class="services-grid">
+        <div class="service-card fade-up">
+            <h2 class="text-green">🏭 {% trans "Food Production" %}</h2>
+            <p>{% trans "High-quality production with modern facilities." %}</p>
+            <ul class="check-list">
+                <li>{% trans "Large-scale capacity" %}</li>
+                <li>{% trans "Quality-controlled" %}</li>
+                <li>{% trans "Food safety certified" %}</li>
+                <li>{% trans "Custom recipes" %}</li>
+            </ul>
+        </div>
+        <div class="service-card fade-up">
+            <h2 class="text-green">📦 {% trans "Wholesale & Export" %}</h2>
+            <p>{% trans "Supply restaurants, retailers, distributors worldwide." %}</p>
+            <ul class="check-list">
+                <li>{% trans "Bulk pricing" %}</li>
+                <li>{% trans "Export documentation" %}</li>
+                <li>{% trans "Flexible quantities" %}</li>
+                <li>{% trans "International shipping" %}</li>
+            </ul>
+        </div>
+        <div class="service-card fade-up">
+            <h2 class="text-green">🏷️ {% trans "Private Label" %}</h2>
+            <p>{% trans "Create your brand with our expertise." %}</p>
+            <ul class="check-list">
+                <li>{% trans "Custom label design" %}</li>
+                <li>{% trans "Your brand our quality" %}</li>
+                <li>{% trans "Flexible packaging" %}</li>
+                <li>{% trans "Low MOQ" %}</li>
+            </ul>
+        </div>
+        <div class="service-card fade-up">
+            <h2 class="text-green">🚚 {% trans "Logistics" %}</h2>
+            <p>{% trans "Reliable delivery worldwide." %}</p>
+            <ul class="check-list">
+                <li>{% trans "Secure packaging" %}</li>
+                <li>{% trans "Temperature-controlled" %}</li>
+                <li>{% trans "Export docs" %}</li>
+                <li>{% trans "On-time delivery" %}</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding text-center" style="background: var(--cream-bg);">
+    <div class="container fade-up">
+        <h2 class="section-title">{% trans "Our Process" %}</h2>
+        <div class="features-grid">
+            <div>
+                <h3 class="text-gold">1. {% trans "Consultation" %}</h3>
+                <p>{% trans "Discuss your requirements." %}</p>
+            </div>
+            <div>
+                <h3 class="text-gold">2. {% trans "Quotation" %}</h3>
+                <p>{% trans "Competitive pricing." %}</p>
+            </div>
+            <div>
+                <h3 class="text-gold">3. {% trans "Production" %}</h3>
+                <p>{% trans "Quality manufacturing." %}</p>
+            </div>
+            <div>
+                <h3 class="text-gold">4. {% trans "Delivery" %}</h3>
+                <p>{% trans "Shipped to your location." %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

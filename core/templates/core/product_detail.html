@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block title %}
+    {% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}
+    {% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}
+    {% else %}{{ product.name_en }}{% endif %} | CAPERSMED
+{% endblock %}
+
+{% block content %}
+<div class="section-padding" style="padding-top: 120px; background-color: var(--white);">
+    <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 4rem; align-items: start;">
+            
+            <!-- Product Image -->
+            <div class="product-detail-image" style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); background: var(--light-gray); aspect-ratio: 1/1;">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name_en }}" style="width: 100%; height: 100%; object-fit: cover;">
+                {% else %}
+                    <!-- Fallback placeholders -->
+                    {% if product.category == 'pickles' %}
+                        <img src="{{ MEDIA_URL }}products/pickles_placeholder.png" alt="Pickles" style="width: 100%; height: 100%; object-fit: cover;">
+                    {% elif product.category == 'vinegars' %}
+                        <img src="{{ MEDIA_URL }}products/vinegar_placeholder.png" alt="Vinegar" style="width: 100%; height: 100%; object-fit: cover;">
+                    {% elif product.category == 'spicy' %}
+                        <img src="{{ MEDIA_URL }}products/spicy_placeholder.png" alt="Spicy" style="width: 100%; height: 100%; object-fit: cover;">
+                    {% endif %}
+                {% endif %}
+            </div>
+
+            <!-- Product Info -->
+            <div class="product-detail-info fade-up">
+                <!-- Badges -->
+                <div style="margin-bottom: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <span style="background: var(--light-gray); color: var(--dark-brown); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase;">
+                        {{ product.get_category_display }}
+                    </span>
+                    {% if product.is_premium %}
+                    <span style="background: var(--primary-gold); color: var(--white); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase;">
+                        ★ {% trans "Premium" %}
+                    </span>
+                    {% endif %}
+                </div>
+
+                <!-- Title -->
+                <h1 style="font-size: 3rem; color: var(--deep-green); margin-bottom: 0.5rem; line-height: 1.1;">
+                    {% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}
+                    {% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}
+                    {% else %}{{ product.name_en }}{% endif %}
+                </h1>
+
+                <!-- Short Description -->
+                <p style="font-size: 1.2rem; color: #555; margin-bottom: 2rem; font-weight: 500;">
+                    {% if LANGUAGE_CODE == 'fr' %}{{ product.short_description_fr }}
+                    {% elif LANGUAGE_CODE == 'ar' %}{{ product.short_description_ar }}
+                    {% else %}{{ product.short_description_en }}{% endif %}
+                </p>
+
+                <!-- CTA -->
+                <div style="margin-bottom: 3rem; display: flex; gap: 1rem;">
+                    <a href="{% url 'contact' %}" class="btn btn-primary">{% trans "Contact for Quote" %}</a>
+                    <a href="{% url 'products' %}" class="btn btn-outline">{% trans "Back to Catalog" %}</a>
+                </div>
+
+                <!-- Tabs/Sections -->
+                <div class="product-sections">
+                    <h3 style="color: var(--dark-brown); font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 1rem;">
+                        {% trans "Description" %}
+                    </h3>
+                    <p style="color: #666; margin-bottom: 2rem;">
+                        {% if LANGUAGE_CODE == 'fr' %}{{ product.description_fr }}
+                        {% elif LANGUAGE_CODE == 'ar' %}{{ product.description_ar }}
+                        {% else %}{{ product.description_en }}{% endif %}
+                    </p>
+
+                    <h3 style="color: var(--dark-brown); font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 1rem;">
+                        {% trans "Features" %}
+                    </h3>
+                    <ul class="product-features" style="border-top: none; padding-top: 0; margin-bottom: 2rem;">
+                        {% if LANGUAGE_CODE == 'fr' %}
+                            {% for feature in product.features_fr %}<li>{{ feature }}</li>{% endfor %}
+                        {% elif LANGUAGE_CODE == 'ar' %}
+                            {% for feature in product.features_ar %}<li>{{ feature }}</li>{% endfor %}
+                        {% else %}
+                            {% for feature in product.features_en %}<li>{{ feature }}</li>{% endfor %}
+                        {% endif %}
+                    </ul>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div>
+                            <h3 style="color: var(--dark-brown); font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 1rem;">
+                                {% trans "Suggested Uses" %}
+                            </h3>
+                            <ul style="list-style-type: disc; padding-left: 1.5rem; color: #666;">
+                                {% if LANGUAGE_CODE == 'fr' %}
+                                    {% for use in product.uses_fr %}<li style="margin-bottom: 0.5rem;">{{ use }}</li>{% endfor %}
+                                {% elif LANGUAGE_CODE == 'ar' %}
+                                    {% for use in product.uses_ar %}<li style="margin-bottom: 0.5rem;">{{ use }}</li>{% endfor %}
+                                {% else %}
+                                    {% for use in product.uses_en %}<li style="margin-bottom: 0.5rem;">{{ use }}</li>{% endfor %}
+                                {% endif %}
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 style="color: var(--dark-brown); font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 1rem;">
+                                {% trans "Specifications" %}
+                            </h3>
+                            <div style="background: var(--light-gray); padding: 1.5rem; border-radius: var(--radius-md);">
+                                {% if LANGUAGE_CODE == 'fr' %}
+                                    {% for k, v in product.specifications_fr.items %}
+                                        <p style="margin-bottom: 0.5rem; font-size: 0.9rem;"><strong>{{ k }}:</strong> <span style="color: #666;">{{ v }}</span></p>
+                                    {% endfor %}
+                                {% elif LANGUAGE_CODE == 'ar' %}
+                                    {% for k, v in product.specifications_ar.items %}
+                                        <p style="margin-bottom: 0.5rem; font-size: 0.9rem;"><strong>{{ k }}:</strong> <span style="color: #666;">{{ v }}</span></p>
+                                    {% endfor %}
+                                {% else %}
+                                    {% for k, v in product.specifications_en.items %}
+                                        <p style="margin-bottom: 0.5rem; font-size: 0.9rem;"><strong>{{ k }}:</strong> <span style="color: #666;">{{ v }}</span></p>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Related/CTA -->
+<section class="section-padding text-center" style="background: var(--cream-bg);">
+    <div class="container fade-up">
+        <h2 style="color: var(--deep-green); margin-bottom: 1.5rem;">{% trans "Interested in Bulk Orders?" %}</h2>
+        <p style="margin-bottom: 2rem; color: #666;">{% trans "We offer special pricing for wholesale, private label, and export orders." %}</p>
+        <a href="{% url 'contact' %}" class="btn btn-primary">{% trans "Request a Quote" %}</a>
+    </div>
+</section>
+
+{% endblock %}
