@@ -99,7 +99,10 @@ LANGUAGES = [
     ('en', _('English')),
     ('fr', _('French')),
     ('ar', _('Arabic')),
+    ('es', _('Spanish')),
+    ('it', _('Italian')),
 ]
+
 LOCALE_PATHS = [
     BASE_DIR / 'locale',
 ]

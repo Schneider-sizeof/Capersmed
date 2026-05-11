@@ -74,55 +74,79 @@
                         {% else %}{{ product.description_en }}{% endif %}
                     </p>
 
-                    <h3 style="color: var(--dark-brown); font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 1rem;">
-                        {% trans "Features" %}
-                    </h3>
-                    <ul class="product-features" style="border-top: none; padding-top: 0; margin-bottom: 2rem;">
-                        {% if LANGUAGE_CODE == 'fr' %}
-                            {% for feature in product.features_fr %}<li>{{ feature }}</li>{% endfor %}
-                        {% elif LANGUAGE_CODE == 'ar' %}
-                            {% for feature in product.features_ar %}<li>{{ feature }}</li>{% endfor %}
-                        {% else %}
-                            {% for feature in product.features_en %}<li>{{ feature }}</li>{% endfor %}
-                        {% endif %}
-                    </ul>
 
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <!-- 2-Column: Specifications + Certifications -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 1rem;">
+
+                        <!-- Left: Specifications -->
                         <div>
-                            <h3 style="color: var(--dark-brown); font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 1rem;">
-                                {% trans "Suggested Uses" %}
-                            </h3>
-                            <ul style="list-style-type: disc; padding-left: 1.5rem; color: #666;">
-                                {% if LANGUAGE_CODE == 'fr' %}
-                                    {% for use in product.uses_fr %}<li style="margin-bottom: 0.5rem;">{{ use }}</li>{% endfor %}
-                                {% elif LANGUAGE_CODE == 'ar' %}
-                                    {% for use in product.uses_ar %}<li style="margin-bottom: 0.5rem;">{{ use }}</li>{% endfor %}
-                                {% else %}
-                                    {% for use in product.uses_en %}<li style="margin-bottom: 0.5rem;">{{ use }}</li>{% endfor %}
-                                {% endif %}
-                            </ul>
-                        </div>
-                        
-                        <div>
-                            <h3 style="color: var(--dark-brown); font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 1rem;">
+                            <h3 style="color: var(--dark-brown); font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 1.5rem;">
                                 {% trans "Specifications" %}
                             </h3>
-                            <div style="background: var(--light-gray); padding: 1.5rem; border-radius: var(--radius-md);">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;">
                                 {% if LANGUAGE_CODE == 'fr' %}
                                     {% for k, v in product.specifications_fr.items %}
-                                        <p style="margin-bottom: 0.5rem; font-size: 0.9rem;"><strong>{{ k }}:</strong> <span style="color: #666;">{{ v }}</span></p>
+                                    <div style="text-align: center; background: #f8fdf9; border: 1px solid #e0ede3; border-radius: 12px; padding: 1rem 0.6rem;">
+                                        <div style="font-size: 1.6rem; margin-bottom: 0.3rem;">
+                                            {% if 'Emballage' in k or 'emballage' in k %}📦{% elif 'Origine' in k or 'origine' in k %}🇲🇦{% elif 'Qualité' in k or 'qualité' in k %}⭐{% elif 'Poids' in k or 'poids' in k %}⚖️{% elif 'Conservation' in k or 'conservation' in k %}🧊{% elif 'Ingrédients' in k or 'ingrédient' in k %}🌿{% else %}📋{% endif %}
+                                        </div>
+                                        <div style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #40916C; margin-bottom: 0.2rem;">{{ k }}</div>
+                                        <div style="font-size: 0.82rem; color: #333; font-weight: 500;">{{ v }}</div>
+                                    </div>
                                     {% endfor %}
                                 {% elif LANGUAGE_CODE == 'ar' %}
                                     {% for k, v in product.specifications_ar.items %}
-                                        <p style="margin-bottom: 0.5rem; font-size: 0.9rem;"><strong>{{ k }}:</strong> <span style="color: #666;">{{ v }}</span></p>
+                                    <div style="text-align: center; background: #f8fdf9; border: 1px solid #e0ede3; border-radius: 12px; padding: 1rem 0.6rem;">
+                                        <div style="font-size: 1.6rem; margin-bottom: 0.3rem;">
+                                            {% if 'تغليف' in k %}📦{% elif 'أصل' in k or 'المنشأ' in k %}🇲🇦{% elif 'جودة' in k %}⭐{% elif 'وزن' in k %}⚖️{% else %}📋{% endif %}
+                                        </div>
+                                        <div style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #40916C; margin-bottom: 0.2rem;">{{ k }}</div>
+                                        <div style="font-size: 0.82rem; color: #333; font-weight: 500;">{{ v }}</div>
+                                    </div>
                                     {% endfor %}
                                 {% else %}
                                     {% for k, v in product.specifications_en.items %}
-                                        <p style="margin-bottom: 0.5rem; font-size: 0.9rem;"><strong>{{ k }}:</strong> <span style="color: #666;">{{ v }}</span></p>
+                                    <div style="text-align: center; background: #f8fdf9; border: 1px solid #e0ede3; border-radius: 12px; padding: 1rem 0.6rem;">
+                                        <div style="font-size: 1.6rem; margin-bottom: 0.3rem;">
+                                            {% if 'Packaging' in k or 'packaging' in k %}📦{% elif 'Origin' in k or 'origin' in k %}🇲🇦{% elif 'Quality' in k or 'quality' in k %}⭐{% elif 'Weight' in k or 'weight' in k %}⚖️{% elif 'Storage' in k or 'storage' in k %}🧊{% elif 'Ingredient' in k or 'ingredient' in k %}🌿{% else %}📋{% endif %}
+                                        </div>
+                                        <div style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #40916C; margin-bottom: 0.2rem;">{{ k }}</div>
+                                        <div style="font-size: 0.82rem; color: #333; font-weight: 500;">{{ v }}</div>
+                                    </div>
                                     {% endfor %}
                                 {% endif %}
                             </div>
                         </div>
+
+                        <!-- Right: Certifications -->
+                        <div>
+                            <h3 style="color: var(--dark-brown); font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 1.5rem;">
+                                {% trans "Certifications" %}
+                            </h3>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;">
+                                <div style="display: flex; align-items: center; gap: 8px; background: #FFF3E0; border: 1.5px solid #FFCC80; border-radius: 10px; padding: 12px 14px;">
+                                    <span style="font-size: 1.4rem;">☪️</span>
+                                    <span style="font-size: 0.8rem; font-weight: 700; color: #E65100;">HALAL</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 8px; background: #E8EAF6; border: 1.5px solid #9FA8DA; border-radius: 10px; padding: 12px 14px;">
+                                    <span style="font-size: 1.4rem;">✡️</span>
+                                    <span style="font-size: 0.8rem; font-weight: 700; color: #283593;">KOSHER</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 8px; background: #E0F2F1; border: 1.5px solid #80CBC4; border-radius: 10px; padding: 12px 14px;">
+                                    <span style="font-size: 1.4rem;">🏅</span>
+                                    <span style="font-size: 0.8rem; font-weight: 700; color: #00695C;">IFS</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 8px; background: #FFF8E1; border: 1.5px solid #FFE082; border-radius: 10px; padding: 12px 14px;">
+                                    <span style="font-size: 1.4rem;">🏅</span>
+                                    <span style="font-size: 0.8rem; font-weight: 700; color: #F57F17;">BRC</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 8px; background: #FCE4EC; border: 1.5px solid #F48FB1; border-radius: 10px; padding: 12px 14px; grid-column: span 2;">
+                                    <span style="font-size: 1.4rem;">🇺🇸</span>
+                                    <span style="font-size: 0.8rem; font-weight: 700; color: #880E4F;">FDA Registered</span>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 

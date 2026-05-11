@@ -1,0 +1,118 @@
+"""Add all missing translations to .po files and compile."""
+import polib
+
+# The 94 missing strings with translations for all 4 languages
+# Format: msgid -> {fr, es, it, ar}
+MISSING = {
+"100% Natural Ingredients": {"fr":"100% Ingredients Naturels","es":"100% Ingredientes Naturales","it":"100% Ingredienti Naturali","ar":"مكونات طبيعية 100%"},
+"About Us": {"fr":"A Propos","es":"Sobre Nosotros","it":"Chi Siamo","ar":"من نحن"},
+"Authentic Moroccan Gourmet Products - From Our Fields to Your Table": {"fr":"Produits Gastronomiques Marocains Authentiques - De Nos Champs a Votre Table","es":"Productos Gourmet Marroquies Autenticos - De Nuestros Campos a Su Mesa","it":"Prodotti Gourmet Marocchini Autentici - Dai Nostri Campi alla Vostra Tavola","ar":"منتجات مغربية أصيلة فاخرة - من حقولنا إلى مائدتكم"},
+"Back to Catalog": {"fr":"Retour au Catalogue","es":"Volver al Catalogo","it":"Torna al Catalogo","ar":"العودة للكتالوج"},
+"Browse Products": {"fr":"Parcourir les Produits","es":"Ver Productos","it":"Sfoglia Prodotti","ar":"تصفح المنتجات"},
+"Bulk & Retail": {"fr":"Gros & Detail","es":"Mayoreo y Menudeo","it":"Ingrosso e Dettaglio","ar":"جملة وتجزئة"},
+"Bulk pricing": {"fr":"Prix de gros","es":"Precios al por mayor","it":"Prezzi all'ingrosso","ar":"أسعار الجملة"},
+"Business Hours": {"fr":"Horaires d'Ouverture","es":"Horario de Trabajo","it":"Orari di Lavoro","ar":"ساعات العمل"},
+"CAPERSMED is a leading Moroccan producer of premium food products. We blend traditional recipes with modern export standards.": {"fr":"CAPERSMED est un producteur marocain de premier plan de produits alimentaires premium. Nous allions recettes traditionnelles et normes d'exportation modernes.","es":"CAPERSMED es un productor marroqui lider de productos alimentarios premium. Combinamos recetas tradicionales con estandares de exportacion modernos.","it":"CAPERSMED e un produttore marocchino leader di prodotti alimentari premium. Uniamo ricette tradizionali con standard di esportazione moderni.","ar":"كابرزميد هي منتج مغربي رائد للمنتجات الغذائية الفاخرة. نمزج الوصفات التقليدية مع معايير التصدير الحديثة."},
+"Certified Halal": {"fr":"Certifie Halal","es":"Certificado Halal","it":"Certificato Halal","ar":"معتمد حلال"},
+"Competitive pricing.": {"fr":"Prix competitifs.","es":"Precios competitivos.","it":"Prezzi competitivi.","ar":"أسعار تنافسية."},
+"Comprehensive solutions for wholesale, export, and private label.": {"fr":"Solutions completes pour la vente en gros, l'export et la marque privee.","es":"Soluciones integrales para mayoreo, exportacion y marca privada.","it":"Soluzioni complete per ingrosso, esportazione e marchio privato.","ar":"حلول شاملة للبيع بالجملة والتصدير والعلامة الخاصة."},
+"Consultation": {"fr":"Consultation","es":"Consulta","it":"Consulenza","ar":"استشارة"},
+"Contact Info": {"fr":"Coordonnees","es":"Informacion de Contacto","it":"Informazioni di Contatto","ar":"معلومات الاتصال"},
+"Contact Us Now": {"fr":"Contactez-nous Maintenant","es":"Contactenos Ahora","it":"Contattaci Ora","ar":"اتصل بنا الآن"},
+"Contact for Quote": {"fr":"Contactez pour un Devis","es":"Contactar para Cotizacion","it":"Contattaci per un Preventivo","ar":"اتصل للحصول على عرض سعر"},
+"Contact us for wholesale pricing, private label, or export inquiries.": {"fr":"Contactez-nous pour les prix de gros, la marque privee ou les demandes d'exportation.","es":"Contactenos para precios mayoristas, marca privada o consultas de exportacion.","it":"Contattaci per prezzi all'ingrosso, marchio privato o richieste di esportazione.","ar":"اتصل بنا لأسعار الجملة أو العلامة الخاصة أو استفسارات التصدير."},
+"Crafting Tradition, Delivering Quality": {"fr":"Perpetuer la Tradition, Livrer la Qualite","es":"Forjando Tradicion, Entregando Calidad","it":"Artigianato Tradizionale, Qualita Garantita","ar":"صناعة التقاليد وتقديم الجودة"},
+"Create your brand with our expertise.": {"fr":"Creez votre marque avec notre expertise.","es":"Cree su marca con nuestra experiencia.","it":"Crea il tuo marchio con la nostra esperienza.","ar":"أنشئ علامتك التجارية بخبرتنا."},
+"Custom label design": {"fr":"Design d'etiquette personnalise","es":"Diseno de etiqueta personalizada","it":"Design etichetta personalizzata","ar":"تصميم ملصقات مخصصة"},
+"Custom recipes": {"fr":"Recettes personnalisees","es":"Recetas personalizadas","it":"Ricette personalizzate","ar":"وصفات مخصصة"},
+"Description": {"fr":"Description","es":"Descripcion","it":"Descrizione","ar":"الوصف"},
+"Discuss your requirements.": {"fr":"Discutez de vos besoins.","es":"Discuta sus requisitos.","it":"Discuti le tue esigenze.","ar":"ناقش متطلباتك."},
+"Experience Moroccan Quality": {"fr":"Decouvrez la Qualite Marocaine","es":"Experimente la Calidad Marroqui","it":"Scopri la Qualita Marocchina","ar":"اختبر الجودة المغربية"},
+"Export Grade Quality": {"fr":"Qualite Export","es":"Calidad de Exportacion","it":"Qualita da Esportazione","ar":"جودة التصدير"},
+"Export Quality Standards": {"fr":"Normes de Qualite Export","es":"Estandares de Calidad de Exportacion","it":"Standard di Qualita per l'Esportazione","ar":"معايير جودة التصدير"},
+"Export Ready": {"fr":"Pret a l'Export","es":"Listo para Exportar","it":"Pronto per l'Export","ar":"جاهز للتصدير"},
+"Export Standards": {"fr":"Normes d'Exportation","es":"Estandares de Exportacion","it":"Standard di Esportazione","ar":"معايير التصدير"},
+"Export docs": {"fr":"Documents d'export","es":"Documentos de exportacion","it":"Documenti di esportazione","ar":"وثائق التصدير"},
+"Export documentation": {"fr":"Documentation d'exportation","es":"Documentacion de exportacion","it":"Documentazione di esportazione","ar":"وثائق التصدير"},
+"Featured Products": {"fr":"Produits en Vedette","es":"Productos Destacados","it":"Prodotti in Evidenza","ar":"منتجات مميزة"},
+"Features": {"fr":"Caracteristiques","es":"Caracteristicas","it":"Caratteristiche","ar":"المميزات"},
+"Flexible packaging": {"fr":"Emballage flexible","es":"Embalaje flexible","it":"Packaging flessibile","ar":"تغليف مرن"},
+"Flexible quantities": {"fr":"Quantites flexibles","es":"Cantidades flexibles","it":"Quantita flessibili","ar":"كميات مرنة"},
+"Food Production": {"fr":"Production Alimentaire","es":"Produccion Alimentaria","it":"Produzione Alimentare","ar":"إنتاج غذائي"},
+"Food Safety Management": {"fr":"Gestion de la Securite Alimentaire","es":"Gestion de Seguridad Alimentaria","it":"Gestione Sicurezza Alimentare","ar":"إدارة سلامة الغذاء"},
+"Food safety certified": {"fr":"Certifie securite alimentaire","es":"Certificado de seguridad alimentaria","it":"Certificato sicurezza alimentare","ar":"معتمد سلامة الغذاء"},
+"Founded in the heart of Morocco, CAPERSMED.SARL was established with a vision to bring the authentic flavors of Moroccan agriculture to the world. We specialize in the meticulous processing and packaging of premium capers, vinegars, and a variety of traditional condiments.": {"fr":"Fondee au coeur du Maroc, CAPERSMED.SARL a ete creee avec la vision d'apporter les saveurs authentiques de l'agriculture marocaine au monde. Nous sommes specialises dans la transformation et le conditionnement meticuleux de capres, vinaigres et condiments traditionnels premium.","es":"Fundada en el corazon de Marruecos, CAPERSMED.SARL fue establecida con la vision de llevar los sabores autenticos de la agricultura marroqui al mundo. Nos especializamos en el procesamiento y envasado meticuloso de alcaparras, vinagres y condimentos tradicionales premium.","it":"Fondata nel cuore del Marocco, CAPERSMED.SARL e stata creata con la visione di portare i sapori autentici dell'agricoltura marocchina nel mondo. Siamo specializzati nella lavorazione e nel confezionamento di capperi, aceti e condimenti tradizionali premium.","ar":"تأسست في قلب المغرب، أُنشئت كابرزميد برؤية لنقل النكهات الأصيلة للزراعة المغربية إلى العالم. نحن متخصصون في المعالجة والتعبئة الدقيقة للكبار والخل والتوابل التقليدية الفاخرة."},
+"Get in Touch": {"fr":"Prenez Contact","es":"Pongase en Contacto","it":"Mettiti in Contatto","ar":"تواصل معنا"},
+"Hazard Analysis": {"fr":"Analyse des Risques","es":"Analisis de Peligros","it":"Analisi dei Rischi","ar":"تحليل المخاطر"},
+"High-quality production with modern facilities.": {"fr":"Production de haute qualite avec des installations modernes.","es":"Produccion de alta calidad con instalaciones modernas.","it":"Produzione di alta qualita con strutture moderne.","ar":"إنتاج عالي الجودة بمرافق حديثة."},
+"Hot & Spicy": {"fr":"Piquant et Epice","es":"Picante y Especiado","it":"Piccante e Speziato","ar":"حار وحريف"},
+"I'm interested in wholesale/export": {"fr":"Je suis interesse par la vente en gros/export","es":"Estoy interesado en mayoreo/exportacion","it":"Sono interessato all'ingrosso/esportazione","ar":"أنا مهتم بالبيع بالجملة/التصدير"},
+"Interested in Bulk Orders?": {"fr":"Interesse par les Commandes en Gros?","es":"Interesado en Pedidos al por Mayor?","it":"Interessato a Ordini all'Ingrosso?","ar":"مهتم بطلبات الجملة؟"},
+"International shipping": {"fr":"Expedition internationale","es":"Envio internacional","it":"Spedizione internazionale","ar":"شحن دولي"},
+"Large-scale capacity": {"fr":"Capacite a grande echelle","es":"Capacidad a gran escala","it":"Capacita su larga scala","ar":"قدرة إنتاج كبيرة"},
+"Learn More": {"fr":"En Savoir Plus","es":"Saber Mas","it":"Scopri di Piu","ar":"اعرف المزيد"},
+"Logistics": {"fr":"Logistique","es":"Logistica","it":"Logistica","ar":"الخدمات اللوجستية"},
+"Low MOQ": {"fr":"MOQ Faible","es":"MOQ Bajo","it":"MOQ Basso","ar":"حد أدنى منخفض للطلب"},
+"Mission & Values": {"fr":"Mission et Valeurs","es":"Mision y Valores","it":"Missione e Valori","ar":"المهمة والقيم"},
+"Mon-Fri: 8:00 AM - 6:00 PM": {"fr":"Lun-Ven: 8h00 - 18h00","es":"Lun-Vie: 8:00 - 18:00","it":"Lun-Ven: 8:00 - 18:00","ar":"الإثنين-الجمعة: 8:00 - 18:00"},
+"Moroccan Heritage": {"fr":"Patrimoine Marocain","es":"Herencia Marroqui","it":"Patrimonio Marocchino","ar":"التراث المغربي"},
+"Need Custom Packaging or a Bulk Quote?": {"fr":"Besoin d'un Emballage Personnalise ou d'un Devis en Gros?","es":"Necesita Embalaje Personalizado o Cotizacion al por Mayor?","it":"Hai Bisogno di Packaging Personalizzato o un Preventivo all'Ingrosso?","ar":"هل تحتاج تغليفاً مخصصاً أو عرض سعر بالجملة؟"},
+"No featured products available.": {"fr":"Aucun produit en vedette disponible.","es":"No hay productos destacados disponibles.","it":"Nessun prodotto in evidenza disponibile.","ar":"لا توجد منتجات مميزة متاحة."},
+"No products yet.": {"fr":"Pas encore de produits.","es":"Aun no hay productos.","it":"Nessun prodotto ancora.","ar":"لا توجد منتجات بعد."},
+"On-time delivery": {"fr":"Livraison a temps","es":"Entrega a tiempo","it":"Consegna puntuale","ar":"تسليم في الوقت المحدد"},
+"Our Process": {"fr":"Notre Processus","es":"Nuestro Proceso","it":"Il Nostro Processo","ar":"عمليتنا"},
+"Our Product Catalog": {"fr":"Notre Catalogue de Produits","es":"Nuestro Catalogo de Productos","it":"Il Nostro Catalogo Prodotti","ar":"كتالوج منتجاتنا"},
+"Our Services": {"fr":"Nos Services","es":"Nuestros Servicios","it":"I Nostri Servizi","ar":"خدماتنا"},
+"Our Story": {"fr":"Notre Histoire","es":"Nuestra Historia","it":"La Nostra Storia","ar":"قصتنا"},
+"Our mission is to deliver the highest quality gourmet food products while supporting local farmers and sustainable agricultural practices. We value integrity, authenticity, and uncompromising quality.": {"fr":"Notre mission est de fournir les produits alimentaires gastronomiques de la plus haute qualite tout en soutenant les agriculteurs locaux et les pratiques agricoles durables. Nous valorisons l'integrite, l'authenticite et la qualite sans compromis.","es":"Nuestra mision es ofrecer productos alimentarios gourmet de la mas alta calidad, apoyando a los agricultores locales y las practicas agricolas sostenibles. Valoramos la integridad, la autenticidad y la calidad sin compromisos.","it":"La nostra missione e fornire prodotti alimentari gourmet della massima qualita, supportando gli agricoltori locali e le pratiche agricole sostenibili. Valorizziamo integrita, autenticita e qualita senza compromessi.","ar":"مهمتنا هي تقديم أعلى جودة من المنتجات الغذائية الفاخرة مع دعم المزارعين المحليين والممارسات الزراعية المستدامة."},
+"Packaging Available": {"fr":"Emballages Disponibles","es":"Embalajes Disponibles","it":"Packaging Disponibile","ar":"التغليف المتاح"},
+"Premium": {"fr":"Premium","es":"Premium","it":"Premium","ar":"فاخر"},
+"Premium Moroccan gourmet products. Each item is available in multiple packaging formats with full certification documentation for global export.": {"fr":"Produits gastronomiques marocains premium. Chaque article est disponible en plusieurs formats d'emballage avec documentation de certification complete pour l'export mondial.","es":"Productos gourmet marroquies premium. Cada articulo esta disponible en multiples formatos de embalaje con documentacion de certificacion completa para exportacion global.","it":"Prodotti gourmet marocchini premium. Ogni articolo e disponibile in molteplici formati di packaging con documentazione di certificazione completa per l'esportazione globale.","ar":"منتجات مغربية فاخرة. كل منتج متوفر بأشكال تغليف متعددة مع وثائق شهادات كاملة للتصدير العالمي."},
+"Premium Quality": {"fr":"Qualite Premium","es":"Calidad Premium","it":"Qualita Premium","ar":"جودة فاخرة"},
+"Premium vinegars, pickled vegetables, and traditional condiments crafted with Moroccan heritage and exported worldwide.": {"fr":"Vinaigres premium, legumes marines et condiments traditionnels elabores avec le patrimoine marocain et exportes dans le monde entier.","es":"Vinagres premium, verduras en escabeche y condimentos tradicionales elaborados con herencia marroqui y exportados a todo el mundo.","it":"Aceti premium, verdure sott'aceto e condimenti tradizionali realizzati con il patrimonio marocchino ed esportati in tutto il mondo.","ar":"خل فاخر وخضروات مخللة وتوابل تقليدية مصنوعة بالتراث المغربي ومصدرة حول العالم."},
+"Privacy Policy": {"fr":"Politique de Confidentialite","es":"Politica de Privacidad","it":"Informativa sulla Privacy","ar":"سياسة الخصوصية"},
+"Quality manufacturing.": {"fr":"Fabrication de qualite.","es":"Fabricacion de calidad.","it":"Produzione di qualita.","ar":"تصنيع عالي الجودة."},
+"Quality-controlled": {"fr":"Controle qualite","es":"Control de calidad","it":"Controllo qualita","ar":"مراقبة الجودة"},
+"Quotation": {"fr":"Devis","es":"Cotizacion","it":"Preventivo","ar":"عرض أسعار"},
+"Ready to Order?": {"fr":"Pret a Commander?","es":"Listo para Ordenar?","it":"Pronto per Ordinare?","ar":"مستعد للطلب؟"},
+"Reliable delivery worldwide.": {"fr":"Livraison fiable dans le monde entier.","es":"Entrega confiable en todo el mundo.","it":"Consegna affidabile in tutto il mondo.","ar":"توصيل موثوق حول العالم."},
+"Request a Quote": {"fr":"Demander un Devis","es":"Solicitar Cotizacion","it":"Richiedi un Preventivo","ar":"اطلب عرض أسعار"},
+"Sat: 9:00 AM - 1:00 PM": {"fr":"Sam: 9h00 - 13h00","es":"Sab: 9:00 - 13:00","it":"Sab: 9:00 - 13:00","ar":"السبت: 9:00 - 13:00"},
+"Secure packaging": {"fr":"Emballage securise","es":"Embalaje seguro","it":"Packaging sicuro","ar":"تغليف آمن"},
+"Send Message": {"fr":"Envoyer le Message","es":"Enviar Mensaje","it":"Invia Messaggio","ar":"إرسال الرسالة"},
+"Send a Message": {"fr":"Envoyez un Message","es":"Envie un Mensaje","it":"Invia un Messaggio","ar":"أرسل رسالة"},
+"Shipped to your location.": {"fr":"Expedie a votre adresse.","es":"Enviado a su ubicacion.","it":"Spedito alla tua destinazione.","ar":"يُشحن إلى موقعك."},
+"Specifications": {"fr":"Specifications","es":"Especificaciones","it":"Specifiche","ar":"المواصفات"},
+"Suggested Uses": {"fr":"Utilisations Suggerees","es":"Usos Sugeridos","it":"Usi Suggeriti","ar":"الاستخدامات المقترحة"},
+"Sun: Closed": {"fr":"Dim: Ferme","es":"Dom: Cerrado","it":"Dom: Chiuso","ar":"الأحد: مغلق"},
+"Supply restaurants, retailers, distributors worldwide.": {"fr":"Approvisionnez restaurants, detaillants, distributeurs dans le monde entier.","es":"Abastezca restaurantes, minoristas y distribuidores en todo el mundo.","it":"Rifornisci ristoranti, rivenditori e distributori in tutto il mondo.","ar":"تزويد المطاعم وتجار التجزئة والموزعين حول العالم."},
+"Sustainable Production": {"fr":"Production Durable","es":"Produccion Sostenible","it":"Produzione Sostenibile","ar":"إنتاج مستدام"},
+"Temperature-controlled": {"fr":"Temperature controlee","es":"Temperatura controlada","it":"Temperatura controllata","ar":"تحكم بدرجة الحرارة"},
+"Terms": {"fr":"Conditions","es":"Terminos","it":"Termini","ar":"الشروط"},
+"Traditional Moroccan Recipes": {"fr":"Recettes Marocaines Traditionnelles","es":"Recetas Marroquies Tradicionales","it":"Ricette Marocchine Tradizionali","ar":"وصفات مغربية تقليدية"},
+"View": {"fr":"Voir","es":"Ver","it":"Vedi","ar":"عرض"},
+"View All Products": {"fr":"Voir Tous les Produits","es":"Ver Todos los Productos","it":"Vedi Tutti i Prodotti","ar":"عرض جميع المنتجات"},
+"View Our Products": {"fr":"Voir Nos Produits","es":"Ver Nuestros Productos","it":"Vedi i Nostri Prodotti","ar":"شاهد منتجاتنا"},
+"We offer custom labeling, private label production, and flexible packaging formats for importers and distributors worldwide.": {"fr":"Nous offrons l'etiquetage personnalise, la production en marque privee et des formats d'emballage flexibles pour les importateurs et distributeurs du monde entier.","es":"Ofrecemos etiquetado personalizado, produccion de marca privada y formatos de embalaje flexibles para importadores y distribuidores en todo el mundo.","it":"Offriamo etichettatura personalizzata, produzione a marchio privato e formati di packaging flessibili per importatori e distributori in tutto il mondo.","ar":"نقدم الملصقات المخصصة وإنتاج العلامة الخاصة وأشكال التغليف المرنة للمستوردين والموزعين حول العالم."},
+"We offer special pricing for wholesale, private label, and export orders.": {"fr":"Nous offrons des prix speciaux pour les commandes en gros, marque privee et export.","es":"Ofrecemos precios especiales para pedidos mayoristas, marca privada y exportacion.","it":"Offriamo prezzi speciali per ordini all'ingrosso, marchio privato ed esportazione.","ar":"نقدم أسعاراً خاصة لطلبات الجملة والعلامة الخاصة والتصدير."},
+"We'd love to hear from you.": {"fr":"Nous serions ravis de vous entendre.","es":"Nos encantaria saber de usted.","it":"Ci piacerebbe sentirti.","ar":"يسعدنا التواصل معكم."},
+"Wholesale & Export": {"fr":"Gros et Export","es":"Mayoreo y Exportacion","it":"Ingrosso ed Esportazione","ar":"البيع بالجملة والتصدير"},
+"Why Choose Us": {"fr":"Pourquoi Nous Choisir","es":"Por Que Elegirnos","it":"Perche Sceglierci","ar":"لماذا تختارنا"},
+"Your brand our quality": {"fr":"Votre marque, notre qualite","es":"Su marca, nuestra calidad","it":"Il tuo marchio, la nostra qualita","ar":"علامتك التجارية، جودتنا"},
+}
+
+for lang in ['fr','es','it','ar']:
+    po_path = f'locale/{lang}/LC_MESSAGES/django.po'
+    po = polib.pofile(po_path)
+    existing = {e.msgid for e in po}
+    added = 0
+    for msgid, translations in MISSING.items():
+        if msgid not in existing:
+            entry = polib.POEntry(msgid=msgid, msgstr=translations[lang])
+            po.append(entry)
+            added += 1
+    po.save()
+    po.save_as_mofile(po_path.replace('.po','.mo'))
+    print(f'{lang.upper()}: added {added} translations, compiled .mo')
+
+print('Done!')

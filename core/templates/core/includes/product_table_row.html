@@ -1,0 +1,87 @@
+{% load i18n static %}
+<tr id="product-{{ product.slug }}">
+
+    <td class="prod-img-cell" data-label="">
+        <div class="prod-img-wrap">
+            {% if product.image %}
+                <img src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name_en }}" loading="lazy">
+            {% else %}
+                <span class="prod-img-placeholder">
+                    {% if product.category == 'vinegars' %}🍾{% elif product.category == 'spicy' %}🌶️{% else %}🫒{% endif %}
+                </span>
+            {% endif %}
+        </div>
+    </td>
+
+    <td data-label="Product">
+        {% if product.is_premium %}<span class="prod-premium-badge">★ Premium</span><br>{% endif %}
+        <div class="prod-name">
+            {% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}
+            {% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}
+            {% else %}{{ product.name_en }}{% endif %}
+        </div>
+        <div class="prod-desc">
+            {% if LANGUAGE_CODE == 'fr' %}{{ product.short_description_fr }}
+            {% elif LANGUAGE_CODE == 'ar' %}{{ product.short_description_ar }}
+            {% else %}{{ product.short_description_en }}{% endif %}
+        </div>
+    </td>
+
+    <td data-label="Packaging">
+        {% if product.packaging %}
+        <div class="packaging-icons">
+            {% for pkg in product.packaging %}
+            <div class="pkg-icon" title="{{ pkg }}">
+                <div class="pkg-icon-img">
+                    {% with p=pkg|lower %}
+                    {% if 'pet' in p %}🍶
+                    {% elif 'ibc' in p %}🏭
+                    {% elif '200kg' in p or 'drum' in p or 'kg' in p %}🛢️
+                    {% elif '2l' in p or '7l' in p %}🪣
+                    {% elif 'ml' in p or 'l bottle' in p or 'litre' in p %}🍶
+                    {% elif 'jar' in p or 'bocal' in p %}🫙
+                    {% elif 'can' in p or 'tin' in p %}🥫
+                    {% elif 'box' in p %}📦
+                    {% else %}📦{% endif %}
+                    {% endwith %}
+                </div>
+                <span class="pkg-icon-label">{{ pkg }}</span>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <span class="no-data">—</span>
+        {% endif %}
+    </td>
+
+    <td data-label="Certifications">
+        {% if product.certifications %}
+        <div class="cert-badges">
+            {% for cert in product.certifications %}
+            <span class="cert-badge cert-{{ cert|upper }}" title="{{ cert }}">
+                <span class="cert-icon">
+                    {% if cert == 'HALAL' %}☪️
+                    {% elif cert == 'KOSHER' %}✡️
+                    {% elif cert == 'IFS' %}🏅
+                    {% elif cert == 'BRC' %}🏅
+                    {% elif cert == 'FDA' %}🇺🇸
+                    {% elif cert == 'ISO22000' %}🏅
+                    {% elif cert == 'HACCP' %}✅
+                    {% elif cert == 'EU' %}🇪🇺
+                    {% elif cert == 'BIO' %}🌿
+                    {% else %}🏆{% endif %}
+                </span>
+                {{ cert|upper }}
+            </span>
+            {% endfor %}
+        </div>
+        {% else %}
+        <span class="no-data">—</span>
+        {% endif %}
+    </td>
+
+    <td class="prod-details-cell" data-label="">
+        <a href="{% url 'product_detail' product.slug %}" class="btn-view-details">{% trans "View" %} →</a>
+    </td>
+
+</tr>

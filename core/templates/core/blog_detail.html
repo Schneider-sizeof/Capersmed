@@ -1,0 +1,285 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block title %}
+{% if LANGUAGE_CODE == 'fr' and post.title_fr %}{{ post.title_fr }}{% else %}{{ post.title_en }}{% endif %} — CAPERSMED
+{% endblock %}
+
+{% block extra_head %}
+<style>
+/* ── Article Hero ── */
+.article-hero {
+    background: linear-gradient(160deg, #f8fdf9 0%, #eef7f0 100%);
+    padding: 130px 2rem 60px;
+    border-bottom: 1px solid #e0ede3;
+    max-width: 860px;
+    margin: 0 auto;
+}
+.article-hero-eyebrow {
+    display: flex; align-items: center; gap: 0.75rem;
+    margin-bottom: 1.5rem; flex-wrap: wrap;
+}
+.article-cat-badge {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; padding: 4px 12px; border-radius: 20px;
+    background: #f0faf5; color: #40916C; border: 1px solid #c8e6d0;
+}
+.article-date { font-size: 0.8rem; color: #aaa; }
+.article-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    color: #1B4332;
+    line-height: 1.3;
+    margin-bottom: 1.25rem;
+}
+.article-author {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 0.85rem; color: #888;
+}
+
+/* ── Article Image ── */
+.article-image-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+.article-image-wrap img {
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(27,67,50,0.1);
+    margin-top: -20px;
+}
+.article-img-placeholder {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(135deg, #d6ede0, #f0faf5);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    margin-top: -20px;
+}
+
+/* ── Article Body ── */
+.article-body-wrap {
+    max-width: 760px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+.article-content {
+    font-size: 1.05rem;
+    color: #444;
+    line-height: 1.9;
+}
+.article-content p { margin-bottom: 1.4rem; }
+.article-content h2 {
+    font-family: 'Playfair Display', serif;
+    color: #1B4332;
+    font-size: 1.6rem;
+    margin: 2.5rem 0 1rem;
+}
+.article-content h3 {
+    font-family: 'Playfair Display', serif;
+    color: #2D6A4F;
+    font-size: 1.2rem;
+    margin: 2rem 0 0.75rem;
+}
+.article-content ul, .article-content ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.4rem;
+}
+.article-content li { margin-bottom: 0.5rem; }
+.article-content blockquote {
+    border-left: 4px solid #D4AF37;
+    padding: 1rem 1.5rem;
+    background: #FFFBEE;
+    border-radius: 0 8px 8px 0;
+    margin: 2rem 0;
+    font-style: italic;
+    color: #555;
+}
+
+/* ── Divider ── */
+.article-divider {
+    max-width: 760px;
+    margin: 0 auto 3rem;
+    padding: 0 2rem;
+    border: none;
+    border-top: 1px solid #e0ede3;
+}
+
+/* ── Back link ── */
+.back-to-blog {
+    max-width: 860px;
+    margin: 0 auto 1rem;
+    padding: 0 2rem;
+}
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #40916C;
+    text-decoration: none;
+    transition: gap 0.2s;
+}
+.back-link:hover { gap: 10px; }
+
+/* ── Related Posts ── */
+.related-section {
+    background: #f8fdf9;
+    border-top: 1px solid #e0ede3;
+    padding: 4rem 2rem;
+}
+.related-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.related-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #1B4332;
+    margin-bottom: 2rem;
+}
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+.related-card {
+    background: #fff;
+    border: 1px solid #e0ede3;
+    border-radius: 10px;
+    padding: 1.25rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.25s ease;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+.related-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(27,67,50,0.1); }
+.related-card-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    width: 50px; height: 50px;
+    background: #f0faf5;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+}
+.related-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: #1B4332;
+    line-height: 1.4;
+    margin-bottom: 0.3rem;
+}
+.related-card-date { font-size: 0.72rem; color: #aaa; }
+
+@media (max-width: 680px) {
+    .article-hero h1 { font-size: 1.8rem; }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="back-to-blog fade-up" style="padding-top: 100px;">
+    <a href="{% url 'blog' %}" class="back-link">← {% trans "Back to Blog" %}</a>
+</div>
+
+<!-- Article Hero -->
+<div class="article-hero fade-up">
+    <div class="article-hero-eyebrow">
+        <span class="article-cat-badge">
+            {% if post.category == 'news' %}📢 {% trans "News" %}
+            {% elif post.category == 'industry' %}🌍 {% trans "Industry" %}
+            {% elif post.category == 'recipes' %}🍽️ {% trans "Recipes" %}
+            {% elif post.category == 'export' %}🚢 {% trans "Export" %}
+            {% elif post.category == 'products' %}🫒 {% trans "Products" %}
+            {% else %}{{ post.category }}{% endif %}
+        </span>
+        {% if post.published_at %}
+        <span class="article-date">{{ post.published_at|date:"d F Y" }}</span>
+        {% endif %}
+    </div>
+
+    <h1>
+        {% if LANGUAGE_CODE == 'fr' and post.title_fr %}{{ post.title_fr }}
+        {% elif LANGUAGE_CODE == 'ar' and post.title_ar %}{{ post.title_ar }}
+        {% else %}{{ post.title_en }}{% endif %}
+    </h1>
+
+    <div class="article-author">
+        <span>✍️</span>
+        <span>{{ post.author }}</span>
+    </div>
+</div>
+
+<!-- Article Image -->
+<div class="article-image-wrap fade-up">
+    {% if post.image %}
+        <img src="{{ MEDIA_URL }}{{ post.image }}" alt="{{ post.title_en }}">
+    {% else %}
+    <div class="article-img-placeholder">
+        {% if post.category == 'recipes' %}🍽️
+        {% elif post.category == 'export' %}🚢
+        {% elif post.category == 'industry' %}🌍
+        {% elif post.category == 'products' %}🫒
+        {% else %}📰{% endif %}
+    </div>
+    {% endif %}
+</div>
+
+<!-- Article Content -->
+<div class="article-body-wrap fade-up">
+    <div class="article-content">
+        {% if LANGUAGE_CODE == 'fr' and post.content_fr %}
+            {{ post.content_fr|linebreaks }}
+        {% elif LANGUAGE_CODE == 'ar' and post.content_ar %}
+            <div dir="rtl">{{ post.content_ar|linebreaks }}</div>
+        {% else %}
+            {{ post.content_en|linebreaks }}
+        {% endif %}
+    </div>
+</div>
+
+<hr class="article-divider">
+
+<!-- Related Posts -->
+{% if related %}
+<section class="related-section">
+    <div class="related-inner">
+        <h2 class="related-heading">{% trans "Related Articles" %}</h2>
+        <div class="related-grid">
+            {% for rel in related %}
+            <a href="{% url 'blog_detail' rel.slug %}" class="related-card">
+                <div class="related-card-icon">
+                    {% if rel.category == 'recipes' %}🍽️
+                    {% elif rel.category == 'export' %}🚢
+                    {% elif rel.category == 'industry' %}🌍
+                    {% elif rel.category == 'products' %}🫒
+                    {% else %}📰{% endif %}
+                </div>
+                <div>
+                    <div class="related-card-title">
+                        {% if LANGUAGE_CODE == 'fr' and rel.title_fr %}{{ rel.title_fr }}
+                        {% else %}{{ rel.title_en }}{% endif %}
+                    </div>
+                    {% if rel.published_at %}
+                    <div class="related-card-date">{{ rel.published_at|date:"d M Y" }}</div>
+                    {% endif %}
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% endblock %}

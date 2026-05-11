@@ -37,7 +37,12 @@ class Product(models.Model):
     
     image = models.ImageField(upload_to='products/', blank=True, null=True)
     is_featured = models.BooleanField(default=False)
+    # Packaging: list of size strings, e.g. ["370g Jar", "720g Jar", "5L Bulk"]
+    packaging = models.JSONField(default=list, blank=True)
+    # Certifications: list of codes, e.g. ["ISO22000", "HACCP", "HALAL", "FDA", "EU", "BIO"]
+    certifications = models.JSONField(default=list, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -76,3 +81,53 @@ class SiteSettings(models.Model):
 
     def __str__(self):
         return self.site_name
+
+
+BLOG_CATEGORY_CHOICES = [
+    ('news',     'Company News'),
+    ('industry', 'Industry Insights'),
+    ('recipes',  'Recipes & Uses'),
+    ('export',   'Export & Trade'),
+    ('products', 'Product Spotlight'),
+]
+
+class BlogPost(models.Model):
+    # Multilingual titles
+    title_en = models.CharField(max_length=250)
+    title_fr = models.CharField(max_length=250, blank=True)
+    title_ar = models.CharField(max_length=250, blank=True)
+
+    slug = models.SlugField(unique=True, blank=True, max_length=260)
+    category = models.CharField(max_length=50, choices=BLOG_CATEGORY_CHOICES, default='news')
+
+    # Excerpts
+    excerpt_en = models.TextField(max_length=400, blank=True)
+    excerpt_fr = models.TextField(max_length=400, blank=True)
+    excerpt_ar = models.TextField(max_length=400, blank=True)
+
+    # Full content
+    content_en = models.TextField()
+    content_fr = models.TextField(blank=True)
+    content_ar = models.TextField(blank=True)
+
+    image = models.ImageField(upload_to='blog/', blank=True, null=True)
+    author = models.CharField(max_length=100, default='CAPERSMED Team')
+
+    is_published = models.BooleanField(default=False)
+    published_at = models.DateTimeField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-published_at', '-created_at']
+        verbose_name = 'Blog Post'
+        verbose_name_plural = 'Blog Posts'
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title_en)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title_en
+

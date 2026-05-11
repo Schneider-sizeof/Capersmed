@@ -4,22 +4,85 @@
 
 {% block content %}
 <!-- Hero Section -->
-<section class="hero" style="background-image: url('{{ MEDIA_URL }}backgrounds/hero_bg.png');">
+<section class="hero" style="background-image: url('{{ MEDIA_URL }}backgrounds/herohomenew.jpg');">
     <div class="hero-content">
         <h1>{% trans "Authentic Moroccan Gourmet Products - From Our Fields to Your Table" %}</h1>
         <p>{% trans "Premium vinegars, pickled vegetables, and traditional condiments crafted with Moroccan heritage and exported worldwide." %}</p>
         <div class="cta-buttons">
             <a href="{% url 'products' %}" class="btn btn-primary">{% trans "Browse Products" %}</a>
-            <a href="{% url 'contact' %}" class="btn btn-outline" style="color:var(--white); border-color:var(--white);">{% trans "Contact Us" %}</a>
+            <a href="{% url 'contact' %}" class="btn btn-outline"
+                style="color:var(--white); border-color:var(--white);">{% trans "Contact Us" %}</a>
         </div>
     </div>
 </section>
 
 <!-- About Preview -->
+<style>
+    @keyframes floatGlow {
+
+        0%,
+        100% {
+            transform: translateY(0px);
+            filter: drop-shadow(0 8px 25px rgba(212, 175, 55, 0.3)) drop-shadow(0 0 40px rgba(27, 67, 50, 0.2));
+        }
+
+        50% {
+            transform: translateY(-20px);
+            filter: drop-shadow(0 25px 40px rgba(212, 175, 55, 0.5)) drop-shadow(0 0 60px rgba(27, 67, 50, 0.35));
+        }
+    }
+
+    @keyframes glowPulse {
+
+        0%,
+        100% {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15), 0 0 60px rgba(27, 67, 50, 0.1);
+        }
+
+        50% {
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.3), 0 0 80px rgba(27, 67, 50, 0.2);
+        }
+    }
+
+    .caper-glow-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 400px;
+        position: relative;
+    }
+
+    .caper-glow-wrap::before {
+        content: '';
+        position: absolute;
+        width: 70%;
+        height: 70%;
+        border-radius: 50%;
+        background: radial-gradient(ellipse, rgba(212, 175, 55, 0.08) 0%, rgba(27, 67, 50, 0.05) 50%, transparent 70%);
+        animation: glowPulse 2s ease-in-out infinite;
+        z-index: 0;
+    }
+
+    .caper-glow-wrap img {
+        max-width: 100%;
+        max-height: 500px;
+        object-fit: contain;
+        position: relative;
+        z-index: 1;
+        animation: floatGlow 2s ease-in-out infinite;
+        transition: transform 0.4s ease;
+    }
+
+    .caper-glow-wrap img:hover {
+        transform: scale(1.05) translateY(-5px);
+        filter: drop-shadow(0 25px 40px rgba(212, 175, 55, 0.6)) drop-shadow(0 0 80px rgba(27, 67, 50, 0.4));
+    }
+</style>
 <section class="section-padding container">
     <div class="about-preview fade-up">
-        <div class="about-image" style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md);">
-            <img src="{{ MEDIA_URL }}products/WhatsApp_Image_2026-05-09_at_17.43.33.jpeg" alt="About CAPERSMED" style="width: 100%; height: 100%; object-fit: cover; min-height: 400px; border-radius: var(--radius-lg);">
+        <div class="caper-glow-wrap">
+            <img src="{{ MEDIA_URL }}products/caperpngpic.png" alt="About CAPERSMED"
+                style="max-width: 100%; max-height: 500px; object-fit: contain;">
         </div>
         <div class="about-text">
             <h2>{% trans "Crafting Tradition, Delivering Quality" %}</h2>
@@ -106,7 +169,8 @@
         <p style="margin-bottom: 2.5rem; font-size: 1.2rem; color: rgba(255,255,255,0.9);">{% trans "Contact us for wholesale pricing, private label, or export inquiries." %}</p>
         <p style="margin-bottom: 1rem; font-weight: 600;">📞 {{ site_settings.phone }} &nbsp; | &nbsp; 📍 {{ site_settings.address }}</p>
         <br>
-        <a href="{% url 'contact' %}" class="btn btn-outline" style="color:var(--primary-gold); border-color:var(--primary-gold);">{% trans "Contact Us Now" %}</a>
+        <a href="{% url 'contact' %}" class="btn btn-outline"
+            style="color:var(--primary-gold); border-color:var(--primary-gold);">{% trans "Contact Us Now" %}</a>
     </div>
 </section>
 {% endblock %}

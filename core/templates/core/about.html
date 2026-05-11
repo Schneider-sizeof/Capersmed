@@ -3,8 +3,25 @@
 
 {% block title %}{% trans "About Us" %} - {{ site_settings.site_name }}{% endblock %}
 
+{% block extra_head %}
+<style>
+.about-hero {
+    background: linear-gradient(rgba(27,67,50,0.7), rgba(27,67,50,0.7)), url('/media/backgrounds/hero_about.png') center/cover no-repeat;
+    padding: 140px 2rem 80px;
+    text-align: center;
+    color: #fff;
+}
+.about-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 0.75rem;
+}
+</style>
+{% endblock %}
+
 {% block content %}
-<section class="hero" style="background-image: url('{{ MEDIA_URL }}backgrounds/hero_bg.png'); height: 60vh;">
+<section class="about-hero">
     <div class="hero-content">
         <h1>{% trans "About Us" %}</h1>
     </div>

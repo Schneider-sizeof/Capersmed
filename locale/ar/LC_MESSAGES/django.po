@@ -1,0 +1,823 @@
+# Arabic translations for CAPERSMED
+# Copyright (C) 2026 CAPERSMED SARL
+msgid ""
+msgstr ""
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+# ─── URL slugs (keep ASCII for Arabic URLs) ───
+msgid "about/"
+msgstr "about/"
+
+msgid "products/"
+msgstr "products/"
+
+msgid "products/<slug:slug>/"
+msgstr "products/<slug:slug>/"
+
+msgid "certifications/"
+msgstr "certifications/"
+
+msgid "blog/"
+msgstr "blog/"
+
+msgid "blog/<slug:slug>/"
+msgstr "blog/<slug:slug>/"
+
+msgid "branding/"
+msgstr "branding/"
+
+msgid "services/"
+msgstr "services/"
+
+msgid "contact/"
+msgstr "contact/"
+
+# ─── Navigation ───
+msgid "Home"
+msgstr "الرئيسية"
+
+msgid "Products"
+msgstr "المنتجات"
+
+msgid "Certifications"
+msgstr "الشهادات"
+
+msgid "Branding"
+msgstr "العلامة التجارية"
+
+msgid "Contact"
+msgstr "اتصل بنا"
+
+msgid "Blog"
+msgstr "المدونة"
+
+msgid "About"
+msgstr "عن الشركة"
+
+msgid "Services"
+msgstr "الخدمات"
+
+# ─── Home Page ───
+msgid "Premium Moroccan Gourmet"
+msgstr "المأكولات المغربية الفاخرة"
+
+msgid "Authentic Moroccan Gourmet Products — From Our Fields to Your Table."
+msgstr "منتجات مغربية أصيلة فاخرة — من حقولنا إلى مائدتكم."
+
+msgid "Quick Links"
+msgstr "روابط سريعة"
+
+msgid "Contact Us"
+msgstr "اتصل بنا"
+
+msgid "Get In Touch"
+msgstr "تواصل معنا"
+
+# ─── Products Page ───
+msgid "Our Products"
+msgstr "منتجاتنا"
+
+msgid "Premium Vinegars"
+msgstr "خل فاخر"
+
+msgid "Pickled Vegetables & Condiments"
+msgstr "خضروات مخللة وتوابل"
+
+msgid "Hot & Spicy"
+msgstr "حار وحريف"
+
+msgid "Photo"
+msgstr "صورة"
+
+msgid "Product"
+msgstr "منتج"
+
+msgid "Packaging"
+msgstr "التعبئة والتغليف"
+
+msgid "Details"
+msgstr "تفاصيل"
+
+msgid "View Details"
+msgstr "عرض التفاصيل"
+
+# ─── Certifications Page ───
+msgid "Verified Quality"
+msgstr "جودة موثقة"
+
+msgid "Our Certifications"
+msgstr "شهاداتنا"
+
+msgid ""
+"CAPERSMED products are certified to the highest international food safety "
+"and dietary standards, giving our export partners complete confidence."
+msgstr ""
+"منتجات كابرزميد حاصلة على شهادات وفقاً لأعلى المعايير الدولية لسلامة الغذاء "
+"والمتطلبات الغذائية، مما يمنح شركاءنا في التصدير ثقة كاملة."
+
+msgid "Religious Compliance"
+msgstr "التوافق الديني"
+
+msgid "Halal Certified"
+msgstr "شهادة حلال"
+
+msgid ""
+"All CAPERSMED products are produced in full compliance with Islamic dietary "
+"laws. Our Halal certification is recognized by leading international bodies,"
+" making our products fully eligible for export to Muslim-majority markets "
+"across the Middle East, Southeast Asia, and beyond."
+msgstr ""
+"جميع منتجات كابرزميد تُنتج في توافق تام مع أحكام الشريعة الإسلامية الغذائية."
+" شهادة الحلال لدينا معترف بها من قبل الهيئات الدولية الرائدة، مما يجعل "
+"منتجاتنا مؤهلة بالكامل للتصدير إلى أسواق الأغلبية المسلمة في الشرق الأوسط "
+"وجنوب شرق آسيا وما بعدها."
+
+msgid "Kosher Certified"
+msgstr "شهادة كوشر"
+
+msgid ""
+"Our Kosher certification confirms that our products meet the strict "
+"requirements of Jewish dietary law. This certification opens access to North"
+" American and Israeli markets, as well as kosher-conscious consumers "
+"worldwide."
+msgstr ""
+"تؤكد شهادة الكوشر لدينا أن منتجاتنا تلبي المتطلبات الصارمة للشريعة اليهودية "
+"الغذائية. تفتح هذه الشهادة باب الوصول إلى أسواق أمريكا الشمالية وإسرائيل، "
+"وكذلك المستهلكين المهتمين بالكوشر في جميع أنحاء العالم."
+
+msgid "International Food Standard"
+msgstr "معيار الغذاء الدولي"
+
+msgid ""
+"The International Featured Standard (IFS) Food certification demonstrates "
+"our commitment to food safety and product quality across the entire supply "
+"chain. This standard is widely required by major European retailers and "
+"distributors."
+msgstr ""
+"تُظهر شهادة IFS Food التزامنا بسلامة الغذاء وجودة المنتج عبر سلسلة التوريد "
+"بأكملها. هذا المعيار مطلوب على نطاق واسع من قبل كبار تجار التجزئة والموزعين "
+"الأوروبيين."
+
+msgid "Global Food Safety Standard"
+msgstr "معيار سلامة الغذاء العالمي"
+
+msgid ""
+"The BRC (British Retail Consortium) Global Standard for Food Safety is one "
+"of the most recognized certifications for food manufacturers worldwide. It "
+"demonstrates our robust food safety management systems and is a requirement "
+"for supplying UK and international retailers."
+msgstr ""
+"معيار BRC العالمي لسلامة الغذاء هو واحد من أكثر الشهادات المعترف بها لمصنعي "
+"المواد الغذائية في جميع أنحاء العالم. يُظهر أنظمة إدارة سلامة الغذاء القوية "
+"لدينا وهو متطلب لتوريد تجار التجزئة البريطانيين والدوليين."
+
+msgid "U.S. Market Access"
+msgstr "الوصول إلى السوق الأمريكي"
+
+msgid ""
+"CAPERSMED is registered with the U.S. Food and Drug Administration (FDA), "
+"allowing direct export to the United States market. Our FDA registration "
+"confirms compliance with U.S. federal food safety regulations and Prior "
+"Notice requirements."
+msgstr ""
+"كابرزميد مسجلة لدى إدارة الغذاء والدواء الأمريكية (FDA)، مما يسمح بالتصدير "
+"المباشر إلى السوق الأمريكي. يؤكد تسجيلنا في FDA الامتثال للوائح الفيدرالية "
+"الأمريكية لسلامة الغذاء."
+
+msgid "Need Certification Documentation?"
+msgstr "هل تحتاج وثائق الشهادات؟"
+
+msgid ""
+"We provide full certification documentation upon request for importers, "
+"distributors, and compliance officers. Contact us to receive official "
+"certificates for your procurement process."
+msgstr ""
+"نقدم وثائق الشهادات الكاملة عند الطلب للمستوردين والموزعين ومسؤولي الامتثال."
+" اتصل بنا لتلقي الشهادات الرسمية لعملية الشراء الخاصة بك."
+
+msgid "Request Documents"
+msgstr "طلب الوثائق"
+
+msgid "Halal"
+msgstr "حلال"
+
+msgid "Kosher"
+msgstr "كوشر"
+
+# ─── Branding Page ───
+msgid "Private Label & Custom Branding"
+msgstr "العلامة الخاصة والعلامة التجارية المخصصة"
+
+msgid "Make It Your Brand"
+msgstr "اجعلها علامتك التجارية"
+
+msgid ""
+"CAPERSMED offers complete branding and private label solutions for "
+"importers, distributors, and retailers. From custom labels to full packaging"
+" design — we help you launch your own line of premium Moroccan gourmet "
+"products."
+msgstr ""
+"تقدم كابرزميد حلولاً متكاملة للعلامة التجارية والعلامة الخاصة للمستوردين "
+"والموزعين وتجار التجزئة. من الملصقات المخصصة إلى تصميم التغليف الكامل — "
+"نساعدك في إطلاق خطك الخاص من المنتجات الغذائية المغربية الفاخرة."
+
+msgid "What We Offer"
+msgstr "ما نقدمه"
+
+msgid "Branding Services"
+msgstr "خدمات العلامة التجارية"
+
+msgid "Private Label"
+msgstr "العلامة الخاصة"
+
+msgid ""
+"Apply your brand name, logo, and design to our product range. Full private "
+"label production with your artwork on our certified Moroccan gourmet "
+"products."
+msgstr ""
+"طبّق اسم علامتك التجارية وشعارك وتصميمك على مجموعة منتجاتنا. إنتاج كامل "
+"بعلامتك الخاصة مع رسوماتك على منتجاتنا الغذائية المغربية المعتمدة."
+
+msgid "Custom Label Design"
+msgstr "تصميم ملصق مخصص"
+
+msgid ""
+"Our design team creates professional label artwork tailored to your brand "
+"identity — colors, typography, multilingual text, and regulatory compliance "
+"for your target market."
+msgstr ""
+"يقوم فريق التصميم لدينا بإنشاء رسومات ملصقات احترافية مصممة خصيصاً لهوية "
+"علامتك التجارية — الألوان والطباعة والنص متعدد اللغات والامتثال التنظيمي "
+"لسوقك المستهدف."
+
+msgid "Custom Packaging"
+msgstr "تغليف مخصص"
+
+msgid ""
+"Select from our full range of packaging formats — 200ml, 500ml, 2L, 7L, "
+"1000L IBC — and we'll produce them under your brand specifications."
+msgstr ""
+"اختر من مجموعتنا الكاملة من أشكال التغليف — 200 مل، 500 مل، 2 لتر، 7 لتر، "
+"1000 لتر IBC — وسننتجها وفقاً لمواصفات علامتك التجارية."
+
+msgid "Export-Ready Compliance"
+msgstr "امتثال جاهز للتصدير"
+
+msgid ""
+"All branded products come with full certification documentation (HALAL, "
+"KOSHER, IFS, BRC, FDA) ready for import clearance in your target country."
+msgstr ""
+"جميع المنتجات ذات العلامة التجارية تأتي مع وثائق الشهادات الكاملة (حلال، "
+"كوشر، IFS، BRC، FDA) جاهزة للتخليص الجمركي في بلدك المستهدف."
+
+msgid "Custom Formulation"
+msgstr "تركيبة مخصصة"
+
+msgid ""
+"Need a specific brine strength, spice level, or size? We work with you to "
+"develop a custom recipe or adjust existing products to meet your buyers' "
+"exact specifications."
+msgstr ""
+"هل تحتاج مستوى محلول ملحي أو حدة توابل أو حجم معين؟ نعمل معك لتطوير وصفة "
+"مخصصة أو تعديل المنتجات الحالية لتلبية المواصفات الدقيقة لمشتريك."
+
+msgid "Logistics Support"
+msgstr "الدعم اللوجستي"
+
+msgid ""
+"We assist with export documentation, freight coordination, and customs "
+"compliance to ensure smooth delivery of your branded goods to any "
+"destination worldwide."
+msgstr ""
+"نساعد في وثائق التصدير وتنسيق الشحن والامتثال الجمركي لضمان تسليم سلس "
+"لمنتجاتك ذات العلامة التجارية إلى أي وجهة في العالم."
+
+msgid "How It Works"
+msgstr "كيف يعمل"
+
+msgid "Brand Creation Process"
+msgstr "عملية إنشاء العلامة التجارية"
+
+msgid "Brief"
+msgstr "الملخص"
+
+msgid "You share your brand vision, target market, and product selection."
+msgstr "تشارك رؤيتك للعلامة التجارية والسوق المستهدف واختيار المنتجات."
+
+msgid "Design"
+msgstr "التصميم"
+
+msgid "We create label artwork and packaging mockups for your approval."
+msgstr "نصمم رسومات الملصقات ونماذج التغليف لموافقتك."
+
+msgid "Sample"
+msgstr "عينة"
+
+msgid "Physical samples are produced and shipped for your review."
+msgstr "يتم إنتاج عينات مادية وشحنها لمراجعتك."
+
+msgid "Production"
+msgstr "الإنتاج"
+
+msgid "Full production run with your branding applied."
+msgstr "تشغيل إنتاج كامل مع تطبيق علامتك التجارية."
+
+msgid "Delivery"
+msgstr "التسليم"
+
+msgid "Export-ready delivery to your door or port of choice."
+msgstr "تسليم جاهز للتصدير إلى بابك أو ميناء اختيارك."
+
+msgid "Start Your Project"
+msgstr "ابدأ مشروعك"
+
+msgid "Brand Creation Inquiry"
+msgstr "استفسار إنشاء العلامة التجارية"
+
+msgid ""
+"Fill in the form below and our branding team will contact you within 48 "
+"hours with a tailored proposal."
+msgstr ""
+"املأ النموذج أدناه وسيتواصل معك فريق العلامة التجارية لدينا خلال 48 ساعة مع "
+"عرض مخصص."
+
+msgid "Company / Brand Name"
+msgstr "الشركة / اسم العلامة التجارية"
+
+msgid "Your company or brand name"
+msgstr "شركتك أو اسم علامتك التجارية"
+
+msgid "Contact Person"
+msgstr "جهة الاتصال"
+
+msgid "Your full name"
+msgstr "اسمك الكامل"
+
+msgid "Email Address"
+msgstr "عنوان البريد الإلكتروني"
+
+msgid "Country / Market"
+msgstr "البلد / السوق"
+
+msgid "e.g. France, USA, UAE"
+msgstr "مثال: فرنسا، أمريكا، الإمارات"
+
+msgid "Brand Project Type"
+msgstr "نوع مشروع العلامة التجارية"
+
+msgid "— Select —"
+msgstr "— اختر —"
+
+msgid "Private Label (my brand on your products)"
+msgstr "علامة خاصة (علامتي على منتجاتكم)"
+
+msgid "Custom Packaging Format"
+msgstr "شكل تغليف مخصص"
+
+msgid "Full Brand Creation"
+msgstr "إنشاء علامة تجارية كاملة"
+
+msgid "Custom Formulation / Recipe"
+msgstr "تركيبة / وصفة مخصصة"
+
+msgid "Other"
+msgstr "أخرى"
+
+msgid "Estimated Annual Volume"
+msgstr "الحجم السنوي المقدر"
+
+msgid "< 1,000 units"
+msgstr "< 1,000 وحدة"
+
+msgid "1,000 – 10,000 units"
+msgstr "1,000 – 10,000 وحدة"
+
+msgid "10,000 – 50,000 units"
+msgstr "10,000 – 50,000 وحدة"
+
+msgid "> 50,000 units"
+msgstr "> 50,000 وحدة"
+
+msgid "Products of Interest"
+msgstr "المنتجات المطلوبة"
+
+msgid "Capers"
+msgstr "الكبار"
+
+msgid "Caperberries"
+msgstr "ثمار الكبار"
+
+msgid "Preserved Lemons"
+msgstr "الليمون المصبر"
+
+msgid "Cornichons"
+msgstr "الخيار المخلل"
+
+msgid "Harissa"
+msgstr "الهريسة"
+
+msgid "Vinegars"
+msgstr "الخل"
+
+msgid "Pickled Peppers"
+msgstr "الفلفل المخلل"
+
+msgid "Other / Custom"
+msgstr "أخرى / مخصص"
+
+msgid "Certifications Required"
+msgstr "الشهادات المطلوبة"
+
+msgid "Packaging Format(s)"
+msgstr "شكل/أشكال التغليف"
+
+msgid "Additional Details / Brief"
+msgstr "تفاصيل إضافية / ملخص"
+
+msgid ""
+"Describe your brand vision, target market, or any specific requirements..."
+msgstr "صف رؤيتك للعلامة التجارية والسوق المستهدف أو أي متطلبات محددة..."
+
+msgid "Submit Brand Inquiry"
+msgstr "إرسال استفسار العلامة التجارية"
+
+msgid "We respond within 48 business hours."
+msgstr "نرد خلال 48 ساعة عمل."
+
+# ─── Blog Page ───
+msgid "Insights & Updates"
+msgstr "رؤى وتحديثات"
+
+msgid "The CAPERSMED Journal"
+msgstr "مجلة كابرزميد"
+
+msgid ""
+"Industry insights, export news, gourmet recipes, and updates from Morocco's "
+"premier condiment producer."
+msgstr ""
+"رؤى الصناعة وأخبار التصدير ووصفات الذواقة وتحديثات من المنتج المغربي الرائد "
+"للتوابل."
+
+msgid "All"
+msgstr "الكل"
+
+msgid "News"
+msgstr "أخبار"
+
+msgid "Industry"
+msgstr "الصناعة"
+
+msgid "Recipes"
+msgstr "وصفات"
+
+msgid "Export"
+msgstr "تصدير"
+
+msgid "Read More"
+msgstr "اقرأ المزيد"
+
+msgid "Coming Soon"
+msgstr "قريباً"
+
+msgid "Our first articles are being prepared. Check back soon."
+msgstr "يتم إعداد مقالاتنا الأولى. تحقق مرة أخرى قريباً."
+
+msgid "Stay in the Loop"
+msgstr "ابق على اطلاع"
+
+msgid ""
+"Subscribe to receive export news, product updates, and gourmet insights from"
+" CAPERSMED."
+msgstr "اشترك لتلقي أخبار التصدير وتحديثات المنتجات ورؤى الذواقة من كابرزميد."
+
+msgid "Back to Blog"
+msgstr "العودة إلى المدونة"
+
+msgid "Related Articles"
+msgstr "مقالات ذات صلة"
+
+# ─── Contact Page ───
+msgid "Your message has been sent successfully!"
+msgstr "تم إرسال رسالتك بنجاح!"
+
+msgid "Please correct the errors below."
+msgstr "يرجى تصحيح الأخطاء أدناه."
+
+# ─── Footer ───
+msgid "All Rights Reserved"
+msgstr "جميع الحقوق محفوظة"
+
+msgid "100% Natural Ingredients"
+msgstr "مكونات طبيعية 100%"
+
+msgid "About Us"
+msgstr "من نحن"
+
+msgid "Authentic Moroccan Gourmet Products - From Our Fields to Your Table"
+msgstr "منتجات مغربية أصيلة فاخرة - من حقولنا إلى مائدتكم"
+
+msgid "Back to Catalog"
+msgstr "العودة للكتالوج"
+
+msgid "Browse Products"
+msgstr "تصفح المنتجات"
+
+msgid "Bulk & Retail"
+msgstr "جملة وتجزئة"
+
+msgid "Bulk pricing"
+msgstr "أسعار الجملة"
+
+msgid "Business Hours"
+msgstr "ساعات العمل"
+
+msgid ""
+"CAPERSMED is a leading Moroccan producer of premium food products. We blend "
+"traditional recipes with modern export standards."
+msgstr ""
+"كابرزميد هي منتج مغربي رائد للمنتجات الغذائية الفاخرة. نمزج الوصفات "
+"التقليدية مع معايير التصدير الحديثة."
+
+msgid "Certified Halal"
+msgstr "معتمد حلال"
+
+msgid "Competitive pricing."
+msgstr "أسعار تنافسية."
+
+msgid "Comprehensive solutions for wholesale, export, and private label."
+msgstr "حلول شاملة للبيع بالجملة والتصدير والعلامة الخاصة."
+
+msgid "Consultation"
+msgstr "استشارة"
+
+msgid "Contact Info"
+msgstr "معلومات الاتصال"
+
+msgid "Contact Us Now"
+msgstr "اتصل بنا الآن"
+
+msgid "Contact for Quote"
+msgstr "اتصل للحصول على عرض سعر"
+
+msgid "Contact us for wholesale pricing, private label, or export inquiries."
+msgstr "اتصل بنا لأسعار الجملة أو العلامة الخاصة أو استفسارات التصدير."
+
+msgid "Crafting Tradition, Delivering Quality"
+msgstr "صناعة التقاليد وتقديم الجودة"
+
+msgid "Create your brand with our expertise."
+msgstr "أنشئ علامتك التجارية بخبرتنا."
+
+msgid "Custom label design"
+msgstr "تصميم ملصقات مخصصة"
+
+msgid "Custom recipes"
+msgstr "وصفات مخصصة"
+
+msgid "Description"
+msgstr "الوصف"
+
+msgid "Discuss your requirements."
+msgstr "ناقش متطلباتك."
+
+msgid "Experience Moroccan Quality"
+msgstr "اختبر الجودة المغربية"
+
+msgid "Export Grade Quality"
+msgstr "جودة التصدير"
+
+msgid "Export Quality Standards"
+msgstr "معايير جودة التصدير"
+
+msgid "Export Ready"
+msgstr "جاهز للتصدير"
+
+msgid "Export Standards"
+msgstr "معايير التصدير"
+
+msgid "Export docs"
+msgstr "وثائق التصدير"
+
+msgid "Export documentation"
+msgstr "وثائق التصدير"
+
+msgid "Featured Products"
+msgstr "منتجات مميزة"
+
+msgid "Features"
+msgstr "المميزات"
+
+msgid "Flexible packaging"
+msgstr "تغليف مرن"
+
+msgid "Flexible quantities"
+msgstr "كميات مرنة"
+
+msgid "Food Production"
+msgstr "إنتاج غذائي"
+
+msgid "Food Safety Management"
+msgstr "إدارة سلامة الغذاء"
+
+msgid "Food safety certified"
+msgstr "معتمد سلامة الغذاء"
+
+msgid ""
+"Founded in the heart of Morocco, CAPERSMED.SARL was established with a "
+"vision to bring the authentic flavors of Moroccan agriculture to the world. "
+"We specialize in the meticulous processing and packaging of premium capers, "
+"vinegars, and a variety of traditional condiments."
+msgstr ""
+"تأسست في قلب المغرب، أُنشئت كابرزميد برؤية لنقل النكهات الأصيلة للزراعة "
+"المغربية إلى العالم. نحن متخصصون في المعالجة والتعبئة الدقيقة للكبار والخل "
+"والتوابل التقليدية الفاخرة."
+
+msgid "Get in Touch"
+msgstr "تواصل معنا"
+
+msgid "Hazard Analysis"
+msgstr "تحليل المخاطر"
+
+msgid "High-quality production with modern facilities."
+msgstr "إنتاج عالي الجودة بمرافق حديثة."
+
+msgid "I'm interested in wholesale/export"
+msgstr "أنا مهتم بالبيع بالجملة/التصدير"
+
+msgid "Interested in Bulk Orders?"
+msgstr "مهتم بطلبات الجملة؟"
+
+msgid "International shipping"
+msgstr "شحن دولي"
+
+msgid "Large-scale capacity"
+msgstr "قدرة إنتاج كبيرة"
+
+msgid "Learn More"
+msgstr "اعرف المزيد"
+
+msgid "Logistics"
+msgstr "الخدمات اللوجستية"
+
+msgid "Low MOQ"
+msgstr "حد أدنى منخفض للطلب"
+
+msgid "Mission & Values"
+msgstr "المهمة والقيم"
+
+msgid "Mon-Fri: 8:00 AM - 6:00 PM"
+msgstr "الإثنين-الجمعة: 8:00 - 18:00"
+
+msgid "Moroccan Heritage"
+msgstr "التراث المغربي"
+
+msgid "Need Custom Packaging or a Bulk Quote?"
+msgstr "هل تحتاج تغليفاً مخصصاً أو عرض سعر بالجملة؟"
+
+msgid "No featured products available."
+msgstr "لا توجد منتجات مميزة متاحة."
+
+msgid "No products yet."
+msgstr "لا توجد منتجات بعد."
+
+msgid "On-time delivery"
+msgstr "تسليم في الوقت المحدد"
+
+msgid "Our Process"
+msgstr "عمليتنا"
+
+msgid "Our Product Catalog"
+msgstr "كتالوج منتجاتنا"
+
+msgid "Our Services"
+msgstr "خدماتنا"
+
+msgid "Our Story"
+msgstr "قصتنا"
+
+msgid ""
+"Our mission is to deliver the highest quality gourmet food products while "
+"supporting local farmers and sustainable agricultural practices. We value "
+"integrity, authenticity, and uncompromising quality."
+msgstr ""
+"مهمتنا هي تقديم أعلى جودة من المنتجات الغذائية الفاخرة مع دعم المزارعين "
+"المحليين والممارسات الزراعية المستدامة."
+
+msgid "Packaging Available"
+msgstr "التغليف المتاح"
+
+msgid "Premium"
+msgstr "فاخر"
+
+msgid ""
+"Premium Moroccan gourmet products. Each item is available in multiple "
+"packaging formats with full certification documentation for global export."
+msgstr ""
+"منتجات مغربية فاخرة. كل منتج متوفر بأشكال تغليف متعددة مع وثائق شهادات كاملة"
+" للتصدير العالمي."
+
+msgid "Premium Quality"
+msgstr "جودة فاخرة"
+
+msgid ""
+"Premium vinegars, pickled vegetables, and traditional condiments crafted "
+"with Moroccan heritage and exported worldwide."
+msgstr ""
+"خل فاخر وخضروات مخللة وتوابل تقليدية مصنوعة بالتراث المغربي ومصدرة حول "
+"العالم."
+
+msgid "Privacy Policy"
+msgstr "سياسة الخصوصية"
+
+msgid "Quality manufacturing."
+msgstr "تصنيع عالي الجودة."
+
+msgid "Quality-controlled"
+msgstr "مراقبة الجودة"
+
+msgid "Quotation"
+msgstr "عرض أسعار"
+
+msgid "Ready to Order?"
+msgstr "مستعد للطلب؟"
+
+msgid "Reliable delivery worldwide."
+msgstr "توصيل موثوق حول العالم."
+
+msgid "Request a Quote"
+msgstr "اطلب عرض أسعار"
+
+msgid "Sat: 9:00 AM - 1:00 PM"
+msgstr "السبت: 9:00 - 13:00"
+
+msgid "Secure packaging"
+msgstr "تغليف آمن"
+
+msgid "Send Message"
+msgstr "إرسال الرسالة"
+
+msgid "Send a Message"
+msgstr "أرسل رسالة"
+
+msgid "Shipped to your location."
+msgstr "يُشحن إلى موقعك."
+
+msgid "Specifications"
+msgstr "المواصفات"
+
+msgid "Suggested Uses"
+msgstr "الاستخدامات المقترحة"
+
+msgid "Sun: Closed"
+msgstr "الأحد: مغلق"
+
+msgid "Supply restaurants, retailers, distributors worldwide."
+msgstr "تزويد المطاعم وتجار التجزئة والموزعين حول العالم."
+
+msgid "Sustainable Production"
+msgstr "إنتاج مستدام"
+
+msgid "Temperature-controlled"
+msgstr "تحكم بدرجة الحرارة"
+
+msgid "Terms"
+msgstr "الشروط"
+
+msgid "Traditional Moroccan Recipes"
+msgstr "وصفات مغربية تقليدية"
+
+msgid "View"
+msgstr "عرض"
+
+msgid "View All Products"
+msgstr "عرض جميع المنتجات"
+
+msgid "View Our Products"
+msgstr "شاهد منتجاتنا"
+
+msgid ""
+"We offer custom labeling, private label production, and flexible packaging "
+"formats for importers and distributors worldwide."
+msgstr ""
+"نقدم الملصقات المخصصة وإنتاج العلامة الخاصة وأشكال التغليف المرنة للمستوردين"
+" والموزعين حول العالم."
+
+msgid ""
+"We offer special pricing for wholesale, private label, and export orders."
+msgstr "نقدم أسعاراً خاصة لطلبات الجملة والعلامة الخاصة والتصدير."
+
+msgid "We'd love to hear from you."
+msgstr "يسعدنا التواصل معكم."
+
+msgid "Wholesale & Export"
+msgstr "البيع بالجملة والتصدير"
+
+msgid "Why Choose Us"
+msgstr "لماذا تختارنا"
+
+msgid "Your brand our quality"
+msgstr "علامتك التجارية، جودتنا"

@@ -1,0 +1,492 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+
+{% block title %}{% trans "Branding Services" %} — CAPERSMED{% endblock %}
+
+{% block extra_head %}
+<style>
+/* ── Hero ── */
+.branding-hero {
+    background: linear-gradient(rgba(27,67,50,0.75), rgba(27,67,50,0.75)), url('/media/backgrounds/hero_branding.png') center/cover no-repeat;
+    padding: 130px 2rem 80px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+.branding-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 140%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, rgba(212,175,55,0.08) 0%, transparent 60%);
+    pointer-events: none;
+}
+.branding-hero-eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #D4AF37;
+    margin-bottom: 1rem;
+}
+.branding-hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem;
+    color: #fff;
+    margin-bottom: 1.2rem;
+}
+.branding-hero p {
+    color: #A8D5BA;
+    font-size: 1.1rem;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* ── Services Section ── */
+.services-section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.section-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #40916C;
+    margin-bottom: 0.5rem;
+}
+.section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #1B4332;
+    margin-bottom: 1rem;
+}
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+.service-card {
+    background: #fff;
+    border: 1px solid #e0ede3;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(27,67,50,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(27,67,50,0.12);
+}
+.service-icon {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+.service-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: #1B4332;
+    margin-bottom: 0.6rem;
+}
+.service-desc {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.7;
+}
+
+/* ── Inquiry Form ── */
+.branding-form-section {
+    background: #f8fdf9;
+    border-top: 1px solid #e0ede3;
+    border-bottom: 1px solid #e0ede3;
+    padding: 5rem 2rem;
+}
+.branding-form-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+}
+.branding-form-wrap .section-heading {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+.branding-form-wrap .section-eyebrow {
+    text-align: center;
+    display: block;
+}
+.branding-form-wrap p.intro {
+    text-align: center;
+    color: #666;
+    margin-bottom: 3rem;
+}
+.brand-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+.brand-form .field-full {
+    grid-column: 1 / -1;
+}
+.brand-form label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #1B4332;
+    margin-bottom: 6px;
+}
+.brand-form input,
+.brand-form select,
+.brand-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid #d0e8d8;
+    border-radius: 7px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: #333;
+    background: #fff;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    outline: none;
+}
+.brand-form input:focus,
+.brand-form select:focus,
+.brand-form textarea:focus {
+    border-color: #40916C;
+    box-shadow: 0 0 0 3px rgba(64, 145, 108, 0.12);
+}
+.brand-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+.brand-form select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+}
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.88rem;
+    color: #444;
+    cursor: pointer;
+    padding: 7px 12px;
+    border: 1.5px solid #d0e8d8;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    user-select: none;
+    background: #fff;
+}
+.checkbox-item input[type="checkbox"] {
+    width: auto;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    accent-color: #1B4332;
+    cursor: pointer;
+}
+.checkbox-item:has(input:checked) {
+    border-color: #1B4332;
+    background: #f0f7f3;
+    color: #1B4332;
+    font-weight: 600;
+}
+.brand-form-submit {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 1rem;
+}
+.btn-submit-brand {
+    display: inline-block;
+    background: #1B4332;
+    color: #fff;
+    padding: 16px 48px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.btn-submit-brand:hover {
+    background: #2D6A4F;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(27,67,50,0.25);
+}
+.form-note {
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 1rem;
+}
+
+/* ── Process Steps ── */
+.process-section {
+    padding: 5rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+.process-steps {
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem;
+    position: relative;
+}
+.process-steps::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(to right, #1B4332, #D4AF37);
+    z-index: 0;
+}
+.step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+    z-index: 1;
+}
+.step-number {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #1B4332;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    box-shadow: 0 4px 16px rgba(27,67,50,0.3);
+}
+.step-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #1B4332;
+}
+.step-desc {
+    font-size: 0.8rem;
+    color: #888;
+    line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+    .brand-form { grid-template-columns: 1fr; }
+    .brand-form .field-full { grid-column: 1; }
+    .branding-hero h1 { font-size: 2.2rem; }
+    .process-steps { flex-direction: column; align-items: center; }
+    .process-steps::before { display: none; }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- ── Hero ── -->
+<section class="branding-hero">
+    <span class="branding-hero-eyebrow">{% trans "Private Label & Custom Branding" %}</span>
+    <h1>{% trans "Make It Your Brand" %}</h1>
+    <p>{% trans "CAPERSMED offers complete branding and private label solutions for importers, distributors, and retailers. From custom labels to full packaging design — we help you launch your own line of premium Moroccan gourmet products." %}</p>
+</section>
+
+<!-- ── Services ── -->
+<section class="services-section">
+    <p class="section-eyebrow fade-up">{% trans "What We Offer" %}</p>
+    <h2 class="section-heading fade-up">{% trans "Branding Services" %}</h2>
+
+    <div class="services-grid">
+        <div class="service-card fade-up">
+            <div class="service-icon">🏷️</div>
+            <h3 class="service-title">{% trans "Private Label" %}</h3>
+            <p class="service-desc">{% trans "Apply your brand name, logo, and design to our product range. Full private label production with your artwork on our certified Moroccan gourmet products." %}</p>
+        </div>
+        <div class="service-card fade-up">
+            <div class="service-icon">🎨</div>
+            <h3 class="service-title">{% trans "Custom Label Design" %}</h3>
+            <p class="service-desc">{% trans "Our design team creates professional label artwork tailored to your brand identity — colors, typography, multilingual text, and regulatory compliance for your target market." %}</p>
+        </div>
+        <div class="service-card fade-up">
+            <div class="service-icon">📦</div>
+            <h3 class="service-title">{% trans "Custom Packaging" %}</h3>
+            <p class="service-desc">{% trans "Select from our full range of packaging formats — 200ml, 500ml, 2L, 7L, 1000L IBC — and we'll produce them under your brand specifications." %}</p>
+        </div>
+        <div class="service-card fade-up">
+            <div class="service-icon">🌍</div>
+            <h3 class="service-title">{% trans "Export-Ready Compliance" %}</h3>
+            <p class="service-desc">{% trans "All branded products come with full certification documentation (HALAL, KOSHER, IFS, BRC, FDA) ready for import clearance in your target country." %}</p>
+        </div>
+        <div class="service-card fade-up">
+            <div class="service-icon">🔬</div>
+            <h3 class="service-title">{% trans "Custom Formulation" %}</h3>
+            <p class="service-desc">{% trans "Need a specific brine strength, spice level, or size? We work with you to develop a custom recipe or adjust existing products to meet your buyers' exact specifications." %}</p>
+        </div>
+        <div class="service-card fade-up">
+            <div class="service-icon">🚢</div>
+            <h3 class="service-title">{% trans "Logistics Support" %}</h3>
+            <p class="service-desc">{% trans "We assist with export documentation, freight coordination, and customs compliance to ensure smooth delivery of your branded goods to any destination worldwide." %}</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── Process Steps ── -->
+<section class="process-section">
+    <p class="section-eyebrow fade-up">{% trans "How It Works" %}</p>
+    <h2 class="section-heading fade-up">{% trans "Brand Creation Process" %}</h2>
+
+    <div class="process-steps fade-up">
+        <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-title">{% trans "Brief" %}</div>
+            <div class="step-desc">{% trans "You share your brand vision, target market, and product selection." %}</div>
+        </div>
+        <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-title">{% trans "Design" %}</div>
+            <div class="step-desc">{% trans "We create label artwork and packaging mockups for your approval." %}</div>
+        </div>
+        <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-title">{% trans "Sample" %}</div>
+            <div class="step-desc">{% trans "Physical samples are produced and shipped for your review." %}</div>
+        </div>
+        <div class="step">
+            <div class="step-number">4</div>
+            <div class="step-title">{% trans "Production" %}</div>
+            <div class="step-desc">{% trans "Full production run with your branding applied." %}</div>
+        </div>
+        <div class="step">
+            <div class="step-number">5</div>
+            <div class="step-title">{% trans "Delivery" %}</div>
+            <div class="step-desc">{% trans "Export-ready delivery to your door or port of choice." %}</div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Brand Inquiry Form ── -->
+<section class="branding-form-section">
+    <div class="branding-form-wrap">
+        <span class="section-eyebrow fade-up">{% trans "Start Your Project" %}</span>
+        <h2 class="section-heading fade-up">{% trans "Brand Creation Inquiry" %}</h2>
+        <p class="intro fade-up">{% trans "Fill in the form below and our branding team will contact you within 48 hours with a tailored proposal." %}</p>
+
+        <form class="brand-form" action="{% url 'contact' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="inquiry_type" value="branding">
+
+            <div>
+                <label for="brand_company">{% trans "Company / Brand Name" %} *</label>
+                <input type="text" id="brand_company" name="company" placeholder="{% trans 'Your company or brand name' %}" required>
+            </div>
+            <div>
+                <label for="brand_contact">{% trans "Contact Person" %} *</label>
+                <input type="text" id="brand_contact" name="full_name" placeholder="{% trans 'Your full name' %}" required>
+            </div>
+            <div>
+                <label for="brand_email">{% trans "Email Address" %} *</label>
+                <input type="email" id="brand_email" name="email" placeholder="name@company.com" required>
+            </div>
+            <div>
+                <label for="brand_country">{% trans "Country / Market" %}</label>
+                <input type="text" id="brand_country" name="country" placeholder="{% trans 'e.g. France, USA, UAE' %}">
+            </div>
+            <div>
+                <label for="brand_type">{% trans "Brand Project Type" %}</label>
+                <select id="brand_type" name="brand_type">
+                    <option value="">{% trans "— Select —" %}</option>
+                    <option value="private_label">{% trans "Private Label (my brand on your products)" %}</option>
+                    <option value="custom_label">{% trans "Custom Label Design" %}</option>
+                    <option value="custom_packaging">{% trans "Custom Packaging Format" %}</option>
+                    <option value="full_brand">{% trans "Full Brand Creation" %}</option>
+                    <option value="reformulation">{% trans "Custom Formulation / Recipe" %}</option>
+                    <option value="other">{% trans "Other" %}</option>
+                </select>
+            </div>
+            <div>
+                <label for="brand_volume">{% trans "Estimated Annual Volume" %}</label>
+                <select id="brand_volume" name="volume">
+                    <option value="">{% trans "— Select —" %}</option>
+                    <option value="small">{% trans "< 1,000 units" %}</option>
+                    <option value="medium">{% trans "1,000 – 10,000 units" %}</option>
+                    <option value="large">{% trans "10,000 – 50,000 units" %}</option>
+                    <option value="xlarge">{% trans "> 50,000 units" %}</option>
+                </select>
+            </div>
+
+            <!-- Products of interest -->
+            <div class="field-full">
+                <label>{% trans "Products of Interest" %}</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox" name="products" value="capers"> 🫒 {% trans "Capers" %}</label>
+                    <label class="checkbox-item"><input type="checkbox" name="products" value="caperberries"> 🫒 {% trans "Caperberries" %}</label>
+                    <label class="checkbox-item"><input type="checkbox" name="products" value="preserved_lemons"> 🍋 {% trans "Preserved Lemons" %}</label>
+                    <label class="checkbox-item"><input type="checkbox" name="products" value="cornichons"> 🥒 {% trans "Cornichons" %}</label>
+                    <label class="checkbox-item"><input type="checkbox" name="products" value="harissa"> 🌶️ {% trans "Harissa" %}</label>
+                    <label class="checkbox-item"><input type="checkbox" name="products" value="vinegars"> 🍾 {% trans "Vinegars" %}</label>
+                    <label class="checkbox-item"><input type="checkbox" name="products" value="peppers"> 🫑 {% trans "Pickled Peppers" %}</label>
+                    <label class="checkbox-item"><input type="checkbox" name="products" value="other"> 📋 {% trans "Other / Custom" %}</label>
+                </div>
+            </div>
+
+            <!-- Certifications needed -->
+            <div class="field-full">
+                <label>{% trans "Certifications Required" %}</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox" name="certs" value="HALAL"> ☪️ HALAL</label>
+                    <label class="checkbox-item"><input type="checkbox" name="certs" value="KOSHER"> ✡️ KOSHER</label>
+                    <label class="checkbox-item"><input type="checkbox" name="certs" value="IFS"> 🏅 IFS</label>
+                    <label class="checkbox-item"><input type="checkbox" name="certs" value="BRC"> 🏅 BRC</label>
+                    <label class="checkbox-item"><input type="checkbox" name="certs" value="FDA"> 🇺🇸 FDA</label>
+                </div>
+            </div>
+
+            <!-- Packaging format -->
+            <div class="field-full">
+                <label>{% trans "Packaging Format(s)" %}</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox" name="packaging" value="200ml"> 🍶 200ml</label>
+                    <label class="checkbox-item"><input type="checkbox" name="packaging" value="pet_200ml"> 🍶 PET 200ml</label>
+                    <label class="checkbox-item"><input type="checkbox" name="packaging" value="500ml"> 🍶 500ml</label>
+                    <label class="checkbox-item"><input type="checkbox" name="packaging" value="2L"> 🪣 2L</label>
+                    <label class="checkbox-item"><input type="checkbox" name="packaging" value="7L"> 🪣 7L</label>
+                    <label class="checkbox-item"><input type="checkbox" name="packaging" value="1000L_IBC"> 🏭 1000L IBC</label>
+                    <label class="checkbox-item"><input type="checkbox" name="packaging" value="200kg"> 🛢️ 200kg Drum</label>
+                </div>
+            </div>
+
+            <div class="field-full">
+                <label for="brand_message">{% trans "Additional Details / Brief" %}</label>
+                <textarea id="brand_message" name="message" placeholder="{% trans 'Describe your brand vision, target market, or any specific requirements...' %}"></textarea>
+            </div>
+
+            <div class="brand-form-submit">
+                <button type="submit" class="btn-submit-brand">{% trans "Submit Brand Inquiry" %}</button>
+                <p class="form-note">{% trans "We respond within 48 business hours." %}</p>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}
