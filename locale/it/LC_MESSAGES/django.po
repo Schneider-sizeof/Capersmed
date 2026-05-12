@@ -863,5 +863,3 @@ msgstr "Peperoni e Prodotti Piccanti"
 msgid "Preservation"
 msgstr "Conservazione"
 
-msgid "View →"
-msgstr "Vedi →"

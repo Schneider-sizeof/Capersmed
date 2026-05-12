@@ -831,5 +831,3 @@ msgstr "الفلفل والمنتجات الحارة"
 msgid "Preservation"
 msgstr "طريقة الحفظ"
 
-msgid "View →"
-msgstr "عرض →"

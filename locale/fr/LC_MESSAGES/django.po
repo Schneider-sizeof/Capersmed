@@ -870,5 +870,3 @@ msgstr "Piments et Produits Piquants"
 msgid "Preservation"
 msgstr "Conservation"
 
-msgid "View →"
-msgstr "Voir →"

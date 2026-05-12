@@ -14,7 +14,7 @@ def compile_po_to_mo(po_path, mo_path):
         for line in f:
             line = line.strip()
             if line.startswith('msgid "'):
-                if current_msgid is not None and current_msgid != '':
+                if current_msgid is not None:
                     messages.append((current_msgid, current_msgstr or ''))
                 content = line[7:-1]
                 current_msgid = content
@@ -37,10 +37,19 @@ def compile_po_to_mo(po_path, mo_path):
                 in_msgstr = False
         
         # Don't forget the last entry
-        if current_msgid is not None and current_msgid != '':
+        if current_msgid is not None:
             messages.append((current_msgid, current_msgstr or ''))
     
-    # Sort by msgid (required by .mo format)
+    # Ensure metadata entry exists (empty msgid with charset)
+    has_meta = any(msgid == '' for msgid, _ in messages)
+    if not has_meta:
+        meta = (
+            'Content-Type: text/plain; charset=UTF-8\\n'
+            'Content-Transfer-Encoding: 8bit\\n'
+        )
+        messages.insert(0, ('', meta))
+    
+    # Sort by msgid (required by .mo format) — empty string sorts first
     messages.sort(key=lambda x: x[0].encode('utf-8'))
     
     # Build .mo file
@@ -55,8 +64,9 @@ def compile_po_to_mo(po_path, mo_path):
     keys = []
     values = []
     for msgid, msgstr in messages:
-        keys.append(msgid.encode('utf-8'))
-        values.append(msgstr.encode('utf-8'))
+        # Unescape \n sequences (stored as literal \\n in .po, need real \n in .mo)
+        keys.append(msgid.replace('\\n', '\n').encode('utf-8'))
+        values.append(msgstr.replace('\\n', '\n').encode('utf-8'))
     
     # Key offsets
     key_offsets = []
