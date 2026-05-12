@@ -91,3 +91,22 @@ def set_language(request, language_code):
     translation.activate(language_code)
     response.set_cookie(settings.LANGUAGE_COOKIE_NAME, language_code)
     return response
+
+
+def sitemap_xml(request):
+    products = Product.objects.all()
+    posts = BlogPost.objects.filter(is_published=True)
+    base_url = request.build_absolute_uri('/').rstrip('/')
+    return render(request, 'core/sitemap.xml', {
+        'products': products,
+        'posts': posts,
+        'base_url': base_url,
+    }, content_type='application/xml')
+
+
+def robots_txt(request):
+    base_url = request.build_absolute_uri('/').rstrip('/')
+    return render(request, 'core/robots.txt', {
+        'base_url': base_url,
+    }, content_type='text/plain')
+

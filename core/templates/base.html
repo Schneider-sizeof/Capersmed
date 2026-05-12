@@ -5,9 +5,28 @@
 <html lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_BIDI %}rtl{% else %}ltr{% endif %}">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>{% block title %}{{ site_settings.site_name }}{% endblock %} | Premium Moroccan Gourmet Products</title>
     <meta name="description" content="{% block meta_description %}Leading Moroccan producer of premium vinegars, capers, preserved lemons, harissa, and pickled vegetables. Export quality gourmet products from Fes, Morocco.{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}CAPERSMED, Moroccan capers, premium vinegars, preserved lemons, harissa, gourmet food, export Morocco, halal food, pickled vegetables, cornichons, Fes Morocco{% endblock %}">
+    <meta name="author" content="CAPERSMED.SARL">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{% block canonical_url %}https://capersmed.pythonanywhere.com{{ request.path }}{% endblock %}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}CAPERSMED — Premium Moroccan Gourmet Products{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Leading Moroccan producer of premium vinegars, capers, preserved lemons, harissa, and pickled vegetables. Export quality from Fes, Morocco.{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}https://capersmed.pythonanywhere.com{% static 'images/logo.png' %}{% endblock %}">
+    <meta property="og:url" content="https://capersmed.pythonanywhere.com{{ request.path }}">
+    <meta property="og:site_name" content="CAPERSMED.SARL">
+    <meta property="og:locale" content="{{ LANGUAGE_CODE }}">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block twitter_title %}CAPERSMED — Premium Moroccan Gourmet Products{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Premium Moroccan vinegars, capers, preserved lemons & traditional condiments. Export quality from Fes, Morocco.{% endblock %}">
+    <meta name="twitter:image" content="{% block twitter_image %}https://capersmed.pythonanywhere.com{% static 'images/logo.png' %}{% endblock %}">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

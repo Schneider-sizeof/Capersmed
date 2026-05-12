@@ -4,7 +4,7 @@
     <td class="prod-img-cell" data-label="">
         <div class="prod-img-wrap">
             {% if product.image %}
-                <img src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name_en }}" loading="lazy">
+                <img src="{{ MEDIA_URL }}{{ product.image }}" alt="{% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}{% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}{% elif LANGUAGE_CODE == 'es' %}{{ product.name_es }}{% elif LANGUAGE_CODE == 'it' %}{{ product.name_it }}{% else %}{{ product.name_en }}{% endif %}" loading="lazy">
             {% else %}
                 <span class="prod-img-placeholder">
                     {% if product.category == 'vinegars' %}🍾{% elif product.category == 'spicy' %}🌶️{% else %}🫒{% endif %}
@@ -15,16 +15,8 @@
 
     <td data-label="Product">
         {% if product.is_premium %}<span class="prod-premium-badge">★ Premium</span><br>{% endif %}
-        <div class="prod-name">
-            {% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}
-            {% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}
-            {% else %}{{ product.name_en }}{% endif %}
-        </div>
-        <div class="prod-desc">
-            {% if LANGUAGE_CODE == 'fr' %}{{ product.short_description_fr }}
-            {% elif LANGUAGE_CODE == 'ar' %}{{ product.short_description_ar }}
-            {% else %}{{ product.short_description_en }}{% endif %}
-        </div>
+        <div class="prod-name">{% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}{% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}{% elif LANGUAGE_CODE == 'es' %}{{ product.name_es }}{% elif LANGUAGE_CODE == 'it' %}{{ product.name_it }}{% else %}{{ product.name_en }}{% endif %}</div>
+        <div class="prod-desc">{% if LANGUAGE_CODE == 'fr' %}{{ product.short_description_fr }}{% elif LANGUAGE_CODE == 'ar' %}{{ product.short_description_ar }}{% elif LANGUAGE_CODE == 'es' %}{{ product.short_description_es }}{% elif LANGUAGE_CODE == 'it' %}{{ product.short_description_it }}{% else %}{{ product.short_description_en }}{% endif %}</div>
     </td>
 
     <td data-label="Packaging">

@@ -3,9 +3,8 @@
 <div class="product-card fade-up">
     <div class="product-img-wrapper">
         {% if product.image %}
-            <img src="{{ product.image.url }}" alt="{{ product.name_en }}" loading="lazy">
+            <img src="{{ product.image.url }}" alt="{% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}{% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}{% elif LANGUAGE_CODE == 'es' %}{{ product.name_es }}{% elif LANGUAGE_CODE == 'it' %}{{ product.name_it }}{% else %}{{ product.name_en }}{% endif %}" loading="lazy">
         {% else %}
-            <!-- Fallback placeholders -->
             {% if product.category == 'pickles' %}
                 <img src="{{ MEDIA_URL }}products/pickles_placeholder.png" alt="Pickles" loading="lazy">
             {% elif product.category == 'vinegars' %}
@@ -17,25 +16,21 @@
     </div>
     <div class="product-info">
         <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
-            <h3 style="margin-bottom: 0; text-align: center;">
-                {% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}
-                {% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}
-                {% else %}{{ product.name_en }}{% endif %}
-            </h3>
+            <h3 style="margin-bottom: 0; text-align: center;">{% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}{% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}{% elif LANGUAGE_CODE == 'es' %}{{ product.name_es }}{% elif LANGUAGE_CODE == 'it' %}{{ product.name_it }}{% else %}{{ product.name_en }}{% endif %}</h3>
             {% if product.is_premium %}
                 <span style="color: var(--primary-gold); font-size: 1.2rem;" title="Premium">★</span>
             {% endif %}
         </div>
-        <p>
-            {% if LANGUAGE_CODE == 'fr' %}{{ product.short_description_fr|truncatewords:15 }}
-            {% elif LANGUAGE_CODE == 'ar' %}{{ product.short_description_ar|truncatewords:15 }}
-            {% else %}{{ product.short_description_en|truncatewords:15 }}{% endif %}
-        </p>
+        <p>{% if LANGUAGE_CODE == 'fr' %}{{ product.short_description_fr|truncatewords:15 }}{% elif LANGUAGE_CODE == 'ar' %}{{ product.short_description_ar|truncatewords:15 }}{% elif LANGUAGE_CODE == 'es' %}{{ product.short_description_es|truncatewords:15 }}{% elif LANGUAGE_CODE == 'it' %}{{ product.short_description_it|truncatewords:15 }}{% else %}{{ product.short_description_en|truncatewords:15 }}{% endif %}</p>
         <ul class="product-features">
             {% if LANGUAGE_CODE == 'fr' %}
                 {% for feature in product.features_fr|slice:":2" %}<li>{{ feature }}</li>{% endfor %}
             {% elif LANGUAGE_CODE == 'ar' %}
                 {% for feature in product.features_ar|slice:":2" %}<li>{{ feature }}</li>{% endfor %}
+            {% elif LANGUAGE_CODE == 'es' %}
+                {% for feature in product.features_es|slice:":2" %}<li>{{ feature }}</li>{% endfor %}
+            {% elif LANGUAGE_CODE == 'it' %}
+                {% for feature in product.features_it|slice:":2" %}<li>{{ feature }}</li>{% endfor %}
             {% else %}
                 {% for feature in product.features_en|slice:":2" %}<li>{{ feature }}</li>{% endfor %}
             {% endif %}
