@@ -16,13 +16,13 @@ def about(request):
 
 def products(request):
     all_products = Product.objects.all().order_by('category', 'name_en')
-    vinegars = all_products.filter(category='vinegars')
+    capers  = all_products.filter(category='capers')
+    peppers = all_products.filter(category='peppers')
     pickles = all_products.filter(category='pickles')
-    spicy = all_products.filter(category='spicy')
     context = {
-        'vinegars': vinegars,
+        'capers': capers,
+        'peppers': peppers,
         'pickles': pickles,
-        'spicy': spicy,
         'all_products': all_products,
     }
     return render(request, 'core/products.html', context)

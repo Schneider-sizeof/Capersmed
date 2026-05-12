@@ -5,13 +5,9 @@
         {% if product.image %}
             <img src="{{ product.image.url }}" alt="{% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}{% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}{% elif LANGUAGE_CODE == 'es' %}{{ product.name_es }}{% elif LANGUAGE_CODE == 'it' %}{{ product.name_it }}{% else %}{{ product.name_en }}{% endif %}" loading="lazy">
         {% else %}
-            {% if product.category == 'pickles' %}
-                <img src="{{ MEDIA_URL }}products/pickles_placeholder.png" alt="Pickles" loading="lazy">
-            {% elif product.category == 'vinegars' %}
-                <img src="{{ MEDIA_URL }}products/vinegar_placeholder.png" alt="Vinegar" loading="lazy">
-            {% elif product.category == 'spicy' %}
-                <img src="{{ MEDIA_URL }}products/spicy_placeholder.png" alt="Spicy" loading="lazy">
-            {% endif %}
+            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4rem;background:var(--light-gray);">
+                {% if product.category == 'capers' %}🫒{% elif product.category == 'peppers' %}🌶️{% else %}🥒{% endif %}
+            </div>
         {% endif %}
     </div>
     <div class="product-info">

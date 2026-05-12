@@ -18,14 +18,9 @@
                 {% if product.image %}
                     <img src="{{ product.image.url }}" alt="{{ product.name_en }}" style="width: 100%; height: 100%; object-fit: cover;">
                 {% else %}
-                    <!-- Fallback placeholders -->
-                    {% if product.category == 'pickles' %}
-                        <img src="{{ MEDIA_URL }}products/pickles_placeholder.png" alt="Pickles" style="width: 100%; height: 100%; object-fit: cover;">
-                    {% elif product.category == 'vinegars' %}
-                        <img src="{{ MEDIA_URL }}products/vinegar_placeholder.png" alt="Vinegar" style="width: 100%; height: 100%; object-fit: cover;">
-                    {% elif product.category == 'spicy' %}
-                        <img src="{{ MEDIA_URL }}products/spicy_placeholder.png" alt="Spicy" style="width: 100%; height: 100%; object-fit: cover;">
-                    {% endif %}
+                    <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:6rem;">
+                        {% if product.category == 'capers' %}🫒{% elif product.category == 'peppers' %}🌶️{% else %}🥒{% endif %}
+                    </div>
                 {% endif %}
             </div>
 
@@ -74,77 +69,58 @@
                         {% else %}{{ product.description_en }}{% endif %}
                     </p>
 
-
-                    <!-- 2-Column: Specifications + Certifications -->
+                    <!-- 3-Column: Preservation + Packaging + Certifications -->
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 1rem;">
 
-                        <!-- Left: Specifications -->
+                        <!-- Left column: Preservation + Packaging -->
                         <div>
+                            {% if product.preservation.exists %}
+                            <h3 style="color: var(--dark-brown); font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 1rem;">
+                                {% trans "Preservation" %}
+                            </h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem;">
+                                {% for pres in product.preservation.all %}
+                                <span style="background: #E8F5E9; color: #2E7D32; padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; border: 1px solid #A5D6A7;">
+                                    🫙 {{ pres.name }}
+                                </span>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+
+                            {% if product.packaging.exists %}
                             <h3 style="color: var(--dark-brown); font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 1.5rem;">
-                                {% trans "Specifications" %}
+                                {% trans "Packaging" %}
                             </h3>
                             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;">
-                                {% if LANGUAGE_CODE == 'fr' %}
-                                    {% for k, v in product.specifications_fr.items %}
-                                    <div style="text-align: center; background: #f8fdf9; border: 1px solid #e0ede3; border-radius: 12px; padding: 1rem 0.6rem;">
-                                        <div style="font-size: 1.6rem; margin-bottom: 0.3rem;">
-                                            {% if 'Emballage' in k or 'emballage' in k %}📦{% elif 'Origine' in k or 'origine' in k %}🇲🇦{% elif 'Qualité' in k or 'qualité' in k %}⭐{% elif 'Poids' in k or 'poids' in k %}⚖️{% elif 'Conservation' in k or 'conservation' in k %}🧊{% elif 'Ingrédients' in k or 'ingrédient' in k %}🌿{% else %}📋{% endif %}
-                                        </div>
-                                        <div style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #40916C; margin-bottom: 0.2rem;">{{ k }}</div>
-                                        <div style="font-size: 0.82rem; color: #333; font-weight: 500;">{{ v }}</div>
+                                {% for pkg in product.packaging.all %}
+                                <div style="text-align: center; background: #f8fdf9; border: 1px solid #e0ede3; border-radius: 12px; padding: 1rem 0.6rem;">
+                                    <div style="font-size: 1.6rem; margin-bottom: 0.3rem;">
+                                        {% with p=pkg.name|lower %}
+                                        {% if 'fut' in p %}🛢️{% elif 'seaux' in p %}🪣{% elif 'bocal' in p %}🫙{% elif 'boite' in p or 'metallique' in p %}🥫{% elif 'doypack' in p %}📦{% else %}📦{% endif %}
+                                        {% endwith %}
                                     </div>
-                                    {% endfor %}
-                                {% elif LANGUAGE_CODE == 'ar' %}
-                                    {% for k, v in product.specifications_ar.items %}
-                                    <div style="text-align: center; background: #f8fdf9; border: 1px solid #e0ede3; border-radius: 12px; padding: 1rem 0.6rem;">
-                                        <div style="font-size: 1.6rem; margin-bottom: 0.3rem;">
-                                            {% if 'تغليف' in k %}📦{% elif 'أصل' in k or 'المنشأ' in k %}🇲🇦{% elif 'جودة' in k %}⭐{% elif 'وزن' in k %}⚖️{% else %}📋{% endif %}
-                                        </div>
-                                        <div style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #40916C; margin-bottom: 0.2rem;">{{ k }}</div>
-                                        <div style="font-size: 0.82rem; color: #333; font-weight: 500;">{{ v }}</div>
-                                    </div>
-                                    {% endfor %}
-                                {% else %}
-                                    {% for k, v in product.specifications_en.items %}
-                                    <div style="text-align: center; background: #f8fdf9; border: 1px solid #e0ede3; border-radius: 12px; padding: 1rem 0.6rem;">
-                                        <div style="font-size: 1.6rem; margin-bottom: 0.3rem;">
-                                            {% if 'Packaging' in k or 'packaging' in k %}📦{% elif 'Origin' in k or 'origin' in k %}🇲🇦{% elif 'Quality' in k or 'quality' in k %}⭐{% elif 'Weight' in k or 'weight' in k %}⚖️{% elif 'Storage' in k or 'storage' in k %}🧊{% elif 'Ingredient' in k or 'ingredient' in k %}🌿{% else %}📋{% endif %}
-                                        </div>
-                                        <div style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #40916C; margin-bottom: 0.2rem;">{{ k }}</div>
-                                        <div style="font-size: 0.82rem; color: #333; font-weight: 500;">{{ v }}</div>
-                                    </div>
-                                    {% endfor %}
-                                {% endif %}
+                                    <div style="font-size: 0.82rem; color: #333; font-weight: 500;">{{ pkg.name }}</div>
+                                </div>
+                                {% endfor %}
                             </div>
+                            {% endif %}
                         </div>
 
                         <!-- Right: Certifications -->
                         <div>
+                            {% if product.certifications.exists %}
                             <h3 style="color: var(--dark-brown); font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 1.5rem;">
                                 {% trans "Certifications" %}
                             </h3>
                             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;">
-                                <div style="display: flex; align-items: center; gap: 8px; background: #FFF3E0; border: 1.5px solid #FFCC80; border-radius: 10px; padding: 12px 14px;">
-                                    <span style="font-size: 1.4rem;">☪️</span>
-                                    <span style="font-size: 0.8rem; font-weight: 700; color: #E65100;">HALAL</span>
+                                {% for cert in product.certifications.all %}
+                                <div style="display: flex; align-items: center; gap: 8px; background: #F3E5F5; border: 1.5px solid #CE93D8; border-radius: 10px; padding: 12px 14px;">
+                                    <span style="font-size: 1.4rem;">{{ cert.icon }}</span>
+                                    <span style="font-size: 0.8rem; font-weight: 700; color: #6A1B9A;">{{ cert.code }}</span>
                                 </div>
-                                <div style="display: flex; align-items: center; gap: 8px; background: #E8EAF6; border: 1.5px solid #9FA8DA; border-radius: 10px; padding: 12px 14px;">
-                                    <span style="font-size: 1.4rem;">✡️</span>
-                                    <span style="font-size: 0.8rem; font-weight: 700; color: #283593;">KOSHER</span>
-                                </div>
-                                <div style="display: flex; align-items: center; gap: 8px; background: #E0F2F1; border: 1.5px solid #80CBC4; border-radius: 10px; padding: 12px 14px;">
-                                    <span style="font-size: 1.4rem;">🏅</span>
-                                    <span style="font-size: 0.8rem; font-weight: 700; color: #00695C;">IFS</span>
-                                </div>
-                                <div style="display: flex; align-items: center; gap: 8px; background: #FFF8E1; border: 1.5px solid #FFE082; border-radius: 10px; padding: 12px 14px;">
-                                    <span style="font-size: 1.4rem;">🏅</span>
-                                    <span style="font-size: 0.8rem; font-weight: 700; color: #F57F17;">BRC</span>
-                                </div>
-                                <div style="display: flex; align-items: center; gap: 8px; background: #FCE4EC; border: 1.5px solid #F48FB1; border-radius: 10px; padding: 12px 14px; grid-column: span 2;">
-                                    <span style="font-size: 1.4rem;">🇺🇸</span>
-                                    <span style="font-size: 0.8rem; font-weight: 700; color: #880E4F;">FDA Registered</span>
-                                </div>
+                                {% endfor %}
                             </div>
+                            {% endif %}
                         </div>
 
                     </div>

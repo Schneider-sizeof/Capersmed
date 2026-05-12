@@ -417,19 +417,19 @@ tr.product-highlight td {
 <!-- ===== PRODUCT QUICK NAV ===== -->
 <div class="product-quicknav">
     <button class="pqn-btn pqn-active" onclick="showAll()">{% trans "All" %}</button>
-    {% for product in pickles %}
+    {% for product in capers %}
     <a href="#product-{{ product.slug }}" class="pqn-btn" onclick="scrollToProduct(event, 'product-{{ product.slug }}')">
         🫒 {% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}{% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}{% else %}{{ product.name_en }}{% endif %}
     </a>
     {% endfor %}
-    {% for product in vinegars %}
-    <a href="#product-{{ product.slug }}" class="pqn-btn" onclick="scrollToProduct(event, 'product-{{ product.slug }}')">
-        🍾 {% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}{% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}{% else %}{{ product.name_en }}{% endif %}
-    </a>
-    {% endfor %}
-    {% for product in spicy %}
+    {% for product in peppers %}
     <a href="#product-{{ product.slug }}" class="pqn-btn" onclick="scrollToProduct(event, 'product-{{ product.slug }}')">
         🌶️ {% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}{% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}{% else %}{{ product.name_en }}{% endif %}
+    </a>
+    {% endfor %}
+    {% for product in pickles %}
+    <a href="#product-{{ product.slug }}" class="pqn-btn" onclick="scrollToProduct(event, 'product-{{ product.slug }}')">
+        🥒 {% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}{% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}{% else %}{{ product.name_en }}{% endif %}
     </a>
     {% endfor %}
 </div>
@@ -437,10 +437,60 @@ tr.product-highlight td {
 <!-- ===== PRODUCT TABLE ===== -->
 <div class="products-table-section">
 
+    <!-- ============ CAPERS ============ -->
+    {% if capers %}
+    <div class="category-block fade-up">
+        <h2 class="category-heading">🫒 {% trans "Capers & Caperberries" %}</h2>
+        <table class="products-table">
+            <thead>
+                <tr>
+                    <th>{% trans "Photo" %}</th>
+                    <th>{% trans "Product" %}</th>
+                    <th>{% trans "Packaging Available" %}</th>
+                    <th>{% trans "Certifications" %}</th>
+                    <th>{% trans "Details" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in capers %}
+                {% include 'core/includes/product_table_row.html' %}
+                {% empty %}
+                <tr><td colspan="5" class="no-data" style="text-align:center; padding: 2rem;">{% trans "No products yet." %}</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+
+    <!-- ============ PEPPERS ============ -->
+    {% if peppers %}
+    <div class="category-block fade-up">
+        <h2 class="category-heading">🌶️ {% trans "Peppers & Hot Products" %}</h2>
+        <table class="products-table">
+            <thead>
+                <tr>
+                    <th>{% trans "Photo" %}</th>
+                    <th>{% trans "Product" %}</th>
+                    <th>{% trans "Packaging Available" %}</th>
+                    <th>{% trans "Certifications" %}</th>
+                    <th>{% trans "Details" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in peppers %}
+                {% include 'core/includes/product_table_row.html' %}
+                {% empty %}
+                <tr><td colspan="5" class="no-data" style="text-align:center; padding: 2rem;">{% trans "No products yet." %}</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+
     <!-- ============ PICKLES ============ -->
     {% if pickles %}
     <div class="category-block fade-up">
-        <h2 class="category-heading">🫒 {% trans "Pickled Vegetables & Condiments" %}</h2>
+        <h2 class="category-heading">🥒 {% trans "Pickled Vegetables & Condiments" %}</h2>
         <table class="products-table">
             <thead>
                 <tr>
@@ -453,57 +503,6 @@ tr.product-highlight td {
             </thead>
             <tbody>
                 {% for product in pickles %}
-                {% include 'core/includes/product_table_row.html' %}
-
-                {% empty %}
-                <tr><td colspan="5" class="no-data" style="text-align:center; padding: 2rem;">{% trans "No products yet." %}</td></tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-    {% endif %}
-
-    <!-- ============ VINEGARS ============ -->
-    {% if vinegars %}
-    <div class="category-block fade-up">
-        <h2 class="category-heading">🍾 {% trans "Premium Vinegars" %}</h2>
-        <table class="products-table">
-            <thead>
-                <tr>
-                    <th>{% trans "Photo" %}</th>
-                    <th>{% trans "Product" %}</th>
-                    <th>{% trans "Packaging Available" %}</th>
-                    <th>{% trans "Certifications" %}</th>
-                    <th>{% trans "Details" %}</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for product in vinegars %}
-                {% include 'core/includes/product_table_row.html' %}
-                {% empty %}
-                <tr><td colspan="5" class="no-data" style="text-align:center; padding: 2rem;">{% trans "No products yet." %}</td></tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-    {% endif %}
-
-    <!-- ============ SPICY ============ -->
-    {% if spicy %}
-    <div class="category-block fade-up">
-        <h2 class="category-heading">🌶️ {% trans "Hot & Spicy" %}</h2>
-        <table class="products-table">
-            <thead>
-                <tr>
-                    <th>{% trans "Photo" %}</th>
-                    <th>{% trans "Product" %}</th>
-                    <th>{% trans "Packaging Available" %}</th>
-                    <th>{% trans "Certifications" %}</th>
-                    <th>{% trans "Details" %}</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for product in spicy %}
                 {% include 'core/includes/product_table_row.html' %}
                 {% empty %}
                 <tr><td colspan="5" class="no-data" style="text-align:center; padding: 2rem;">{% trans "No products yet." %}</td></tr>

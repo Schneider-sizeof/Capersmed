@@ -2,10 +2,49 @@ from django.db import models
 from django.utils.text import slugify
 
 CATEGORY_CHOICES = [
-    ('vinegars', 'Premium Vinegars'),
+    ('capers',  'Capers & Caperberries'),
+    ('peppers', 'Peppers & Hot Products'),
     ('pickles', 'Pickled Vegetables & Condiments'),
-    ('spicy', 'Hot & Spicy'),
 ]
+
+
+class Preservation(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+
+    class Meta:
+        ordering = ['name']
+        verbose_name = 'Preservation Method'
+        verbose_name_plural = 'Preservation Methods'
+
+    def __str__(self):
+        return self.name
+
+
+class Packaging(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+
+    class Meta:
+        ordering = ['name']
+        verbose_name = 'Packaging'
+        verbose_name_plural = 'Packaging Options'
+
+    def __str__(self):
+        return self.name
+
+
+class Certification(models.Model):
+    code = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=200)
+    icon = models.CharField(max_length=10, default='🏅')
+
+    class Meta:
+        ordering = ['code']
+        verbose_name = 'Certification'
+        verbose_name_plural = 'Certifications'
+
+    def __str__(self):
+        return self.code
+
 
 class Product(models.Model):
     name_en = models.CharField(max_length=200)
@@ -14,35 +53,35 @@ class Product(models.Model):
     slug = models.SlugField(unique=True, blank=True)
     category = models.CharField(max_length=100, choices=CATEGORY_CHOICES)
     is_premium = models.BooleanField(default=False)
-    
+
     short_description_en = models.CharField(max_length=300, default='')
     short_description_fr = models.CharField(max_length=300, default='')
     short_description_ar = models.CharField(max_length=300, default='')
-    
+
     description_en = models.TextField()
     description_fr = models.TextField()
     description_ar = models.TextField()
-    
+
     features_en = models.JSONField(default=list)
     features_fr = models.JSONField(default=list)
     features_ar = models.JSONField(default=list)
-    
+
     uses_en = models.JSONField(default=list)
     uses_fr = models.JSONField(default=list)
     uses_ar = models.JSONField(default=list)
-    
+
     specifications_en = models.JSONField(default=dict)
     specifications_fr = models.JSONField(default=dict)
     specifications_ar = models.JSONField(default=dict)
-    
+
     image = models.ImageField(upload_to='products/', blank=True, null=True)
     is_featured = models.BooleanField(default=False)
-    # Packaging: list of size strings, e.g. ["370g Jar", "720g Jar", "5L Bulk"]
-    packaging = models.JSONField(default=list, blank=True)
-    # Certifications: list of codes, e.g. ["ISO22000", "HACCP", "HALAL", "FDA", "EU", "BIO"]
-    certifications = models.JSONField(default=list, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
 
+    preservation   = models.ManyToManyField(Preservation,   blank=True, related_name='products')
+    packaging      = models.ManyToManyField(Packaging,      blank=True, related_name='products')
+    certifications = models.ManyToManyField(Certification,  blank=True, related_name='products')
+
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -51,6 +90,7 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name_en
+
 
 class ContactMessage(models.Model):
     full_name = models.CharField(max_length=200)
@@ -64,6 +104,7 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return f"Message from {self.full_name}"
+
 
 class SiteSettings(models.Model):
     site_name = models.CharField(max_length=200, default='CAPERSMED')
@@ -91,8 +132,8 @@ BLOG_CATEGORY_CHOICES = [
     ('products', 'Product Spotlight'),
 ]
 
+
 class BlogPost(models.Model):
-    # Multilingual titles
     title_en = models.CharField(max_length=250)
     title_fr = models.CharField(max_length=250, blank=True)
     title_ar = models.CharField(max_length=250, blank=True)
@@ -100,12 +141,10 @@ class BlogPost(models.Model):
     slug = models.SlugField(unique=True, blank=True, max_length=260)
     category = models.CharField(max_length=50, choices=BLOG_CATEGORY_CHOICES, default='news')
 
-    # Excerpts
     excerpt_en = models.TextField(max_length=400, blank=True)
     excerpt_fr = models.TextField(max_length=400, blank=True)
     excerpt_ar = models.TextField(max_length=400, blank=True)
 
-    # Full content
     content_en = models.TextField()
     content_fr = models.TextField(blank=True)
     content_ar = models.TextField(blank=True)
@@ -130,4 +169,3 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title_en
-

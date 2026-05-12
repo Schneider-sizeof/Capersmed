@@ -11,10 +11,3 @@ def site_settings(request):
             address='Hay Namae Bensouda 371/3, Fes 30000, Morocco'
         )
     return {'site_settings': settings}
-
-from django.conf import settings as django_settings
-
-def demo_mode(request):
-    return {
-        'DEMO_MODE': getattr(django_settings, 'DEMO_MODE', False)
-    }

@@ -256,21 +256,6 @@
             background: #f0f7f4;
         }
 
-        /* Demo Banner */
-        .demo-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: #C8102E;
-            color: white;
-            text-align: center;
-            padding: 8px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            z-index: 9999;
-            letter-spacing: 1px;
-        }
 
         /* Responsive */
         @media (max-width: 1024px) {
@@ -319,73 +304,9 @@
     {% block extra_head %}{% endblock %}
 </head>
 
-<body {% if DEMO_MODE %}class="anti-select" oncontextmenu="return false;" ondragstart="return false;" ondrop="return false;"{% endif %}>
+<body>
 
-    {% if DEMO_MODE %}
-    <!-- Demo Banner -->
-    <div id="demo-lock-banner" class="demo-banner">DEMO MODE — NOT FOR COMMERCIAL USE</div>
-    <script>
-        (function() {
-            document.addEventListener('contextmenu', e => e.preventDefault());
-            document.addEventListener('dragstart', e => e.preventDefault());
-            document.addEventListener('selectstart', e => e.preventDefault());
-            document.addEventListener('keydown', function(e) {
-                if (e.ctrlKey && (e.key === 'c' || e.key === 's' || e.key === 'p')) e.preventDefault();
-            });
 
-            const bannerId = 'demo-lock-banner';
-            let observer;
-
-            function enforceBanner() {
-                if (!document.getElementById(bannerId)) {
-                    const el = document.createElement('div');
-                    el.id = bannerId;
-                    el.className = 'demo-banner';
-                    el.innerText = 'DEMO MODE — NOT FOR COMMERCIAL USE';
-                    document.body.appendChild(el);
-                } else {
-                    const el = document.getElementById(bannerId);
-                    if (el.style.display === 'none' || el.style.opacity === '0' || el.style.visibility === 'hidden') {
-                        el.style.display = 'block'; el.style.opacity = '1'; el.style.visibility = 'visible';
-                    }
-                }
-            }
-
-            observer = new MutationObserver(() => enforceBanner());
-            observer.observe(document.body, { childList: true, subtree: true, attributes: true });
-
-            let typed = '';
-            const PIN = '2026';
-
-            function unlockDemo() {
-                observer.disconnect();
-                const el = document.getElementById(bannerId);
-                if (el) el.remove();
-                document.body.classList.remove('anti-select');
-                document.body.removeAttribute('oncontextmenu');
-                document.body.removeAttribute('ondragstart');
-                document.body.removeAttribute('ondrop');
-                alert("Demo Mode Unlocked!");
-            }
-
-            document.addEventListener('keydown', function(e) {
-                typed += e.key;
-                if (typed.length > PIN.length) typed = typed.slice(-PIN.length);
-                if (typed === PIN) unlockDemo();
-            });
-
-            let tapCount = 0, tapTimeout;
-            document.body.addEventListener('click', function(e) {
-                if (e.target.id === bannerId) {
-                    tapCount++;
-                    clearTimeout(tapTimeout);
-                    if (tapCount >= 5) { unlockDemo(); tapCount = 0; }
-                    tapTimeout = setTimeout(() => { tapCount = 0; }, 1000);
-                }
-            });
-        })();
-    </script>
-    {% endif %}
 
     <!-- ===== HEADER ===== -->
     <header id="site-header">

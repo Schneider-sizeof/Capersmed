@@ -7,7 +7,7 @@
                 <img src="{{ MEDIA_URL }}{{ product.image }}" alt="{% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}{% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}{% elif LANGUAGE_CODE == 'es' %}{{ product.name_es }}{% elif LANGUAGE_CODE == 'it' %}{{ product.name_it }}{% else %}{{ product.name_en }}{% endif %}" loading="lazy">
             {% else %}
                 <span class="prod-img-placeholder">
-                    {% if product.category == 'vinegars' %}🍾{% elif product.category == 'spicy' %}🌶️{% else %}🫒{% endif %}
+                    {% if product.category == 'capers' %}🫒{% elif product.category == 'peppers' %}🌶️{% else %}🥒{% endif %}
                 </span>
             {% endif %}
         </div>
@@ -20,24 +20,21 @@
     </td>
 
     <td data-label="Packaging">
-        {% if product.packaging %}
+        {% if product.packaging.exists %}
         <div class="packaging-icons">
-            {% for pkg in product.packaging %}
-            <div class="pkg-icon" title="{{ pkg }}">
+            {% for pkg in product.packaging.all %}
+            <div class="pkg-icon" title="{{ pkg.name }}">
                 <div class="pkg-icon-img">
-                    {% with p=pkg|lower %}
-                    {% if 'pet' in p %}🍶
-                    {% elif 'ibc' in p %}🏭
-                    {% elif '200kg' in p or 'drum' in p or 'kg' in p %}🛢️
-                    {% elif '2l' in p or '7l' in p %}🪣
-                    {% elif 'ml' in p or 'l bottle' in p or 'litre' in p %}🍶
-                    {% elif 'jar' in p or 'bocal' in p %}🫙
-                    {% elif 'can' in p or 'tin' in p %}🥫
-                    {% elif 'box' in p %}📦
+                    {% with p=pkg.name|lower %}
+                    {% if 'fut' in p or 'drum' in p %}🛢️
+                    {% elif 'seaux' in p or 'seau' in p %}🪣
+                    {% elif 'bocal' in p or 'jar' in p %}🫙
+                    {% elif 'boite' in p or 'metallique' in p or 'can' in p or 'tin' in p %}🥫
+                    {% elif 'doypack' in p or 'bag' in p %}📦
                     {% else %}📦{% endif %}
                     {% endwith %}
                 </div>
-                <span class="pkg-icon-label">{{ pkg }}</span>
+                <span class="pkg-icon-label">{{ pkg.name }}</span>
             </div>
             {% endfor %}
         </div>
@@ -47,23 +44,12 @@
     </td>
 
     <td data-label="Certifications">
-        {% if product.certifications %}
+        {% if product.certifications.exists %}
         <div class="cert-badges">
-            {% for cert in product.certifications %}
-            <span class="cert-badge cert-{{ cert|upper }}" title="{{ cert }}">
-                <span class="cert-icon">
-                    {% if cert == 'HALAL' %}☪️
-                    {% elif cert == 'KOSHER' %}✡️
-                    {% elif cert == 'IFS' %}🏅
-                    {% elif cert == 'BRC' %}🏅
-                    {% elif cert == 'FDA' %}🇺🇸
-                    {% elif cert == 'ISO22000' %}🏅
-                    {% elif cert == 'HACCP' %}✅
-                    {% elif cert == 'EU' %}🇪🇺
-                    {% elif cert == 'BIO' %}🌿
-                    {% else %}🏆{% endif %}
-                </span>
-                {{ cert|upper }}
+            {% for cert in product.certifications.all %}
+            <span class="cert-badge cert-{{ cert.code|upper }}" title="{{ cert.name }}">
+                <span class="cert-icon">{{ cert.icon }}</span>
+                {{ cert.code|upper }}
             </span>
             {% endfor %}
         </div>
