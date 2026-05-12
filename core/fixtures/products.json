@@ -267,7 +267,7 @@
       "En saumure",
       "En vinaigre"
     ],
-    "image": "",
+    "image": "products/cut-peppers.png",
     "shelf_life": "36 months",
     "storage": "Cool dry place, 5-25°C",
     "origin": "Morocco"
@@ -303,7 +303,7 @@
     "desc_es": "Pasta de harissa tradicional, condimento versátil para adobos, cuscús y parrillas.",
     "desc_it": "Pasta di harissa tradizionale, condimento versatile per marinature, couscous e grigliate.",
     "preservations": [],
-    "image": "",
+    "image": "products/harissa.png",
     "shelf_life": "36 months",
     "storage": "Cool dry place, 5-25°C",
     "origin": "Morocco"
@@ -342,7 +342,7 @@
       "En saumure",
       "En sel sec"
     ],
-    "image": "",
+    "image": "products/preserved-lemons.png",
     "shelf_life": "36 months",
     "storage": "Cool dry place, 5-25°C",
     "origin": "Morocco"
@@ -380,7 +380,7 @@
     "preservations": [
       "En vinaigre"
     ],
-    "image": "",
+    "image": "products/pearl-silver-onions.png",
     "shelf_life": "36 months",
     "storage": "Cool dry place, 5-25°C",
     "origin": "Morocco"
@@ -417,7 +417,7 @@
     "preservations": [
       "En vinaigre"
     ],
-    "image": "",
+    "image": "products/lampascioni.png",
     "shelf_life": "36 months",
     "storage": "Cool dry place, 5-25°C",
     "origin": "Morocco"
@@ -455,7 +455,7 @@
     "preservations": [
       "En vinaigre"
     ],
-    "image": "",
+    "image": "products/cornichons.png",
     "shelf_life": "36 months",
     "storage": "Cool dry place, 5-25°C",
     "origin": "Morocco"
