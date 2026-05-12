@@ -90,8 +90,8 @@
     white-space: nowrap;
 }
 
-.products-table th:nth-child(1) { width: 90px; text-align: center; }
-.products-table th:nth-child(3) { width: 200px; }
+.products-table th:nth-child(1) { width: 130px; text-align: center; }
+.products-table th:nth-child(3) { width: 240px; }
 .products-table th:nth-child(4) { width: 200px; }
 .products-table th:nth-child(5) { width: 120px; text-align: center; }
 
@@ -117,13 +117,13 @@
 /* ========== COLUMN 1: Image with Glow ========== */
 .prod-img-cell {
     text-align: center;
-    width: 90px;
+    width: 130px;
 }
 
 .prod-img-wrap {
-    width: 72px;
-    height: 72px;
-    border-radius: 10px;
+    width: 110px;
+    height: 110px;
+    border-radius: 12px;
     overflow: hidden;
     margin: 0 auto;
     position: relative;
@@ -139,9 +139,9 @@
 .prod-img-wrap img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
-    mix-blend-mode: multiply; /* helps with white backgrounds */
+    padding: 6px;
     transition: transform 0.4s ease;
 }
 
@@ -150,7 +150,7 @@
 }
 
 .prod-img-placeholder {
-    font-size: 2rem;
+    font-size: 3rem;
     line-height: 1;
 }
 
@@ -190,47 +190,34 @@
     margin-bottom: 5px;
 }
 
-/* ========== COLUMN 3: Packaging Icons ========== */
+/* ========== COLUMN 3: Packaging Pills ========== */
 .packaging-icons {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 5px;
     align-items: center;
 }
 
-.pkg-icon {
-    display: flex;
-    flex-direction: column;
+.pkg-pill {
+    display: inline-flex;
     align-items: center;
     gap: 3px;
+    padding: 4px 10px;
+    background: #f0f7f3;
+    border: 1px solid #c8e6d0;
+    border-radius: 16px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: #2d6a4f;
+    white-space: nowrap;
+    transition: all 0.2s ease;
     cursor: default;
 }
 
-.pkg-icon-img {
-    width: 36px;
-    height: 36px;
-    background: #f0f7f3;
-    border: 1.5px solid #c8e6d0;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    transition: all 0.25s ease;
-}
-
-.pkg-icon:hover .pkg-icon-img {
+.pkg-pill:hover {
     background: #d6ede0;
     border-color: #40916C;
-    transform: translateY(-2px);
-}
-
-.pkg-icon-label {
-    font-size: 0.58rem;
-    font-weight: 600;
-    color: #666;
-    white-space: nowrap;
-    text-align: center;
+    transform: translateY(-1px);
 }
 
 .no-data {
@@ -350,6 +337,38 @@
     .prod-img-cell { text-align: left; }
     .prod-img-wrap { margin: 0; }
     .products-page-hero h1 { font-size: 2rem; }
+
+    /* Quick nav becomes horizontal slider on mobile */
+    .product-quicknav {
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        justify-content: flex-start !important;
+        padding: 1rem 1rem 0.5rem !important;
+        gap: 0.4rem !important;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+    }
+    .product-quicknav::-webkit-scrollbar { display: none; }
+    .product-quicknav .pqn-btn {
+        scroll-snap-align: start;
+        flex-shrink: 0;
+        padding: 6px 14px;
+        font-size: 0.72rem;
+    }
+
+    /* Compact packaging on mobile */
+    .packaging-icons {
+        gap: 5px !important;
+    }
+    .pkg-icon-img {
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 0.9rem !important;
+    }
+    .pkg-icon-label {
+        font-size: 0.5rem !important;
+    }
 }
 
 /* ========== PRODUCT QUICK NAV ========== */
@@ -364,11 +383,13 @@
 }
 
 .pqn-btn {
-    display: inline-block;
-    padding: 8px 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 16px;
     border: 1.5px solid #d0e8d8;
     border-radius: 25px;
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     font-weight: 600;
     color: #40916C;
     background: #fff;

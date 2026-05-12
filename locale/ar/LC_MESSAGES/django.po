@@ -821,3 +821,15 @@ msgstr "لماذا تختارنا"
 
 msgid "Your brand our quality"
 msgstr "علامتك التجارية، جودتنا"
+
+msgid "Capers & Caperberries"
+msgstr "الكبار وثمار الكبار"
+
+msgid "Peppers & Hot Products"
+msgstr "الفلفل والمنتجات الحارة"
+
+msgid "Preservation"
+msgstr "طريقة الحفظ"
+
+msgid "View →"
+msgstr "عرض →"

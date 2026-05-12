@@ -860,3 +860,15 @@ msgstr "Pourquoi Nous Choisir"
 
 msgid "Your brand our quality"
 msgstr "Votre marque, notre qualite"
+
+msgid "Capers & Caperberries"
+msgstr "Câpres et Câprons"
+
+msgid "Peppers & Hot Products"
+msgstr "Piments et Produits Piquants"
+
+msgid "Preservation"
+msgstr "Conservation"
+
+msgid "View →"
+msgstr "Voir →"

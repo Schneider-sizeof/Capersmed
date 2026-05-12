@@ -23,19 +23,10 @@
         {% if product.packaging.exists %}
         <div class="packaging-icons">
             {% for pkg in product.packaging.all %}
-            <div class="pkg-icon" title="{{ pkg.name }}">
-                <div class="pkg-icon-img">
-                    {% with p=pkg.name|lower %}
-                    {% if 'fut' in p or 'drum' in p %}🛢️
-                    {% elif 'seaux' in p or 'seau' in p %}🪣
-                    {% elif 'bocal' in p or 'jar' in p %}🫙
-                    {% elif 'boite' in p or 'metallique' in p or 'can' in p or 'tin' in p %}🥫
-                    {% elif 'doypack' in p or 'bag' in p %}📦
-                    {% else %}📦{% endif %}
-                    {% endwith %}
-                </div>
-                <span class="pkg-icon-label">{{ pkg.name }}</span>
-            </div>
+            <span class="pkg-pill" title="{{ pkg.name }}">
+                {% with p=pkg.name|lower %}{% if 'fut' in p %}🛢️{% elif 'seaux' in p %}🪣{% elif 'bocal' in p %}🫙{% elif 'boite' in p or 'metallique' in p %}🥫{% elif 'doypack' in p %}📦{% else %}📦{% endif %}{% endwith %}
+                {{ pkg.name }}
+            </span>
             {% endfor %}
         </div>
         {% else %}
