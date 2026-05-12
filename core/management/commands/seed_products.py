@@ -7,20 +7,20 @@ from core.models import Product, Preservation, Packaging, Certification
 
 
 PRESERVATIONS = [
-    'En saumure',
-    'En vinaigre',
-    'En sel sec',
+    {'name': 'En saumure',   'name_fr': 'En saumure',   'name_ar': '\u0641\u064a \u0645\u062d\u0644\u0648\u0644 \u0645\u0644\u062d\u064a', 'name_es': 'En salmuera',    'name_it': 'In salamoia'},
+    {'name': 'En vinaigre',  'name_fr': 'En vinaigre',  'name_ar': '\u0641\u064a \u0627\u0644\u062e\u0644',          'name_es': 'En vinagre',     'name_it': 'In aceto'},
+    {'name': 'En sel sec',   'name_fr': 'En sel sec',   'name_ar': '\u0641\u064a \u0645\u0644\u062d \u062c\u0627\u0641',       'name_es': 'En sal seca',    'name_it': 'In sale secco'},
 ]
 
 PACKAGINGS = [
-    'Fut 250L',
-    'Fut 65L',
-    'Fut 35L',
-    'Fut 17L',
-    'Seaux a partir de 100ml',
-    'Bocal',
-    'Boite metallique',
-    'Doypack bag',
+    {'name': 'Fut 250L',               'name_fr': 'F\u00fbt 250L',              'name_ar': '\u0628\u0631\u0645\u064a\u0644 250 \u0644\u062a\u0631',        'name_es': 'Barril 250L',             'name_it': 'Fusto 250L'},
+    {'name': 'Fut 65L',                'name_fr': 'F\u00fbt 65L',               'name_ar': '\u0628\u0631\u0645\u064a\u0644 65 \u0644\u062a\u0631',         'name_es': 'Barril 65L',              'name_it': 'Fusto 65L'},
+    {'name': 'Fut 35L',                'name_fr': 'F\u00fbt 35L',               'name_ar': '\u0628\u0631\u0645\u064a\u0644 35 \u0644\u062a\u0631',         'name_es': 'Barril 35L',              'name_it': 'Fusto 35L'},
+    {'name': 'Fut 17L',                'name_fr': 'F\u00fbt 17L',               'name_ar': '\u0628\u0631\u0645\u064a\u0644 17 \u0644\u062a\u0631',         'name_es': 'Barril 17L',              'name_it': 'Fusto 17L'},
+    {'name': 'Seaux a partir de 100ml','name_fr': 'Seaux \u00e0 partir de 100ml','name_ar': '\u062f\u0644\u0627\u0621 \u0627\u0628\u062a\u062f\u0627\u0621\u064b \u0645\u0646 100\u0645\u0644',   'name_es': 'Cubos desde 100ml',       'name_it': 'Secchi da 100ml'},
+    {'name': 'Bocal',                  'name_fr': 'Bocal',                 'name_ar': '\u0628\u0631\u0637\u0645\u0627\u0646',             'name_es': 'Tarro',                   'name_it': 'Barattolo'},
+    {'name': 'Boite metallique',       'name_fr': 'Bo\u00eete m\u00e9tallique',      'name_ar': '\u0639\u0644\u0628\u0629 \u0645\u0639\u062f\u0646\u064a\u0629',          'name_es': 'Lata met\u00e1lica',           'name_it': 'Scatola metallica'},
+    {'name': 'Doypack bag',            'name_fr': 'Doypack',               'name_ar': '\u0643\u064a\u0633 \u062f\u0648\u064a\u0628\u0627\u0643',          'name_es': 'Bolsa Doypack',           'name_it': 'Busta Doypack'},
 ]
 
 CERTIFICATIONS = [
@@ -227,16 +227,32 @@ class Command(BaseCommand):
 
         # Create preservation methods
         pres_map = {}
-        for name in PRESERVATIONS:
-            obj, _ = Preservation.objects.get_or_create(name=name)
-            pres_map[name] = obj
+        for p in PRESERVATIONS:
+            obj, _ = Preservation.objects.get_or_create(
+                name=p['name'],
+                defaults={
+                    'name_fr': p['name_fr'],
+                    'name_ar': p['name_ar'],
+                    'name_es': p['name_es'],
+                    'name_it': p['name_it'],
+                }
+            )
+            pres_map[p['name']] = obj
         self.stdout.write(f'Created {len(pres_map)} preservation methods.')
 
         # Create packaging options
         pkg_map = {}
-        for name in PACKAGINGS:
-            obj, _ = Packaging.objects.get_or_create(name=name)
-            pkg_map[name] = obj
+        for p in PACKAGINGS:
+            obj, _ = Packaging.objects.get_or_create(
+                name=p['name'],
+                defaults={
+                    'name_fr': p['name_fr'],
+                    'name_ar': p['name_ar'],
+                    'name_es': p['name_es'],
+                    'name_it': p['name_it'],
+                }
+            )
+            pkg_map[p['name']] = obj
         self.stdout.write(f'Created {len(pkg_map)} packaging options.')
 
         # Create certifications

@@ -25,7 +25,7 @@
             {% for pkg in product.packaging.all %}
             <span class="pkg-pill" title="{{ pkg.name }}">
                 {% with p=pkg.name|lower %}{% if 'fut' in p %}🛢️{% elif 'seaux' in p %}🪣{% elif 'bocal' in p %}🫙{% elif 'boite' in p or 'metallique' in p %}🥫{% elif 'doypack' in p %}📦{% else %}📦{% endif %}{% endwith %}
-                {{ pkg.name }}
+                {% if LANGUAGE_CODE == 'fr' and pkg.name_fr %}{{ pkg.name_fr }}{% elif LANGUAGE_CODE == 'ar' and pkg.name_ar %}{{ pkg.name_ar }}{% elif LANGUAGE_CODE == 'es' and pkg.name_es %}{{ pkg.name_es }}{% elif LANGUAGE_CODE == 'it' and pkg.name_it %}{{ pkg.name_it }}{% else %}{{ pkg.name }}{% endif %}
             </span>
             {% endfor %}
         </div>

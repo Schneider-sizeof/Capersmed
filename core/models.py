@@ -10,6 +10,10 @@ CATEGORY_CHOICES = [
 
 class Preservation(models.Model):
     name = models.CharField(max_length=100, unique=True)
+    name_fr = models.CharField(max_length=100, blank=True, default='')
+    name_ar = models.CharField(max_length=100, blank=True, default='')
+    name_es = models.CharField(max_length=100, blank=True, default='')
+    name_it = models.CharField(max_length=100, blank=True, default='')
 
     class Meta:
         ordering = ['name']
@@ -22,6 +26,10 @@ class Preservation(models.Model):
 
 class Packaging(models.Model):
     name = models.CharField(max_length=100, unique=True)
+    name_fr = models.CharField(max_length=100, blank=True, default='')
+    name_ar = models.CharField(max_length=100, blank=True, default='')
+    name_es = models.CharField(max_length=100, blank=True, default='')
+    name_it = models.CharField(max_length=100, blank=True, default='')
 
     class Meta:
         ordering = ['name']
