@@ -58,6 +58,8 @@ class Product(models.Model):
     name_en = models.CharField(max_length=200)
     name_fr = models.CharField(max_length=200)
     name_ar = models.CharField(max_length=200)
+    name_es = models.CharField(max_length=200, blank=True, default='')
+    name_it = models.CharField(max_length=200, blank=True, default='')
     slug = models.SlugField(unique=True, blank=True)
     category = models.CharField(max_length=100, choices=CATEGORY_CHOICES)
     is_premium = models.BooleanField(default=False)
@@ -65,22 +67,39 @@ class Product(models.Model):
     short_description_en = models.CharField(max_length=300, default='')
     short_description_fr = models.CharField(max_length=300, default='')
     short_description_ar = models.CharField(max_length=300, default='')
+    short_description_es = models.CharField(max_length=300, blank=True, default='')
+    short_description_it = models.CharField(max_length=300, blank=True, default='')
 
     description_en = models.TextField()
     description_fr = models.TextField()
     description_ar = models.TextField()
+    description_es = models.TextField(blank=True, default='')
+    description_it = models.TextField(blank=True, default='')
 
     features_en = models.JSONField(default=list)
     features_fr = models.JSONField(default=list)
     features_ar = models.JSONField(default=list)
+    features_es = models.JSONField(default=list)
+    features_it = models.JSONField(default=list)
 
     uses_en = models.JSONField(default=list)
     uses_fr = models.JSONField(default=list)
     uses_ar = models.JSONField(default=list)
+    uses_es = models.JSONField(default=list)
+    uses_it = models.JSONField(default=list)
 
     specifications_en = models.JSONField(default=dict)
     specifications_fr = models.JSONField(default=dict)
     specifications_ar = models.JSONField(default=dict)
+    specifications_es = models.JSONField(default=dict)
+    specifications_it = models.JSONField(default=dict)
+
+    # B2B catalog fields
+    calibers = models.JSONField(default=list, blank=True, help_text='Available calibers e.g. [1, 2, 3]')
+    grades = models.JSONField(default=list, blank=True, help_text='Available grades e.g. ["A","B","C","D","E"]')
+    shelf_life = models.CharField(max_length=100, blank=True, default='')
+    storage_conditions = models.CharField(max_length=200, blank=True, default='')
+    origin = models.CharField(max_length=100, blank=True, default='Morocco')
 
     image = models.ImageField(upload_to='products/', blank=True, null=True)
     is_featured = models.BooleanField(default=False)

@@ -1,0 +1,463 @@
+[
+  {
+    "name_en": "Capers",
+    "name_fr": "Câpres",
+    "name_ar": "كبار",
+    "name_es": "Alcaparras",
+    "name_it": "Capperi",
+    "slug": "capers",
+    "category": "capers",
+    "is_featured": true,
+    "calibers": [
+      1,
+      2,
+      3
+    ],
+    "grades": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "short_en": "Premium hand-picked Moroccan capers, sorted by calibre.",
+    "short_fr": "Câpres marocaines triées par calibre, cueillies à la main.",
+    "short_ar": "كبار مغربي مقطوف يدوياً ومصنف حسب الحجم.",
+    "short_es": "Alcaparras marroquíes seleccionadas a mano, clasificadas por calibre.",
+    "short_it": "Capperi marocchini raccolti a mano, selezionati per calibro.",
+    "desc_en": "Hand-picked Moroccan capers sorted by calibre. Available in brine, vinegar, or dry salt.",
+    "desc_fr": "Câpres marocaines cueillies à la main, triées par calibre. En saumure, vinaigre ou sel sec.",
+    "desc_ar": "كبار مغربي مقطوف يدوياً ومصنف حسب الحجم. متوفر في محلول ملحي أو خل أو ملح جاف.",
+    "desc_es": "Alcaparras marroquíes seleccionadas a mano. Disponibles en salmuera, vinagre o sal seca.",
+    "desc_it": "Capperi marocchini raccolti a mano. Disponibili in salamoia, aceto o sale secco.",
+    "preservations": [
+      "En saumure",
+      "En vinaigre",
+      "En sel sec"
+    ],
+    "image": "products/capers.png",
+    "shelf_life": "36 months",
+    "storage": "Cool dry place, 5-25°C",
+    "origin": "Morocco"
+  },
+  {
+    "name_en": "Caperberries",
+    "name_fr": "Câprons",
+    "name_ar": "ثمار الكبار",
+    "name_es": "Alcaparrones",
+    "name_it": "Frutti di cappero",
+    "slug": "caperberries",
+    "category": "capers",
+    "is_featured": true,
+    "calibers": [
+      1,
+      2
+    ],
+    "grades": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "short_en": "Moroccan caperberries with stems, mild olive-like flavour.",
+    "short_fr": "Câprons marocains à la saveur douce ressemblant à l'olive.",
+    "short_ar": "ثمار الكبار المغربية بنكهة خفيفة تشبه الزيتون.",
+    "short_es": "Alcaparrones marroquíes con tallos, sabor suave similar a la aceituna.",
+    "short_it": "Frutti di cappero marocchini con gambo, sapore delicato simile all'oliva.",
+    "desc_en": "Caperberries with stems, ideal for tapas, cocktails, and gourmet garnishes.",
+    "desc_fr": "Câprons avec tiges, idéals pour les tapas, cocktails et garnitures.",
+    "desc_ar": "ثمار الكبار بالسيقان، مثالية للمقبلات والكوكتيلات.",
+    "desc_es": "Alcaparrones con tallos, ideales para tapas, cócteles y guarniciones.",
+    "desc_it": "Frutti di cappero con gambo, ideali per tapas, cocktail e guarnizioni.",
+    "preservations": [
+      "En saumure",
+      "En vinaigre"
+    ],
+    "image": "products/caperberries.png",
+    "shelf_life": "36 months",
+    "storage": "Cool dry place, 5-25°C",
+    "origin": "Morocco"
+  },
+  {
+    "name_en": "Hot Peppers",
+    "name_fr": "Les piments",
+    "name_ar": "الفلفل الحار",
+    "name_es": "Pimientos picantes",
+    "name_it": "Peperoncini",
+    "slug": "hot-peppers",
+    "category": "peppers",
+    "is_featured": false,
+    "calibers": [
+      1,
+      2
+    ],
+    "grades": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "short_en": "Assorted hot peppers preserved in brine or vinegar.",
+    "short_fr": "Assortiment de piments conservés en saumure ou vinaigre.",
+    "short_ar": "تشكيلة فلفل حار محفوظ في المحلول الملحي أو الخل.",
+    "short_es": "Surtido de pimientos picantes conservados en salmuera o vinagre.",
+    "short_it": "Assortimento di peperoncini conservati in salamoia o aceto.",
+    "desc_en": "A variety of hot peppers, preserved to retain their natural heat and flavour.",
+    "desc_fr": "Une variété de piments, conservés pour garder leur chaleur et saveur naturelles.",
+    "desc_ar": "تشكيلة من الفلفل الحار المحفوظ للحفاظ على حرارته ونكهته.",
+    "desc_es": "Variedad de pimientos picantes conservados para mantener su sabor natural.",
+    "desc_it": "Varietà di peperoncini conservati per mantenere il loro sapore naturale.",
+    "preservations": [
+      "En saumure",
+      "En vinaigre"
+    ],
+    "image": "products/hot-peppers.png",
+    "shelf_life": "36 months",
+    "storage": "Cool dry place, 5-25°C",
+    "origin": "Morocco"
+  },
+  {
+    "name_en": "Piri Piri",
+    "name_fr": "Piri Piri",
+    "name_ar": "بيري بيري",
+    "name_es": "Piri Piri",
+    "name_it": "Piri Piri",
+    "slug": "piri-piri",
+    "category": "peppers",
+    "is_featured": true,
+    "calibers": [
+      1,
+      2
+    ],
+    "grades": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "short_en": "Small, fiery Piri-Piri peppers packed in vinegar.",
+    "short_fr": "Petits piments Piri-Piri ardents conservés dans le vinaigre.",
+    "short_ar": "فلفل بيري بيري صغير وحار محفوظ في الخل.",
+    "short_es": "Pequeños pimientos Piri-Piri ardientes conservados en vinagre.",
+    "short_it": "Piccoli peperoncini Piri-Piri conservati in aceto.",
+    "desc_en": "Fiery Piri-Piri peppers, a staple in African and Portuguese cuisines.",
+    "desc_fr": "Piments Piri-Piri ardents, un incontournable de la cuisine africaine et portugaise.",
+    "desc_ar": "فلفل بيري بيري الحار، عنصر أساسي في المطبخ الأفريقي والبرتغالي.",
+    "desc_es": "Pimientos Piri-Piri, un básico de la cocina africana y portuguesa.",
+    "desc_it": "Peperoncini Piri-Piri, un elemento essenziale della cucina africana e portoghese.",
+    "preservations": [
+      "En saumure",
+      "En vinaigre"
+    ],
+    "image": "products/piri-piri.png",
+    "shelf_life": "36 months",
+    "storage": "Cool dry place, 5-25°C",
+    "origin": "Morocco"
+  },
+  {
+    "name_en": "Piparra",
+    "name_fr": "Piparra",
+    "name_ar": "بيبارا",
+    "name_es": "Piparra",
+    "name_it": "Piparra",
+    "slug": "piparra",
+    "category": "peppers",
+    "is_featured": false,
+    "calibers": [
+      1,
+      2
+    ],
+    "grades": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "short_en": "Mild Basque peppers, tangy and crisp.",
+    "short_fr": "Piments basques doux, acidulés et croquants.",
+    "short_ar": "فلفل الباسك الخفيف، حامض ومقرمش.",
+    "short_es": "Pimientos vascos suaves, ácidos y crujientes.",
+    "short_it": "Peperoni baschi delicati, aciduli e croccanti.",
+    "desc_en": "Pickled Basque peppers, mild and tangy — a tapas essential.",
+    "desc_fr": "Piments basques marinés, doux et acidulés, essentiels pour les tapas.",
+    "desc_ar": "فلفل الباسك المخلل، خفيف وحامض — أساسي للمقبلات.",
+    "desc_es": "Pimientos vascos encurtidos, suaves y ácidos — esenciales para tapas.",
+    "desc_it": "Peperoni baschi sottaceto, delicati e aciduli — essenziali per le tapas.",
+    "preservations": [
+      "En vinaigre"
+    ],
+    "image": "products/piparra.png",
+    "shelf_life": "36 months",
+    "storage": "Cool dry place, 5-25°C",
+    "origin": "Morocco"
+  },
+  {
+    "name_en": "Guindilla",
+    "name_fr": "Guindilla",
+    "name_ar": "غيندبلا",
+    "name_es": "Guindilla",
+    "name_it": "Guindilla",
+    "slug": "guindilla",
+    "category": "peppers",
+    "is_featured": false,
+    "calibers": [
+      1,
+      2
+    ],
+    "grades": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "short_en": "Spanish Guindilla peppers, mildly spicy.",
+    "short_fr": "Piments Guindilla espagnols, légèrement épicés.",
+    "short_ar": "فلفل غيندبلا الإسباني، معتدل الحرارة.",
+    "short_es": "Pimientos Guindilla españoles, ligeramente picantes.",
+    "short_it": "Peperoni Guindilla spagnoli, leggermente piccanti.",
+    "desc_en": "Mildly spicy Guindilla peppers, perfect with pintxos and grilled dishes.",
+    "desc_fr": "Piments Guindilla légèrement épicés, parfaits avec les pintxos et grillades.",
+    "desc_ar": "فلفل غيندبلا معتدل الحرارة، مثالي مع البينتشوس والمشويات.",
+    "desc_es": "Pimientos Guindilla ligeramente picantes, perfectos con pintxos y parrilladas.",
+    "desc_it": "Peperoni Guindilla leggermente piccanti, perfetti con pintxos e grigliate.",
+    "preservations": [
+      "En vinaigre"
+    ],
+    "image": "products/guindilla.png",
+    "shelf_life": "36 months",
+    "storage": "Cool dry place, 5-25°C",
+    "origin": "Morocco"
+  },
+  {
+    "name_en": "Cut Red/Yellow/Green Peppers",
+    "name_fr": "Piment rouge/jaune/vert coupé",
+    "name_ar": "فلفل أحمر/أصفر/أخضر مقطع",
+    "name_es": "Pimiento rojo/amarillo/verde cortado",
+    "name_it": "Peperoni rossi/gialli/verdi tagliati",
+    "slug": "cut-peppers",
+    "category": "peppers",
+    "is_featured": false,
+    "calibers": [
+      1,
+      2
+    ],
+    "grades": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "short_en": "Tri-colour cut peppers preserved in brine or vinegar.",
+    "short_fr": "Piments tricolores coupés, conservés en saumure ou vinaigre.",
+    "short_ar": "فلفل مقطع ثلاثي الألوان محفوظ في محلول ملحي أو خل.",
+    "short_es": "Pimientos tricolor cortados, conservados en salmuera o vinagre.",
+    "short_it": "Peperoni tricolore tagliati, conservati in salamoia o aceto.",
+    "desc_en": "Pre-cut red, yellow, and green peppers, ready for industrial and food-service use.",
+    "desc_fr": "Piments pré-coupés, prêts pour l'industrie et la restauration.",
+    "desc_ar": "فلفل أحمر وأصفر وأخضر مقطع مسبقاً، جاهز للاستخدام الصناعي.",
+    "desc_es": "Pimientos precortados, listos para uso industrial y de restauración.",
+    "desc_it": "Peperoni pre-tagliati, pronti per uso industriale e ristorazione.",
+    "preservations": [
+      "En saumure",
+      "En vinaigre"
+    ],
+    "image": "",
+    "shelf_life": "36 months",
+    "storage": "Cool dry place, 5-25°C",
+    "origin": "Morocco"
+  },
+  {
+    "name_en": "Harissa",
+    "name_fr": "Harissa",
+    "name_ar": "هريسة",
+    "name_es": "Harissa",
+    "name_it": "Harissa",
+    "slug": "harissa",
+    "category": "peppers",
+    "is_featured": true,
+    "calibers": [
+      1,
+      2
+    ],
+    "grades": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "short_en": "Authentic North-African hot chili paste.",
+    "short_fr": "Pâte de piment fort nord-africaine authentique.",
+    "short_ar": "معجون الفلفل الحار الأصيل من شمال أفريقيا.",
+    "short_es": "Pasta de chile picante norteafricana auténtica.",
+    "short_it": "Pasta di peperoncino nordafricana autentica.",
+    "desc_en": "Traditional harissa paste, a versatile condiment for marinades, couscous, and grills.",
+    "desc_fr": "Pâte de harissa traditionnelle, condiment polyvalent pour marinades, couscous et grillades.",
+    "desc_ar": "معجون الهريسة التقليدي، توابل متعددة الاستخدامات للتتبيلات والكسكس والمشويات.",
+    "desc_es": "Pasta de harissa tradicional, condimento versátil para adobos, cuscús y parrillas.",
+    "desc_it": "Pasta di harissa tradizionale, condimento versatile per marinature, couscous e grigliate.",
+    "preservations": [],
+    "image": "",
+    "shelf_life": "36 months",
+    "storage": "Cool dry place, 5-25°C",
+    "origin": "Morocco"
+  },
+  {
+    "name_en": "Preserved Lemons",
+    "name_fr": "Citron confit",
+    "name_ar": "ليمون مخلل",
+    "name_es": "Limones en conserva",
+    "name_it": "Limoni conservati",
+    "slug": "preserved-lemons",
+    "category": "pickles",
+    "is_featured": true,
+    "calibers": [
+      1,
+      2
+    ],
+    "grades": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "short_en": "Salt-preserved lemons, essential for Moroccan tagines.",
+    "short_fr": "Citrons confits au sel, essentiels pour les tajines marocains.",
+    "short_ar": "ليمون مخلل بالملح، أساسي للطاجين المغربي.",
+    "short_es": "Limones conservados en sal, esenciales para los tagines marroquíes.",
+    "short_it": "Limoni conservati sotto sale, essenziali per i tajine marocchini.",
+    "desc_en": "Whole lemons cured in salt, a cornerstone of Moroccan and Mediterranean cooking.",
+    "desc_fr": "Citrons entiers confits au sel, un pilier de la cuisine marocaine et méditerranéenne.",
+    "desc_ar": "ليمون كامل مخلل بالملح، ركيزة المطبخ المغربي والمتوسطي.",
+    "desc_es": "Limones enteros curados en sal, pilar de la cocina marroquí y mediterránea.",
+    "desc_it": "Limoni interi sotto sale, pilastro della cucina marocchina e mediterranea.",
+    "preservations": [
+      "En saumure",
+      "En sel sec"
+    ],
+    "image": "",
+    "shelf_life": "36 months",
+    "storage": "Cool dry place, 5-25°C",
+    "origin": "Morocco"
+  },
+  {
+    "name_en": "Pearl / Silver / Silverskin Onions",
+    "name_fr": "Oignon pearl / silver",
+    "name_ar": "بصل لؤلؤي / فضي",
+    "name_es": "Cebollitas perla / plateadas",
+    "name_it": "Cipolline argentate",
+    "slug": "pearl-silver-onions",
+    "category": "pickles",
+    "is_featured": false,
+    "calibers": [
+      1,
+      2
+    ],
+    "grades": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "short_en": "Small pickled onions, crisp and tangy.",
+    "short_fr": "Petits oignons marinés, croquants et acidulés.",
+    "short_ar": "بصل صغير مخلل، مقرمش وحامض.",
+    "short_es": "Cebollitas encurtidas, crujientes y ácidas.",
+    "short_it": "Cipolline sottaceto, croccanti e acidule.",
+    "desc_en": "Pearl and silverskin onions, pickled for charcuterie boards, salads, and garnishes.",
+    "desc_fr": "Oignons grelots marinés pour planches de charcuterie, salades et garnitures.",
+    "desc_ar": "بصل لؤلؤي مخلل للسلطات والمقبلات والتزيين.",
+    "desc_es": "Cebollitas en vinagre para tablas, ensaladas y guarniciones.",
+    "desc_it": "Cipolline sottaceto per taglieri, insalate e guarnizioni.",
+    "preservations": [
+      "En vinaigre"
+    ],
+    "image": "",
+    "shelf_life": "36 months",
+    "storage": "Cool dry place, 5-25°C",
+    "origin": "Morocco"
+  },
+  {
+    "name_en": "Lampascioni",
+    "name_fr": "Lampascioni",
+    "name_ar": "لمباسكيوني",
+    "name_es": "Lampascioni",
+    "name_it": "Lampascioni",
+    "slug": "lampascioni",
+    "category": "pickles",
+    "is_featured": false,
+    "calibers": [
+      1
+    ],
+    "grades": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "short_en": "Pickled Mediterranean wild onions for antipasto.",
+    "short_fr": "Oignons sauvages méditerranéens marinés pour antipasti.",
+    "short_ar": "بصل بري متوسطي مخلل للمقبلات.",
+    "short_es": "Cebollas silvestres mediterráneas encurtidas para antipasto.",
+    "short_it": "Cipolle selvatiche mediterranee sottaceto per antipasto.",
+    "desc_en": "Wild Mediterranean onion bulbs, pickled in vinegar. A southern-Italian delicacy.",
+    "desc_fr": "Bulbes d'oignons sauvages, marinés au vinaigre. Délicatesse du sud de l'Italie.",
+    "desc_ar": "بصل بري متوسطي مخلل في الخل. طبق إيطالي جنوبي شهي.",
+    "desc_es": "Bulbos de cebolla silvestre en vinagre. Delicia del sur de Italia.",
+    "desc_it": "Bulbi di cipolla selvatica sottaceto. Prelibatezza del sud Italia.",
+    "preservations": [
+      "En vinaigre"
+    ],
+    "image": "",
+    "shelf_life": "36 months",
+    "storage": "Cool dry place, 5-25°C",
+    "origin": "Morocco"
+  },
+  {
+    "name_en": "Cornichons",
+    "name_fr": "Cornichons",
+    "name_ar": "كورنيشون",
+    "name_es": "Pepinillos",
+    "name_it": "Cetriolini",
+    "slug": "cornichons",
+    "category": "pickles",
+    "is_featured": false,
+    "calibers": [
+      1,
+      2
+    ],
+    "grades": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "short_en": "French-style gherkins, crisp and tart.",
+    "short_fr": "Cornichons à la française, croquants et acidulés.",
+    "short_ar": "كورنيشون فرنسي، مقرمش وحامض.",
+    "short_es": "Pepinillos estilo francés, crujientes y ácidos.",
+    "short_it": "Cetriolini alla francese, croccanti e aciduli.",
+    "desc_en": "Classic French-style cornichons, the ideal accompaniment for pâtés and charcuterie.",
+    "desc_fr": "Cornichons classiques à la française, accompagnement idéal pour pâtés et charcuterie.",
+    "desc_ar": "كورنيشون كلاسيكي فرنسي، المرافق المثالي للباتيه واللحوم الباردة.",
+    "desc_es": "Pepinillos clásicos franceses, acompañamiento ideal para patés y embutidos.",
+    "desc_it": "Cetriolini classici alla francese, accompagnamento ideale per paté e salumi.",
+    "preservations": [
+      "En vinaigre"
+    ],
+    "image": "",
+    "shelf_life": "36 months",
+    "storage": "Cool dry place, 5-25°C",
+    "origin": "Morocco"
+  }
+]
