@@ -8,7 +8,7 @@ from django.utils.translation import gettext as _
 from django.utils import translation
 
 def home(request):
-    featured_products = Product.objects.filter(is_featured=True)[:3]
+    featured_products = Product.objects.filter(is_featured=True)[:6]
     return render(request, 'core/home.html', {'featured_products': featured_products})
 
 def about(request):
