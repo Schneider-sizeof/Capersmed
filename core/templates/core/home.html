@@ -96,18 +96,26 @@
 </section>
 
 <!-- Featured Products -->
-<section class="section-padding" style="background: var(--white);">
+<section class="section-padding featured-products" style="background: linear-gradient(to bottom, #ffffff, #f9f9f7);">
     <div class="container">
-        <h2 class="section-title fade-up">{% trans "Featured Products" %}</h2>
+        <div class="text-center mb-5 fade-up">
+            <span class="eyebrow">{% trans "Our Selection" %}</span>
+            <h2 class="section-title">{% trans "Featured Products" %}</h2>
+        </div>
+        
         <div class="product-grid">
             {% for product in featured_products %}
-            {% include 'core/includes/product_card.html' %}
+                {% include 'core/includes/product_card.html' %}
             {% empty %}
-            <p class="text-center" style="grid-column: 1 / -1;">{% trans "No featured products available." %}</p>
+                <p class="text-center" style="grid-column: 1 / -1;">{% trans "No featured products available." %}</p>
             {% endfor %}
         </div>
-        <div class="text-center fade-up" style="margin-top: 4rem;">
-            <a href="{% url 'products' %}" class="btn btn-outline">{% trans "View All Products" %}</a>
+        
+        <div class="text-center fade-up" style="margin-top: 5rem;">
+            <a href="{% url 'products' %}" class="btn btn-outline">
+                <span>{% trans "Explore Full Catalog" %}</span>
+                <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+            </a>
         </div>
     </div>
 </section>
