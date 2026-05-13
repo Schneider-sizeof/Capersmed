@@ -1,36 +1,30 @@
 {% load i18n %}
-<div class="product-card-container fade-up">
-    <a href="{% url 'product_detail' product.slug %}" class="product-card-link">
-        <div class="product-card">
-            <div class="product-img-wrapper">
-                {% if product.image %}
-                    <img src="{{ product.image.url }}" alt="{% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}{% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}{% elif LANGUAGE_CODE == 'es' %}{{ product.name_es }}{% elif LANGUAGE_CODE == 'it' %}{{ product.name_it }}{% else %}{{ product.name_en }}{% endif %}" loading="lazy">
-                {% else %}
-                    <div class="product-img-placeholder">
-                        {% if product.category == 'capers' %}🫒{% elif product.category == 'peppers' %}🌶️{% else %}🥒{% endif %}
-                    </div>
-                {% endif %}
-                <div class="product-badge">{{ product.get_category_display }}</div>
+<a href="{% url 'product_detail' product.slug %}" class="product-card-link">
+    <div class="product-card">
+        <div class="product-img-wrapper">
+            {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}{% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}{% elif LANGUAGE_CODE == 'es' %}{{ product.name_es }}{% elif LANGUAGE_CODE == 'it' %}{{ product.name_it }}{% else %}{{ product.name_en }}{% endif %}" loading="lazy">
+            {% else %}
+                <div class="product-img-placeholder">
+                    {% if product.category == 'capers' %}🫒{% elif product.category == 'peppers' %}🌶️{% else %}🥒{% endif %}
+                </div>
+            {% endif %}
+            <span class="product-badge">{{ product.get_category_display }}</span>
+        </div>
+
+        <div class="product-info">
+            <div class="product-header">
+                <h3 class="product-title">
+                    {% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}{% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}{% elif LANGUAGE_CODE == 'es' %}{{ product.name_es }}{% elif LANGUAGE_CODE == 'it' %}{{ product.name_it }}{% else %}{{ product.name_en }}{% endif %}
+                </h3>
+                {% if product.is_premium %}<span class="premium-star">★</span>{% endif %}
             </div>
-            
-            <div class="product-info">
-                <div class="product-header">
-                    <h3 class="product-title">
-                        {% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}{% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}{% elif LANGUAGE_CODE == 'es' %}{{ product.name_es }}{% elif LANGUAGE_CODE == 'it' %}{{ product.name_it }}{% else %}{{ product.name_en }}{% endif %}
-                    </h3>
-                    {% if product.is_premium %}
-                        <span class="premium-star" title="Premium">★</span>
-                    {% endif %}
-                </div>
-                
-                <p class="product-short-desc">
-                    {% if LANGUAGE_CODE == 'fr' %}{{ product.short_description_fr|truncatechars:100 }}{% elif LANGUAGE_CODE == 'ar' %}{{ product.short_description_ar|truncatechars:100 }}{% elif LANGUAGE_CODE == 'es' %}{{ product.short_description_es|truncatechars:100 }}{% elif LANGUAGE_CODE == 'it' %}{{ product.short_description_it|truncatechars:100 }}{% else %}{{ product.short_description_en|truncatechars:100 }}{% endif %}
-                </p>
-                
-                <div class="product-footer">
-                    <span class="view-details-btn">{% trans "View Details" %}</span>
-                </div>
+            <p class="product-short-desc">
+                {% if LANGUAGE_CODE == 'fr' %}{{ product.short_description_fr|truncatechars:90 }}{% elif LANGUAGE_CODE == 'ar' %}{{ product.short_description_ar|truncatechars:90 }}{% elif LANGUAGE_CODE == 'es' %}{{ product.short_description_es|truncatechars:90 }}{% elif LANGUAGE_CODE == 'it' %}{{ product.short_description_it|truncatechars:90 }}{% else %}{{ product.short_description_en|truncatechars:90 }}{% endif %}
+            </p>
+            <div class="product-footer">
+                <span class="view-details-btn">{% trans "View Details" %} →</span>
             </div>
         </div>
-    </a>
-</div>
+    </div>
+</a>
