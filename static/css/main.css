@@ -270,20 +270,31 @@ header {
   color: var(--deep-green);
   position: relative;
   font-family: var(--font-heading);
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--primary-gold);
+  border-radius: 2px;
+  margin: 0.75rem auto 0;
 }
 
 .eyebrow {
   display: block;
   font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
   color: var(--primary-gold);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
 }
 
-.mb-5 { margin-bottom: 3rem; }
+.mb-5 { margin-bottom: 3.5rem; }
 .mt-5 { margin-top: 3rem; }
 
 
@@ -337,16 +348,16 @@ header {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem;
-  justify-content: center;
-}
-
-@media (max-width: 1024px) {
-  .product-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 @media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 500px) {
   .product-grid {
     grid-template-columns: 1fr;
   }
