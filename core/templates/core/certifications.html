@@ -98,10 +98,6 @@
 }
 
 /* Per-cert accent colors */
-.cert-halal   { border-left: 4px solid #E65100; }
-.cert-halal   .cert-card-subtitle { background: #FFF3E0; color: #E65100; }
-.cert-halal   .cert-card-badge    { background: #FFF3E0; color: #E65100; border-color: #FFCC80; }
-
 .cert-kosher  { border-left: 4px solid #283593; }
 .cert-kosher  .cert-card-subtitle { background: #E8EAF6; color: #283593; }
 .cert-kosher  .cert-card-badge    { background: #E8EAF6; color: #283593; border-color: #9FA8DA; }
@@ -170,19 +166,6 @@
 <!-- Certification Cards -->
 <section class="certs-section">
     <div class="certs-grid">
-
-        <!-- HALAL -->
-        <div class="cert-card cert-halal fade-up">
-            <div class="cert-card-icon">☪️</div>
-            <div>
-                <span class="cert-card-subtitle">{% trans "Religious Compliance" %}</span>
-                <h2 class="cert-card-title">{% trans "Halal Certified" %}</h2>
-            </div>
-            <p class="cert-card-desc">
-                {% trans "All CAPERSMED products are produced in full compliance with Islamic dietary laws. Our Halal certification is recognized by leading international bodies, making our products fully eligible for export to Muslim-majority markets across the Middle East, Southeast Asia, and beyond." %}
-            </p>
-            <span class="cert-card-badge">☪️ {% trans "Halal" %}</span>
-        </div>
 
         <!-- KOSHER -->
         <div class="cert-card cert-kosher fade-up">

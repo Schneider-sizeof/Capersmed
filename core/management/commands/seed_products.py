@@ -9,20 +9,20 @@ PRESERVATIONS = [
     {'name':'En sel sec','name_fr':'En sel sec','name_ar':'\u0641\u064a \u0645\u0644\u062d \u062c\u0627\u0641','name_es':'En sal seca','name_it':'In sale secco'},
 ]
 PACKAGINGS = [
-    {'name':'Fut 250L','name_fr':'F\u00fbt 250L','name_ar':'\u0628\u0631\u0645\u064a\u0644 250 \u0644\u062a\u0631','name_es':'Barril 250L','name_it':'Fusto 250L'},
-    {'name':'Fut 65L','name_fr':'F\u00fbt 65L','name_ar':'\u0628\u0631\u0645\u064a\u0644 65 \u0644\u062a\u0631','name_es':'Barril 65L','name_it':'Fusto 65L'},
-    {'name':'Fut 35L','name_fr':'F\u00fbt 35L','name_ar':'\u0628\u0631\u0645\u064a\u0644 35 \u0644\u062a\u0631','name_es':'Barril 35L','name_it':'Fusto 35L'},
-    {'name':'Fut 17L','name_fr':'F\u00fbt 17L','name_ar':'\u0628\u0631\u0645\u064a\u0644 17 \u0644\u062a\u0631','name_es':'Barril 17L','name_it':'Fusto 17L'},
-    {'name':'Seaux a partir de 100ml','name_fr':'Seaux \u00e0 partir de 100ml','name_ar':'\u062f\u0644\u0627\u0621 \u0627\u0628\u062a\u062f\u0627\u0621\u064b \u0645\u0646 100\u0645\u0644','name_es':'Cubos desde 100ml','name_it':'Secchi da 100ml'},
+    {'name':'Fut 250L','name_fr':'Fût 250L','name_ar':'\u0628\u0631\u0645\u064a\u0644 250 \u0644\u062a\u0631','name_es':'Barril 250L','name_it':'Fusto 250L'},
+    {'name':'Fut 65L','name_fr':'Fût 65L','name_ar':'\u0628\u0631\u0645\u064a\u0644 65 \u0644\u062a\u0631','name_es':'Barril 65L','name_it':'Fusto 65L'},
+    {'name':'Fut 35L','name_fr':'Fût 35L','name_ar':'\u0628\u0631\u0645\u064a\u0644 35 \u0644\u062a\u0631','name_es':'Barril 35L','name_it':'Fusto 35L'},
+    {'name':'Fut 17L','name_fr':'Fût 17L','name_ar':'\u0628\u0631\u0645\u064a\u0644 17 \u0644\u062a\u0631','name_es':'Barril 17L','name_it':'Fusto 17L'},
+    {'name':'Seaux a partir de 100ml','name_fr':'Seaux à partir de 100ml','name_ar':'\u062f\u0644\u0627\u0621 \u0627\u0628\u062a\u062f\u0627\u0621\u064b \u0645\u0646 100\u0645\u0644','name_es':'Cubos desde 100ml','name_it':'Secchi da 100ml'},
     {'name':'Bocal','name_fr':'Bocal','name_ar':'\u0628\u0631\u0637\u0645\u0627\u0646','name_es':'Tarro','name_it':'Barattolo'},
-    {'name':'Boite metallique','name_fr':'Bo\u00eete m\u00e9tallique','name_ar':'\u0639\u0644\u0628\u0629 \u0645\u0639\u062f\u0646\u064a\u0629','name_es':'Lata met\u00e1lica','name_it':'Scatola metallica'},
+    {'name':'Boite metallique','name_fr':'Boîte métallique','name_ar':'\u0639\u0644\u0628\u0629 \u0645\u0639\u062f\u0646\u064a\u0629','name_es':'Lata metálica','name_it':'Scatola metallica'},
     {'name':'Doypack bag','name_fr':'Doypack','name_ar':'\u0643\u064a\u0633 \u062f\u0648\u064a\u0628\u0627\u0643','name_es':'Bolsa Doypack','name_it':'Busta Doypack'},
 ]
 CERTIFICATIONS = [
-    ('KOSHER','Kosher Certified','\u2721\ufe0f'),
-    ('IFS','IFS Food Safety Standard','\U0001F3C5'),
-    ('BRC','BRC Global Standard','\U0001F3C5'),
-    ('FDA','U.S. Food & Drug Administration','\U0001f1fa\U0001f1f8'),
+    ('KOSHER','Kosher Certified','✡️'),
+    ('IFS','IFS Food Safety Standard','🏅'),
+    ('BRC','BRC Global Standard','🏅'),
+    ('FDA','U.S. Food & Drug Administration','🇺🇸'),
 ]
 
 class Command(BaseCommand):
@@ -59,9 +59,6 @@ class Command(BaseCommand):
         with open(fixture, 'r', encoding='utf-8') as f:
             products = json.load(f)
 
-        all_pkgs = list(pkg_map.values())
-        all_certs = list(cert_map.values())
-
         for p in products:
             product = Product.objects.create(
                 name_en=p['name_en'], name_fr=p['name_fr'], name_ar=p['name_ar'],
@@ -79,9 +76,20 @@ class Command(BaseCommand):
                 origin=p.get('origin', 'Morocco'),
                 image=p.get('image', ''),
             )
-            product.packaging.set(all_pkgs)
-            product.certifications.set(all_certs)
+
+            # Set per-product preservation methods
             pres_objs = [pres_map[n] for n in p.get('preservations', []) if n in pres_map]
             product.preservation.set(pres_objs)
 
-        self.stdout.write(self.style.SUCCESS(f'Created {len(products)} products.'))
+            # Set per-product packaging (from fixture, not all)
+            pkg_objs = [pkg_map[n] for n in p.get('packaging', []) if n in pkg_map]
+            product.packaging.set(pkg_objs)
+
+            # Set per-product certifications (from fixture, not all)
+            cert_objs = [cert_map[c] for c in p.get('certifications', []) if c in cert_map]
+            product.certifications.set(cert_objs)
+
+            self.stdout.write(f'  [OK] {product.name_en}  '
+                              f'[pkg: {len(pkg_objs)}] [cert: {len(cert_objs)}]')
+
+        self.stdout.write(self.style.SUCCESS(f'Created {len(products)} products with individual packaging & certifications.'))

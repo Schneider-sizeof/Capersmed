@@ -8,18 +8,8 @@
     "slug": "capers",
     "category": "capers",
     "is_featured": true,
-    "calibers": [
-      1,
-      2,
-      3
-    ],
-    "grades": [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E"
-    ],
+    "calibers": [1, 2, 3],
+    "grades": ["A", "B", "C", "D", "E"],
     "short_en": "Premium hand-picked Moroccan capers, sorted by calibre.",
     "short_fr": "Câpres marocaines triées par calibre, cueillies à la main.",
     "short_ar": "كبار مغربي مقطوف يدوياً ومصنف حسب الحجم.",
@@ -30,11 +20,9 @@
     "desc_ar": "كبار مغربي مقطوف يدوياً ومصنف حسب الحجم. متوفر في محلول ملحي أو خل أو ملح جاف.",
     "desc_es": "Alcaparras marroquíes seleccionadas a mano. Disponibles en salmuera, vinagre o sal seca.",
     "desc_it": "Capperi marocchini raccolti a mano. Disponibili in salamoia, aceto o sale secco.",
-    "preservations": [
-      "En saumure",
-      "En vinaigre",
-      "En sel sec"
-    ],
+    "preservations": ["En saumure", "En vinaigre", "En sel sec"],
+    "certifications": ["KOSHER", "IFS", "FDA"],
+    "packaging": ["Fut 250L", "Fut 65L", "Fut 35L", "Fut 17L", "Seaux a partir de 100ml", "Bocal", "Boite metallique", "Doypack bag"],
     "image": "products/capers.png",
     "shelf_life": "36 months",
     "storage": "Cool dry place, 5-25°C",
@@ -49,17 +37,8 @@
     "slug": "caperberries",
     "category": "capers",
     "is_featured": true,
-    "calibers": [
-      1,
-      2
-    ],
-    "grades": [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E"
-    ],
+    "calibers": [1, 2],
+    "grades": ["A", "B", "C", "D", "E"],
     "short_en": "Moroccan caperberries with stems, mild olive-like flavour.",
     "short_fr": "Câprons marocains à la saveur douce ressemblant à l'olive.",
     "short_ar": "ثمار الكبار المغربية بنكهة خفيفة تشبه الزيتون.",
@@ -70,10 +49,9 @@
     "desc_ar": "ثمار الكبار بالسيقان، مثالية للمقبلات والكوكتيلات.",
     "desc_es": "Alcaparrones con tallos, ideales para tapas, cócteles y guarniciones.",
     "desc_it": "Frutti di cappero con gambo, ideali per tapas, cocktail e guarnizioni.",
-    "preservations": [
-      "En saumure",
-      "En vinaigre"
-    ],
+    "preservations": ["En saumure", "En vinaigre"],
+    "certifications": ["KOSHER", "IFS", "BRC", "FDA"],
+    "packaging": ["Fut 250L", "Fut 65L", "Fut 35L", "Fut 17L", "Seaux a partir de 100ml", "Bocal", "Boite metallique", "Doypack bag"],
     "image": "products/caperberries.png",
     "shelf_life": "36 months",
     "storage": "Cool dry place, 5-25°C",
@@ -88,17 +66,8 @@
     "slug": "hot-peppers",
     "category": "peppers",
     "is_featured": false,
-    "calibers": [
-      1,
-      2
-    ],
-    "grades": [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E"
-    ],
+    "calibers": [1, 2],
+    "grades": ["A", "B", "C", "D", "E"],
     "short_en": "Assorted hot peppers preserved in brine or vinegar.",
     "short_fr": "Assortiment de piments conservés en saumure ou vinaigre.",
     "short_ar": "تشكيلة فلفل حار محفوظ في المحلول الملحي أو الخل.",
@@ -109,10 +78,9 @@
     "desc_ar": "تشكيلة من الفلفل الحار المحفوظ للحفاظ على حرارته ونكهته.",
     "desc_es": "Variedad de pimientos picantes conservados para mantener su sabor natural.",
     "desc_it": "Varietà di peperoncini conservati per mantenere il loro sapore naturale.",
-    "preservations": [
-      "En saumure",
-      "En vinaigre"
-    ],
+    "preservations": ["En saumure", "En vinaigre"],
+    "certifications": ["IFS", "BRC"],
+    "packaging": ["Fut 250L", "Fut 65L", "Fut 35L", "Bocal", "Boite metallique"],
     "image": "products/hot-peppers.png",
     "shelf_life": "36 months",
     "storage": "Cool dry place, 5-25°C",
@@ -127,17 +95,8 @@
     "slug": "piri-piri",
     "category": "peppers",
     "is_featured": true,
-    "calibers": [
-      1,
-      2
-    ],
-    "grades": [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E"
-    ],
+    "calibers": [1, 2],
+    "grades": ["A", "B", "C", "D", "E"],
     "short_en": "Small, fiery Piri-Piri peppers packed in vinegar.",
     "short_fr": "Petits piments Piri-Piri ardents conservés dans le vinaigre.",
     "short_ar": "فلفل بيري بيري صغير وحار محفوظ في الخل.",
@@ -148,10 +107,9 @@
     "desc_ar": "فلفل بيري بيري الحار، عنصر أساسي في المطبخ الأفريقي والبرتغالي.",
     "desc_es": "Pimientos Piri-Piri, un básico de la cocina africana y portuguesa.",
     "desc_it": "Peperoncini Piri-Piri, un elemento essenziale della cucina africana e portoghese.",
-    "preservations": [
-      "En saumure",
-      "En vinaigre"
-    ],
+    "preservations": ["En saumure", "En vinaigre"],
+    "certifications": ["KOSHER", "BRC"],
+    "packaging": ["Fut 65L", "Fut 35L", "Bocal", "Doypack bag"],
     "image": "products/piri-piri.png",
     "shelf_life": "36 months",
     "storage": "Cool dry place, 5-25°C",
@@ -166,17 +124,8 @@
     "slug": "piparra",
     "category": "peppers",
     "is_featured": false,
-    "calibers": [
-      1,
-      2
-    ],
-    "grades": [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E"
-    ],
+    "calibers": [1, 2],
+    "grades": ["A", "B", "C", "D", "E"],
     "short_en": "Mild Basque peppers, tangy and crisp.",
     "short_fr": "Piments basques doux, acidulés et croquants.",
     "short_ar": "فلفل الباسك الخفيف، حامض ومقرمش.",
@@ -187,9 +136,9 @@
     "desc_ar": "فلفل الباسك المخلل، خفيف وحامض — أساسي للمقبلات.",
     "desc_es": "Pimientos vascos encurtidos, suaves y ácidos — esenciales para tapas.",
     "desc_it": "Peperoni baschi sottaceto, delicati e aciduli — essenziali per le tapas.",
-    "preservations": [
-      "En vinaigre"
-    ],
+    "preservations": ["En vinaigre"],
+    "certifications": ["IFS", "BRC"],
+    "packaging": ["Fut 35L", "Fut 17L", "Bocal", "Seaux a partir de 100ml"],
     "image": "products/piparra.png",
     "shelf_life": "36 months",
     "storage": "Cool dry place, 5-25°C",
@@ -204,17 +153,8 @@
     "slug": "guindilla",
     "category": "peppers",
     "is_featured": false,
-    "calibers": [
-      1,
-      2
-    ],
-    "grades": [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E"
-    ],
+    "calibers": [1, 2],
+    "grades": ["A", "B", "C", "D", "E"],
     "short_en": "Spanish Guindilla peppers, mildly spicy.",
     "short_fr": "Piments Guindilla espagnols, légèrement épicés.",
     "short_ar": "فلفل غيندبلا الإسباني، معتدل الحرارة.",
@@ -225,9 +165,9 @@
     "desc_ar": "فلفل غيندبلا معتدل الحرارة، مثالي مع البينتشوس والمشويات.",
     "desc_es": "Pimientos Guindilla ligeramente picantes, perfectos con pintxos y parrilladas.",
     "desc_it": "Peperoni Guindilla leggermente piccanti, perfetti con pintxos e grigliate.",
-    "preservations": [
-      "En vinaigre"
-    ],
+    "preservations": ["En vinaigre"],
+    "certifications": ["KOSHER", "IFS", "BRC"],
+    "packaging": ["Fut 65L", "Fut 35L", "Bocal", "Boite metallique"],
     "image": "products/guindilla.png",
     "shelf_life": "36 months",
     "storage": "Cool dry place, 5-25°C",
@@ -242,17 +182,8 @@
     "slug": "cut-peppers",
     "category": "peppers",
     "is_featured": false,
-    "calibers": [
-      1,
-      2
-    ],
-    "grades": [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E"
-    ],
+    "calibers": [1, 2],
+    "grades": ["A", "B", "C", "D", "E"],
     "short_en": "Tri-colour cut peppers preserved in brine or vinegar.",
     "short_fr": "Piments tricolores coupés, conservés en saumure ou vinaigre.",
     "short_ar": "فلفل مقطع ثلاثي الألوان محفوظ في محلول ملحي أو خل.",
@@ -263,10 +194,9 @@
     "desc_ar": "فلفل أحمر وأصفر وأخضر مقطع مسبقاً، جاهز للاستخدام الصناعي.",
     "desc_es": "Pimientos precortados, listos para uso industrial y de restauración.",
     "desc_it": "Peperoni pre-tagliati, pronti per uso industriale e ristorazione.",
-    "preservations": [
-      "En saumure",
-      "En vinaigre"
-    ],
+    "preservations": ["En saumure", "En vinaigre"],
+    "certifications": ["IFS", "BRC"],
+    "packaging": ["Fut 250L", "Fut 65L", "Seaux a partir de 100ml", "Boite metallique"],
     "image": "products/cut-peppers.png",
     "shelf_life": "36 months",
     "storage": "Cool dry place, 5-25°C",
@@ -281,17 +211,8 @@
     "slug": "harissa",
     "category": "peppers",
     "is_featured": true,
-    "calibers": [
-      1,
-      2
-    ],
-    "grades": [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E"
-    ],
+    "calibers": [1, 2],
+    "grades": ["A", "B", "C", "D", "E"],
     "short_en": "Authentic North-African hot chili paste.",
     "short_fr": "Pâte de piment fort nord-africaine authentique.",
     "short_ar": "معجون الفلفل الحار الأصيل من شمال أفريقيا.",
@@ -303,6 +224,8 @@
     "desc_es": "Pasta de harissa tradicional, condimento versátil para adobos, cuscús y parrillas.",
     "desc_it": "Pasta di harissa tradizionale, condimento versatile per marinature, couscous e grigliate.",
     "preservations": [],
+    "certifications": ["KOSHER", "IFS", "FDA"],
+    "packaging": ["Bocal", "Boite metallique", "Doypack bag", "Seaux a partir de 100ml"],
     "image": "products/harissa.png",
     "shelf_life": "36 months",
     "storage": "Cool dry place, 5-25°C",
@@ -317,17 +240,8 @@
     "slug": "preserved-lemons",
     "category": "pickles",
     "is_featured": true,
-    "calibers": [
-      1,
-      2
-    ],
-    "grades": [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E"
-    ],
+    "calibers": [1, 2],
+    "grades": ["A", "B", "C", "D", "E"],
     "short_en": "Salt-preserved lemons, essential for Moroccan tagines.",
     "short_fr": "Citrons confits au sel, essentiels pour les tajines marocains.",
     "short_ar": "ليمون مخلل بالملح، أساسي للطاجين المغربي.",
@@ -338,10 +252,9 @@
     "desc_ar": "ليمون كامل مخلل بالملح، ركيزة المطبخ المغربي والمتوسطي.",
     "desc_es": "Limones enteros curados en sal, pilar de la cocina marroquí y mediterránea.",
     "desc_it": "Limoni interi sotto sale, pilastro della cucina marocchina e mediterranea.",
-    "preservations": [
-      "En saumure",
-      "En sel sec"
-    ],
+    "preservations": ["En saumure", "En sel sec"],
+    "certifications": ["KOSHER", "IFS", "BRC", "FDA"],
+    "packaging": ["Fut 250L", "Fut 65L", "Fut 35L", "Bocal", "Seaux a partir de 100ml"],
     "image": "products/preserved-lemons.png",
     "shelf_life": "36 months",
     "storage": "Cool dry place, 5-25°C",
@@ -356,17 +269,8 @@
     "slug": "pearl-silver-onions",
     "category": "pickles",
     "is_featured": false,
-    "calibers": [
-      1,
-      2
-    ],
-    "grades": [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E"
-    ],
+    "calibers": [1, 2],
+    "grades": ["A", "B", "C", "D", "E"],
     "short_en": "Small pickled onions, crisp and tangy.",
     "short_fr": "Petits oignons marinés, croquants et acidulés.",
     "short_ar": "بصل صغير مخلل، مقرمش وحامض.",
@@ -377,9 +281,9 @@
     "desc_ar": "بصل لؤلؤي مخلل للسلطات والمقبلات والتزيين.",
     "desc_es": "Cebollitas en vinagre para tablas, ensaladas y guarniciones.",
     "desc_it": "Cipolline sottaceto per taglieri, insalate e guarnizioni.",
-    "preservations": [
-      "En vinaigre"
-    ],
+    "preservations": ["En vinaigre"],
+    "certifications": ["IFS", "BRC"],
+    "packaging": ["Fut 65L", "Fut 35L", "Fut 17L", "Bocal"],
     "image": "products/pearl-silver-onions.png",
     "shelf_life": "36 months",
     "storage": "Cool dry place, 5-25°C",
@@ -394,16 +298,8 @@
     "slug": "lampascioni",
     "category": "pickles",
     "is_featured": false,
-    "calibers": [
-      1
-    ],
-    "grades": [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E"
-    ],
+    "calibers": [1],
+    "grades": ["A", "B", "C", "D", "E"],
     "short_en": "Pickled Mediterranean wild onions for antipasto.",
     "short_fr": "Oignons sauvages méditerranéens marinés pour antipasti.",
     "short_ar": "بصل بري متوسطي مخلل للمقبلات.",
@@ -414,9 +310,9 @@
     "desc_ar": "بصل بري متوسطي مخلل في الخل. طبق إيطالي جنوبي شهي.",
     "desc_es": "Bulbos de cebolla silvestre en vinagre. Delicia del sur de Italia.",
     "desc_it": "Bulbi di cipolla selvatica sottaceto. Prelibatezza del sud Italia.",
-    "preservations": [
-      "En vinaigre"
-    ],
+    "preservations": ["En vinaigre"],
+    "certifications": ["KOSHER", "BRC"],
+    "packaging": ["Fut 35L", "Fut 17L", "Bocal", "Seaux a partir de 100ml"],
     "image": "products/lampascioni.png",
     "shelf_life": "36 months",
     "storage": "Cool dry place, 5-25°C",
@@ -431,17 +327,8 @@
     "slug": "cornichons",
     "category": "pickles",
     "is_featured": false,
-    "calibers": [
-      1,
-      2
-    ],
-    "grades": [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E"
-    ],
+    "calibers": [1, 2],
+    "grades": ["A", "B", "C", "D", "E"],
     "short_en": "French-style gherkins, crisp and tart.",
     "short_fr": "Cornichons à la française, croquants et acidulés.",
     "short_ar": "كورنيشون فرنسي، مقرمش وحامض.",
@@ -452,9 +339,9 @@
     "desc_ar": "كورنيشون كلاسيكي فرنسي، المرافق المثالي للباتيه واللحوم الباردة.",
     "desc_es": "Pepinillos clásicos franceses, acompañamiento ideal para patés y embutidos.",
     "desc_it": "Cetriolini classici alla francese, accompagnamento ideale per paté e salumi.",
-    "preservations": [
-      "En vinaigre"
-    ],
+    "preservations": ["En vinaigre"],
+    "certifications": ["KOSHER", "IFS", "BRC", "FDA"],
+    "packaging": ["Fut 250L", "Fut 65L", "Fut 35L", "Bocal", "Boite metallique"],
     "image": "products/cornichons.png",
     "shelf_life": "36 months",
     "storage": "Cool dry place, 5-25°C",
