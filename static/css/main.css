@@ -266,7 +266,7 @@ header {
 .section-title {
   text-align: center;
   font-size: 3rem;
-  margin-bottom: 0;
+  margin-bottom: 3.5rem;
   color: var(--deep-green);
   font-family: var(--font-heading);
   display: block;
