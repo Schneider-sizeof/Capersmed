@@ -6,29 +6,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>{% block title %}{{ site_settings.site_name }}{% endblock %} | Premium Moroccan Gourmet Products</title>
-    <meta name="description" content="{% block meta_description %}Leading Moroccan producer of premium vinegars, capers, preserved lemons, harissa, and pickled vegetables. Export quality gourmet products from Fes, Morocco.{% endblock %}">
-    <meta name="keywords" content="{% block meta_keywords %}CAPERSMED, Moroccan capers, premium vinegars, preserved lemons, harissa, gourmet food, export Morocco, halal food, pickled vegetables, cornichons, Fes Morocco{% endblock %}">
-    <meta name="author" content="CAPERSMED.SARL">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="{% block canonical_url %}https://capersmed.pythonanywhere.com{{ request.path }}{% endblock %}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Title & Description -->
+    <title>{% block title %}{{ site_settings.site_name }}{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}Leading Moroccan producer of premium capers, preserved lemons, harissa, and pickled vegetables. Export quality gourmet products from Fes, Morocco.{% endblock %}">
+    <meta name="author" content="CAPERSMED.SARL">
+    <meta name="robots" content="{% block robots %}index, follow{% endblock %}">
+
+    <!-- Canonical & Hreflang -->
+    <link rel="canonical" href="{% block canonical_url %}https://capersmed.pythonanywhere.com{{ request.path }}{% endblock %}">
+    {% for lang_code, lang_name in LANGUAGES %}
+    <link rel="alternate" hreflang="{{ lang_code }}" href="https://capersmed.pythonanywhere.com{% translate_url lang_code %}">
+    {% endfor %}
+    <link rel="alternate" hreflang="x-default" href="https://capersmed.pythonanywhere.com{% translate_url 'en' %}">
+
+    <!-- Open Graph -->
     <meta property="og:type" content="{% block og_type %}website{% endblock %}">
     <meta property="og:title" content="{% block og_title %}CAPERSMED — Premium Moroccan Gourmet Products{% endblock %}">
-    <meta property="og:description" content="{% block og_description %}Leading Moroccan producer of premium vinegars, capers, preserved lemons, harissa, and pickled vegetables. Export quality from Fes, Morocco.{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Leading Moroccan producer of premium capers, preserved lemons, harissa, and pickled vegetables for global export.{% endblock %}">
     <meta property="og:image" content="{% block og_image %}https://capersmed.pythonanywhere.com{% static 'images/logo.png' %}{% endblock %}">
+    <meta property="og:image:width" content="{% block og_image_width %}1200{% endblock %}">
+    <meta property="og:image:height" content="{% block og_image_height %}630{% endblock %}">
     <meta property="og:url" content="https://capersmed.pythonanywhere.com{{ request.path }}">
     <meta property="og:site_name" content="CAPERSMED.SARL">
     <meta property="og:locale" content="{{ LANGUAGE_CODE }}">
+    {% for lang_code, lang_name in LANGUAGES %}{% if lang_code != LANGUAGE_CODE %}
+    <meta property="og:locale:alternate" content="{{ lang_code }}">
+    {% endif %}{% endfor %}
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{% block twitter_title %}CAPERSMED — Premium Moroccan Gourmet Products{% endblock %}">
-    <meta name="twitter:description" content="{% block twitter_description %}Premium Moroccan vinegars, capers, preserved lemons & traditional condiments. Export quality from Fes, Morocco.{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Premium Moroccan capers, preserved lemons & traditional condiments. Export quality from Fes, Morocco.{% endblock %}">
     <meta name="twitter:image" content="{% block twitter_image %}https://capersmed.pythonanywhere.com{% static 'images/logo.png' %}{% endblock %}">
 
-    <!-- Fonts -->
+    <!-- Favicon & Theme -->
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
+    <link rel="apple-touch-icon" href="{% static 'images/logo.png' %}">
+    <meta name="theme-color" content="#1B4332">
+    <meta name="msapplication-TileColor" content="#1B4332">
+
+    <!-- Preconnect & Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
@@ -37,280 +56,93 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
 
-    <!-- Navbar override styles -->
+    <!-- Navbar styles -->
     <style>
-        /* ====== SPLIT-CENTER NAVBAR ====== */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.97);
-            border-bottom: 1px solid #e8e8e8;
-            backdrop-filter: blur(8px);
-        }
-
-        .nav-container {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-            min-height: 80px;
-        }
-
-        /* Left side links */
-        .nav-left {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            list-style: none;
-            justify-content: flex-end;
-            padding-inline-end: 4.5rem;
-        }
-
-        /* Center logo */
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .nav-logo img {
-            height: 58px;
-            width: auto;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-
-        .nav-logo img:hover {
-            transform: scale(1.03);
-        }
-
-        /* Right side links */
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            list-style: none;
-            justify-content: flex-start;
-            padding-inline-start: 4.5rem;
-        }
-
-        /* All nav links */
-        .nav-left a,
-        .nav-right a {
-            font-size: 0.78rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            color: #444;
-            position: relative;
-            padding: 6px 0;
-            white-space: nowrap;
-            transition: color 0.3s ease;
-        }
-
-        .nav-left a::after,
-        .nav-right a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background: #1B4332;
-            transition: width 0.3s ease;
-        }
-
-        .nav-left a:hover,
-        .nav-right a:hover,
-        .nav-left a.nav-active,
-        .nav-right a.nav-active {
-            color: #1B4332;
-        }
-
-        .nav-left a:hover::after,
-        .nav-right a:hover::after,
-        .nav-left a.nav-active::after,
-        .nav-right a.nav-active::after {
-            width: 100%;
-        }
-
-        /* Language switcher */
-        .nav-lang {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            margin-left: 0.5rem;
-            border-left: 1px solid #ddd;
-            padding-left: 1rem;
-        }
-
-        .nav-lang a {
-            font-size: 0.7rem !important;
-            font-weight: 700 !important;
-            letter-spacing: 0.5px !important;
-            padding: 3px 5px !important;
-            border-radius: 3px;
-            color: #888 !important;
-            text-transform: uppercase !important;
-        }
-
-        .nav-lang a::after { display: none !important; }
-
-        .nav-lang a:hover,
-        .nav-lang a.lang-active {
-            color: #1B4332 !important;
-            background: #f0f7f4;
-        }
-
-        /* Mobile hamburger */
-        .mobile-menu-btn {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-            z-index: 1001;
-        }
-
-        .mobile-menu-btn span {
-            width: 24px;
-            height: 2px;
-            background: #333;
-            transition: all 0.3s ease;
-            display: block;
-        }
-
-        /* Mobile overlay */
-        .mobile-nav-overlay {
-            position: fixed;
-            top: 0;
-            left: 100%;
-            width: 100%;
-            height: 100vh;
-            background: #fff;
-            z-index: 999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: left 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-        }
-
-        .mobile-nav-overlay.open { left: 0; }
-
-        .mobile-nav-logo {
-            margin-bottom: 2.5rem;
-        }
-
-        .mobile-nav-logo img {
-            height: 55px;
-        }
-
-        .mobile-nav-links {
-            list-style: none;
-            text-align: center;
-        }
-
-        .mobile-nav-links li {
-            margin-bottom: 1.8rem;
-        }
-
-        .mobile-nav-links a {
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #333;
-        }
-
-        .mobile-nav-links a:hover,
-        .mobile-nav-links a.nav-active {
-            color: #1B4332;
-        }
-
-        .mobile-lang-switch {
-            display: flex;
-            gap: 12px;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid #eee;
-        }
-
-        .mobile-lang-switch a {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: #888;
-            padding: 6px 10px;
-            border-radius: 4px;
-        }
-
-        .mobile-lang-switch a:hover,
-        .mobile-lang-switch a.lang-active {
-            color: #1B4332;
-            background: #f0f7f4;
-        }
-
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .nav-left,
-            .nav-right {
-                display: none;
-            }
-
-            .nav-container {
-                grid-template-columns: auto 1fr auto;
-            }
-
-            .nav-logo {
-                justify-content: flex-start;
-            }
-
-            .mobile-menu-btn {
-                display: flex;
-                grid-column: 3;
-            }
-        }
+        header{position:fixed;top:0;width:100%;z-index:1000;background:rgba(255,255,255,.97);border-bottom:1px solid #e8e8e8;backdrop-filter:blur(8px)}
+        .nav-container{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;max-width:1400px;margin:0 auto;padding:0 1.5rem;min-height:80px}
+        .nav-left{display:flex;align-items:center;gap:2rem;list-style:none;justify-content:flex-end;padding-inline-end:4.5rem}
+        .nav-logo{display:flex;align-items:center;justify-content:center}
+        .nav-logo img{height:58px;width:auto;display:block;transition:transform .3s ease}
+        .nav-logo img:hover{transform:scale(1.03)}
+        .nav-right{display:flex;align-items:center;gap:2rem;list-style:none;justify-content:flex-start;padding-inline-start:4.5rem}
+        .nav-left a,.nav-right a{font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:1.2px;color:#444;position:relative;padding:6px 0;white-space:nowrap;transition:color .3s ease}
+        .nav-left a::after,.nav-right a::after{content:'';position:absolute;width:0;height:2px;bottom:0;left:0;background:#1B4332;transition:width .3s ease}
+        .nav-left a:hover,.nav-right a:hover,.nav-left a.nav-active,.nav-right a.nav-active{color:#1B4332}
+        .nav-left a:hover::after,.nav-right a:hover::after,.nav-left a.nav-active::after,.nav-right a.nav-active::after{width:100%}
+        .nav-lang{display:flex;align-items:center;gap:4px;margin-left:.5rem;border-left:1px solid #ddd;padding-left:1rem}
+        .nav-lang a{font-size:.7rem!important;font-weight:700!important;letter-spacing:.5px!important;padding:3px 5px!important;border-radius:3px;color:#888!important;text-transform:uppercase!important}
+        .nav-lang a::after{display:none!important}
+        .nav-lang a:hover,.nav-lang a.lang-active{color:#1B4332!important;background:#f0f7f4}
+        .mobile-menu-btn{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;z-index:1001}
+        .mobile-menu-btn span{width:24px;height:2px;background:#333;transition:all .3s ease;display:block}
+        .mobile-nav-overlay{position:fixed;top:0;left:100%;width:100%;height:100vh;background:#fff;z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:left .4s cubic-bezier(.77,.2,.05,1)}
+        .mobile-nav-overlay.open{left:0}
+        .mobile-nav-logo{margin-bottom:2.5rem}
+        .mobile-nav-logo img{height:55px}
+        .mobile-nav-links{list-style:none;text-align:center}
+        .mobile-nav-links li{margin-bottom:1.8rem}
+        .mobile-nav-links a{font-size:1.2rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:#333}
+        .mobile-nav-links a:hover,.mobile-nav-links a.nav-active{color:#1B4332}
+        .mobile-lang-switch{display:flex;gap:12px;margin-top:2rem;padding-top:2rem;border-top:1px solid #eee}
+        .mobile-lang-switch a{font-size:.85rem;font-weight:700;color:#888;padding:6px 10px;border-radius:4px}
+        .mobile-lang-switch a:hover,.mobile-lang-switch a.lang-active{color:#1B4332;background:#f0f7f4}
+        @media(max-width:1024px){.nav-left,.nav-right{display:none}.nav-container{grid-template-columns:auto 1fr auto}.nav-logo{justify-content:flex-start}.mobile-menu-btn{display:flex;grid-column:3}}
     </style>
 
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-    <!-- Schema Markup -->
+    <!-- Organization Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": "Organization",
       "name": "CAPERSMED.SARL",
-      "image": "{% static 'images/logo.png' %}",
-      "url": "https://www.capersmed.com",
-      "telephone": "{{ site_settings.phone }}",
+      "url": "https://capersmed.pythonanywhere.com",
+      "logo": "https://capersmed.pythonanywhere.com{% static 'images/logo.png' %}",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "{{ site_settings.phone }}",
+        "contactType": "sales",
+        "email": "{{ site_settings.email }}",
+        "availableLanguage": ["English","French","Arabic","Spanish","Italian"]
+      },
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Hay Namae Bensouda 371/3",
         "addressLocality": "Fes",
         "postalCode": "30000",
         "addressCountry": "MA"
+      },
+      "sameAs": [
+        {% if site_settings.facebook_url %}"{{ site_settings.facebook_url }}"{% endif %}
+        {% if site_settings.instagram_url %}{% if site_settings.facebook_url %},{% endif %}"{{ site_settings.instagram_url }}"{% endif %}
+        {% if site_settings.linkedin_url %}{% if site_settings.facebook_url or site_settings.instagram_url %},{% endif %}"{{ site_settings.linkedin_url }}"{% endif %}
+      ]
+    }
+    </script>
+
+    <!-- WebSite Schema for Sitelinks Search -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "CAPERSMED",
+      "url": "https://capersmed.pythonanywhere.com",
+      "inLanguage": ["en","fr","ar","es","it"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://capersmed.pythonanywhere.com/en/products/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
       }
     }
     </script>
+
+    {% block extra_schema %}{% endblock %}
     {% block extra_head %}{% endblock %}
 </head>
 
 <body>
-
-
-
     <!-- ===== HEADER ===== -->
     <header id="site-header">
-        <div class="nav-container">
+        <nav class="nav-container" aria-label="{% trans 'Main navigation' %}">
 
             <!-- LEFT: Products · Certifications · Branding -->
             <ul class="nav-left nav-links">
@@ -333,12 +165,12 @@
 
             <!-- CENTER: Logo -->
             <div class="nav-logo">
-                <a href="{% url 'home' %}" aria-label="CAPERSMED — Back to home">
-                    <img src="{% static 'images/logo.png' %}" alt="CapersMed Logo">
+                <a href="{% url 'home' %}" aria-label="CAPERSMED — {% trans 'Back to home' %}">
+                    <img src="{% static 'images/logo.png' %}" alt="CapersMed — Premium Moroccan Gourmet Products" width="174" height="58">
                 </a>
             </div>
 
-            <!-- RIGHT: Contact · Blog · Branding · Languages -->
+            <!-- RIGHT: Contact · Blog · Languages -->
             <ul class="nav-right nav-links">
                 <li>
                     <a href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}nav-active{% endif %}">
@@ -350,27 +182,26 @@
                         {% trans "Blog" %}
                     </a>
                 </li>
-                <!-- Language Switcher (desktop) -->
-                <li class="nav-lang">
-                    <a href="{% translate_url 'en' %}" class="{% if LANGUAGE_CODE == 'en' %}lang-active{% endif %}">EN</a>
-                    <a href="{% translate_url 'fr' %}" class="{% if LANGUAGE_CODE == 'fr' %}lang-active{% endif %}">FR</a>
-                    <a href="{% translate_url 'ar' %}" class="{% if LANGUAGE_CODE == 'ar' %}lang-active{% endif %}">AR</a>
-                    <a href="{% translate_url 'es' %}" class="{% if LANGUAGE_CODE == 'es' %}lang-active{% endif %}">ES</a>
-                    <a href="{% translate_url 'it' %}" class="{% if LANGUAGE_CODE == 'it' %}lang-active{% endif %}">IT</a>
+                <li class="nav-lang" aria-label="{% trans 'Language selector' %}">
+                    <a href="{% translate_url 'en' %}" class="{% if LANGUAGE_CODE == 'en' %}lang-active{% endif %}" hreflang="en">EN</a>
+                    <a href="{% translate_url 'fr' %}" class="{% if LANGUAGE_CODE == 'fr' %}lang-active{% endif %}" hreflang="fr">FR</a>
+                    <a href="{% translate_url 'ar' %}" class="{% if LANGUAGE_CODE == 'ar' %}lang-active{% endif %}" hreflang="ar">AR</a>
+                    <a href="{% translate_url 'es' %}" class="{% if LANGUAGE_CODE == 'es' %}lang-active{% endif %}" hreflang="es">ES</a>
+                    <a href="{% translate_url 'it' %}" class="{% if LANGUAGE_CODE == 'it' %}lang-active{% endif %}" hreflang="it">IT</a>
                 </li>
             </ul>
 
             <!-- Mobile Hamburger -->
-            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="{% trans 'Open menu' %}" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
 
-        </div>
+        </nav>
 
         <!-- Mobile Full-Screen Overlay -->
-        <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+        <div class="mobile-nav-overlay" id="mobile-nav-overlay" role="dialog" aria-label="{% trans 'Mobile navigation' %}">
             <div class="mobile-nav-logo">
-                <img src="{% static 'images/logo.png' %}" alt="CapersMed">
+                <img src="{% static 'images/logo.png' %}" alt="CapersMed" width="174" height="55" loading="lazy">
             </div>
             <ul class="mobile-nav-links">
                 <li><a href="{% url 'products' %}" class="{% if request.resolver_match.url_name == 'products' %}nav-active{% endif %}">{% trans "Products" %}</a></li>
@@ -378,15 +209,13 @@
                 <li><a href="{% url 'branding' %}" class="{% if request.resolver_match.url_name == 'branding' %}nav-active{% endif %}">{% trans "Branding" %}</a></li>
                 <li><a href="{% url 'contact' %}" class="{% if request.resolver_match.url_name == 'contact' %}nav-active{% endif %}">{% trans "Contact" %}</a></li>
                 <li><a href="{% url 'blog' %}" class="{% if request.resolver_match.url_name == 'blog' %}nav-active{% endif %}">{% trans "Blog" %}</a></li>
-
             </ul>
-            <!-- Language Switcher (mobile) -->
             <div class="mobile-lang-switch">
-                <a href="{% translate_url 'en' %}" class="{% if LANGUAGE_CODE == 'en' %}lang-active{% endif %}">EN</a>
-                <a href="{% translate_url 'fr' %}" class="{% if LANGUAGE_CODE == 'fr' %}lang-active{% endif %}">FR</a>
-                <a href="{% translate_url 'ar' %}" class="{% if LANGUAGE_CODE == 'ar' %}lang-active{% endif %}">AR</a>
-                <a href="{% translate_url 'es' %}" class="{% if LANGUAGE_CODE == 'es' %}lang-active{% endif %}">ES</a>
-                <a href="{% translate_url 'it' %}" class="{% if LANGUAGE_CODE == 'it' %}lang-active{% endif %}">IT</a>
+                <a href="{% translate_url 'en' %}" class="{% if LANGUAGE_CODE == 'en' %}lang-active{% endif %}" hreflang="en">EN</a>
+                <a href="{% translate_url 'fr' %}" class="{% if LANGUAGE_CODE == 'fr' %}lang-active{% endif %}" hreflang="fr">FR</a>
+                <a href="{% translate_url 'ar' %}" class="{% if LANGUAGE_CODE == 'ar' %}lang-active{% endif %}" hreflang="ar">AR</a>
+                <a href="{% translate_url 'es' %}" class="{% if LANGUAGE_CODE == 'es' %}lang-active{% endif %}" hreflang="es">ES</a>
+                <a href="{% translate_url 'it' %}" class="{% if LANGUAGE_CODE == 'it' %}lang-active{% endif %}" hreflang="it">IT</a>
             </div>
         </div>
     </header>
@@ -396,7 +225,7 @@
         {% if messages %}
             <div class="container" style="padding-top: 110px;">
                 {% for message in messages %}
-                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                <div class="alert alert-{{ message.tags }}" role="alert">{{ message }}</div>
                 {% endfor %}
             </div>
         {% endif %}
@@ -409,7 +238,7 @@
         <div class="footer-grid">
             <div class="footer-col fade-up">
                 <div class="footer-logo-wrap">
-                    <img src="{% static 'images/logo.png' %}" alt="CapersMed" class="footer-logo-img">
+                    <img src="{% static 'images/logo.png' %}" alt="CapersMed" class="footer-logo-img" width="174" height="55" loading="lazy">
                 </div>
                 <p>{% trans "Authentic Moroccan Gourmet Products — From Our Fields to Your Table." %}</p>
             </div>
@@ -429,15 +258,15 @@
                 <h3>{% trans "Contact Info" %}</h3>
                 <div class="footer-contact-item">
                     <span>📍</span>
-                    <div>{{ site_settings.address }}</div>
+                    <address style="font-style:normal">{{ site_settings.address }}</address>
                 </div>
                 <div class="footer-contact-item">
                     <span>📞</span>
-                    <div>{{ site_settings.phone }}</div>
+                    <div><a href="tel:{{ site_settings.phone|cut:' ' }}" style="color:inherit">{{ site_settings.phone }}</a></div>
                 </div>
                 <div class="footer-contact-item">
                     <span>📧</span>
-                    <div>{{ site_settings.email }}</div>
+                    <div><a href="mailto:{{ site_settings.email }}" style="color:inherit">{{ site_settings.email }}</a></div>
                 </div>
             </div>
         </div>
@@ -451,14 +280,18 @@
 
     <!-- WhatsApp Float -->
     <a href="https://wa.me/212661482883?text=Hello%20CAPERSMED%2C%20I%27m%20interested%20in%20your%20products"
-       class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+       class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="{% trans 'Chat on WhatsApp' %}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
           <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
         </svg>
     </a>
 
-    <script src="{% static 'js/main.js' %}"></script>
-    <script src="{% static 'js/animations.js' %}"></script>
+    <script src="{% static 'js/main.js' %}" defer></script>
+    <script src="{% static 'js/animations.js' %}" defer></script>
+
+    <!-- GSAP (deferred) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
 
     <!-- Mobile nav toggle -->
     <script>
@@ -480,16 +313,5 @@
         });
     })();
     </script>
-
-    <!-- Language switcher: swap /en/ prefix with chosen language -->
-    <script>
-    function switchLang(lang) {
-        var path = window.location.pathname;
-        var newPath = path.replace(/^\/[a-z]{2}\//, '/' + lang + '/');
-        if (newPath === path) { newPath = '/' + lang + '/'; }
-        window.location.href = newPath + window.location.search;
-    }
-    </script>
 </body>
 </html>
-

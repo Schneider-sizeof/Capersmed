@@ -2,8 +2,31 @@
 {% load i18n static %}
 {% get_current_language as LANGUAGE_CODE %}
 
-{% block title %}
-{% if LANGUAGE_CODE == 'fr' and post.title_fr %}{{ post.title_fr }}{% else %}{{ post.title_en }}{% endif %} — CAPERSMED
+{% block title %}{% if LANGUAGE_CODE == 'fr' and post.title_fr %}{{ post.title_fr }}{% elif LANGUAGE_CODE == 'ar' and post.title_ar %}{{ post.title_ar }}{% else %}{{ post.title_en }}{% endif %} — CAPERSMED{% endblock %}
+{% block meta_description %}{% if LANGUAGE_CODE == 'fr' and post.excerpt_fr %}{{ post.excerpt_fr }}{% elif LANGUAGE_CODE == 'ar' and post.excerpt_ar %}{{ post.excerpt_ar }}{% else %}{{ post.excerpt_en }}{% endif %}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block og_title %}{% if LANGUAGE_CODE == 'fr' and post.title_fr %}{{ post.title_fr }}{% else %}{{ post.title_en }}{% endif %} — CAPERSMED{% endblock %}
+{% block og_description %}{% if LANGUAGE_CODE == 'fr' and post.excerpt_fr %}{{ post.excerpt_fr }}{% else %}{{ post.excerpt_en }}{% endif %}{% endblock %}
+{% block og_image %}{% if post.image %}https://capersmed.pythonanywhere.com{{ MEDIA_URL }}{{ post.image }}{% else %}https://capersmed.pythonanywhere.com{% static 'images/logo.png' %}{% endif %}{% endblock %}
+{% block twitter_title %}{% if LANGUAGE_CODE == 'fr' and post.title_fr %}{{ post.title_fr }}{% else %}{{ post.title_en }}{% endif %}{% endblock %}
+{% block twitter_description %}{% if LANGUAGE_CODE == 'fr' and post.excerpt_fr %}{{ post.excerpt_fr }}{% else %}{{ post.excerpt_en }}{% endif %}{% endblock %}
+{% block twitter_image %}{% if post.image %}https://capersmed.pythonanywhere.com{{ MEDIA_URL }}{{ post.image }}{% else %}https://capersmed.pythonanywhere.com{% static 'images/logo.png' %}{% endif %}{% endblock %}
+
+{% block extra_schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ post.title_en }}",
+  "author": { "@type": "Person", "name": "{{ post.author }}" },
+  {% if post.published_at %}"datePublished": "{{ post.published_at|date:'c' }}",{% endif %}
+  "dateModified": "{{ post.updated_at|date:'c' }}",
+  {% if post.image %}"image": "https://capersmed.pythonanywhere.com{{ MEDIA_URL }}{{ post.image }}",{% endif %}
+  "publisher": { "@type": "Organization", "name": "CAPERSMED.SARL", "logo": { "@type": "ImageObject", "url": "https://capersmed.pythonanywhere.com{% static 'images/logo.png' %}" } },
+  "url": "https://capersmed.pythonanywhere.com{{ request.path }}",
+  "inLanguage": "{{ LANGUAGE_CODE }}"
+}
+</script>
 {% endblock %}
 
 {% block extra_head %}

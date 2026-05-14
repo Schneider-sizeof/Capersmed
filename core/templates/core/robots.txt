@@ -1,7 +1,16 @@
 User-agent: *
 Allow: /
 
-Sitemap: {{ base_url }}/sitemap.xml
-
 Disallow: /admin/
 Disallow: /set-language/
+Disallow: /static/js/
+Disallow: /static/css/
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://capersmed.pythonanywhere.com/sitemap.xml
+
+# Host
+Host: capersmed.pythonanywhere.com

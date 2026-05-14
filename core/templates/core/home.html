@@ -1,6 +1,27 @@
 {% extends 'base.html' %}
-{% load i18n %}
+{% load i18n static %}
 {% get_current_language as LANGUAGE_CODE %}
+
+{% block title %}CAPERSMED — {% trans "Premium Moroccan Gourmet Products" %}{% endblock %}
+{% block meta_description %}{% trans "CAPERSMED is a leading Moroccan producer of premium capers, caperberries, preserved lemons, harissa, and pickled vegetables. Export quality gourmet products from Fes, Morocco." %}{% endblock %}
+{% block og_title %}CAPERSMED — {% trans "Premium Moroccan Gourmet Products" %}{% endblock %}
+{% block og_description %}{% trans "Leading Moroccan producer of premium capers, preserved lemons, harissa, and pickled vegetables for global export." %}{% endblock %}
+{% block twitter_title %}CAPERSMED — {% trans "Premium Moroccan Gourmet Products" %}{% endblock %}
+{% block twitter_description %}{% trans "Premium Moroccan capers, preserved lemons & traditional condiments. Export quality from Fes." %}{% endblock %}
+
+{% block extra_schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "CAPERSMED — Premium Moroccan Gourmet Products",
+  "description": "Leading Moroccan producer of premium capers, preserved lemons, harissa and pickled vegetables.",
+  "url": "https://capersmed.pythonanywhere.com{{ request.path }}",
+  "inLanguage": "{{ LANGUAGE_CODE }}",
+  "isPartOf": { "@type": "WebSite", "name": "CAPERSMED", "url": "https://capersmed.pythonanywhere.com" }
+}
+</script>
+{% endblock %}
 
 {% block content %}
 <!-- Hero Section -->
@@ -80,10 +101,10 @@
             <img src="{{ MEDIA_URL }}products/caperpngpic.png" alt="About CAPERSMED"
                 style="max-width: 100%; max-height: 500px; object-fit: contain;">
         </div>
-        <div class="about-text">
-            <h2>{% trans "Crafting Tradition, Delivering Quality" %}</h2>
-            <p style="margin-bottom: 1.5rem;">{% trans "CAPERSMED is a leading Moroccan producer of premium food products. We blend traditional recipes with modern export standards." %}</p>
-            <ul class="check-list">
+        <div class="about-text" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+            <h2 style="text-align: center;">{% trans "Crafting Tradition, Delivering Quality" %}</h2>
+            <p style="margin-bottom: 1.5rem; text-align: center;">{% trans "CAPERSMED is a leading Moroccan producer of premium food products. We blend traditional recipes with modern export standards." %}</p>
+            <ul class="check-list" style="text-align: left; display: inline-block;">
                 <li>{% trans "100% Natural Ingredients" %}</li>
                 <li>{% trans "Traditional Moroccan Recipes" %}</li>
                 <li>{% trans "Export Quality Standards" %}</li>

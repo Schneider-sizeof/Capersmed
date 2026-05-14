@@ -96,11 +96,21 @@ def set_language(request, language_code):
 def sitemap_xml(request):
     products = Product.objects.all()
     posts = BlogPost.objects.filter(is_published=True)
-    base_url = request.build_absolute_uri('/').rstrip('/')
+    base_url = 'https://capersmed.pythonanywhere.com'
+    static_pages = [
+        '',               # home
+        'products/',
+        'certifications/',
+        'branding/',
+        'blog/',
+        'contact/',
+        'about/',
+    ]
     return render(request, 'core/sitemap.xml', {
         'products': products,
         'posts': posts,
         'base_url': base_url,
+        'static_pages': static_pages,
     }, content_type='application/xml')
 
 

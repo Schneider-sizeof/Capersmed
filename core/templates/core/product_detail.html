@@ -1,11 +1,45 @@
 {% extends 'base.html' %}
-{% load i18n %}
+{% load i18n static %}
 {% get_current_language as LANGUAGE_CODE %}
 
-{% block title %}
-    {% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}
-    {% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}
-    {% else %}{{ product.name_en }}{% endif %} | CAPERSMED
+{% block title %}{% if LANGUAGE_CODE == 'fr' and product.name_fr %}{{ product.name_fr }}{% elif LANGUAGE_CODE == 'ar' and product.name_ar %}{{ product.name_ar }}{% elif LANGUAGE_CODE == 'es' and product.name_es %}{{ product.name_es }}{% elif LANGUAGE_CODE == 'it' and product.name_it %}{{ product.name_it }}{% else %}{{ product.name_en }}{% endif %} | CAPERSMED{% endblock %}
+
+{% block meta_description %}{% if LANGUAGE_CODE == 'fr' and product.short_description_fr %}{{ product.short_description_fr }}{% elif LANGUAGE_CODE == 'ar' and product.short_description_ar %}{{ product.short_description_ar }}{% elif LANGUAGE_CODE == 'es' and product.short_description_es %}{{ product.short_description_es }}{% elif LANGUAGE_CODE == 'it' and product.short_description_it %}{{ product.short_description_it }}{% else %}{{ product.short_description_en }}{% endif %}{% endblock %}
+
+{% block og_type %}product{% endblock %}
+{% block og_title %}{% if LANGUAGE_CODE == 'fr' and product.name_fr %}{{ product.name_fr }}{% else %}{{ product.name_en }}{% endif %} — CAPERSMED{% endblock %}
+{% block og_description %}{% if LANGUAGE_CODE == 'fr' and product.short_description_fr %}{{ product.short_description_fr }}{% else %}{{ product.short_description_en }}{% endif %}{% endblock %}
+{% block og_image %}{% if product.image %}https://capersmed.pythonanywhere.com{{ product.image.url }}{% else %}https://capersmed.pythonanywhere.com{% static 'images/logo.png' %}{% endif %}{% endblock %}
+{% block twitter_title %}{% if LANGUAGE_CODE == 'fr' and product.name_fr %}{{ product.name_fr }}{% else %}{{ product.name_en }}{% endif %} — CAPERSMED{% endblock %}
+{% block twitter_description %}{% if LANGUAGE_CODE == 'fr' and product.short_description_fr %}{{ product.short_description_fr }}{% else %}{{ product.short_description_en }}{% endif %}{% endblock %}
+{% block twitter_image %}{% if product.image %}https://capersmed.pythonanywhere.com{{ product.image.url }}{% else %}https://capersmed.pythonanywhere.com{% static 'images/logo.png' %}{% endif %}{% endblock %}
+
+{% block extra_schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "{{ product.name_en }}",
+  "description": "{{ product.short_description_en }}",
+  "url": "https://capersmed.pythonanywhere.com{{ request.path }}",
+  {% if product.image %}"image": "https://capersmed.pythonanywhere.com{{ product.image.url }}",{% endif %}
+  "brand": { "@type": "Brand", "name": "CAPERSMED" },
+  "manufacturer": { "@type": "Organization", "name": "CAPERSMED.SARL" },
+  "countryOfOrigin": { "@type": "Country", "name": "Morocco" },
+  "category": "{{ product.get_category_display }}"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://capersmed.pythonanywhere.com/{{ LANGUAGE_CODE }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://capersmed.pythonanywhere.com/{{ LANGUAGE_CODE }}/products/" },
+    { "@type": "ListItem", "position": 3, "name": "{{ product.name_en }}" }
+  ]
+}
+</script>
 {% endblock %}
 
 {% block content %}

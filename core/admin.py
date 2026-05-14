@@ -38,14 +38,16 @@ class ProductAdmin(admin.ModelAdmin):
     fieldsets = (
         ('Basic Info', {
             'fields': (
-                'name_en', 'name_fr', 'name_ar',
+                'name_en', 'name_fr', 'name_ar', 'name_es', 'name_it',
                 'slug', 'category', 'is_featured', 'is_premium', 'image',
             )
         }),
         ('Descriptions', {
             'fields': (
                 'short_description_en', 'short_description_fr', 'short_description_ar',
+                'short_description_es', 'short_description_it',
                 'description_en', 'description_fr', 'description_ar',
+                'description_es', 'description_it',
             )
         }),
         ('🫙 Preservation Methods', {
@@ -60,10 +62,15 @@ class ProductAdmin(admin.ModelAdmin):
         ('Product Details', {
             'classes': ('collapse',),
             'fields': (
-                'features_en', 'features_fr', 'features_ar',
-                'uses_en', 'uses_fr', 'uses_ar',
+                'features_en', 'features_fr', 'features_ar', 'features_es', 'features_it',
+                'uses_en', 'uses_fr', 'uses_ar', 'uses_es', 'uses_it',
                 'specifications_en', 'specifications_fr', 'specifications_ar',
+                'specifications_es', 'specifications_it',
             ),
+        }),
+        ('B2B Catalog', {
+            'classes': ('collapse',),
+            'fields': ('calibers', 'grades', 'shelf_life', 'storage_conditions', 'origin'),
         }),
     )
 
