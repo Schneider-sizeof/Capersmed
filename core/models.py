@@ -14,6 +14,7 @@ class Preservation(models.Model):
     name_ar = models.CharField(max_length=100, blank=True, default='')
     name_es = models.CharField(max_length=100, blank=True, default='')
     name_it = models.CharField(max_length=100, blank=True, default='')
+    name_pt = models.CharField(max_length=100, blank=True, default='')
 
     class Meta:
         ordering = ['name']
@@ -30,6 +31,7 @@ class Packaging(models.Model):
     name_ar = models.CharField(max_length=100, blank=True, default='')
     name_es = models.CharField(max_length=100, blank=True, default='')
     name_it = models.CharField(max_length=100, blank=True, default='')
+    name_pt = models.CharField(max_length=100, blank=True, default='')
 
     class Meta:
         ordering = ['name']
@@ -44,6 +46,20 @@ class Certification(models.Model):
     code = models.CharField(max_length=50, unique=True)
     name = models.CharField(max_length=200)
     icon = models.CharField(max_length=10, default='🏅')
+    image = models.ImageField(upload_to='certifications/', blank=True, null=True)
+    description_en = models.TextField(blank=True, default='')
+    description_fr = models.TextField(blank=True, default='')
+    description_ar = models.TextField(blank=True, default='')
+    description_es = models.TextField(blank=True, default='')
+    description_it = models.TextField(blank=True, default='')
+    description_pt = models.TextField(blank=True, default='')
+    subtitle_en = models.CharField(max_length=100, blank=True, default='')
+    subtitle_fr = models.CharField(max_length=100, blank=True, default='')
+    subtitle_ar = models.CharField(max_length=100, blank=True, default='')
+    subtitle_es = models.CharField(max_length=100, blank=True, default='')
+    subtitle_it = models.CharField(max_length=100, blank=True, default='')
+    subtitle_pt = models.CharField(max_length=100, blank=True, default='')
+    theme_color = models.CharField(max_length=20, default='#1B4332')
 
     class Meta:
         ordering = ['code']
@@ -60,6 +76,7 @@ class Product(models.Model):
     name_ar = models.CharField(max_length=200, blank=True, default='')
     name_es = models.CharField(max_length=200, blank=True, default='')
     name_it = models.CharField(max_length=200, blank=True, default='')
+    name_pt = models.CharField(max_length=200, blank=True, default='')
     slug = models.SlugField(unique=True, blank=True)
     category = models.CharField(max_length=100, choices=CATEGORY_CHOICES)
     is_premium = models.BooleanField(default=False)
@@ -69,32 +86,38 @@ class Product(models.Model):
     short_description_ar = models.CharField(max_length=300, blank=True, default='')
     short_description_es = models.CharField(max_length=300, blank=True, default='')
     short_description_it = models.CharField(max_length=300, blank=True, default='')
+    short_description_pt = models.CharField(max_length=300, blank=True, default='')
 
     description_en = models.TextField(blank=True, default='')
     description_fr = models.TextField(blank=True, default='')
     description_ar = models.TextField(blank=True, default='')
     description_es = models.TextField(blank=True, default='')
     description_it = models.TextField(blank=True, default='')
+    description_pt = models.TextField(blank=True, default='')
 
     features_en = models.JSONField(default=list, blank=True)
     features_fr = models.JSONField(default=list, blank=True)
     features_ar = models.JSONField(default=list, blank=True)
     features_es = models.JSONField(default=list, blank=True)
     features_it = models.JSONField(default=list, blank=True)
+    features_pt = models.JSONField(default=list, blank=True)
 
     uses_en = models.JSONField(default=list, blank=True)
     uses_fr = models.JSONField(default=list, blank=True)
     uses_ar = models.JSONField(default=list, blank=True)
     uses_es = models.JSONField(default=list, blank=True)
     uses_it = models.JSONField(default=list, blank=True)
+    uses_pt = models.JSONField(default=list, blank=True)
 
     specifications_en = models.JSONField(default=dict, blank=True)
     specifications_fr = models.JSONField(default=dict, blank=True)
     specifications_ar = models.JSONField(default=dict, blank=True)
     specifications_es = models.JSONField(default=dict, blank=True)
     specifications_it = models.JSONField(default=dict, blank=True)
+    specifications_pt = models.JSONField(default=dict, blank=True)
 
     # B2B catalog fields
+    calibre = models.CharField(max_length=100, blank=True, null=True, default=None, help_text='Product calibre e.g. "7/8", "8/9", "9/11", "11/13", "13+"')
     calibers = models.JSONField(default=list, blank=True, help_text='Available calibers e.g. [1, 2, 3]')
     grades = models.JSONField(default=list, blank=True, help_text='Available grades e.g. ["A","B","C","D","E"]')
     shelf_life = models.CharField(max_length=100, blank=True, default='')
@@ -164,6 +187,9 @@ class BlogPost(models.Model):
     title_en = models.CharField(max_length=250)
     title_fr = models.CharField(max_length=250, blank=True)
     title_ar = models.CharField(max_length=250, blank=True)
+    title_es = models.CharField(max_length=250, blank=True)
+    title_it = models.CharField(max_length=250, blank=True)
+    title_pt = models.CharField(max_length=250, blank=True)
 
     slug = models.SlugField(unique=True, blank=True, max_length=260)
     category = models.CharField(max_length=50, choices=BLOG_CATEGORY_CHOICES, default='news')
@@ -171,10 +197,16 @@ class BlogPost(models.Model):
     excerpt_en = models.TextField(max_length=400, blank=True)
     excerpt_fr = models.TextField(max_length=400, blank=True)
     excerpt_ar = models.TextField(max_length=400, blank=True)
+    excerpt_es = models.TextField(max_length=400, blank=True)
+    excerpt_it = models.TextField(max_length=400, blank=True)
+    excerpt_pt = models.TextField(max_length=400, blank=True)
 
     content_en = models.TextField()
     content_fr = models.TextField(blank=True)
     content_ar = models.TextField(blank=True)
+    content_es = models.TextField(blank=True)
+    content_it = models.TextField(blank=True)
+    content_pt = models.TextField(blank=True)
 
     image = models.ImageField(upload_to='blog/', blank=True, null=True)
     author = models.CharField(max_length=100, default='CAPERSMED Team')

@@ -99,6 +99,8 @@ MISSING = {
 "Wholesale & Export": {"fr":"Gros et Export","es":"Mayoreo y Exportacion","it":"Ingrosso ed Esportazione","ar":"البيع بالجملة والتصدير"},
 "Why Choose Us": {"fr":"Pourquoi Nous Choisir","es":"Por Que Elegirnos","it":"Perche Sceglierci","ar":"لماذا تختارنا"},
 "Your brand our quality": {"fr":"Votre marque, notre qualite","es":"Su marca, nuestra calidad","it":"Il tuo marchio, la nostra qualita","ar":"علامتك التجارية، جودتنا"},
+"Need help? Chat with us!": {"fr":"Besoin d'aide ? Discutez avec nous !","es":"¿Necesitas ayuda? ¡Chatea con nosotros!","it":"Hai bisogno di aiuto? Chatta con noi!","ar":"هل تحتاج إلى مساعدة؟ دردش معنا!"},
+"Scroll down": {"fr":"Défiler vers le bas","es":"Desplazarse hacia abajo","it":"Scorri verso il basso","ar":"التمرير لأسفل"},
 }
 
 for lang in ['fr','es','it','ar']:

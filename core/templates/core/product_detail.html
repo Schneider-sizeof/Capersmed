@@ -1,17 +1,17 @@
 {% extends 'base.html' %}
-{% load i18n static %}
+{% load i18n static i18n_extras %}
 {% get_current_language as LANGUAGE_CODE %}
 
-{% block title %}{% if LANGUAGE_CODE == 'fr' and product.name_fr %}{{ product.name_fr }}{% elif LANGUAGE_CODE == 'ar' and product.name_ar %}{{ product.name_ar }}{% elif LANGUAGE_CODE == 'es' and product.name_es %}{{ product.name_es }}{% elif LANGUAGE_CODE == 'it' and product.name_it %}{{ product.name_it }}{% else %}{{ product.name_en }}{% endif %} | CAPERSMED{% endblock %}
+{% block title %}{{ product|translate_field:'name' }} | CAPERSMED{% endblock %}
 
-{% block meta_description %}{% if LANGUAGE_CODE == 'fr' and product.short_description_fr %}{{ product.short_description_fr }}{% elif LANGUAGE_CODE == 'ar' and product.short_description_ar %}{{ product.short_description_ar }}{% elif LANGUAGE_CODE == 'es' and product.short_description_es %}{{ product.short_description_es }}{% elif LANGUAGE_CODE == 'it' and product.short_description_it %}{{ product.short_description_it }}{% else %}{{ product.short_description_en }}{% endif %}{% endblock %}
+{% block meta_description %}{{ product|translate_field:'short_description' }}{% endblock %}
 
 {% block og_type %}product{% endblock %}
-{% block og_title %}{% if LANGUAGE_CODE == 'fr' and product.name_fr %}{{ product.name_fr }}{% else %}{{ product.name_en }}{% endif %} — CAPERSMED{% endblock %}
-{% block og_description %}{% if LANGUAGE_CODE == 'fr' and product.short_description_fr %}{{ product.short_description_fr }}{% else %}{{ product.short_description_en }}{% endif %}{% endblock %}
+{% block og_title %}{{ product|translate_field:'name' }} — CAPERSMED{% endblock %}
+{% block og_description %}{{ product|translate_field:'short_description' }}{% endblock %}
 {% block og_image %}{% if product.image %}https://capersmed.pythonanywhere.com{{ product.image.url }}{% else %}https://capersmed.pythonanywhere.com{% static 'images/logo.png' %}{% endif %}{% endblock %}
-{% block twitter_title %}{% if LANGUAGE_CODE == 'fr' and product.name_fr %}{{ product.name_fr }}{% else %}{{ product.name_en }}{% endif %} — CAPERSMED{% endblock %}
-{% block twitter_description %}{% if LANGUAGE_CODE == 'fr' and product.short_description_fr %}{{ product.short_description_fr }}{% else %}{{ product.short_description_en }}{% endif %}{% endblock %}
+{% block twitter_title %}{{ product|translate_field:'name' }} — CAPERSMED{% endblock %}
+{% block twitter_description %}{{ product|translate_field:'short_description' }}{% endblock %}
 {% block twitter_image %}{% if product.image %}https://capersmed.pythonanywhere.com{{ product.image.url }}{% else %}https://capersmed.pythonanywhere.com{% static 'images/logo.png' %}{% endif %}{% endblock %}
 
 {% block extra_schema %}
@@ -24,9 +24,26 @@
   "url": "https://capersmed.pythonanywhere.com{{ request.path }}",
   {% if product.image %}"image": "https://capersmed.pythonanywhere.com{{ product.image.url }}",{% endif %}
   "brand": { "@type": "Brand", "name": "CAPERSMED" },
-  "manufacturer": { "@type": "Organization", "name": "CAPERSMED.SARL" },
+  "manufacturer": {
+    "@type": "Organization",
+    "name": "CAPERSMED.SARL",
+    "url": "https://capersmed.pythonanywhere.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Fes",
+      "addressCountry": "MA"
+    }
+  },
   "countryOfOrigin": { "@type": "Country", "name": "Morocco" },
-  "category": "{{ product.get_category_display }}"
+  "category": "{{ product.get_category_display }}",
+  {% if product.calibre %}"additionalProperty": [
+    { "@type": "PropertyValue", "name": "Calibre", "value": "{{ product.calibre }}" }
+  ],{% endif %}
+  {% if product.shelf_life %}"hasMerchantReturnPolicy": { "@type": "MerchantReturnPolicy" },{% endif %}
+  "isRelatedTo": {
+    "@type": "FoodService",
+    "name": "Gourmet Food Export"
+  }
 }
 </script>
 <script type="application/ld+json">
@@ -50,7 +67,7 @@
             <!-- Product Image -->
             <div class="product-detail-image" style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); background: var(--light-gray); aspect-ratio: 1/1;">
                 {% if product.image %}
-                    <img src="{{ product.image.url }}" alt="{{ product.name_en }}" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="{{ product.image.url }}" alt="{{ product|translate_field:'name' }}" style="width: 100%; height: 100%; object-fit: cover;">
                 {% else %}
                     <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:6rem;">
                         {% if product.category == 'capers' %}🫒{% elif product.category == 'peppers' %}🌶️{% else %}🥒{% endif %}
@@ -74,16 +91,12 @@
 
                 <!-- Title -->
                 <h1 style="font-size: 3rem; color: var(--deep-green); margin-bottom: 0.5rem; line-height: 1.1;">
-                    {% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}
-                    {% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}
-                    {% else %}{{ product.name_en }}{% endif %}
+                    {{ product|translate_field:'name' }}
                 </h1>
 
                 <!-- Short Description -->
                 <p style="font-size: 1.2rem; color: #555; margin-bottom: 2rem; font-weight: 500;">
-                    {% if LANGUAGE_CODE == 'fr' %}{{ product.short_description_fr }}
-                    {% elif LANGUAGE_CODE == 'ar' %}{{ product.short_description_ar }}
-                    {% else %}{{ product.short_description_en }}{% endif %}
+                    {{ product|translate_field:'short_description' }}
                 </p>
 
                 <!-- CTA -->
@@ -98,15 +111,13 @@
                         {% trans "Description" %}
                     </h3>
                     <p style="color: #666; margin-bottom: 2rem;">
-                        {% if LANGUAGE_CODE == 'fr' %}{{ product.description_fr }}
-                        {% elif LANGUAGE_CODE == 'ar' %}{{ product.description_ar }}
-                        {% else %}{{ product.description_en }}{% endif %}
+                        {{ product|translate_field:'description' }}
                     </p>
 
-                    <!-- 3-Column: Preservation + Packaging + Certifications -->
+                    <!-- 2-Column: Preservation + Packaging -->
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 1rem;">
 
-                        <!-- Left column: Preservation + Packaging -->
+                        <!-- Left column: Preservation -->
                         <div>
                             {% if product.preservation.exists %}
                             <h3 style="color: var(--dark-brown); font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 1rem;">
@@ -115,12 +126,15 @@
                             <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem;">
                                 {% for pres in product.preservation.all %}
                                 <span style="background: #E8F5E9; color: #2E7D32; padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; border: 1px solid #A5D6A7;">
-                                    🫙 {{ pres.name }}
+                                    🫙 {{ pres|translate_field:'name' }}
                                 </span>
                                 {% endfor %}
                             </div>
                             {% endif %}
+                        </div>
 
+                        <!-- Right: Packaging -->
+                        <div>
                             {% if product.packaging.exists %}
                             <h3 style="color: var(--dark-brown); font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 1.5rem;">
                                 {% trans "Packaging" %}
@@ -133,31 +147,35 @@
                                         {% if 'fut' in p %}🛢️{% elif 'seaux' in p %}🪣{% elif 'bocal' in p %}🫙{% elif 'boite' in p or 'metallique' in p %}🥫{% elif 'doypack' in p %}📦{% else %}📦{% endif %}
                                         {% endwith %}
                                     </div>
-                                    <div style="font-size: 0.82rem; color: #333; font-weight: 500;">{{ pkg.name }}</div>
+                                    <div style="font-size: 0.82rem; color: #333; font-weight: 500;">{{ pkg|translate_field:'name' }}</div>
                                 </div>
                                 {% endfor %}
                             </div>
                             {% endif %}
                         </div>
-
-                        <!-- Right: Certifications -->
-                        <div>
-                            {% if product.certifications.exists %}
-                            <h3 style="color: var(--dark-brown); font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 1.5rem;">
-                                {% trans "Certifications" %}
-                            </h3>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;">
-                                {% for cert in product.certifications.all %}
-                                <div style="display: flex; align-items: center; gap: 8px; background: #F3E5F5; border: 1.5px solid #CE93D8; border-radius: 10px; padding: 12px 14px;">
-                                    <span style="font-size: 1.4rem;">{{ cert.icon }}</span>
-                                    <span style="font-size: 0.8rem; font-weight: 700; color: #6A1B9A;">{{ cert.code }}</span>
-                                </div>
-                                {% endfor %}
-                            </div>
-                            {% endif %}
-                        </div>
-
                     </div>
+
+                    <!-- Certifications Section (Full width below) -->
+                    {% if product.certifications.exists %}
+                    <div style="margin-top: 3rem;">
+                        <h3 style="color: var(--dark-brown); font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 1.5rem;">
+                            {% trans "Certifications" %}
+                        </h3>
+                        <div style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
+                            {% for cert in product.certifications.all %}
+                            <div style="display: flex; align-items: center; justify-content: center; background: #fff; border: 1.5px solid #eee; border-radius: 10px; padding: 10px; width: 100px; height: 60px;" title="{{ cert.name }}">
+                                {% if cert.image %}
+                                    <img src="{{ cert.image.url }}" alt="{{ cert.name }}" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                                {% else %}
+                                    {% with c=cert.code|lower %}
+                                    <img src="{% static 'images/certs/' %}{{ c }}.png" alt="{{ cert.name }}" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                                    {% endwith %}
+                                {% endif %}
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>
 
             </div>

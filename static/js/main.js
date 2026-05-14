@@ -20,4 +20,43 @@ document.addEventListener('DOMContentLoaded', () => {
             header.style.boxShadow = 'none';
         }
     });
+
+    // WhatsApp Focus Logic
+    const scrollIndicator = document.querySelector('.js-scroll-to-wa');
+    const whatsappBtn = document.getElementById('whatsapp-btn');
+    const aboutSection = document.getElementById('about-section');
+    let waEffectShown = false;
+    let waTimeout = null;
+
+    const showWaEffect = (duration = 10000) => {
+        if (waEffectShown || !whatsappBtn) return;
+        waEffectShown = true;
+        
+        whatsappBtn.classList.add('highlight');
+        
+        waTimeout = setTimeout(() => {
+            whatsappBtn.classList.remove('highlight');
+        }, duration);
+    };
+
+    const stopWaEffect = () => {
+        if (whatsappBtn) {
+            whatsappBtn.classList.remove('highlight');
+            if (waTimeout) clearTimeout(waTimeout);
+        }
+    };
+
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', () => {
+            showWaEffect(8000);
+        });
+    }
+
+    // Trigger on manual scroll
+    window.addEventListener('scroll', () => {
+        // Start effect when user scrolls a bit
+        if (window.scrollY > 100 && !waEffectShown) {
+            showWaEffect(8000);
+        }
+    }, { passive: true });
 });

@@ -1,10 +1,10 @@
-{% load i18n static %}
+{% load i18n static i18n_extras %}
 <tr id="product-{{ product.slug }}">
 
     <td class="prod-img-cell" data-label="">
         <div class="prod-img-wrap">
             {% if product.image %}
-                <img src="{{ MEDIA_URL }}{{ product.image }}" alt="{% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}{% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}{% elif LANGUAGE_CODE == 'es' %}{{ product.name_es }}{% elif LANGUAGE_CODE == 'it' %}{{ product.name_it }}{% else %}{{ product.name_en }}{% endif %}" loading="lazy">
+                <img src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product|translate_field:'name' }}" loading="lazy">
             {% else %}
                 <span class="prod-img-placeholder">
                     {% if product.category == 'capers' %}🫒{% elif product.category == 'peppers' %}🌶️{% else %}🥒{% endif %}
@@ -15,17 +15,17 @@
 
     <td data-label="Product">
         {% if product.is_premium %}<span class="prod-premium-badge">★ Premium</span><br>{% endif %}
-        <div class="prod-name">{% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}{% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}{% elif LANGUAGE_CODE == 'es' %}{{ product.name_es }}{% elif LANGUAGE_CODE == 'it' %}{{ product.name_it }}{% else %}{{ product.name_en }}{% endif %}</div>
-        <div class="prod-desc">{% if LANGUAGE_CODE == 'fr' %}{{ product.short_description_fr }}{% elif LANGUAGE_CODE == 'ar' %}{{ product.short_description_ar }}{% elif LANGUAGE_CODE == 'es' %}{{ product.short_description_es }}{% elif LANGUAGE_CODE == 'it' %}{{ product.short_description_it }}{% else %}{{ product.short_description_en }}{% endif %}</div>
+        <div class="prod-name">{{ product|translate_field:'name' }}</div>
+        <div class="prod-desc">{{ product|translate_field:'short_description' }}</div>
     </td>
 
     <td data-label="Packaging">
         {% if product.packaging.exists %}
         <div class="packaging-icons">
             {% for pkg in product.packaging.all %}
-            <span class="pkg-pill" title="{{ pkg.name }}">
+            <span class="pkg-pill" title="{{ pkg|translate_field:'name' }}">
                 {% with p=pkg.name|lower %}{% if 'fut' in p %}🛢️{% elif 'seaux' in p %}🪣{% elif 'bocal' in p %}🫙{% elif 'boite' in p or 'metallique' in p %}🥫{% elif 'doypack' in p %}📦{% else %}📦{% endif %}{% endwith %}
-                {% if LANGUAGE_CODE == 'fr' and pkg.name_fr %}{{ pkg.name_fr }}{% elif LANGUAGE_CODE == 'ar' and pkg.name_ar %}{{ pkg.name_ar }}{% elif LANGUAGE_CODE == 'es' and pkg.name_es %}{{ pkg.name_es }}{% elif LANGUAGE_CODE == 'it' and pkg.name_it %}{{ pkg.name_it }}{% else %}{{ pkg.name }}{% endif %}
+                {{ pkg|translate_field:'name' }}
             </span>
             {% endfor %}
         </div>
@@ -38,8 +38,14 @@
         {% if product.certifications.exists %}
         <div class="cert-badges">
             {% for cert in product.certifications.all %}
-            <span class="cert-badge cert-{{ cert.code|upper }}" title="{{ cert.name }}">
-                <span class="cert-icon">{{ cert.icon }}</span>
+            <span class="cert-badge" title="{{ cert.name }}">
+                {% if cert.image %}
+                    <img src="{{ cert.image.url }}" alt="{{ cert.code }}" class="cert-icon-img">
+                {% else %}
+                    {% with c=cert.code|lower %}
+                    <img src="{% static 'images/certs/' %}{{ c }}.png" alt="{{ cert.code }}" class="cert-icon-img">
+                    {% endwith %}
+                {% endif %}
                 {{ cert.code|upper }}
             </span>
             {% endfor %}

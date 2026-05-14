@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load i18n static %}
+{% load i18n static i18n_extras %}
 {% get_current_language as LANGUAGE_CODE %}
 
 {% block title %}{% trans "Product Catalog" %} — CAPERSMED{% endblock %}
@@ -278,26 +278,30 @@
     .cert-badge {
         display: flex;
         align-items: center;
-        gap: 4px;
-        padding: 4px 9px 4px 6px;
-        border-radius: 20px;
-        font-size: 0.68rem;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 0.65rem;
         font-weight: 700;
         letter-spacing: 0.5px;
         white-space: nowrap;
-        border: 1.5px solid transparent;
+        background: #fff;
+        border: 1.5px solid #eee;
         transition: all 0.25s ease;
         cursor: default;
     }
 
     .cert-badge:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-color: #40916C;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     }
 
-    .cert-badge .cert-icon {
-        font-size: 0.9rem;
-        line-height: 1;
+    .cert-badge .cert-icon-img {
+        height: 20px;
+        width: auto;
+        display: block;
+        object-fit: contain;
     }
 
     /* Individual cert colors */
@@ -609,17 +613,17 @@
     <button class="pqn-btn pqn-active" onclick="showAll()">{% trans "All" %}</button>
     {% for product in capers %}
     <a href="#product-{{ product.slug }}" class="pqn-btn" onclick="scrollToProduct(event, 'product-{{ product.slug }}')">
-        🫒 {% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}{% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}{% else %}{{ product.name_en }}{% endif %}
+        🫒 {{ product|translate_field:'name' }}
     </a>
     {% endfor %}
     {% for product in peppers %}
     <a href="#product-{{ product.slug }}" class="pqn-btn" onclick="scrollToProduct(event, 'product-{{ product.slug }}')">
-        🌶️ {% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}{% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}{% else %}{{ product.name_en }}{% endif %}
+        🌶️ {{ product|translate_field:'name' }}
     </a>
     {% endfor %}
     {% for product in pickles %}
     <a href="#product-{{ product.slug }}" class="pqn-btn" onclick="scrollToProduct(event, 'product-{{ product.slug }}')">
-        🥒 {% if LANGUAGE_CODE == 'fr' %}{{ product.name_fr }}{% elif LANGUAGE_CODE == 'ar' %}{{ product.name_ar }}{% else %}{{ product.name_en }}{% endif %}
+        🥒 {{ product|translate_field:'name' }}
     </a>
     {% endfor %}
 </div>

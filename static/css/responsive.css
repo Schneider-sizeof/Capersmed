@@ -14,7 +14,8 @@ html, body {
 
   /* --- Hero --- */
   .hero {
-    min-height: 85vh;
+    height: 100vh;
+    min-height: 500px;
     padding: 100px 1.5rem 3rem;
     background-attachment: scroll; /* fix iOS parallax bug */
   }
@@ -316,7 +317,8 @@ html, body {
 @media screen and (min-width: 768px) and (max-width: 1024px) {
 
   .hero {
-    min-height: 85vh;
+    height: 100vh;
+    min-height: 600px;
     background-attachment: scroll;
   }
 

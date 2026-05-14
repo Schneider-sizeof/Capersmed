@@ -99,6 +99,7 @@ LANGUAGES = [
     ('ar', _('Arabic')),
     ('es', _('Spanish')),
     ('it', _('Italian')),
+    ('pt', _('Portuguese')),
 ]
 
 LOCALE_PATHS = [

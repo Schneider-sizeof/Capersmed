@@ -2,14 +2,18 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
-from .models import Product, BlogPost
+from .models import Product, BlogPost, Certification
 from .forms import ContactForm
 from django.utils.translation import gettext as _
 from django.utils import translation
 
 def home(request):
     featured_products = Product.objects.filter(is_featured=True).order_by('id')[:3]
-    return render(request, 'core/home.html', {'featured_products': featured_products})
+    certs = Certification.objects.all()
+    return render(request, 'core/home.html', {
+        'featured_products': featured_products,
+        'certifications': certs
+    })
 
 def about(request):
     return render(request, 'core/about.html')
@@ -33,7 +37,8 @@ def product_detail(request, slug):
     return render(request, 'core/product_detail.html', {'product': product})
 
 def certifications(request):
-    return render(request, 'core/certifications.html')
+    certs = Certification.objects.all()
+    return render(request, 'core/certifications.html', {'certifications': certs})
 
 def blog(request):
     category = request.GET.get('category', '')

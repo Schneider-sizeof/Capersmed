@@ -66,8 +66,17 @@
     box-shadow: 0 12px 32px rgba(27,67,50,0.12);
 }
 .cert-card-icon {
-    font-size: 3rem;
-    line-height: 1;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+.cert-card-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 .cert-card-title {
     font-family: 'Playfair Display', serif;
@@ -171,59 +180,37 @@
 <!-- Certification Cards -->
 <section class="certs-section">
     <div class="certs-grid">
-
-        <!-- KOSHER -->
-        <div class="cert-card cert-kosher fade-up">
-            <div class="cert-card-icon">✡️</div>
+        {% for cert in certifications %}
+        <div class="cert-card fade-up" style="border-left: 4px solid {{ cert.theme_color }};">
+            <div class="cert-card-icon">
+                {% if cert.image %}
+                    <img src="{{ cert.image.url }}" alt="{{ cert.name }}">
+                {% else %}
+                    <span style="font-size: 3rem;">{{ cert.icon }}</span>
+                {% endif %}
+            </div>
             <div>
-                <span class="cert-card-subtitle">{% trans "Religious Compliance" %}</span>
-                <h2 class="cert-card-title">{% trans "Kosher Certified" %}</h2>
+                <span class="cert-card-subtitle" style="background: {{ cert.theme_color }}15; color: {{ cert.theme_color }};">
+                    {% if LANGUAGE_CODE == 'fr' and cert.subtitle_fr %}{{ cert.subtitle_fr }}
+                    {% elif LANGUAGE_CODE == 'ar' and cert.subtitle_ar %}{{ cert.subtitle_ar }}
+                    {% elif LANGUAGE_CODE == 'es' and cert.subtitle_es %}{{ cert.subtitle_es }}
+                    {% elif LANGUAGE_CODE == 'it' and cert.subtitle_it %}{{ cert.subtitle_it }}
+                    {% else %}{{ cert.subtitle_en }}{% endif %}
+                </span>
+                <h2 class="cert-card-title">{{ cert.name }}</h2>
             </div>
             <p class="cert-card-desc">
-                {% trans "Our Kosher certification confirms that our products meet the strict requirements of Jewish dietary law. This certification opens access to North American and Israeli markets, as well as kosher-conscious consumers worldwide." %}
+                {% if LANGUAGE_CODE == 'fr' and cert.description_fr %}{{ cert.description_fr }}
+                {% elif LANGUAGE_CODE == 'ar' and cert.description_ar %}{{ cert.description_ar }}
+                {% elif LANGUAGE_CODE == 'es' and cert.description_es %}{{ cert.description_es }}
+                {% elif LANGUAGE_CODE == 'it' and cert.description_it %}{{ cert.description_it }}
+                {% else %}{{ cert.description_en }}{% endif %}
             </p>
-            <span class="cert-card-badge">✡️ {% trans "Kosher" %}</span>
+            <span class="cert-card-badge" style="background: {{ cert.theme_color }}15; color: {{ cert.theme_color }}; border-color: {{ cert.theme_color }}40;">
+                {{ cert.code }}
+            </span>
         </div>
-
-        <!-- IFS -->
-        <div class="cert-card cert-ifs fade-up">
-            <div class="cert-card-icon">🏅</div>
-            <div>
-                <span class="cert-card-subtitle">{% trans "International Food Standard" %}</span>
-                <h2 class="cert-card-title">IFS Food</h2>
-            </div>
-            <p class="cert-card-desc">
-                {% trans "The International Featured Standard (IFS) Food certification demonstrates our commitment to food safety and product quality across the entire supply chain. This standard is widely required by major European retailers and distributors." %}
-            </p>
-            <span class="cert-card-badge">🏅 IFS Food</span>
-        </div>
-
-        <!-- BRC -->
-        <div class="cert-card cert-brc fade-up">
-            <div class="cert-card-icon">🏅</div>
-            <div>
-                <span class="cert-card-subtitle">{% trans "Global Food Safety Standard" %}</span>
-                <h2 class="cert-card-title">BRC Global Standard</h2>
-            </div>
-            <p class="cert-card-desc">
-                {% trans "The BRC (British Retail Consortium) Global Standard for Food Safety is one of the most recognized certifications for food manufacturers worldwide. It demonstrates our robust food safety management systems and is a requirement for supplying UK and international retailers." %}
-            </p>
-            <span class="cert-card-badge">🏅 BRC</span>
-        </div>
-
-        <!-- FDA -->
-        <div class="cert-card cert-fda fade-up">
-            <div class="cert-card-icon">🇺🇸</div>
-            <div>
-                <span class="cert-card-subtitle">{% trans "U.S. Market Access" %}</span>
-                <h2 class="cert-card-title">FDA Registered</h2>
-            </div>
-            <p class="cert-card-desc">
-                {% trans "CAPERSMED is registered with the U.S. Food and Drug Administration (FDA), allowing direct export to the United States market. Our FDA registration confirms compliance with U.S. federal food safety regulations and Prior Notice requirements." %}
-            </p>
-            <span class="cert-card-badge">🇺🇸 FDA</span>
-        </div>
-
+        {% endfor %}
     </div>
 </section>
 
