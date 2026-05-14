@@ -313,5 +313,47 @@
         });
     })();
     </script>
+
+    <!-- Content Protection Scripts -->
+    <style>
+        /* Disable text selection except in form inputs */
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        input, textarea {
+            -webkit-user-select: auto !important;
+            -moz-user-select: auto !important;
+            -ms-user-select: auto !important;
+            user-select: auto !important;
+        }
+    </style>
+    <script>
+    (function() {
+        // Disable Right Click
+        document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+
+        // Disable Keyboard Shortcuts for Inspect Element & Copy
+        document.addEventListener('keydown', function(e) {
+            // F12
+            if (e.key === 'F12' || e.keyCode === 123) { e.preventDefault(); }
+            // Ctrl/Cmd + Shift + I/J/C
+            if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key.toLowerCase() === 'i' || e.key.toLowerCase() === 'j' || e.key.toLowerCase() === 'c')) { e.preventDefault(); }
+            // Ctrl/Cmd + U, S, C, A
+            if ((e.ctrlKey || e.metaKey) && (e.key.toLowerCase() === 'u' || e.key.toLowerCase() === 's' || e.key.toLowerCase() === 'c' || e.key.toLowerCase() === 'a')) {
+                // Allow Ctrl+A/C inside form inputs
+                if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+                e.preventDefault();
+            }
+        });
+
+        // Disable Dragging of Images/Links
+        document.addEventListener('dragstart', function(e) {
+            if (e.target.tagName === 'IMG' || e.target.tagName === 'A') { e.preventDefault(); }
+        });
+    })();
+    </script>
 </body>
 </html>
