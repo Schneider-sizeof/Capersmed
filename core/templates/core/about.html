@@ -1,17 +1,13 @@
 {% extends 'base.html' %}
-{% load i18n %}
+{% load i18n static %}
 
 {% block title %}{% trans "About Us" %} — CAPERSMED{% endblock %}
 {% block meta_description %}{% trans "Learn about CAPERSMED.SARL — a leading Moroccan producer of premium capers, preserved lemons, and traditional condiments. Founded in Fes with a mission to deliver authentic Moroccan flavors worldwide." %}{% endblock %}
-{% block og_title %}{% trans "About Us" %} — CAPERSMED{% endblock %}
-{% block og_description %}{% trans "Founded in Fes, Morocco — delivering authentic Moroccan gourmet products to the world." %}{% endblock %}
-{% block twitter_title %}{% trans "About Us" %} — CAPERSMED{% endblock %}
-{% block twitter_description %}{% trans "Learn about CAPERSMED — premium Moroccan gourmet producer." %}{% endblock %}
 
 {% block extra_head %}
 <style>
 .about-hero {
-    background: linear-gradient(rgba(27,67,50,0.7), rgba(27,67,50,0.7)), url('/media/backgrounds/hero_about.png') center/cover no-repeat;
+    background: linear-gradient(rgba(27,67,50,0.7), rgba(27,67,50,0.7)), url('{{ MEDIA_URL }}backgrounds/herohomenew.jpg') center/cover no-repeat;
     padding: 140px 2rem 80px;
     text-align: center;
     color: #fff;
@@ -22,58 +18,200 @@
     color: #fff;
     margin-bottom: 0.75rem;
 }
+.about-hero p {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.05rem;
+    max-width: 580px;
+    margin: 0 auto;
+}
+.about-eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #40916C;
+    margin-bottom: 1rem;
+}
+
+/* Sections */
+.about-section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.about-section-alt {
+    background: #fdfdfc;
+    padding: 5rem 2rem;
+}
+.about-section-alt .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #1B4332;
+    margin-bottom: 1.5rem;
+}
+
+/* Story Grid */
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+.story-content p {
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+.story-image img {
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(27,67,50,0.08);
+}
+
+/* Values Grid */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+.value-card {
+    background: #fff;
+    border: 1px solid #e0ede3;
+    border-radius: 14px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 4px 20px rgba(27,67,50,0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+.value-card:hover {
+    transform: translateY(-4px);
+}
+.value-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #1B4332;
+    margin-bottom: 1rem;
+}
+.value-card p {
+    color: #555;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+/* CTA */
+.about-cta {
+    background: #1B4332;
+    color: #fff;
+    padding: 5rem 2rem;
+    text-align: center;
+}
+.about-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+.about-cta p {
+    color: #A8D5BA;
+    font-size: 1.05rem;
+    max-width: 560px;
+    margin: 0 auto 2rem;
+}
+.btn-gold {
+    display: inline-block;
+    background: #D4AF37;
+    color: #1B1B1B;
+    padding: 14px 36px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+}
+.btn-gold:hover {
+    background: #c9a230;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(212,175,55,0.35);
+}
+
+@media (max-width: 992px) {
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .story-image {
+        order: -1;
+    }
+}
 </style>
 {% endblock %}
 
 {% block content %}
+<!-- Hero -->
 <section class="about-hero">
-    <div class="hero-content">
-        <h1>{% trans "About Us" %}</h1>
-    </div>
+    <span class="about-eyebrow">{% trans "Crafting Tradition" %}</span>
+    <h1 class="fade-up">{% trans "About Us" %}</h1>
+    <p class="fade-up" style="animation-delay: 0.2s;">{% trans "From the fertile lands of Morocco to the tables of the world, CAPERSMED brings you the finest gourmet ingredients." %}</p>
 </section>
 
-<section class="section-padding container">
-    <div class="text-center fade-up" style="max-width: 900px; margin: 0 auto 4rem;">
-        <h2 class="section-title">{% trans "Our Story" %}</h2>
-        <p style="font-size: 1.2rem;">{% trans "Founded in the heart of Morocco, CAPERSMED.SARL was established with a vision to bring the authentic flavors of Moroccan agriculture to the world. We specialize in the meticulous processing and packaging of premium capers, vinegars, and a variety of traditional condiments." %}</p>
-    </div>
-
-    <div class="about-preview fade-up" style="margin-bottom: 4rem;">
-        <div>
-            <h2 class="text-green">{% trans "Mission & Values" %}</h2>
-            <p>{% trans "Our mission is to deliver the highest quality gourmet food products while supporting local farmers and sustainable agricultural practices. We value integrity, authenticity, and uncompromising quality." %}</p>
+<!-- Story Section -->
+<section class="about-section">
+    <div class="story-grid">
+        <div class="story-content fade-in">
+            <h2 class="section-title">{% trans "Our Story" %}</h2>
+            <p>{% trans "Founded in the heart of Morocco, CAPERSMED.SARL was established with a vision to bring the authentic flavors of Moroccan agriculture to the world. We specialize in the meticulous processing and packaging of premium capers, vinegars, and a variety of traditional condiments." %}</p>
+            <p>{% trans "What started as a family passion for Moroccan heritage has grown into a leading export operation, serving gourmet markets across Europe, North America, and the Middle East." %}</p>
+            <p>{% trans "Our commitment to quality starts at the source, working closely with local farmers to ensure only the finest raw materials are selected for our production." %}</p>
         </div>
-        <div style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); height: 300px;">
-            <img src="{{ MEDIA_URL }}products/vinegar_placeholder.png" alt="CAPERSMED Factory" style="width: 100%; height: 100%; object-fit: cover;">
-        </div>
-    </div>
-
-    <h2 class="section-title fade-up">{% trans "Certifications" %}</h2>
-    <div class="features-grid fade-up">
-        <div class="feature-box">
-            <h3 class="text-gold">ISO 22000</h3>
-            <p>{% trans "Food Safety Management" %}</p>
-        </div>
-        <div class="feature-box">
-            <h3 class="text-gold">HACCP</h3>
-            <p>{% trans "Hazard Analysis" %}</p>
-        </div>
-        <div class="feature-box">
-            <h3 class="text-gold">Halal</h3>
-            <p>{% trans "Certified Halal" %}</p>
-        </div>
-        <div class="feature-box">
-            <h3 class="text-gold">FDA</h3>
-            <p>{% trans "Export Standards" %}</p>
+        <div class="story-image fade-in">
+            <img src="{{ MEDIA_URL }}backgrounds/bgai.png" alt="{% trans 'Premium Moroccan Products' %}">
         </div>
     </div>
 </section>
 
-<section class="section-padding text-center" style="background: var(--cream-bg);">
+<!-- Values Section -->
+<section class="about-section-alt">
     <div class="container fade-up">
-        <h2>{% trans "Experience Moroccan Quality" %}</h2>
-        <br>
-        <a href="{% url 'products' %}" class="btn btn-primary">{% trans "View Our Products" %}</a>
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <h2 class="section-title">{% trans "Mission & Values" %}</h2>
+            <p style="color: #555; font-size: 1.05rem; line-height: 1.7;">{% trans "Our mission is to deliver the highest quality gourmet food products while supporting local farmers and sustainable agricultural practices. We value integrity, authenticity, and uncompromising quality." %}</p>
+        </div>
+        
+        <div class="values-grid">
+            <div class="value-card">
+                <h3>{% trans "Integrity" %}</h3>
+                <p>{% trans "We maintain the highest standards of honesty and transparency in every step of our process, from sourcing to shipping." %}</p>
+            </div>
+            <div class="value-card">
+                <h3>{% trans "Authenticity" %}</h3>
+                <p>{% trans "Our recipes are rooted in Moroccan tradition, preserving the true taste and heritage of our culinary culture." %}</p>
+            </div>
+            <div class="value-card">
+                <h3>{% trans "Excellence" %}</h3>
+                <p>{% trans "Uncompromising quality control ensures that only the most premium products reach our international partners." %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="about-cta">
+    <h2>{% trans "Ready to Experience Moroccan Excellence?" %}</h2>
+    <p>{% trans "Explore our full catalog of premium products and discover the authentic taste of Morocco." %}</p>
+    <div style="margin-top: 2rem;">
+        <a href="{% url 'products' %}" class="btn-gold">{% trans "View Our Products" %}</a>
     </div>
 </section>
 {% endblock %}
+

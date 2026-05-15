@@ -69,7 +69,8 @@ msgid "Premium Moroccan Gourmet"
 msgstr "Gourmet Marroquino Premium"
 
 msgid "Authentic Moroccan Gourmet Products — From Our Fields to Your Table."
-msgstr "Produtos Gourmet Marroquinos Autênticos — Dos Nossos Campos para a Sua Mesa."
+msgstr ""
+"Produtos Gourmet Marroquinos Autênticos — Dos Nossos Campos para a Sua Mesa."
 
 msgid "Quick Links"
 msgstr "Links Rápidos"
@@ -115,8 +116,13 @@ msgstr "Qualidade Verificada"
 msgid "Our Certifications"
 msgstr "Nossas Certificações"
 
-msgid "CAPERSMED products are certified to the highest international food safety and dietary standards, giving our export partners complete confidence."
-msgstr "Os produtos CAPERSMED são certificados pelos mais elevados padrões internacionais de segurança alimentar e dietética, proporcionando total confiança aos nossos parceiros de exportação."
+msgid ""
+"CAPERSMED products are certified to the highest international food safety "
+"and dietary standards, giving our export partners complete confidence."
+msgstr ""
+"Os produtos CAPERSMED são certificados pelos mais elevados padrões "
+"internacionais de segurança alimentar e dietética, proporcionando total "
+"confiança aos nossos parceiros de exportação."
 
 msgid "Religious Compliance"
 msgstr "Conformidade Religiosa"
@@ -190,7 +196,8 @@ msgid "Contact Info"
 msgstr "Informações de Contacto"
 
 msgid "Authentic Moroccan Gourmet Products - From Our Fields to Your Table"
-msgstr "Produtos Gourmet Marroquinos Autênticos - Dos Nossos Campos para a Sua Mesa"
+msgstr ""
+"Produtos Gourmet Marroquinos Autênticos - Dos Nossos Campos para a Sua Mesa"
 
 msgid "Back to Catalog"
 msgstr "Voltar ao Catálogo"
@@ -235,8 +242,15 @@ msgid "Mobile navigation"
 msgstr "Navegação móvel"
 
 # ─── SEO Keywords (localized for Portuguese market) ───
-msgid "moroccan capers, caperberries wholesale, harissa supplier, preserved lemons exporter, piri piri peppers, gourmet condiments Morocco, pickled vegetables bulk, halal food producer, BRC certified food, Moroccan food export"
-msgstr "alcaparras marroquinas, alcaparras grosso, fornecedor de harissa, exportador de limões conservados, piri piri Marrocos, condimentos gourmet marroquinos, conservas a granel, produtor alimentos halal, certificação BRC alimentar, exportação agroalimentar Marrocos"
+msgid ""
+"moroccan capers, caperberries wholesale, harissa supplier, preserved lemons "
+"exporter, piri piri peppers, gourmet condiments Morocco, pickled vegetables "
+"bulk, halal food producer, BRC certified food, Moroccan food export"
+msgstr ""
+"alcaparras marroquinas, alcaparras grosso, fornecedor de harissa, exportador"
+" de limões conservados, piri piri Marrocos, condimentos gourmet marroquinos,"
+" conservas a granel, produtor alimentos halal, certificação BRC alimentar, "
+"exportação agroalimentar Marrocos"
 
 # ─── Homepage Hero CTA ───
 msgid "Export Grade Quality — Since Morocco"
@@ -254,20 +268,38 @@ msgstr "Registado na FDA"
 msgid "IFS & BRC Certified"
 msgstr "Certificado IFS e BRC"
 
-msgid "CAPERSMED is a leading Moroccan producer of premium capers, caperberries, preserved lemons, harissa, and pickled vegetables. Export quality gourmet products from Fes, Morocco."
-msgstr "A CAPERSMED é um produtor marroquino líder de alcaparras, alcaparras em fruto, limões conservados, harissa e legumes em conserva. Produtos gourmet de qualidade de exportação de Fez, Marrocos."
+msgid ""
+"CAPERSMED is a leading Moroccan producer of premium capers, caperberries, "
+"preserved lemons, harissa, and pickled vegetables. Export quality gourmet "
+"products from Fes, Morocco."
+msgstr ""
+"A CAPERSMED é um produtor marroquino líder de alcaparras, alcaparras em "
+"fruto, limões conservados, harissa e legumes em conserva. Produtos gourmet "
+"de qualidade de exportação de Fez, Marrocos."
 
 msgid "Premium Moroccan Gourmet Products"
 msgstr "Produtos Gourmet Marroquinos Premium"
 
-msgid "Leading Moroccan producer of premium capers, preserved lemons, harissa, and pickled vegetables for global export."
-msgstr "Produtor marroquino líder de alcaparras, limões conservados, harissa e legumes em conserva para exportação mundial."
+msgid ""
+"Leading Moroccan producer of premium capers, preserved lemons, harissa, and "
+"pickled vegetables for global export."
+msgstr ""
+"Produtor marroquino líder de alcaparras, limões conservados, harissa e "
+"legumes em conserva para exportação mundial."
 
-msgid "Premium Moroccan capers, preserved lemons & traditional condiments. Export quality from Fes."
-msgstr "Alcaparras marroquinas premium, limões conservados e condimentos tradicionais. Qualidade de exportação de Fez."
+msgid ""
+"Premium Moroccan capers, preserved lemons & traditional condiments. Export "
+"quality from Fes."
+msgstr ""
+"Alcaparras marroquinas premium, limões conservados e condimentos "
+"tradicionais. Qualidade de exportação de Fez."
 
-msgid "Discover our finest Moroccan gourmet products, crafted with tradition and exported worldwide."
-msgstr "Descubra os nossos melhores produtos gourmet marroquinos, elaborados com tradição e exportados para todo o mundo."
+msgid ""
+"Discover our finest Moroccan gourmet products, crafted with tradition and "
+"exported worldwide."
+msgstr ""
+"Descubra os nossos melhores produtos gourmet marroquinos, elaborados com "
+"tradição e exportados para todo o mundo."
 
 msgid "Our Selection"
 msgstr "A Nossa Seleção"
@@ -277,16 +309,25 @@ msgstr "Explorar Catálogo Completo"
 
 # ─── Missing Homepage & Common Strings ───
 msgid "Authentic Moroccan Gourmet Products - From Our Fields to Your Table"
-msgstr "Produtos Gourmet Marroquinos Autênticos - Dos Nossos Campos para a Sua Mesa"
+msgstr ""
+"Produtos Gourmet Marroquinos Autênticos - Dos Nossos Campos para a Sua Mesa"
 
-msgid "Premium vinegars, pickled vegetables, and traditional condiments crafted with Moroccan heritage and exported worldwide."
-msgstr "Vinagres premium, legumes em conserva e condimentos tradicionais elaborados com a herança marroquina e exportados para todo o mundo."
+msgid ""
+"Premium vinegars, pickled vegetables, and traditional condiments crafted "
+"with Moroccan heritage and exported worldwide."
+msgstr ""
+"Vinagres premium, legumes em conserva e condimentos tradicionais elaborados "
+"com a herança marroquina e exportados para todo o mundo."
 
 msgid "Crafting Tradition, Delivering Quality"
 msgstr "Criando Tradição, Entregando Qualidade"
 
-msgid "CAPERSMED is a leading Moroccan producer of premium food products. We blend traditional recipes with modern export standards."
-msgstr "A CAPERSMED é um produtor marroquino líder de produtos alimentares premium. Combinamos receitas tradicionais com padrões modernos de exportação."
+msgid ""
+"CAPERSMED is a leading Moroccan producer of premium food products. We blend "
+"traditional recipes with modern export standards."
+msgstr ""
+"A CAPERSMED é um produtor marroquino líder de produtos alimentares premium. "
+"Combinamos receitas tradicionais com padrões modernos de exportação."
 
 msgid "100% Natural Ingredients"
 msgstr "100% Ingredientes Naturais"
@@ -322,7 +363,9 @@ msgid "Ready to Order?"
 msgstr "Pronto para Encomendar?"
 
 msgid "Contact us for wholesale pricing, private label, or export inquiries."
-msgstr "Contacte-nos para preços de grosso, marca própria ou consultas de exportação."
+msgstr ""
+"Contacte-nos para preços de grosso, marca própria ou consultas de "
+"exportação."
 
 msgid "Contact Us Now"
 msgstr "Contacte-nos Agora"
@@ -360,8 +403,11 @@ msgstr "Conservação"
 msgid "Interested in Bulk Orders?"
 msgstr "Interessado em Encomendas por Grosso?"
 
-msgid "We offer special pricing for wholesale, private label, and export orders."
-msgstr "Oferecemos preços especiais para encomendas de grosso, marca própria e exportação."
+msgid ""
+"We offer special pricing for wholesale, private label, and export orders."
+msgstr ""
+"Oferecemos preços especiais para encomendas de grosso, marca própria e "
+"exportação."
 
 msgid "Request a Quote"
 msgstr "Solicitar Orçamento"
@@ -391,255 +437,595 @@ msgid "I'm interested in wholesale/export"
 msgstr "Estou interessado em grosso/exportação"
 
 # ─── Auto-added missing translations ───
-msgid "Browse our complete catalog of premium Moroccan capers, caperberries, peppers, harissa, and pickled vegetables for export."
-msgstr "Explore o nosso catálogo completo de alcaparras, pimentos, harissa e legumes em conserva marroquinos premium para exportação."
-msgid "Browse premium Moroccan capers, peppers, and pickled vegetables for export."
-msgstr "Explore alcaparras, pimentos e legumes em conserva marroquinos premium para exportação."
-msgid "CAPERSMED holds Kosher, IFS Food, BRC Global Standard, and FDA certifications ensuring international food safety compliance."
-msgstr "A CAPERSMED possui certificações Kosher, IFS, BRC e FDA que garantem o cumprimento internacional da segurança alimentar."
-msgid "CAPERSMED offers private label, custom label design, and custom packaging for importers and distributors."
-msgstr "A CAPERSMED oferece marca própria, design de rótulos e embalagem personalizada para importadores e distribuidores."
+msgid ""
+"Browse our complete catalog of premium Moroccan capers, caperberries, "
+"peppers, harissa, and pickled vegetables for export."
+msgstr ""
+"Explore o nosso catálogo completo de alcaparras, pimentos, harissa e legumes"
+" em conserva marroquinos premium para exportação."
+
+msgid ""
+"Browse premium Moroccan capers, peppers, and pickled vegetables for export."
+msgstr ""
+"Explore alcaparras, pimentos e legumes em conserva marroquinos premium para "
+"exportação."
+
+msgid ""
+"CAPERSMED holds Kosher, IFS Food, BRC Global Standard, and FDA "
+"certifications ensuring international food safety compliance."
+msgstr ""
+"A CAPERSMED possui certificações Kosher, IFS, BRC e FDA que garantem o "
+"cumprimento internacional da segurança alimentar."
+
+msgid ""
+"CAPERSMED offers private label, custom label design, and custom packaging "
+"for importers and distributors."
+msgstr ""
+"A CAPERSMED oferece marca própria, design de rótulos e embalagem "
+"personalizada para importadores e distribuidores."
+
 msgid "Contact CAPERSMED for bulk orders and export inquiries."
-msgstr "Contacte a CAPERSMED para encomendas por grosso e consultas de exportação."
-msgid "Contact CAPERSMED for wholesale pricing, private label, or export inquiries. Located in Fes, Morocco."
-msgstr "Contacte a CAPERSMED para preços de grosso, marca própria ou consultas de exportação. Localizada em Fez, Marrocos."
-msgid "Custom branding, private label, and packaging solutions for Moroccan products."
-msgstr "Soluções de branding, marca própria e embalagem para produtos marroquinos."
+msgstr ""
+"Contacte a CAPERSMED para encomendas por grosso e consultas de exportação."
+
+msgid ""
+"Contact CAPERSMED for wholesale pricing, private label, or export inquiries."
+" Located in Fes, Morocco."
+msgstr ""
+"Contacte a CAPERSMED para preços de grosso, marca própria ou consultas de "
+"exportação. Localizada em Fez, Marrocos."
+
+msgid ""
+"Custom branding, private label, and packaging solutions for Moroccan "
+"products."
+msgstr ""
+"Soluções de branding, marca própria e embalagem para produtos marroquinos."
+
 msgid "Export news, recipes, and product updates from CAPERSMED."
-msgstr "Notícias de exportação, receitas e atualizações de produtos da CAPERSMED."
-msgid "Founded in Fes, Morocco — delivering authentic Moroccan gourmet products to the world."
-msgstr "Fundada em Fez, Marrocos — entregando produtos gourmet marroquinos autênticos ao mundo."
+msgstr ""
+"Notícias de exportação, receitas e atualizações de produtos da CAPERSMED."
+
+msgid ""
+"Founded in Fes, Morocco — delivering authentic Moroccan gourmet products to "
+"the world."
+msgstr ""
+"Fundada em Fez, Marrocos — entregando produtos gourmet marroquinos "
+"autênticos ao mundo."
+
 msgid "Get in touch for wholesale, private label, or export inquiries."
-msgstr "Entre em contacto para consultas de grosso, marca própria ou exportação."
-msgid "International food safety certifications for premium Moroccan products."
-msgstr "Certificações internacionais de segurança alimentar para produtos marroquinos premium."
-msgid "Kosher, IFS, BRC, FDA certified — international food safety standards for global export."
-msgstr "Certificado Kosher, IFS, BRC, FDA — padrões internacionais de segurança alimentar para exportação global."
+msgstr ""
+"Entre em contacto para consultas de grosso, marca própria ou exportação."
+
+msgid ""
+"International food safety certifications for premium Moroccan products."
+msgstr ""
+"Certificações internacionais de segurança alimentar para produtos "
+"marroquinos premium."
+
+msgid ""
+"Kosher, IFS, BRC, FDA certified — international food safety standards for "
+"global export."
+msgstr ""
+"Certificado Kosher, IFS, BRC, FDA — padrões internacionais de segurança "
+"alimentar para exportação global."
+
 msgid "Learn about CAPERSMED — premium Moroccan gourmet producer."
 msgstr "Conheça a CAPERSMED — produtor gourmet marroquino premium."
-msgid "Learn about CAPERSMED.SARL — a leading Moroccan producer of premium capers, preserved lemons, and gourmet condiments."
-msgstr "Conheça a CAPERSMED.SARL — produtor marroquino líder de alcaparras, limões conservados e condimentos gourmet premium."
-msgid "Premium Moroccan gourmet products available in multiple packaging formats with full certification documentation for global export."
-msgstr "Produtos gourmet marroquinos premium disponíveis em múltiplos formatos de embalagem com documentação de certificação completa para exportação global."
+
+msgid ""
+"Learn about CAPERSMED.SARL — a leading Moroccan producer of premium capers, "
+"preserved lemons, and gourmet condiments."
+msgstr ""
+"Conheça a CAPERSMED.SARL — produtor marroquino líder de alcaparras, limões "
+"conservados e condimentos gourmet premium."
+
+msgid ""
+"Premium Moroccan gourmet products available in multiple packaging formats "
+"with full certification documentation for global export."
+msgstr ""
+"Produtos gourmet marroquinos premium disponíveis em múltiplos formatos de "
+"embalagem com documentação de certificação completa para exportação global."
+
 msgid "Private Label & Branding"
 msgstr "Marca Própria e Branding"
-msgid "Private label and custom branding for premium Moroccan gourmet products."
-msgstr "Marca própria e branding personalizado para produtos gourmet marroquinos premium."
-msgid "Industry insights, export news, and gourmet recipes from Morocco's premier condiment producer."
-msgstr "Perspetivas da indústria, notícias de exportação e receitas gourmet do principal produtor marroquino de condimentos."
+
+msgid ""
+"Private label and custom branding for premium Moroccan gourmet products."
+msgstr ""
+"Marca própria e branding personalizado para produtos gourmet marroquinos "
+"premium."
+
+msgid ""
+"Industry insights, export news, and gourmet recipes from Morocco's premier "
+"condiment producer."
+msgstr ""
+"Perspetivas da indústria, notícias de exportação e receitas gourmet do "
+"principal produtor marroquino de condimentos."
+
 msgid "Product Catalog"
 msgstr "Catálogo de Produtos"
 
 # ─── Auto-added missing translations ───
 msgid "< 1,000 units"
 msgstr "< 1.000 unidades"
+
 msgid "1,000 – 10,000 units"
 msgstr "1.000 – 10.000 unidades"
+
 msgid "10,000 – 50,000 units"
 msgstr "10.000 – 50.000 unidades"
+
 msgid "> 50,000 units"
 msgstr "> 50.000 unidades"
+
 msgid "Back to Blog"
 msgstr "Voltar ao Blog"
+
 msgid "Brand Creation Inquiry"
 msgstr "Consulta de Criação de Marca"
+
 msgid "Brand Project Type"
 msgstr "Tipo de Projeto de Marca"
+
 msgid "Brief"
 msgstr "Resumo"
+
 msgid "Bulk pricing"
 msgstr "Preços por grosso"
+
 msgid "Certified Halal"
 msgstr "Certificado Halal"
+
 msgid "Coming Soon"
 msgstr "Em Breve"
+
 msgid "Competitive pricing."
 msgstr "Preços competitivos."
+
 msgid "Comprehensive solutions for wholesale, export, and private label."
 msgstr "Soluções completas para grosso, exportação e marca própria."
+
 msgid "Consultation"
 msgstr "Consulta"
+
 msgid "Contact Person"
 msgstr "Pessoa de Contacto"
+
 msgid "Cornichons"
 msgstr "Cornichões"
+
 msgid "Create your brand with our expertise."
 msgstr "Crie a sua marca com a nossa experiência."
+
 msgid "Custom Packaging Format"
 msgstr "Formato de Embalagem Personalizado"
+
 msgid "Custom label design"
 msgstr "Design de rótulo personalizado"
+
 msgid "Custom recipes"
 msgstr "Receitas personalizadas"
+
 msgid "Delivery"
 msgstr "Entrega"
+
 msgid "Discuss your requirements."
 msgstr "Discuta os seus requisitos."
+
 msgid "Email Address"
 msgstr "Endereço de Email"
+
 msgid "Estimated Annual Volume"
 msgstr "Volume Anual Estimado"
+
 msgid "Experience Moroccan Quality"
 msgstr "Experimente a Qualidade Marroquina"
+
 msgid "Export Standards"
 msgstr "Padrões de Exportação"
+
 msgid "Export docs"
 msgstr "Documentos de exportação"
+
 msgid "Export documentation"
 msgstr "Documentação de exportação"
+
 msgid "Export-ready delivery to your door or port of choice."
 msgstr "Entrega pronta para exportação à sua porta ou porto de escolha."
+
 msgid "Flexible packaging"
 msgstr "Embalagem flexível"
+
 msgid "Flexible quantities"
 msgstr "Quantidades flexíveis"
+
 msgid "Food Production"
 msgstr "Produção Alimentar"
+
 msgid "Food Safety Management"
 msgstr "Gestão de Segurança Alimentar"
+
 msgid "Food safety certified"
 msgstr "Certificado de segurança alimentar"
+
 msgid "Full Brand Creation"
 msgstr "Criação Completa de Marca"
+
 msgid "Full production run with your branding applied."
 msgstr "Produção completa com o seu branding aplicado."
+
 msgid "Get in Touch"
 msgstr "Entre em Contacto"
+
 msgid "Harissa"
 msgstr "Harissa"
+
 msgid "Hazard Analysis"
 msgstr "Análise de Riscos"
+
 msgid "High-quality production with modern facilities."
 msgstr "Produção de alta qualidade com instalações modernas."
+
 msgid "International shipping"
 msgstr "Envio internacional"
+
 msgid "Large-scale capacity"
 msgstr "Capacidade em larga escala"
+
 msgid "Low MOQ"
 msgstr "MOQ Baixo"
+
 msgid "Mission & Values"
 msgstr "Missão e Valores"
+
 msgid "Need Custom Packaging or a Bulk Quote?"
 msgstr "Precisa de Embalagem Personalizada ou Orçamento por Grosso?"
+
 msgid "News"
 msgstr "Notícias"
+
 msgid "No products yet."
 msgstr "Ainda sem produtos."
+
 msgid "On-time delivery"
 msgstr "Entrega pontual"
+
 msgid "Other"
 msgstr "Outro"
+
 msgid "Our Process"
 msgstr "O Nosso Processo"
+
 msgid "Our Product Catalog"
 msgstr "O Nosso Catálogo de Produtos"
+
 msgid "Our Services"
 msgstr "Os Nossos Serviços"
+
 msgid "Our Story"
 msgstr "A Nossa História"
+
 msgid "Our first articles are being prepared. Check back soon."
 msgstr "Os nossos primeiros artigos estão a ser preparados. Volte em breve."
+
 msgid "Packaging Available"
 msgstr "Embalagem Disponível"
+
 msgid "Packaging Format(s)"
 msgstr "Formato(s) de Embalagem"
+
 msgid "Pickled Peppers"
 msgstr "Pimentos em Conserva"
+
 msgid "Preserved Lemons"
 msgstr "Limões Conservados"
+
 msgid "Private Label (my brand on your products)"
 msgstr "Marca Própria (a minha marca nos vossos produtos)"
+
 msgid "Products of Interest"
 msgstr "Produtos de Interesse"
+
 msgid "Quality manufacturing."
 msgstr "Fabrico de qualidade."
+
 msgid "Quality-controlled"
 msgstr "Controlo de qualidade"
+
 msgid "Quotation"
 msgstr "Orçamento"
+
 msgid "Read More"
 msgstr "Ler Mais"
+
 msgid "Related Articles"
 msgstr "Artigos Relacionados"
+
 msgid "Reliable delivery worldwide."
 msgstr "Entrega fiável em todo o mundo."
+
 msgid "Sample"
 msgstr "Amostra"
+
 msgid "Secure packaging"
 msgstr "Embalagem segura"
+
 msgid "Shipped to your location."
 msgstr "Enviado para a sua localização."
+
 msgid "Start Your Project"
 msgstr "Inicie o Seu Projeto"
+
 msgid "Stay in the Loop"
 msgstr "Mantenha-se Informado"
+
 msgid "Supply restaurants, retailers, distributors worldwide."
 msgstr "Abasteça restaurantes, retalhistas e distribuidores em todo o mundo."
+
 msgid "Temperature-controlled"
 msgstr "Temperatura controlada"
+
 msgid "The CAPERSMED Journal"
 msgstr "O Jornal CAPERSMED"
+
 msgid "View All Products"
 msgstr "Ver Todos os Produtos"
+
 msgid "View Our Products"
 msgstr "Ver os Nossos Produtos"
+
 msgid "We respond within 48 business hours."
 msgstr "Respondemos em 48 horas úteis."
+
 msgid "Your brand our quality"
 msgstr "A sua marca, a nossa qualidade"
+
 msgid "Your company or brand name"
 msgstr "A sua empresa ou nome de marca"
+
 msgid "Your full name"
 msgstr "O seu nome completo"
+
 msgid "e.g. France, USA, UAE"
 msgstr "ex. França, EUA, EAU"
+
 msgid "— Select —"
 msgstr "— Selecionar —"
+
 msgid "Other / Custom"
 msgstr "Outro / Personalizado"
+
 msgid "Certifications Required"
 msgstr "Certificações Necessárias"
 
 # ─── Auto-added missing translations ───
-msgid "All branded products come with full certification documentation (HALAL, KOSHER, IFS, BRC, FDA) ready for import clearance in your target country."
-msgstr "Todos os produtos de marca vêm com documentação de certificação completa (HALAL, KOSHER, IFS, BRC, FDA) pronta para desalfandegamento no seu país de destino."
-msgid "Apply your brand name, logo, and design to our product range. Full private label production with your artwork on our certified Moroccan gourmet products."
-msgstr "Aplique o nome da sua marca, logotipo e design à nossa gama de produtos. Produção completa de marca própria com a sua arte nos nossos produtos gourmet marroquinos certificados."
-msgid "CAPERSMED offers complete branding and private label solutions for importers, distributors, and retailers. From custom labels to full packaging design — we help you launch your own line of premium Moroccan gourmet products."
-msgstr "A CAPERSMED oferece soluções completas de branding e marca própria para importadores, distribuidores e retalhistas. De rótulos personalizados ao design completo de embalagem — ajudamos a lançar a sua própria linha de produtos gourmet marroquinos premium."
-msgid "Describe your brand vision, target market, or any specific requirements..."
-msgstr "Descreva a sua visão de marca, mercado-alvo ou quaisquer requisitos específicos..."
-msgid "Fill in the form below and our branding team will contact you within 48 hours with a tailored proposal."
-msgstr "Preencha o formulário abaixo e a nossa equipa de branding contactá-lo-á em 48 horas com uma proposta personalizada."
-msgid "Founded in the heart of Morocco, CAPERSMED.SARL was established with a vision to bring the authentic flavors of Moroccan agriculture to the world. We specialize in the meticulous processing and packaging of premium capers, vinegars, and a variety of traditional condiments."
-msgstr "Fundada no coração de Marrocos, a CAPERSMED.SARL foi estabelecida com a visão de levar os sabores autênticos da agricultura marroquina ao mundo. Especializamo-nos no processamento e embalagem meticulosos de alcaparras, vinagres e condimentos tradicionais premium."
-msgid "Industry insights, export news, gourmet recipes, and product updates from CAPERSMED."
-msgstr "Perspetivas da indústria, notícias de exportação, receitas gourmet e novidades de produtos da CAPERSMED."
-msgid "Industry insights, export news, gourmet recipes, and updates from Morocco's premier condiment producer."
-msgstr "Perspetivas da indústria, notícias de exportação, receitas gourmet e atualizações do principal produtor marroquino de condimentos."
+msgid ""
+"All branded products come with full certification documentation (HALAL, "
+"KOSHER, IFS, BRC, FDA) ready for import clearance in your target country."
+msgstr ""
+"Todos os produtos de marca vêm com documentação de certificação completa "
+"(HALAL, KOSHER, IFS, BRC, FDA) pronta para desalfandegamento no seu país de "
+"destino."
+
+msgid ""
+"Apply your brand name, logo, and design to our product range. Full private "
+"label production with your artwork on our certified Moroccan gourmet "
+"products."
+msgstr ""
+"Aplique o nome da sua marca, logotipo e design à nossa gama de produtos. "
+"Produção completa de marca própria com a sua arte nos nossos produtos "
+"gourmet marroquinos certificados."
+
+msgid ""
+"CAPERSMED offers complete branding and private label solutions for "
+"importers, distributors, and retailers. From custom labels to full packaging"
+" design — we help you launch your own line of premium Moroccan gourmet "
+"products."
+msgstr ""
+"A CAPERSMED oferece soluções completas de branding e marca própria para "
+"importadores, distribuidores e retalhistas. De rótulos personalizados ao "
+"design completo de embalagem — ajudamos a lançar a sua própria linha de "
+"produtos gourmet marroquinos premium."
+
+msgid ""
+"Describe your brand vision, target market, or any specific requirements..."
+msgstr ""
+"Descreva a sua visão de marca, mercado-alvo ou quaisquer requisitos "
+"específicos..."
+
+msgid ""
+"Fill in the form below and our branding team will contact you within 48 "
+"hours with a tailored proposal."
+msgstr ""
+"Preencha o formulário abaixo e a nossa equipa de branding contactá-lo-á em "
+"48 horas com uma proposta personalizada."
+
+msgid ""
+"Founded in the heart of Morocco, CAPERSMED.SARL was established with a "
+"vision to bring the authentic flavors of Moroccan agriculture to the world. "
+"We specialize in the meticulous processing and packaging of premium capers, "
+"vinegars, and a variety of traditional condiments."
+msgstr ""
+"Fundada no coração de Marrocos, a CAPERSMED.SARL foi estabelecida com a "
+"visão de levar os sabores autênticos da agricultura marroquina ao mundo. "
+"Especializamo-nos no processamento e embalagem meticulosos de alcaparras, "
+"vinagres e condimentos tradicionais premium."
+
+msgid ""
+"Industry insights, export news, gourmet recipes, and product updates from "
+"CAPERSMED."
+msgstr ""
+"Perspetivas da indústria, notícias de exportação, receitas gourmet e "
+"novidades de produtos da CAPERSMED."
+
+msgid ""
+"Industry insights, export news, gourmet recipes, and updates from Morocco's "
+"premier condiment producer."
+msgstr ""
+"Perspetivas da indústria, notícias de exportação, receitas gourmet e "
+"atualizações do principal produtor marroquino de condimentos."
+
 msgid "Insights & Updates"
 msgstr "Perspetivas e Atualizações"
-msgid "Need a specific brine strength, spice level, or size? We work with you to develop a custom recipe or adjust existing products to meet your buyers' exact specifications."
-msgstr "Precisa de um nível específico de salmoura, picante ou tamanho? Trabalhamos consigo para desenvolver uma receita personalizada ou ajustar produtos existentes às especificações exatas dos seus compradores."
-msgid "Our design team creates professional label artwork tailored to your brand identity — colors, typography, multilingual text, and regulatory compliance for your target market."
-msgstr "A nossa equipa de design cria arte profissional para rótulos adaptada à identidade da sua marca — cores, tipografia, texto multilingue e conformidade regulatória para o seu mercado-alvo."
-msgid "Our mission is to deliver the highest quality gourmet food products while supporting local farmers and sustainable agricultural practices. We value integrity, authenticity, and uncompromising quality."
-msgstr "A nossa missão é entregar produtos alimentares gourmet da mais alta qualidade, apoiando os agricultores locais e as práticas agrícolas sustentáveis. Valorizamos a integridade, autenticidade e qualidade sem compromissos."
+
+msgid ""
+"Need a specific brine strength, spice level, or size? We work with you to "
+"develop a custom recipe or adjust existing products to meet your buyers' "
+"exact specifications."
+msgstr ""
+"Precisa de um nível específico de salmoura, picante ou tamanho? Trabalhamos "
+"consigo para desenvolver uma receita personalizada ou ajustar produtos "
+"existentes às especificações exatas dos seus compradores."
+
+msgid ""
+"Our design team creates professional label artwork tailored to your brand "
+"identity — colors, typography, multilingual text, and regulatory compliance "
+"for your target market."
+msgstr ""
+"A nossa equipa de design cria arte profissional para rótulos adaptada à "
+"identidade da sua marca — cores, tipografia, texto multilingue e "
+"conformidade regulatória para o seu mercado-alvo."
+
+msgid ""
+"Our mission is to deliver the highest quality gourmet food products while "
+"supporting local farmers and sustainable agricultural practices. We value "
+"integrity, authenticity, and uncompromising quality."
+msgstr ""
+"A nossa missão é entregar produtos alimentares gourmet da mais alta "
+"qualidade, apoiando os agricultores locais e as práticas agrícolas "
+"sustentáveis. Valorizamos a integridade, autenticidade e qualidade sem "
+"compromissos."
+
 msgid "Physical samples are produced and shipped for your review."
 msgstr "As amostras físicas são produzidas e enviadas para a sua avaliação."
-msgid "Premium Moroccan gourmet products. Each item is available in multiple packaging formats with full certification documentation for global export."
-msgstr "Produtos gourmet marroquinos premium. Cada artigo está disponível em múltiplos formatos de embalagem com documentação de certificação completa para exportação global."
-msgid "Select from our full range of packaging formats — 200ml, 500ml, 2L, 7L, 1000L IBC — and we'll produce them under your brand specifications."
-msgstr "Selecione da nossa gama completa de formatos de embalagem — 200ml, 500ml, 2L, 7L, 1000L IBC — e produziremos segundo as especificações da sua marca."
-msgid "Subscribe to receive export news, product updates, and gourmet insights from CAPERSMED."
-msgstr "Subscreva para receber notícias de exportação, atualizações de produtos e perspetivas gourmet da CAPERSMED."
-msgid "We assist with export documentation, freight coordination, and customs compliance to ensure smooth delivery of your branded goods to any destination worldwide."
-msgstr "Auxiliamos com documentação de exportação, coordenação de frete e conformidade aduaneira para garantir a entrega fluida dos seus produtos de marca para qualquer destino mundial."
+
+msgid ""
+"Premium Moroccan gourmet products. Each item is available in multiple "
+"packaging formats with full certification documentation for global export."
+msgstr ""
+"Produtos gourmet marroquinos premium. Cada artigo está disponível em "
+"múltiplos formatos de embalagem com documentação de certificação completa "
+"para exportação global."
+
+msgid ""
+"Select from our full range of packaging formats — 200ml, 500ml, 2L, 7L, "
+"1000L IBC — and we'll produce them under your brand specifications."
+msgstr ""
+"Selecione da nossa gama completa de formatos de embalagem — 200ml, 500ml, "
+"2L, 7L, 1000L IBC — e produziremos segundo as especificações da sua marca."
+
+msgid ""
+"Subscribe to receive export news, product updates, and gourmet insights from"
+" CAPERSMED."
+msgstr ""
+"Subscreva para receber notícias de exportação, atualizações de produtos e "
+"perspetivas gourmet da CAPERSMED."
+
+msgid ""
+"We assist with export documentation, freight coordination, and customs "
+"compliance to ensure smooth delivery of your branded goods to any "
+"destination worldwide."
+msgstr ""
+"Auxiliamos com documentação de exportação, coordenação de frete e "
+"conformidade aduaneira para garantir a entrega fluida dos seus produtos de "
+"marca para qualquer destino mundial."
+
 msgid "We create label artwork and packaging mockups for your approval."
-msgstr "Criamos arte para rótulos e maquetes de embalagem para a sua aprovação."
-msgid "We offer custom labeling, private label production, and flexible packaging formats for importers and distributors worldwide."
-msgstr "Oferecemos rotulagem personalizada, produção de marca própria e formatos de embalagem flexíveis para importadores e distribuidores em todo o mundo."
-msgid "We provide full certification documentation upon request for importers, distributors, and compliance officers. Contact us to receive official certificates for your procurement process."
-msgstr "Fornecemos documentação de certificação completa mediante pedido para importadores, distribuidores e responsáveis de conformidade. Contacte-nos para receber os certificados oficiais para o seu processo de aquisição."
+msgstr ""
+"Criamos arte para rótulos e maquetes de embalagem para a sua aprovação."
+
+msgid ""
+"We offer custom labeling, private label production, and flexible packaging "
+"formats for importers and distributors worldwide."
+msgstr ""
+"Oferecemos rotulagem personalizada, produção de marca própria e formatos de "
+"embalagem flexíveis para importadores e distribuidores em todo o mundo."
+
+msgid ""
+"We provide full certification documentation upon request for importers, "
+"distributors, and compliance officers. Contact us to receive official "
+"certificates for your procurement process."
+msgstr ""
+"Fornecemos documentação de certificação completa mediante pedido para "
+"importadores, distribuidores e responsáveis de conformidade. Contacte-nos "
+"para receber os certificados oficiais para o seu processo de aquisição."
+
 msgid "You share your brand vision, target market, and product selection."
 msgstr "Partilhe a sua visão de marca, mercado-alvo e seleção de produtos."
+
+msgid ""
+"From the fertile lands of Morocco to the tables of the world, CAPERSMED "
+"brings you the finest gourmet ingredients."
+msgstr ""
+"Das terras férteis de Marrocos para as mesas de todo o mundo, a CAPERSMED "
+"traz-lhe os melhores ingredientes gourmet."
+
+msgid ""
+"What started as a family passion for Moroccan heritage has grown into a "
+"leading export operation, serving gourmet markets across Europe, North "
+"America, and the Middle East."
+msgstr ""
+"O que começou como uma paixão familiar pelo património marroquino tornou-se "
+"uma operação de exportação líder, servindo mercados gourmet em toda a "
+"Europa, América do Norte e Médio Oriente."
+
+msgid ""
+"Our commitment to quality starts at the source, working closely with local "
+"farmers to ensure only the finest raw materials are selected for our "
+"production."
+msgstr ""
+"O nosso compromisso com a qualidade começa na origem, trabalhando em "
+"estreita colaboração com os agricultores locais para garantir que apenas as "
+"melhores matérias-primas são selecionadas para a nossa produção."
+
+msgid "Integrity"
+msgstr "Integridade"
+
+msgid ""
+"We maintain the highest standards of honesty and transparency in every step "
+"of our process, from sourcing to shipping."
+msgstr ""
+"Mantemos os mais elevados padrões de honestidade e transparência em cada "
+"etapa do nosso processo, desde o fornecimento até ao envio."
+
+msgid "Excellence"
+msgstr "Excelência"
+
+msgid ""
+"Uncompromising quality control ensures that only the most premium products "
+"reach our international partners."
+msgstr ""
+"O controlo de qualidade intransigente garante que apenas os produtos mais "
+"premium cheguem aos nossos parceiros internacionais."
+
+msgid ""
+"Our recipes are rooted in Moroccan tradition, preserving the true taste and "
+"heritage of our culinary culture."
+msgstr ""
+"As nossas receitas estão enraizadas na tradição marroquina, preservando o "
+"verdadeiro sabor e herança da nossa cultura culinária."
+
+msgid "Global Standards"
+msgstr "Padrões Globais"
+
+msgid ""
+"Our production facilities meet the most stringent international food safety "
+"and quality standards, ensuring trust and reliability for our global "
+"clients."
+msgstr ""
+"As nossas instalações de produção cumprem os mais rigorosos padrões "
+"internacionais de segurança alimentar e qualidade, garantindo confiança e "
+"fiabilidade aos nossos clientes globais."
+
+msgid "Export Ready Standards"
+msgstr "Padrões Prontos para Exportação"
+
+msgid ""
+"Explore our full catalog of premium products and discover the authentic "
+"taste of Morocco."
+msgstr ""
+"Explore o nosso catálogo completo de produtos premium e descubra o sabor "
+"autêntico de Marrocos."
+
+msgid "Authenticity"
+msgstr "Autenticidade"

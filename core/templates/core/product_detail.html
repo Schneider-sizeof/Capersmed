@@ -62,10 +62,11 @@
 {% block content %}
 <div class="section-padding" style="padding-top: 120px; background-color: var(--white);">
     <div class="container">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 4rem; align-items: start;">
+        <!-- TOP SECTION: Image + Titles, Descriptions, Buttons -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 4rem; align-items: start; margin-bottom: 4rem;">
             
             <!-- Product Image -->
-            <div class="product-detail-image" style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); background: var(--light-gray); aspect-ratio: 1/1;">
+            <div class="product-detail-image fade-in" style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); background: var(--light-gray); aspect-ratio: 1/1; position: sticky; top: 120px;">
                 {% if product.image %}
                     <img src="{{ product.image.url }}" alt="{{ product|translate_field:'name' }}" style="width: 100%; height: 100%; object-fit: cover;">
                 {% else %}
@@ -90,93 +91,106 @@
                 </div>
 
                 <!-- Title -->
-                <h1 style="font-size: 3rem; color: var(--deep-green); margin-bottom: 0.5rem; line-height: 1.1;">
+                <h1 style="font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--deep-green); margin-bottom: 1rem; line-height: 1.1; font-family: 'Playfair Display', serif;">
                     {{ product|translate_field:'name' }}
                 </h1>
 
                 <!-- Short Description -->
-                <p style="font-size: 1.2rem; color: #555; margin-bottom: 2rem; font-weight: 500;">
+                <p style="font-size: 1.25rem; color: var(--primary-dark); margin-bottom: 1.5rem; font-weight: 500;">
                     {{ product|translate_field:'short_description' }}
                 </p>
 
-                <!-- CTA -->
-                <div style="margin-bottom: 3rem; display: flex; gap: 1rem;">
-                    <a href="{% url 'contact' %}" class="btn btn-primary">{% trans "Contact for Quote" %}</a>
-                    <a href="{% url 'products' %}" class="btn btn-outline">{% trans "Back to Catalog" %}</a>
+                <!-- Full Description -->
+                <div style="color: #666; font-size: 1.05rem; line-height: 1.8; margin-bottom: 2.5rem;">
+                    {{ product|translate_field:'description' }}
                 </div>
 
-                <!-- Tabs/Sections -->
-                <div class="product-sections">
-                    <h3 style="color: var(--dark-brown); font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 1rem;">
-                        {% trans "Description" %}
+                <!-- Preservation -->
+                {% if product.preservation.exists %}
+                <div style="margin-bottom: 2.5rem;">
+                    <h3 style="color: var(--deep-green); font-size: 1.2rem; border-bottom: 1px solid #e0ede3; padding-bottom: 0.5rem; margin-bottom: 1rem; font-family: 'Playfair Display', serif;">
+                        {% trans "Preservation" %}
                     </h3>
-                    <p style="color: #666; margin-bottom: 2rem;">
-                        {{ product|translate_field:'description' }}
-                    </p>
-
-                    <!-- 2-Column: Preservation + Packaging -->
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 1rem;">
-
-                        <!-- Left column: Preservation -->
-                        <div>
-                            {% if product.preservation.exists %}
-                            <h3 style="color: var(--dark-brown); font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 1rem;">
-                                {% trans "Preservation" %}
-                            </h3>
-                            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem;">
-                                {% for pres in product.preservation.all %}
-                                <span style="background: #E8F5E9; color: #2E7D32; padding: 6px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 600; border: 1px solid #A5D6A7;">
-                                    🫙 {{ pres|translate_field:'name' }}
-                                </span>
-                                {% endfor %}
-                            </div>
-                            {% endif %}
-                        </div>
-
-                        <!-- Right: Packaging -->
-                        <div>
-                            {% if product.packaging.exists %}
-                            <h3 style="color: var(--dark-brown); font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 1.5rem;">
-                                {% trans "Packaging" %}
-                            </h3>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;">
-                                {% for pkg in product.packaging.all %}
-                                <div style="text-align: center; background: #f8fdf9; border: 1px solid #e0ede3; border-radius: 12px; padding: 1rem 0.6rem;">
-                                    <div style="font-size: 1.6rem; margin-bottom: 0.3rem;">
-                                        {% with p=pkg.name|lower %}
-                                        {% if 'fut' in p %}🛢️{% elif 'seaux' in p %}🪣{% elif 'bocal' in p %}🫙{% elif 'boite' in p or 'metallique' in p %}🥫{% elif 'doypack' in p %}📦{% else %}📦{% endif %}
-                                        {% endwith %}
-                                    </div>
-                                    <div style="font-size: 0.82rem; color: #333; font-weight: 500;">{{ pkg|translate_field:'name' }}</div>
-                                </div>
-                                {% endfor %}
-                            </div>
-                            {% endif %}
-                        </div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+                        {% for pres in product.preservation.all %}
+                        <span style="background: #f8fdf9; color: var(--deep-green); padding: 6px 16px; border-radius: 30px; font-size: 0.9rem; font-weight: 600; border: 1px solid #e0ede3; display: flex; align-items: center; gap: 6px;">
+                            <span style="font-size: 1.1rem;">🫙</span> {{ pres|translate_field:'name' }}
+                        </span>
+                        {% endfor %}
                     </div>
-
-                    <!-- Certifications Section (Full width below) -->
-                    {% if product.certifications.exists %}
-                    <div style="margin-top: 3rem;">
-                        <h3 style="color: var(--dark-brown); font-size: 1.2rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; margin-bottom: 1.5rem;">
-                            {% trans "Certifications" %}
-                        </h3>
-                        <div style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
-                            {% for cert in product.certifications.all %}
-                            <div style="display: flex; align-items: center; justify-content: center; background: #fff; border: 1.5px solid #eee; border-radius: 10px; padding: 10px; width: 100px; height: 60px;" title="{{ cert.name }}">
-                                {% if cert.image %}
-                                    <img src="{{ cert.image.url }}" alt="{{ cert.name }}" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-                                {% else %}
-                                    {% with c=cert.code|lower %}
-                                    <img src="{% static 'images/certs/' %}{{ c }}.png" alt="{{ cert.name }}" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-                                    {% endwith %}
-                                {% endif %}
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    {% endif %}
                 </div>
+                {% endif %}
+
+                <!-- CTA Buttons -->
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="{% url 'contact' %}" class="btn btn-primary" style="flex: 1; text-align: center; padding: 12px 30px; font-size: 1.05rem; font-weight: 600;">{% trans "Contact for Quote" %}</a>
+                    <a href="{% url 'products' %}" class="btn btn-outline" style="flex: 1; text-align: center; padding: 12px 30px; font-size: 1.05rem; font-weight: 600;">{% trans "Back to Catalog" %}</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- BOTTOM SECTION: Specs, Packaging, Certifications -->
+        <div class="product-bottom-specs fade-up" style="border-top: 1px solid #e0ede3; padding-top: 4rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+                
+                <!-- Packaging -->
+                {% if product.packaging.exists %}
+                <div class="spec-block">
+                    <h3 style="color: var(--deep-green); font-size: 1.4rem; border-bottom: 2px solid var(--light-gray); padding-bottom: 0.8rem; margin-bottom: 1.5rem; font-family: 'Playfair Display', serif;">
+                        {% trans "Available Packaging" %}
+                    </h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem;">
+                        {% for pkg in product.packaging.all %}
+                        <div style="text-align: center; background: #fff; border: 1px solid #e0ede3; border-radius: 12px; padding: 1.2rem 0.8rem; transition: transform 0.2s ease, box-shadow 0.2s ease;" class="pkg-card">
+                            <div style="margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: center; height: 60px;">
+                                {% with p=pkg.name|lower %}
+                                {% if 'fut' in p %}
+                                    {% if '250' in p %}<span style="font-size: 3.2rem;">🛢️</span>
+                                    {% elif '65' in p %}<span style="font-size: 2.5rem;">🛢️</span>
+                                    {% elif '35' in p %}<span style="font-size: 2.0rem;">🛢️</span>
+                                    {% elif '17' in p %}<span style="font-size: 1.5rem;">🛢️</span>
+                                    {% else %}<span style="font-size: 2rem;">🛢️</span>{% endif %}
+                                {% elif 'seaux' in p or 'seau' in p %}
+                                    <span style="font-size: 1.8rem;">🪣</span>
+                                {% elif 'bocal' in p %}
+                                    <span style="font-size: 1.8rem;">🫙</span>
+                                {% elif 'boite' in p or 'metallique' in p %}
+                                    <span style="font-size: 2.2rem;">🥫</span>
+                                {% elif 'doypack' in p %}
+                                    <span style="font-size: 1.8rem;">📦</span>
+                                {% else %}
+                                    <span style="font-size: 2rem;">📦</span>
+                                {% endif %}
+                                {% endwith %}
+                            </div>
+                            <div style="font-size: 0.9rem; color: #444; font-weight: 600;">{{ pkg|translate_field:'name' }}</div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- Certifications (Moved into the grid) -->
+                {% if product.certifications.exists %}
+                <div class="spec-block">
+                    <h3 style="color: var(--deep-green); font-size: 1.4rem; border-bottom: 2px solid var(--light-gray); padding-bottom: 0.8rem; margin-bottom: 1.5rem; font-family: 'Playfair Display', serif;">
+                        {% trans "Product Certifications" %}
+                    </h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
+                        {% for cert in product.certifications.all %}
+                        <div style="display: flex; align-items: center; justify-content: center; background: #fff; border: 1px solid #e0ede3; border-radius: 12px; padding: 15px; width: 120px; height: 80px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); transition: transform 0.2s ease;" title="{{ cert.name }}">
+                            {% if cert.image %}
+                                <img src="{{ cert.image.url }}" alt="{{ cert.name }}" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                            {% else %}
+                                {% with c=cert.code|lower %}
+                                <img src="{% static 'images/certs/' %}{{ c }}.png" alt="{{ cert.name }}" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                                {% endwith %}
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
 
             </div>
         </div>
