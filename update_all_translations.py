@@ -99,6 +99,41 @@ NEW_TRANSLATIONS = {
         "it": "Contattaci",
         "ar": "اتصل بنا",
         "pt": "Contacte-nos"
+    },
+    "Caperberries": {
+        "fr": "Câprons",
+        "es": "Alcaparrones",
+        "it": "Frutti del Cappero",
+        "ar": "ثمار الكبر",
+        "pt": "Alcaparrões"
+    },
+    "The caper berry is the fruit of the caper. A product with a unique flavor and texture, ideal for adding a touch of distinction to aperitifs, cocktails, and decoration of dishes. Like capers, it is rich in antioxidants, vitamins, and fibre, offering numerous nutritional benefits.": {
+        "fr": "Le câpron est le fruit du câprier. Un produit au goût et à la texture uniques, idéal pour ajouter une touche de distinction aux apéritifs, aux cocktails et à la décoration des plats. Comme les câpres, il est riche en antioxydants, en vitamines et en fibres, offrant de nombreux avantages nutritionnels.",
+        "es": "El alcaparrón es el fruto de la alcaparra. Un producto con un sabor y una textura únicos, ideal para añadir un toque de distinción a aperitivos, cócteles y decoración de platos. Al igual que las alcaparras, es rico en antioxidantes, vitaminas y fibra, ofreciendo numerosos beneficios nutricionales.",
+        "it": "Il frutto del cappero è il frutto del cappero. Un prodotto dal sapore e dalla consistenza unici, ideale per aggiungere un tocco di distinzione ad aperitivi, cocktail e decorazione di piatti. Come i capperi, è ricco di antiossidanti, vitamine e fibre, offrendo numerosi benefici nutrizionali.",
+        "ar": "ثمار الكبر هي ثمرة نبات الكبر. منتج ذو نكهة وقوام فريد من نوعه، مثالي لإضافة لمسة تميز إلى المقبلات والكوكتيلات وتزيين الأطباق. ومثل الكبر، فهي غنية بمضادات الأكسدة والفيتامينات والألياف، وتوفر فوائد غذائية عديدة.",
+        "pt": "O alcaparrão é o fruto da alcaparra. Um produto com sabor e textura únicos, ideal para adicionar um toque de distinção a aperitivos, cocktails e decoração de pratos. Tal como as alcaparras, é rico em antioxidantes, vitaminas e fibras, oferecendo inúmeros benefícios nutricionais."
+    },
+    "Allergen-free": {
+        "fr": "Sans allergènes",
+        "es": "Libre de alérgenos",
+        "it": "Senza allergeni",
+        "ar": "خالية من مسببات الحساسية",
+        "pt": "Sem alergénios"
+    },
+    "Perfect for vegetarians and vegans": {
+        "fr": "Parfait pour les végétariens et les végétaliens",
+        "es": "Perfecto para vegetarianos y veganos",
+        "it": "Perfetto per vegetariani e vegani",
+        "ar": "مثالي للنباتيين والنباتيين الصرف",
+        "pt": "Perfeito para vegetarianos e vegans"
+    },
+    "Gluten free": {
+        "fr": "Sans gluten",
+        "es": "Sin gluten",
+        "it": "Senza glutine",
+        "ar": "خالي من الغلوتين",
+        "pt": "Sem glúten"
     }
 }
 

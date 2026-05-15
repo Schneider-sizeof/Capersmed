@@ -1163,3 +1163,24 @@ msgstr "11 - 13 mm"
 
 msgid "14 mm +"
 msgstr "14 mm +"
+
+msgid ""
+"The caper berry is the fruit of the caper. A product with a unique flavor "
+"and texture, ideal for adding a touch of distinction to aperitifs, "
+"cocktails, and decoration of dishes. Like capers, it is rich in "
+"antioxidants, vitamins, and fibre, offering numerous nutritional benefits."
+msgstr ""
+"Le câpron est le fruit du câprier. Un produit au goût et à la texture "
+"uniques, idéal pour ajouter une touche de distinction aux apéritifs, aux "
+"cocktails et à la décoration des plats. Comme les câpres, il est riche en "
+"antioxydants, en vitamines et en fibres, offrant de nombreux avantages "
+"nutritionnels."
+
+msgid "Allergen-free"
+msgstr "Sans allergènes"
+
+msgid "Perfect for vegetarians and vegans"
+msgstr "Parfait pour les végétariens et les végétaliens"
+
+msgid "Gluten free"
+msgstr "Sans gluten"

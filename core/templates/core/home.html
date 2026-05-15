@@ -111,17 +111,16 @@
 <section id="about-section" class="section-padding container">
     <div class="about-preview fade-up">
         <div class="caper-glow-wrap">
-            <img src="{{ MEDIA_URL }}products/caperpngpic.png" alt="About CAPERSMED"
+            <img src="{{ MEDIA_URL }}products/caperpngpic.png" alt="{% trans 'Caperberries' %}"
                 style="max-width: 100%; max-height: 500px; object-fit: contain;">
         </div>
         <div class="about-text" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
-            <h2 style="text-align: center;">{% trans "Crafting Tradition, Delivering Quality" %}</h2>
-            <p style="margin-bottom: 1.5rem; text-align: center;">{% trans "CAPERSMED is a leading Moroccan producer of premium food products. We blend traditional recipes with modern export standards." %}</p>
+            <h2 style="text-align: center;">{% trans "Caperberries" %}</h2>
+            <p style="margin-bottom: 1.5rem; text-align: center;">{% trans "The caper berry is the fruit of the caper. A product with a unique flavor and texture, ideal for adding a touch of distinction to aperitifs, cocktails, and decoration of dishes. Like capers, it is rich in antioxidants, vitamins, and fibre, offering numerous nutritional benefits." %}</p>
             <ul class="check-list" style="text-align: left; display: inline-block;">
-                <li>{% trans "100% Natural Ingredients" %}</li>
-                <li>{% trans "Traditional Moroccan Recipes" %}</li>
-                <li>{% trans "Export Quality Standards" %}</li>
-                <li>{% trans "Sustainable Production" %}</li>
+                <li>{% trans "Allergen-free" %}</li>
+                <li>{% trans "Perfect for vegetarians and vegans" %}</li>
+                <li>{% trans "Gluten free" %}</li>
             </ul>
             <br>
             <a href="{% url 'about' %}" class="btn btn-outline">{% trans "Learn More" %}</a>

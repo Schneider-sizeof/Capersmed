@@ -1100,3 +1100,22 @@ msgstr "11 - 13 مم"
 
 msgid "14 mm +"
 msgstr "14 مم فأكثر"
+
+msgid ""
+"The caper berry is the fruit of the caper. A product with a unique flavor "
+"and texture, ideal for adding a touch of distinction to aperitifs, "
+"cocktails, and decoration of dishes. Like capers, it is rich in "
+"antioxidants, vitamins, and fibre, offering numerous nutritional benefits."
+msgstr ""
+"ثمار الكبر هي ثمرة نبات الكبر. منتج ذو نكهة وقوام فريد من نوعه، مثالي لإضافة"
+" لمسة تميز إلى المقبلات والكوكتيلات وتزيين الأطباق. ومثل الكبر، فهي غنية "
+"بمضادات الأكسدة والفيتامينات والألياف، وتوفر فوائد غذائية عديدة."
+
+msgid "Allergen-free"
+msgstr "خالية من مسببات الحساسية"
+
+msgid "Perfect for vegetarians and vegans"
+msgstr "مثالي للنباتيين والنباتيين الصرف"
+
+msgid "Gluten free"
+msgstr "خالي من الغلوتين"

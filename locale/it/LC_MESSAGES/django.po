@@ -1136,3 +1136,23 @@ msgstr ""
 
 msgid "Authenticity"
 msgstr "Autenticità"
+
+msgid ""
+"The caper berry is the fruit of the caper. A product with a unique flavor "
+"and texture, ideal for adding a touch of distinction to aperitifs, "
+"cocktails, and decoration of dishes. Like capers, it is rich in "
+"antioxidants, vitamins, and fibre, offering numerous nutritional benefits."
+msgstr ""
+"Il frutto del cappero è il frutto del cappero. Un prodotto dal sapore e "
+"dalla consistenza unici, ideale per aggiungere un tocco di distinzione ad "
+"aperitivi, cocktail e decorazione di piatti. Come i capperi, è ricco di "
+"antiossidanti, vitamine e fibre, offrendo numerosi benefici nutrizionali."
+
+msgid "Allergen-free"
+msgstr "Senza allergeni"
+
+msgid "Perfect for vegetarians and vegans"
+msgstr "Perfetto per vegetariani e vegani"
+
+msgid "Gluten free"
+msgstr "Senza glutine"

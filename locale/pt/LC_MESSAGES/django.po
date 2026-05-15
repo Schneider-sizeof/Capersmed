@@ -1029,3 +1029,26 @@ msgstr ""
 
 msgid "Authenticity"
 msgstr "Autenticidade"
+
+msgid "Caperberries"
+msgstr "Alcaparrões"
+
+msgid ""
+"The caper berry is the fruit of the caper. A product with a unique flavor "
+"and texture, ideal for adding a touch of distinction to aperitifs, "
+"cocktails, and decoration of dishes. Like capers, it is rich in "
+"antioxidants, vitamins, and fibre, offering numerous nutritional benefits."
+msgstr ""
+"O alcaparrão é o fruto da alcaparra. Um produto com sabor e textura únicos, "
+"ideal para adicionar um toque de distinção a aperitivos, cocktails e "
+"decoração de pratos. Tal como as alcaparras, é rico em antioxidantes, "
+"vitaminas e fibras, oferecendo inúmeros benefícios nutricionais."
+
+msgid "Allergen-free"
+msgstr "Sem alergénios"
+
+msgid "Perfect for vegetarians and vegans"
+msgstr "Perfeito para vegetarianos e vegans"
+
+msgid "Gluten free"
+msgstr "Sem glúten"
