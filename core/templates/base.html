@@ -464,20 +464,15 @@
             </div>
             <ul class="mobile-nav-links">
                 <li><a href="{% url 'products' %}"
-                        class="{% if request.resolver_match.url_name == 'products' %}nav-active{% endif %}">{% trans
-                        "Products" %}</a></li>
+                        class="{% if request.resolver_match.url_name == 'products' %}nav-active{% endif %}">{% trans "Products" %}</a></li>
                 <li><a href="{% url 'certifications' %}"
-                        class="{% if request.resolver_match.url_name == 'certifications' %}nav-active{% endif %}">{%
-                        trans "Certifications" %}</a></li>
+                        class="{% if request.resolver_match.url_name == 'certifications' %}nav-active{% endif %}">{% trans "Certifications" %}</a></li>
                 <li><a href="{% url 'branding' %}"
-                        class="{% if request.resolver_match.url_name == 'branding' %}nav-active{% endif %}">{% trans
-                        "Branding" %}</a></li>
+                        class="{% if request.resolver_match.url_name == 'branding' %}nav-active{% endif %}">{% trans "Branding" %}</a></li>
                 <li><a href="{% url 'contact' %}"
-                        class="{% if request.resolver_match.url_name == 'contact' %}nav-active{% endif %}">{% trans
-                        "Contact" %}</a></li>
+                        class="{% if request.resolver_match.url_name == 'contact' %}nav-active{% endif %}">{% trans "Contact" %}</a></li>
                 <li><a href="{% url 'blog' %}"
-                        class="{% if request.resolver_match.url_name == 'blog' %}nav-active{% endif %}">{% trans "Blog"
-                        %}</a></li>
+                        class="{% if request.resolver_match.url_name == 'blog' %}nav-active{% endif %}">{% trans "Blog" %}</a></li>
             </ul>
             <div class="mobile-lang-switch">
                 <a href="{% translate_url 'en' %}" class="{% if LANGUAGE_CODE == 'en' %}lang-active{% endif %}"
