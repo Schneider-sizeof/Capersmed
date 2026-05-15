@@ -1078,3 +1078,25 @@ msgstr "استكشف كتالوجنا الكامل للمنتجات المميز
 
 msgid "Authenticity"
 msgstr "الأصالة"
+
+# ─── Caper Calibre Guide ───
+msgid "International Caper Calibre Guide"
+msgstr "دليل أحجام الكبار الدولي"
+
+msgid "Up to 7 mm"
+msgstr "حتى 7 مم"
+
+msgid "7 - 8 mm"
+msgstr "7 - 8 مم"
+
+msgid "8 - 9 mm"
+msgstr "8 - 9 مم"
+
+msgid "9 - 11 mm"
+msgstr "9 - 11 مم"
+
+msgid "11 - 13 mm"
+msgstr "11 - 13 مم"
+
+msgid "14 mm +"
+msgstr "14 مم فأكثر"

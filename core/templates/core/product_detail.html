@@ -131,6 +131,48 @@
 
         <!-- BOTTOM SECTION: Specs, Packaging, Certifications -->
         <div class="product-bottom-specs fade-up" style="border-top: 1px solid #e0ede3; padding-top: 4rem;">
+            
+            {% if product.category == 'capers' %}
+            <!-- Calibre Guide -->
+            <div class="calibre-guide-container" style="padding: 1.2rem 1.5rem; margin-bottom: 2rem;">
+                <div class="calibre-guide-title" style="margin-bottom: 1.2rem;">
+                    <span>📏</span> {% trans "International Caper Calibre Guide" %}
+                </div>
+                <div class="calibre-guide-grid">
+                    <div class="calibre-guide-item">
+                        <div class="calibre-visual"><div class="calibre-dot dot-nonpareil"></div></div>
+                        <div class="calibre-label">Nonpareil</div>
+                        <div class="calibre-mm">{% trans "Up to 7 mm" %}</div>
+                    </div>
+                    <div class="calibre-guide-item">
+                        <div class="calibre-visual"><div class="calibre-dot dot-surfines"></div></div>
+                        <div class="calibre-label">Surfines</div>
+                        <div class="calibre-mm">{% trans "7 - 8 mm" %}</div>
+                    </div>
+                    <div class="calibre-guide-item">
+                        <div class="calibre-visual"><div class="calibre-dot dot-capucines"></div></div>
+                        <div class="calibre-label">Capucines</div>
+                        <div class="calibre-mm">{% trans "8 - 9 mm" %}</div>
+                    </div>
+                    <div class="calibre-guide-item">
+                        <div class="calibre-visual"><div class="calibre-dot dot-capotes"></div></div>
+                        <div class="calibre-label">Capotes</div>
+                        <div class="calibre-mm">{% trans "9 - 11 mm" %}</div>
+                    </div>
+                    <div class="calibre-guide-item">
+                        <div class="calibre-visual"><div class="calibre-dot dot-fines"></div></div>
+                        <div class="calibre-label">Fines</div>
+                        <div class="calibre-mm">{% trans "11 - 13 mm" %}</div>
+                    </div>
+                    <div class="calibre-guide-item">
+                        <div class="calibre-visual"><div class="calibre-dot dot-grusas"></div></div>
+                        <div class="calibre-label">Grusas</div>
+                        <div class="calibre-mm">{% trans "14 mm +" %}</div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
                 
                 <!-- Packaging -->

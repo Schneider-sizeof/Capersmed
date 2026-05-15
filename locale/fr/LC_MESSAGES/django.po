@@ -1141,3 +1141,25 @@ msgstr ""
 
 msgid "Authenticity"
 msgstr "Authenticité"
+
+# ─── Caper Calibre Guide ───
+msgid "International Caper Calibre Guide"
+msgstr "Guide International des Calibres de Câpres"
+
+msgid "Up to 7 mm"
+msgstr "Jusqu'à 7 mm"
+
+msgid "7 - 8 mm"
+msgstr "7 - 8 mm"
+
+msgid "8 - 9 mm"
+msgstr "8 - 9 mm"
+
+msgid "9 - 11 mm"
+msgstr "9 - 11 mm"
+
+msgid "11 - 13 mm"
+msgstr "11 - 13 mm"
+
+msgid "14 mm +"
+msgstr "14 mm +"

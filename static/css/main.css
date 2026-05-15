@@ -99,6 +99,148 @@ a {
   box-shadow: 0 12px 25px rgba(212, 175, 55, 0.3);
 }
 
+.btn-outline-gold {
+  background-color: transparent;
+  border-color: rgba(212, 175, 55, 0.5);
+  color: var(--primary-gold);
+}
+
+.btn-outline-gold:hover {
+  background-color: var(--primary-gold);
+  color: #1B4332; /* Dark green background contrast */
+  border-color: var(--primary-gold);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.4);
+}
+
+/* Caper Calibre Guide */
+.calibre-guide-container {
+    background: #fff;
+    border: 1px solid #e0ede3;
+    border-radius: 16px;
+    padding: 1.5rem 2rem; /* Reduced padding */
+    margin: 1rem 0 2.5rem; /* Reduced margin */
+    box-shadow: 0 10px 30px rgba(27,67,50,0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.calibre-guide-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary-gold);
+}
+
+.calibre-guide-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--deep-green);
+    margin-bottom: 2rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.calibre-guide-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    position: relative;
+}
+
+.calibre-guide-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.calibre-guide-item:hover {
+    transform: translateY(-5px);
+}
+
+.calibre-visual {
+    height: 60px; /* Reduced from 80px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.8rem; /* Reduced margin */
+    position: relative;
+}
+
+.calibre-dot {
+    /* More realistic caper color: olive green with highlights */
+    background: radial-gradient(circle at 35% 35%, #92AD40 0%, #4B6F1F 50%, #2D4312 100%);
+    /* Organic, slightly irregular shape like a real bud */
+    border-radius: 48% 52% 55% 45% / 45% 55% 48% 52%; 
+    box-shadow: 
+        inset -2px -2px 6px rgba(0,0,0,0.4),
+        0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.calibre-guide-item:hover .calibre-dot {
+    box-shadow: 0 8px 20px rgba(146, 173, 64, 0.4);
+    transform: scale(1.15) rotate(5deg);
+}
+
+/* Sizes based on the guide */
+.dot-nonpareil { width: 14px; height: 14px; }
+.dot-surfines  { width: 18px; height: 18px; }
+.dot-capucines { width: 22px; height: 22px; }
+.dot-capotes   { width: 28px; height: 28px; }
+.dot-fines     { width: 34px; height: 34px; }
+.dot-grusas    { width: 42px; height: 42px; }
+
+.calibre-label {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark-brown);
+    margin-bottom: 0.2rem;
+}
+
+.calibre-mm {
+    font-size: 0.78rem;
+    color: #666;
+    font-weight: 600;
+    background: #f4faf6;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.calibre-axis {
+    position: absolute;
+    bottom: -1rem;
+    left: 8.33%;
+    right: 8.33%;
+    height: 2px;
+    background: #e0ede3;
+}
+
+@media (max-width: 900px) {
+    .calibre-guide-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem 1rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .calibre-guide-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 /* Header & Navigation */
 header {
   position: fixed;
