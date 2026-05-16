@@ -9,24 +9,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VC4FTZH3C1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VC4FTZH3C1');
+    </script>
     <!-- Title & Description -->
     <title>{% block title %}{{ site_settings.site_name }}{% endblock %}</title>
     <meta name="description"
         content="{% block meta_description %}Leading Moroccan producer of premium capers, preserved lemons, harissa, and pickled vegetables. Export quality gourmet products from Fes, Morocco.{% endblock %}">
     <meta name="author" content="CAPERSMED.SARL">
-    <meta name="keywords" content="{% block meta_keywords %}{% trans " moroccan capers, caperberries wholesale, harissa
-        supplier, preserved lemons exporter, piri piri peppers, gourmet condiments Morocco, pickled vegetables bulk,
-        halal food producer, BRC certified food, Moroccan food export" %}{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}{% trans 'moroccan capers, caperberries wholesale, harissa supplier, preserved lemons exporter, piri piri peppers, gourmet condiments Morocco, pickled vegetables bulk, halal food producer, BRC certified food, Moroccan food export' %}{% endblock %}">
     <meta name="robots" content="{% block robots %}index, follow{% endblock %}">
 
     <!-- Canonical & Hreflang -->
     <link rel="canonical"
-        href="{% block canonical_url %}https://capersmed.pythonanywhere.com{{ request.path }}{% endblock %}">
+        href="{% block canonical_url %}https://www.capersmed.com{{ request.path }}{% endblock %}">
     {% for lang_code, lang_name in LANGUAGES %}
     <link rel="alternate" hreflang="{{ lang_code }}"
-        href="https://capersmed.pythonanywhere.com{% translate_url lang_code %}">
+        href="https://www.capersmed.com{% translate_url lang_code %}">
     {% endfor %}
-    <link rel="alternate" hreflang="x-default" href="https://capersmed.pythonanywhere.com{% translate_url 'en' %}">
+    <link rel="alternate" hreflang="x-default" href="https://www.capersmed.com{% translate_url 'en' %}">
 
     <!-- Open Graph -->
     <meta property="og:type" content="{% block og_type %}website{% endblock %}">
@@ -34,10 +41,10 @@
     <meta property="og:description"
         content="{% block og_description %}Leading Moroccan producer of premium capers, preserved lemons, harissa, and pickled vegetables for global export.{% endblock %}">
     <meta property="og:image"
-        content="{% block og_image %}https://capersmed.pythonanywhere.com{% static 'images/logo.png' %}{% endblock %}">
+        content="{% block og_image %}https://www.capersmed.com{% static 'images/logo.png' %}{% endblock %}">
     <meta property="og:image:width" content="{% block og_image_width %}1200{% endblock %}">
     <meta property="og:image:height" content="{% block og_image_height %}630{% endblock %}">
-    <meta property="og:url" content="https://capersmed.pythonanywhere.com{{ request.path }}">
+    <meta property="og:url" content="https://www.capersmed.com{{ request.path }}">
     <meta property="og:site_name" content="CAPERSMED.SARL">
     <meta property="og:locale" content="{{ LANGUAGE_CODE }}">
     {% for lang_code, lang_name in LANGUAGES %}{% if lang_code != LANGUAGE_CODE %}
@@ -51,7 +58,7 @@
     <meta name="twitter:description"
         content="{% block twitter_description %}Premium Moroccan capers, preserved lemons & traditional condiments. Export quality from Fes, Morocco.{% endblock %}">
     <meta name="twitter:image"
-        content="{% block twitter_image %}https://capersmed.pythonanywhere.com{% static 'images/logo.png' %}{% endblock %}">
+        content="{% block twitter_image %}https://www.capersmed.com{% static 'images/logo.png' %}{% endblock %}">
 
     <!-- Favicon & Theme -->
     <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
@@ -69,6 +76,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cookie_consent.css' %}">
 
     <!-- Navbar styles -->
     <style>
@@ -327,8 +335,8 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "CAPERSMED.SARL",
-      "url": "https://capersmed.pythonanywhere.com",
-      "logo": "https://capersmed.pythonanywhere.com{% static 'images/logo.png' %}",
+      "url": "https://www.capersmed.com",
+      "logo": "https://www.capersmed.com{% static 'images/logo.png' %}",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "{{ site_settings.phone }}",
@@ -357,11 +365,11 @@
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "CAPERSMED",
-      "url": "https://capersmed.pythonanywhere.com",
+      "url": "https://www.capersmed.com",
       "inLanguage": ["en","fr","ar","es","it","pt"],
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://capersmed.pythonanywhere.com/en/products/?q={search_term_string}",
+        "target": "https://www.capersmed.com/en/products/?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     }
@@ -568,6 +576,7 @@
                     <li><a href="{% url 'blog' %}">{% trans "Blog" %}</a></li>
                     <li><a href="{% url 'contact' %}">{% trans "Contact" %}</a></li>
                     <li><a href="{% url 'about' %}">{% trans "About Us" %}</a></li>
+                    <li><a href="#" onclick="event.preventDefault(); CookieConsent.showPreferences();">{% trans "Cookie Settings" %}</a></li>
                 </ul>
             </div>
             <div class="footer-col fade-up">
@@ -678,6 +687,10 @@
             });
         })();
     </script>
+
+    <!-- Cookie Consent System -->
+    {% include 'core/includes/cookie_consent.html' %}
+    <script src="{% static 'js/cookie_consent.js' %}"></script>
 </body>
 
 </html>

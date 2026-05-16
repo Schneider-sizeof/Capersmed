@@ -7,10 +7,10 @@
 {% block og_type %}article{% endblock %}
 {% block og_title %}{% if LANGUAGE_CODE == 'fr' and post.title_fr %}{{ post.title_fr }}{% else %}{{ post.title_en }}{% endif %} — CAPERSMED{% endblock %}
 {% block og_description %}{% if LANGUAGE_CODE == 'fr' and post.excerpt_fr %}{{ post.excerpt_fr }}{% else %}{{ post.excerpt_en }}{% endif %}{% endblock %}
-{% block og_image %}{% if post.image %}https://capersmed.pythonanywhere.com{{ MEDIA_URL }}{{ post.image }}{% else %}https://capersmed.pythonanywhere.com{% static 'images/logo.png' %}{% endif %}{% endblock %}
+{% block og_image %}{% if post.image %}https://www.capersmed.com{{ MEDIA_URL }}{{ post.image }}{% else %}https://www.capersmed.com{% static 'images/logo.png' %}{% endif %}{% endblock %}
 {% block twitter_title %}{% if LANGUAGE_CODE == 'fr' and post.title_fr %}{{ post.title_fr }}{% else %}{{ post.title_en }}{% endif %}{% endblock %}
 {% block twitter_description %}{% if LANGUAGE_CODE == 'fr' and post.excerpt_fr %}{{ post.excerpt_fr }}{% else %}{{ post.excerpt_en }}{% endif %}{% endblock %}
-{% block twitter_image %}{% if post.image %}https://capersmed.pythonanywhere.com{{ MEDIA_URL }}{{ post.image }}{% else %}https://capersmed.pythonanywhere.com{% static 'images/logo.png' %}{% endif %}{% endblock %}
+{% block twitter_image %}{% if post.image %}https://www.capersmed.com{{ MEDIA_URL }}{{ post.image }}{% else %}https://www.capersmed.com{% static 'images/logo.png' %}{% endif %}{% endblock %}
 
 {% block extra_schema %}
 <script type="application/ld+json">
@@ -21,9 +21,9 @@
   "author": { "@type": "Person", "name": "{{ post.author }}" },
   {% if post.published_at %}"datePublished": "{{ post.published_at|date:'c' }}",{% endif %}
   "dateModified": "{{ post.updated_at|date:'c' }}",
-  {% if post.image %}"image": "https://capersmed.pythonanywhere.com{{ MEDIA_URL }}{{ post.image }}",{% endif %}
-  "publisher": { "@type": "Organization", "name": "CAPERSMED.SARL", "logo": { "@type": "ImageObject", "url": "https://capersmed.pythonanywhere.com{% static 'images/logo.png' %}" } },
-  "url": "https://capersmed.pythonanywhere.com{{ request.path }}",
+  {% if post.image %}"image": "https://www.capersmed.com{{ MEDIA_URL }}{{ post.image }}",{% endif %}
+  "publisher": { "@type": "Organization", "name": "CAPERSMED.SARL", "logo": { "@type": "ImageObject", "url": "https://www.capersmed.com{% static 'images/logo.png' %}" } },
+  "url": "https://www.capersmed.com{{ request.path }}",
   "inLanguage": "{{ LANGUAGE_CODE }}"
 }
 </script>

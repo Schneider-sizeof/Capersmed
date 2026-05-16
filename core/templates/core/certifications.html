@@ -195,6 +195,7 @@
                     {% elif LANGUAGE_CODE == 'ar' and cert.subtitle_ar %}{{ cert.subtitle_ar }}
                     {% elif LANGUAGE_CODE == 'es' and cert.subtitle_es %}{{ cert.subtitle_es }}
                     {% elif LANGUAGE_CODE == 'it' and cert.subtitle_it %}{{ cert.subtitle_it }}
+                    {% elif LANGUAGE_CODE == 'pt' and cert.subtitle_pt %}{{ cert.subtitle_pt }}
                     {% else %}{{ cert.subtitle_en }}{% endif %}
                 </span>
                 <h2 class="cert-card-title">{{ cert.name }}</h2>
@@ -204,6 +205,7 @@
                 {% elif LANGUAGE_CODE == 'ar' and cert.description_ar %}{{ cert.description_ar }}
                 {% elif LANGUAGE_CODE == 'es' and cert.description_es %}{{ cert.description_es }}
                 {% elif LANGUAGE_CODE == 'it' and cert.description_it %}{{ cert.description_it }}
+                {% elif LANGUAGE_CODE == 'pt' and cert.description_pt %}{{ cert.description_pt }}
                 {% else %}{{ cert.description_en }}{% endif %}
             </p>
             <span class="cert-card-badge" style="background: {{ cert.theme_color }}15; color: {{ cert.theme_color }}; border-color: {{ cert.theme_color }}40;">

@@ -18,7 +18,7 @@ load_dotenv(BASE_DIR / '.env')
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-dg^l$*h0ci8@$qpupx%6&6g15)-u%aw%-zf(j+n=yrhfo7t++8')
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['capersmed.com', 'www.capersmed.com', 'capersmed.pythonanywhere.com', 'localhost', '127.0.0.1', '*']
 
 # Application definition
 INSTALLED_APPS = [

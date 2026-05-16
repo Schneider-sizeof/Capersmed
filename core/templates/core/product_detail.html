@@ -9,10 +9,10 @@
 {% block og_type %}product{% endblock %}
 {% block og_title %}{{ product|translate_field:'name' }} — CAPERSMED{% endblock %}
 {% block og_description %}{{ product|translate_field:'short_description' }}{% endblock %}
-{% block og_image %}{% if product.image %}https://capersmed.pythonanywhere.com{{ product.image.url }}{% else %}https://capersmed.pythonanywhere.com{% static 'images/logo.png' %}{% endif %}{% endblock %}
+{% block og_image %}{% if product.image %}https://www.capersmed.com{{ product.image.url }}{% else %}https://www.capersmed.com{% static 'images/logo.png' %}{% endif %}{% endblock %}
 {% block twitter_title %}{{ product|translate_field:'name' }} — CAPERSMED{% endblock %}
 {% block twitter_description %}{{ product|translate_field:'short_description' }}{% endblock %}
-{% block twitter_image %}{% if product.image %}https://capersmed.pythonanywhere.com{{ product.image.url }}{% else %}https://capersmed.pythonanywhere.com{% static 'images/logo.png' %}{% endif %}{% endblock %}
+{% block twitter_image %}{% if product.image %}https://www.capersmed.com{{ product.image.url }}{% else %}https://www.capersmed.com{% static 'images/logo.png' %}{% endif %}{% endblock %}
 
 {% block extra_schema %}
 <script type="application/ld+json">
@@ -21,13 +21,13 @@
   "@type": "Product",
   "name": "{{ product.name_en }}",
   "description": "{{ product.short_description_en }}",
-  "url": "https://capersmed.pythonanywhere.com{{ request.path }}",
-  {% if product.image %}"image": "https://capersmed.pythonanywhere.com{{ product.image.url }}",{% endif %}
+  "url": "https://www.capersmed.com{{ request.path }}",
+  {% if product.image %}"image": "https://www.capersmed.com{{ product.image.url }}",{% endif %}
   "brand": { "@type": "Brand", "name": "CAPERSMED" },
   "manufacturer": {
     "@type": "Organization",
     "name": "CAPERSMED.SARL",
-    "url": "https://capersmed.pythonanywhere.com",
+    "url": "https://www.capersmed.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Fes",
@@ -51,8 +51,8 @@
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://capersmed.pythonanywhere.com/{{ LANGUAGE_CODE }}/" },
-    { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://capersmed.pythonanywhere.com/{{ LANGUAGE_CODE }}/products/" },
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.capersmed.com/{{ LANGUAGE_CODE }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://www.capersmed.com/{{ LANGUAGE_CODE }}/products/" },
     { "@type": "ListItem", "position": 3, "name": "{{ product.name_en }}" }
   ]
 }

@@ -10,7 +10,7 @@ Disallow: /static/css/
 Crawl-delay: 1
 
 # Sitemap
-Sitemap: https://capersmed.pythonanywhere.com/sitemap.xml
+Sitemap: https://www.capersmed.com/sitemap.xml
 
 # Host
-Host: capersmed.pythonanywhere.com
+Host: www.capersmed.com
