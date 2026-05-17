@@ -13,7 +13,7 @@ msgid "about/"
 msgstr "about/"
 
 msgid "products/"
-msgstr "products/"
+msgstr "منتجات/"
 
 msgid "products/<slug:slug>/"
 msgstr "products/<slug:slug>/"
@@ -22,7 +22,7 @@ msgid "certifications/"
 msgstr "certifications/"
 
 msgid "blog/"
-msgstr "blog/"
+msgstr "مدونة/"
 
 msgid "blog/<slug:slug>/"
 msgstr "blog/<slug:slug>/"
@@ -1119,3 +1119,9 @@ msgstr "مثالي للنباتيين والنباتيين الصرف"
 
 msgid "Gluten free"
 msgstr "خالي من الغلوتين"
+
+msgid "products/<str:slug>/"
+msgstr "منتجات/<str:slug>/"
+
+msgid "blog/<str:slug>/"
+msgstr "مدونة/<str:slug>/"

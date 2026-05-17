@@ -33,7 +33,8 @@ def products(request):
 
 
 def product_detail(request, slug):
-    product = get_object_or_404(Product, slug=slug)
+    from django.db.models import Q
+    product = get_object_or_404(Product, Q(slug=slug) | Q(slug_fr=slug) | Q(slug_ar=slug) | Q(slug_es=slug) | Q(slug_it=slug) | Q(slug_pt=slug))
     return render(request, 'core/product_detail.html', {'product': product})
 
 def certifications(request):

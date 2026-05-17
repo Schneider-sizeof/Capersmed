@@ -1156,3 +1156,9 @@ msgstr "Perfetto per vegetariani e vegani"
 
 msgid "Gluten free"
 msgstr "Senza glutine"
+
+msgid "products/<str:slug>/"
+msgstr "prodotti/<str:slug>/"
+
+msgid "blog/<str:slug>/"
+msgstr "blog/<str:slug>/"

@@ -78,6 +78,11 @@ class Product(models.Model):
     name_it = models.CharField(max_length=200, blank=True, default='')
     name_pt = models.CharField(max_length=200, blank=True, default='')
     slug = models.SlugField(unique=True, blank=True)
+    slug_fr = models.SlugField(unique=True, blank=True, null=True, max_length=260)
+    slug_ar = models.SlugField(unique=True, blank=True, null=True, max_length=260, allow_unicode=True)
+    slug_es = models.SlugField(unique=True, blank=True, null=True, max_length=260)
+    slug_it = models.SlugField(unique=True, blank=True, null=True, max_length=260)
+    slug_pt = models.SlugField(unique=True, blank=True, null=True, max_length=260)
     category = models.CharField(max_length=100, choices=CATEGORY_CHOICES)
     is_premium = models.BooleanField(default=False)
 
@@ -136,6 +141,16 @@ class Product(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.name_en)
+        if self.name_fr and not self.slug_fr:
+            self.slug_fr = slugify(self.name_fr)
+        if self.name_es and not self.slug_es:
+            self.slug_es = slugify(self.name_es)
+        if self.name_it and not self.slug_it:
+            self.slug_it = slugify(self.name_it)
+        if self.name_pt and not self.slug_pt:
+            self.slug_pt = slugify(self.name_pt)
+        if self.name_ar and not self.slug_ar:
+            self.slug_ar = slugify(self.name_ar, allow_unicode=True)
         super().save(*args, **kwargs)
 
     def __str__(self):
