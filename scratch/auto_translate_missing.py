@@ -65,6 +65,6 @@ for lang in LANGS:
     if added > 0:
         po.save()
         po.save_as_mofile(po_path.replace('.po', '.mo'))
-        print(f"✅ Saved {added} new translations for {lang.upper()} and compiled .mo")
+        print(f"Saved {added} new translations for {lang.upper()} and compiled .mo")
 
 print("Done! All translations up to date.")

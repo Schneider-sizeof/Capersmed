@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load i18n static i18n_extras %}
+{% load i18n static i18n_extras packaging_tags %}
 {% get_current_language as LANGUAGE_CODE %}
 
 {% block title %}{{ product|translate_field:'name' }} | CAPERSMED{% endblock %}
@@ -66,9 +66,9 @@
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 4rem; align-items: start; margin-bottom: 4rem;">
             
             <!-- Product Image -->
-            <div class="product-detail-image fade-in" style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); background: var(--light-gray); aspect-ratio: 1/1; position: sticky; top: 120px;">
+            <div class="product-detail-image fade-in" id="product-zoom-container" style="border-radius: var(--radius-lg); overflow: hidden; background: transparent; aspect-ratio: 1/1; position: sticky; top: 120px; cursor: zoom-in; display: flex; align-items: center; justify-content: center; padding: 2rem;">
                 {% if product.image %}
-                    <img src="{{ product.image.url }}" alt="{{ product|translate_field:'name' }}" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img id="product-zoom-img" src="{{ product.image.url }}" alt="{{ product|translate_field:'name' }}" style="max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.1s ease-out; transform-origin: center center;">
                 {% else %}
                     <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:6rem;">
                         {% if product.category == 'capers' %}🫒{% elif product.category == 'peppers' %}🌶️{% else %}🥒{% endif %}
@@ -185,25 +185,9 @@
                         {% for pkg in product.packaging.all %}
                         <div style="text-align: center; background: #fff; border: 1px solid #e0ede3; border-radius: 12px; padding: 1.2rem 0.8rem; transition: transform 0.2s ease, box-shadow 0.2s ease;" class="pkg-card">
                             <div style="margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: center; height: 60px;">
-                                {% with p=pkg.name|lower %}
-                                {% if 'fut' in p %}
-                                    {% if '250' in p %}<span style="font-size: 3.2rem;">🛢️</span>
-                                    {% elif '65' in p %}<span style="font-size: 2.5rem;">🛢️</span>
-                                    {% elif '35' in p %}<span style="font-size: 2.0rem;">🛢️</span>
-                                    {% elif '17' in p %}<span style="font-size: 1.5rem;">🛢️</span>
-                                    {% else %}<span style="font-size: 2rem;">🛢️</span>{% endif %}
-                                {% elif 'seaux' in p or 'seau' in p %}
-                                    <span style="font-size: 1.8rem;">🪣</span>
-                                {% elif 'bocal' in p %}
-                                    <span style="font-size: 1.8rem;">🫙</span>
-                                {% elif 'boite' in p or 'metallique' in p %}
-                                    <span style="font-size: 2.2rem;">🥫</span>
-                                {% elif 'doypack' in p %}
-                                    <span style="font-size: 1.8rem;">📦</span>
-                                {% else %}
-                                    <span style="font-size: 2rem;">📦</span>
-                                {% endif %}
-                                {% endwith %}
+                                <span style="width: 60px; height: 60px; display: inline-block;">
+                                    {% render_packaging_icon pkg.name %}
+                                </span>
                             </div>
                             <div style="font-size: 0.9rem; color: #444; font-weight: 600;">{{ pkg|translate_field:'name' }}</div>
                         </div>
@@ -247,5 +231,39 @@
         <a href="{% url 'contact' %}" class="btn btn-primary">{% trans "Request a Quote" %}</a>
     </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const container = document.getElementById('product-zoom-container');
+    const img = document.getElementById('product-zoom-img');
+    
+    if (container && img) {
+        container.addEventListener('mousemove', function(e) {
+            const rect = container.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const xPercent = (x / rect.width) * 100;
+            const yPercent = (y / rect.height) * 100;
+            
+            img.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+            img.style.transform = 'scale(2.2)';
+        });
+        
+        container.addEventListener('mouseleave', function() {
+            img.style.transformOrigin = 'center center';
+            img.style.transform = 'scale(1)';
+            
+            // Add a smooth transition specifically for mouse leave
+            img.style.transition = 'transform 0.4s ease-out';
+        });
+        
+        container.addEventListener('mouseenter', function() {
+            // Faster transition when actively moving mouse to reduce lag
+            img.style.transition = 'transform 0.1s ease-out';
+        });
+    }
+});
+</script>
 
 {% endblock %}

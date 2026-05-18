@@ -1,4 +1,4 @@
-{% load i18n static i18n_extras %}
+{% load i18n static i18n_extras packaging_tags %}
 <tr id="product-{{ product.slug }}">
 
     <td class="prod-img-cell" data-label="">
@@ -24,7 +24,9 @@
         <div class="packaging-icons">
             {% for pkg in product.packaging.all %}
             <span class="pkg-pill" title="{{ pkg|translate_field:'name' }}">
-                {% with p=pkg.name|lower %}{% if 'fut' in p %}🛢️{% elif 'seaux' in p %}🪣{% elif 'bocal' in p %}🫙{% elif 'boite' in p or 'metallique' in p %}🥫{% elif 'doypack' in p %}📦{% else %}📦{% endif %}{% endwith %}
+                <span class="pkg-svg-wrap" style="width: 24px; height: 24px; display: inline-block; vertical-align: middle; margin-right: 4px;">
+                    {% render_packaging_icon pkg.name %}
+                </span>
                 {{ pkg|translate_field:'name' }}
             </span>
             {% endfor %}

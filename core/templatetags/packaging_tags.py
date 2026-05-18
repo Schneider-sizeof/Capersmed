@@ -52,7 +52,7 @@ def render_packaging_icon(pkg_name):
         color_band = "#1e3d1f"
         
         svg = f"""
-        <svg class="pkg-icon-svg" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <svg class="pkg-icon-svg" viewBox="0 0 48 48" style="width: 100%; height: 100%;" xmlns="http://www.w3.org/2000/svg">
             <g transform="translate({x}, {y})">
                 <!-- Barrel Body -->
                 <path d="M 0,{(h*0.1)} C 0,{-h*0.05} {w},{-h*0.05} {w},{(h*0.1)} C {w+w*0.1},{(h*0.5)} {w+w*0.1},{(h*0.8)} {w},{(h*0.9)} C {w},{h*1.05} 0,{h*1.05} 0,{(h*0.9)} C {-w*0.1},{(h*0.8)} {-w*0.1},{(h*0.5)} 0,{(h*0.1)} Z" fill="{color_body}" />
@@ -76,7 +76,7 @@ def render_packaging_icon(pkg_name):
         color_rim = "#c2d6c6"
         color_handle = "#7a9b80"
         svg = f"""
-        <svg class="pkg-icon-svg" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <svg class="pkg-icon-svg" viewBox="0 0 48 48" style="width: 100%; height: 100%;" xmlns="http://www.w3.org/2000/svg">
             <g transform="translate(8, 14)">
                 <!-- Handle -->
                 <path d="M 0,6 C -4,-8 36,-8 32,6" fill="none" stroke="{color_handle}" stroke-width="2.5" stroke-linecap="round"/>
@@ -99,7 +99,7 @@ def render_packaging_icon(pkg_name):
         color_glass = "#e8f4f8"
         color_lid = "#d4af37" # Gold lid
         svg = f"""
-        <svg class="pkg-icon-svg" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <svg class="pkg-icon-svg" viewBox="0 0 48 48" style="width: 100%; height: 100%;" xmlns="http://www.w3.org/2000/svg">
             <g transform="translate(10, 8)">
                 <!-- Jar Body -->
                 <rect x="4" y="8" width="20" height="24" rx="6" fill="{color_glass}" stroke="#b0d0e0" stroke-width="2"/>
@@ -116,7 +116,7 @@ def render_packaging_icon(pkg_name):
         color_tin = "#cdd3d6"
         color_ribs = "#a4b0b5"
         svg = f"""
-        <svg class="pkg-icon-svg" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <svg class="pkg-icon-svg" viewBox="0 0 48 48" style="width: 100%; height: 100%;" xmlns="http://www.w3.org/2000/svg">
             <g transform="translate(10, 10)">
                 <!-- Tin Body -->
                 <path d="M 2,4 L 26,4 L 26,24 Q 14,28 2,24 Z" fill="{color_tin}" />
@@ -135,7 +135,7 @@ def render_packaging_icon(pkg_name):
         color_pouch = "#f5e6d3" # Kraft paper color or white
         color_cap = "#e63946"
         svg = f"""
-        <svg class="pkg-icon-svg" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <svg class="pkg-icon-svg" viewBox="0 0 48 48" style="width: 100%; height: 100%;" xmlns="http://www.w3.org/2000/svg">
             <g transform="translate(10, 6)">
                 <!-- Cap -->
                 <rect x="10" y="0" width="8" height="6" rx="1" fill="{color_cap}" />
@@ -151,7 +151,7 @@ def render_packaging_icon(pkg_name):
         # Generic Box
         color_box = "#d2b48c"
         svg = f"""
-        <svg class="pkg-icon-svg" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <svg class="pkg-icon-svg" viewBox="0 0 48 48" style="width: 100%; height: 100%;" xmlns="http://www.w3.org/2000/svg">
             <g transform="translate(8, 12)">
                 <polygon points="16,2 30,8 16,14 2,8" fill="#e6cdab" stroke="#b89a74" stroke-width="1.5" stroke-linejoin="round"/>
                 <polygon points="2,8 16,14 16,28 2,22" fill="#d2b48c" stroke="#b89a74" stroke-width="1.5" stroke-linejoin="round"/>

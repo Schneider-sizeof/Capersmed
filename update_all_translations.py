@@ -134,6 +134,34 @@ NEW_TRANSLATIONS = {
         "it": "Senza glutine",
         "ar": "خالي من الغلوتين",
         "pt": "Sem glúten"
+    },
+    "Kosher Certified": {
+        "fr": "Certifié Casher",
+        "es": "Certificado Kosher",
+        "it": "Certificato Kosher",
+        "ar": "شهادة كوشير",
+        "pt": "Certificado Kosher"
+    },
+    "IFS Food Safety Standard": {
+        "fr": "Norme de Sécurité Alimentaire IFS",
+        "es": "Estándar de Seguridad Alimentaria IFS",
+        "it": "Standard di Sicurezza Alimentare IFS",
+        "ar": "معيار سلامة الأغذية IFS",
+        "pt": "Padrão de Segurança Alimentar IFS"
+    },
+    "BRC Global Standard": {
+        "fr": "Norme Mondiale BRC",
+        "es": "Estándar Global BRC",
+        "it": "Standard Globale BRC",
+        "ar": "المعيار العالمي BRC",
+        "pt": "Padrão Global BRC"
+    },
+    "U.S. Food & Drug Administration": {
+        "fr": "Food & Drug Administration Américaine (FDA)",
+        "es": "Administración de Alimentos y Medicamentos de EE. UU. (FDA)",
+        "it": "Food & Drug Administration degli Stati Uniti (FDA)",
+        "ar": "إدارة الغذاء والدواء الأمريكية (FDA)",
+        "pt": "Food & Drug Administration dos EUA (FDA)"
     }
 }
 

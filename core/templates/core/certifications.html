@@ -198,7 +198,7 @@
                     {% elif LANGUAGE_CODE == 'pt' and cert.subtitle_pt %}{{ cert.subtitle_pt }}
                     {% else %}{{ cert.subtitle_en }}{% endif %}
                 </span>
-                <h2 class="cert-card-title">{{ cert.name }}</h2>
+                <h2 class="cert-card-title">{% trans cert.name %}</h2>
             </div>
             <p class="cert-card-desc">
                 {% if LANGUAGE_CODE == 'fr' and cert.description_fr %}{{ cert.description_fr }}

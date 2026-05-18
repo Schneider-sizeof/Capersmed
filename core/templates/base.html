@@ -80,6 +80,36 @@
 
     <!-- Navbar styles -->
     <style>
+        /* RTL Specific Styling (Arabic) */
+        html[dir="rtl"] h1,
+        html[dir="rtl"] h2,
+        html[dir="rtl"] h3,
+        html[dir="rtl"] h4,
+        html[dir="rtl"] .section-title,
+        html[dir="rtl"] .certs-eyebrow,
+        html[dir="rtl"] .cert-card-title,
+        html[dir="rtl"] .cert-card-subtitle,
+        html[dir="rtl"] .hero-content h1,
+        html[dir="rtl"] .hero-content p,
+        html[dir="rtl"] .product-card h3 {
+            text-align: center !important;
+        }
+
+        html[dir="rtl"] p,
+        html[dir="rtl"] ul,
+        html[dir="rtl"] ol,
+        html[dir="rtl"] li,
+        html[dir="rtl"] .cert-card-desc,
+        html[dir="rtl"] .about-text p {
+            text-align: right;
+        }
+        
+        /* Ensure globally centered text remains centered */
+        html[dir="rtl"] .text-center,
+        html[dir="rtl"] .text-center p {
+            text-align: center !important;
+        }
+
         header {
             position: fixed;
             top: 0;

@@ -1125,3 +1125,197 @@ msgstr "منتجات/<str:slug>/"
 
 msgid "blog/<str:slug>/"
 msgstr "مدونة/<str:slug>/"
+
+msgid "Save My Preferences"
+msgstr "حفظ تفضيلاتي"
+
+msgid ""
+"These cookies allow us to count visits and traffic sources so we can measure"
+" and improve the performance of our site. They help us to know which pages "
+"are the most and least popular and see how visitors move around the site."
+msgstr ""
+"تسمح لنا ملفات تعريف الارتباط هذه بإحصاء الزيارات ومصادر حركة المرور حتى "
+"نتمكن من قياس أداء موقعنا وتحسينه. إنها تساعدنا في معرفة الصفحات الأكثر "
+"والأقل شعبية ومعرفة كيفية تنقل الزوار في أنحاء الموقع."
+
+msgid "Product Certifications"
+msgstr "شهادات المنتج"
+
+msgid ""
+"Industry insights, export news, gourmet recipes, and product updates from "
+"CAPERSMED — Morocco's premier condiment producer."
+msgstr ""
+"رؤى الصناعة وأخبار التصدير ووصفات الذواقة وتحديثات المنتج من CAPERSMED - "
+"منتج البهارات الأول في المغرب."
+
+msgid ""
+"When you visit any website, it may store or retrieve information on your "
+"browser, mostly in the form of cookies. This information might be about you,"
+" your preferences or your device and is mostly used to make the site work as"
+" you expect it to."
+msgstr ""
+"عندما تزور أي موقع ويب، قد يقوم بتخزين أو استرداد معلومات على متصفحك، غالبًا"
+" في شكل ملفات تعريف الارتباط. قد تكون هذه المعلومات عنك، أو عن تفضيلاتك، أو "
+"عن جهازك، وتُستخدم في الغالب لجعل الموقع يعمل كما تتوقعه."
+
+msgid "Marketing Cookies"
+msgstr "ملفات تعريف الارتباط التسويقية"
+
+msgid "Read our Privacy Policy"
+msgstr "اقرأ سياسة الخصوصية الخاصة بنا"
+
+msgid ""
+"CAPERSMED offers private label, custom label design, and custom packaging "
+"for importers and distributors. Launch your own line of premium Moroccan "
+"gourmet products."
+msgstr ""
+"تقدم شركة CAPERSMED علامة خاصة وتصميمًا مخصصًا وتغليفًا مخصصًا للمستوردين "
+"والموزعين. أطلق خطك الخاص من المنتجات المغربية الفاخرة."
+
+msgid "Product Catalog"
+msgstr "كتالوج المنتجات"
+
+msgid ""
+"Contact CAPERSMED for wholesale pricing, private label, or export inquiries."
+" Located in Fes, Morocco. Phone, email, and contact form available."
+msgstr ""
+"اتصل بـ CAPERSMED للحصول على أسعار الجملة أو العلامة الخاصة أو استفسارات "
+"التصدير. تقع بمدينة فاس بالمغرب. الهاتف والبريد الإلكتروني ونموذج الاتصال "
+"متاح."
+
+msgid "Crafting Tradition"
+msgstr "صياغة التقليد"
+
+msgid "Always Active"
+msgstr "نشط دائمًا"
+
+msgid ""
+"Premium vinegars, artisanal condiments, and Mediterranean flavors created "
+"for gastronomy professionals and international export markets."
+msgstr ""
+"الخل الفاخر والتوابل الحرفية ونكهات البحر الأبيض المتوسط ​​المصممة لمحترفي "
+"فن الطهي وأسواق التصدير الدولية."
+
+msgid ""
+"These cookies are necessary for the website to function and cannot be "
+"switched off in our systems. They are usually only set in response to "
+"actions made by you which amount to a request for services, such as setting "
+"your privacy preferences, logging in or filling in forms."
+msgstr ""
+"تعد ملفات تعريف الارتباط هذه ضرورية لتشغيل موقع الويب ولا يمكن إيقاف تشغيلها"
+" في أنظمتنا. وعادةً ما يتم تعيينها فقط استجابةً للإجراءات التي قمت بها والتي"
+" تصل إلى حد طلب الخدمات، مثل تعيين تفضيلات الخصوصية الخاصة بك أو تسجيل "
+"الدخول أو ملء النماذج."
+
+msgid "Strictly Necessary Cookies"
+msgstr "ملفات تعريف الارتباط الضرورية للغاية"
+
+msgid "Available Packaging"
+msgstr "التعبئة والتغليف المتاحة"
+
+msgid "Customize Preferences"
+msgstr "تخصيص التفضيلات"
+
+msgid "We value your privacy"
+msgstr "نحن نقدر خصوصيتك"
+
+msgid ""
+"These cookies enable the website to provide enhanced functionality and "
+"personalisation. They may be set by us or by third party providers whose "
+"services we have added to our pages."
+msgstr ""
+"تتيح ملفات تعريف الارتباط هذه لموقع الويب توفير وظائف محسنة وتخصيصًا. وقد "
+"يتم تعيينها بواسطتنا أو بواسطة موفري خدمات خارجيين أضفنا خدماتهم إلى "
+"صفحاتنا."
+
+msgid "Analytics Cookies"
+msgstr "ملفات تعريف الارتباط التحليلية"
+
+msgid ""
+"Browse our complete catalog of premium Moroccan capers, caperberries, "
+"peppers, harissa, and pickled vegetables. Available in multiple packaging "
+"formats for global export."
+msgstr ""
+"تصفح كتالوجنا الكامل من نبات الكبر المغربي الفاخر، والتوت، والفلفل، "
+"والهريسة، والخضروات المخللة. متوفر بتنسيقات تعبئة متعددة للتصدير العالمي."
+
+msgid ""
+"These cookies may be set through our site by our advertising partners. They "
+"may be used by those companies to build a profile of your interests and show"
+" you relevant adverts on other sites."
+msgstr ""
+"قد يتم تعيين ملفات تعريف الارتباط هذه من خلال موقعنا من قبل شركائنا "
+"الإعلانيين. وقد تستخدمها تلك الشركات لإنشاء ملف تعريفي لاهتماماتك وإظهار "
+"الإعلانات ذات الصلة لك على مواقع أخرى."
+
+msgid ""
+"We use cookies to enhance your browsing experience, serve personalized ads "
+"or content, and analyze our traffic. By clicking 'Accept All', you consent "
+"to our use of cookies."
+msgstr ""
+"نحن نستخدم ملفات تعريف الارتباط لتحسين تجربة التصفح الخاصة بك، وتقديم "
+"إعلانات أو محتوى مخصص، وتحليل حركة المرور لدينا. بالنقر فوق \"قبول الكل\"، "
+"فإنك توافق على استخدامنا لملفات تعريف الارتباط."
+
+msgid ""
+"Learn about CAPERSMED.SARL — a leading Moroccan producer of premium capers, "
+"preserved lemons, and traditional condiments. Founded in Fes with a mission "
+"to deliver authentic Moroccan flavors worldwide."
+msgstr ""
+"تعرف على CAPERSMED.SARL – الشركة المغربية الرائدة في إنتاج نبات الكبر الفاخر"
+" والليمون المحفوظ والتوابل التقليدية. تأسست في فاس بهدف تقديم النكهات "
+"المغربية الأصيلة في جميع أنحاء العالم."
+
+msgid ""
+"CAPERSMED holds Kosher, IFS Food, BRC Global Standard, and FDA "
+"certifications ensuring the highest international food safety standards for "
+"all exported products."
+msgstr ""
+"تحمل CAPERSMED شهادات Kosher وIFS Food وBRC Global Standard وFDA، مما يضمن "
+"أعلى معايير سلامة الأغذية الدولية لجميع المنتجات المصدرة."
+
+msgid "Ready to Experience Moroccan Excellence?"
+msgstr "هل أنت مستعد لتجربة التميز المغربي؟"
+
+msgid "Cookie Consent"
+msgstr "موافقة ملفات تعريف الارتباط"
+
+msgid "Accept All"
+msgstr "قبول الكل"
+
+msgid "Close"
+msgstr "يغلق"
+
+msgid "Exeptional Moroccan Vinegars, Crafted through Tradition"
+msgstr "الخل المغربي الاستثنائي، المصنوع وفق التقاليد"
+
+msgid "Reject Non-Essential"
+msgstr "رفض غير الضرورية"
+
+msgid "Preferences Cookies"
+msgstr "ملفات تعريف الارتباط التفضيلية"
+
+msgid "Cookie Preferences"
+msgstr "تفضيلات ملفات تعريف الارتباط"
+
+msgid ""
+"Premium Moroccan gourmet products available in multiple packaging formats "
+"with full certification for global export."
+msgstr ""
+"منتجات مغربية فاخرة متوفرة في أشكال تغليف متعددة مع شهادة كاملة للتصدير "
+"العالمي."
+
+msgid "Cookie Settings"
+msgstr "إعدادات ملفات تعريف الارتباط"
+
+msgid "Premium Moroccan Products"
+msgstr "منتجات مغربية فاخرة"
+
+msgid "IFS Food Safety Standard"
+msgstr "معيار سلامة الأغذية IFS"
+
+msgid "BRC Global Standard"
+msgstr "المعيار العالمي BRC"
+
+msgid "U.S. Food & Drug Administration"
+msgstr "إدارة الغذاء والدواء الأمريكية (FDA)"
