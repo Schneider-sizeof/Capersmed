@@ -308,10 +308,6 @@ msgid "Explore Full Catalog"
 msgstr "Explorar Catálogo Completo"
 
 # ─── Missing Homepage & Common Strings ───
-msgid "Authentic Moroccan Gourmet Products - From Our Fields to Your Table"
-msgstr ""
-"Produtos Gourmet Marroquinos Autênticos - Dos Nossos Campos para a Sua Mesa"
-
 msgid ""
 "Premium vinegars, pickled vegetables, and traditional condiments crafted "
 "with Moroccan heritage and exported worldwide."
