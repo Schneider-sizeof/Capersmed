@@ -15,17 +15,11 @@ msgstr "sobre-nos/"
 msgid "products/"
 msgstr "produtos/"
 
-msgid "products/<str:slug>/"
-msgstr "produtos/<str:slug>/"
-
 msgid "certifications/"
 msgstr "certificacoes/"
 
 msgid "blog/"
 msgstr "blog/"
-
-msgid "blog/<str:slug>/"
-msgstr "blog/<str:slug>/"
 
 msgid "branding/"
 msgstr "marca/"
