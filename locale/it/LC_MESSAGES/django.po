@@ -1386,3 +1386,16 @@ msgstr "Standard Globale BRC"
 
 msgid "U.S. Food & Drug Administration"
 msgstr "Food & Drug Administration degli Stati Uniti (FDA)"
+
+msgid "Premium Moroccan Capers"
+msgstr "Capperi Marocchini Premium"
+
+msgid "By CapersMed"
+msgstr "Da CapersMed"
+
+msgid ""
+"Naturally harvested Moroccan capers produced with care for gastronomy "
+"professionals and international distribution."
+msgstr ""
+"Capperi marocchini raccolti naturalmente, prodotti con cura per i "
+"professionisti della gastronomia e la distribuzione internazionale."

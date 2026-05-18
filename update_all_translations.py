@@ -162,6 +162,27 @@ NEW_TRANSLATIONS = {
         "it": "Food & Drug Administration degli Stati Uniti (FDA)",
         "ar": "إدارة الغذاء والدواء الأمريكية (FDA)",
         "pt": "Food & Drug Administration dos EUA (FDA)"
+    },
+    "Premium Moroccan Capers": {
+        "fr": "Câpres Marocaines Premium",
+        "es": "Alcaparras Marroquíes Premium",
+        "it": "Capperi Marocchini Premium",
+        "ar": "كبر مغربي ممتاز",
+        "pt": "Alcaparras Marroquinas Premium"
+    },
+    "By CapersMed": {
+        "fr": "Par CapersMed",
+        "es": "Por CapersMed",
+        "it": "Da CapersMed",
+        "ar": "بواسطة كابرزميد",
+        "pt": "Por CapersMed"
+    },
+    "Naturally harvested Moroccan capers produced with care for gastronomy professionals and international distribution.": {
+        "fr": "Câpres marocaines récoltées naturellement, produites avec soin pour les professionnels de la gastronomie et la distribution internationale.",
+        "es": "Alcaparras marroquíes cosechadas de forma natural, producidas con cuidado para profesionales de la gastronomía y distribución internacional.",
+        "it": "Capperi marocchini raccolti naturalmente, prodotti con cura per i professionisti della gastronomia e la distribuzione internazionale.",
+        "ar": "كبر مغربي مقطوف طبيعياً، ومُنتج بعناية لمهنيي فن الطهي والتوزيع الدولي.",
+        "pt": "Alcaparras marroquinas colhidas naturalmente, produzidas com cuidado para profissionais de gastronomia e distribuição internacional."
     }
 }
 

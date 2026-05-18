@@ -1319,3 +1319,16 @@ msgstr "Padrão Global BRC"
 
 msgid "U.S. Food & Drug Administration"
 msgstr "Food & Drug Administration dos EUA (FDA)"
+
+msgid "Premium Moroccan Capers"
+msgstr "Alcaparras Marroquinas Premium"
+
+msgid "By CapersMed"
+msgstr "Por CapersMed"
+
+msgid ""
+"Naturally harvested Moroccan capers produced with care for gastronomy "
+"professionals and international distribution."
+msgstr ""
+"Alcaparras marroquinas colhidas naturalmente, produzidas com cuidado para "
+"profissionais de gastronomia e distribuição internacional."

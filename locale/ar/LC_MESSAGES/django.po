@@ -1319,3 +1319,15 @@ msgstr "المعيار العالمي BRC"
 
 msgid "U.S. Food & Drug Administration"
 msgstr "إدارة الغذاء والدواء الأمريكية (FDA)"
+
+msgid "Premium Moroccan Capers"
+msgstr "كبر مغربي ممتاز"
+
+msgid "By CapersMed"
+msgstr "بواسطة كابرزميد"
+
+msgid ""
+"Naturally harvested Moroccan capers produced with care for gastronomy "
+"professionals and international distribution."
+msgstr ""
+"كبر مغربي مقطوف طبيعياً، ومُنتج بعناية لمهنيي فن الطهي والتوزيع الدولي."
