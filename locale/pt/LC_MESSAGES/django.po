@@ -15,7 +15,7 @@ msgstr "sobre-nos/"
 msgid "products/"
 msgstr "produtos/"
 
-msgid "products/<slug:slug>/"
+msgid "products/<str:slug>/"
 msgstr "produtos/<str:slug>/"
 
 msgid "certifications/"
@@ -24,7 +24,7 @@ msgstr "certificacoes/"
 msgid "blog/"
 msgstr "blog/"
 
-msgid "blog/<slug:slug>/"
+msgid "blog/<str:slug>/"
 msgstr "blog/<str:slug>/"
 
 msgid "branding/"
