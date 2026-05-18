@@ -15,3 +15,5 @@ urlpatterns = [
     path(_('contact/'), views.contact, name='contact'),
     path('set-language/<str:language_code>/', views.set_language, name='set_language'),
 ]
+
+

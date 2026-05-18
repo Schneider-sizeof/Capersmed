@@ -1120,12 +1120,6 @@ msgstr "مثالي للنباتيين والنباتيين الصرف"
 msgid "Gluten free"
 msgstr "خالي من الغلوتين"
 
-msgid "products/<str:slug>/"
-msgstr "منتجات/<str:slug>/"
-
-msgid "blog/<str:slug>/"
-msgstr "مدونة/<str:slug>/"
-
 msgid "Save My Preferences"
 msgstr "حفظ تفضيلاتي"
 
