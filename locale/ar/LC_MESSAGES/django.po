@@ -8,33 +8,33 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 
-# ─── URL slugs (keep ASCII for Arabic URLs) ───
+# ─── URL slugs (Arabic translations) ───
 msgid "about/"
-msgstr "about/"
+msgstr "من-نحن/"
 
 msgid "products/"
-msgstr "products/"
+msgstr "المنتجات/"
 
 msgid "products/<str:slug>/"
-msgstr "products/<str:slug>/"
+msgstr "المنتجات/<str:slug>/"
 
 msgid "certifications/"
-msgstr "certifications/"
+msgstr "الشهادات/"
 
 msgid "blog/"
-msgstr "blog/"
+msgstr "المدونة/"
 
 msgid "blog/<str:slug>/"
-msgstr "blog/<str:slug>/"
+msgstr "المدونة/<str:slug>/"
 
 msgid "branding/"
-msgstr "branding/"
+msgstr "العلامة-التجارية/"
 
 msgid "services/"
-msgstr "services/"
+msgstr "الخدمات/"
 
 msgid "contact/"
-msgstr "contact/"
+msgstr "اتصل-بنا/"
 
 # ─── Navigation ───
 msgid "Home"
