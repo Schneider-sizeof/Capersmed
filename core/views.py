@@ -55,7 +55,8 @@ def blog(request):
     return render(request, 'core/blog.html', context)
 
 def blog_detail(request, slug):
-    post = get_object_or_404(BlogPost, slug=slug, is_published=True)
+    from django.db.models import Q
+    post = get_object_or_404(BlogPost, Q(slug=slug) | Q(slug_fr=slug) | Q(slug_ar=slug) | Q(slug_es=slug) | Q(slug_it=slug) | Q(slug_pt=slug), is_published=True)
     related = BlogPost.objects.filter(is_published=True, category=post.category).exclude(pk=post.pk)[:3]
     return render(request, 'core/blog_detail.html', {'post': post, 'related': related})
 

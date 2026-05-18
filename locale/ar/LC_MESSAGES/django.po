@@ -13,19 +13,19 @@ msgid "about/"
 msgstr "about/"
 
 msgid "products/"
-msgstr "منتجات/"
+msgstr "products/"
 
 msgid "products/<slug:slug>/"
-msgstr "products/<slug:slug>/"
+msgstr "products/<str:slug>/"
 
 msgid "certifications/"
 msgstr "certifications/"
 
 msgid "blog/"
-msgstr "مدونة/"
+msgstr "blog/"
 
 msgid "blog/<slug:slug>/"
-msgstr "blog/<slug:slug>/"
+msgstr "blog/<str:slug>/"
 
 msgid "branding/"
 msgstr "branding/"

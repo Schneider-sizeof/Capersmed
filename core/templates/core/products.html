@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load i18n static i18n_extras %}
+{% load i18n static i18n_extras packaging_tags %}
 {% get_current_language as LANGUAGE_CODE %}
 
 {% block title %}{% trans "Product Catalog" %} — CAPERSMED{% endblock %}
@@ -27,10 +27,11 @@
     /* ========== PRODUCT TABLE PAGE ========== */
 
     .products-page-hero {
-        background: linear-gradient(rgba(27, 67, 50, 0.7), rgba(27, 67, 50, 0.7)), url('/media/backgrounds/fff.jpg') center/cover no-repeat;
         padding: 140px 2rem 80px;
         text-align: center;
         color: #fff;
+        position: relative;
+        overflow: hidden;
     }
 
     .products-page-hero h1 {
@@ -602,10 +603,21 @@
 {% block content %}
 
 <!-- ===== PAGE HERO ===== -->
-<section class="products-page-hero">
-    <span class="products-eyebrow">{% trans "Export Grade Quality" %}</span>
-    <h1>{% trans "Our Product Catalog" %}</h1>
-    <p>{% trans "Premium Moroccan gourmet products. Each item is available in multiple packaging formats with full certification documentation for global export." %}</p>
+{% with hero=hero_backgrounds|dict_get:'products' %}
+{% if hero and hero.media_type == 'video' and hero.video %}
+<section class="products-page-hero" style="background:linear-gradient(rgba(27,67,50,0.7),rgba(27,67,50,0.7));">
+    <video autoplay muted loop playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;">
+        <source src="{{ hero.video.url }}" type="video/mp4">
+    </video>
+{% elif hero and hero.media_type == 'image' and hero.image %}
+<section class="products-page-hero" style="background:linear-gradient(rgba(27,67,50,0.7),rgba(27,67,50,0.7)),url('{{ hero.image.url }}') center/cover no-repeat;">
+{% else %}
+<section class="products-page-hero" style="background:linear-gradient(rgba(27,67,50,0.7),rgba(27,67,50,0.7)),url('/media/backgrounds/fff.jpg') center/cover no-repeat;">
+{% endif %}
+{% endwith %}
+    <span class="products-eyebrow" style="position:relative;z-index:2;">{% trans "Export Grade Quality" %}</span>
+    <h1 style="position:relative;z-index:2;">{% trans "Our Product Catalog" %}</h1>
+    <p style="position:relative;z-index:2;">{% trans "Premium Moroccan gourmet products. Each item is available in multiple packaging formats with full certification documentation for global export." %}</p>
 </section>
 
 <!-- ===== PRODUCT QUICK NAV ===== -->

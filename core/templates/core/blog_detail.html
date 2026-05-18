@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
-{% load i18n static %}
+{% load i18n static i18n_extras %}
 {% get_current_language as LANGUAGE_CODE %}
 
-{% block title %}{% if LANGUAGE_CODE == 'fr' and post.title_fr %}{{ post.title_fr }}{% elif LANGUAGE_CODE == 'ar' and post.title_ar %}{{ post.title_ar }}{% else %}{{ post.title_en }}{% endif %} — CAPERSMED{% endblock %}
-{% block meta_description %}{% if LANGUAGE_CODE == 'fr' and post.excerpt_fr %}{{ post.excerpt_fr }}{% elif LANGUAGE_CODE == 'ar' and post.excerpt_ar %}{{ post.excerpt_ar }}{% else %}{{ post.excerpt_en }}{% endif %}{% endblock %}
+{% block title %}{{ post|translate_field:'title' }} — CAPERSMED{% endblock %}
+{% block meta_description %}{{ post|translate_field:'excerpt' }}{% endblock %}
 {% block og_type %}article{% endblock %}
-{% block og_title %}{% if LANGUAGE_CODE == 'fr' and post.title_fr %}{{ post.title_fr }}{% else %}{{ post.title_en }}{% endif %} — CAPERSMED{% endblock %}
-{% block og_description %}{% if LANGUAGE_CODE == 'fr' and post.excerpt_fr %}{{ post.excerpt_fr }}{% else %}{{ post.excerpt_en }}{% endif %}{% endblock %}
+{% block og_title %}{{ post|translate_field:'title' }} — CAPERSMED{% endblock %}
+{% block og_description %}{{ post|translate_field:'excerpt' }}{% endblock %}
 {% block og_image %}{% if post.image %}https://www.capersmed.com{{ MEDIA_URL }}{{ post.image }}{% else %}https://www.capersmed.com{% static 'images/logo.png' %}{% endif %}{% endblock %}
-{% block twitter_title %}{% if LANGUAGE_CODE == 'fr' and post.title_fr %}{{ post.title_fr }}{% else %}{{ post.title_en }}{% endif %}{% endblock %}
-{% block twitter_description %}{% if LANGUAGE_CODE == 'fr' and post.excerpt_fr %}{{ post.excerpt_fr }}{% else %}{{ post.excerpt_en }}{% endif %}{% endblock %}
+{% block twitter_title %}{{ post|translate_field:'title' }}{% endblock %}
+{% block twitter_description %}{{ post|translate_field:'excerpt' }}{% endblock %}
 {% block twitter_image %}{% if post.image %}https://www.capersmed.com{{ MEDIA_URL }}{{ post.image }}{% else %}https://www.capersmed.com{% static 'images/logo.png' %}{% endif %}{% endblock %}
 
 {% block extra_schema %}
@@ -232,11 +232,7 @@
         {% endif %}
     </div>
 
-    <h1>
-        {% if LANGUAGE_CODE == 'fr' and post.title_fr %}{{ post.title_fr }}
-        {% elif LANGUAGE_CODE == 'ar' and post.title_ar %}{{ post.title_ar }}
-        {% else %}{{ post.title_en }}{% endif %}
-    </h1>
+    <h1>{{ post|translate_field:'title' }}</h1>
 
     <div class="article-author">
         <span>✍️</span>
@@ -262,13 +258,7 @@
 <!-- Article Content -->
 <div class="article-body-wrap fade-up">
     <div class="article-content">
-        {% if LANGUAGE_CODE == 'fr' and post.content_fr %}
-            {{ post.content_fr|linebreaks }}
-        {% elif LANGUAGE_CODE == 'ar' and post.content_ar %}
-            <div dir="rtl">{{ post.content_ar|linebreaks }}</div>
-        {% else %}
-            {{ post.content_en|linebreaks }}
-        {% endif %}
+        {{ post|translate_field:'content'|linebreaks }}
     </div>
 </div>
 
@@ -281,7 +271,7 @@
         <h2 class="related-heading">{% trans "Related Articles" %}</h2>
         <div class="related-grid">
             {% for rel in related %}
-            <a href="{% url 'blog_detail' rel.slug %}" class="related-card">
+            <a href="{% url 'blog_detail' rel|translate_field:'slug' %}" class="related-card">
                 <div class="related-card-icon">
                     {% if rel.category == 'recipes' %}🍽️
                     {% elif rel.category == 'export' %}🚢
@@ -291,8 +281,7 @@
                 </div>
                 <div>
                     <div class="related-card-title">
-                        {% if LANGUAGE_CODE == 'fr' and rel.title_fr %}{{ rel.title_fr }}
-                        {% else %}{{ rel.title_en }}{% endif %}
+                        {{ rel|translate_field:'title' }}
                     </div>
                     {% if rel.published_at %}
                     <div class="related-card-date">{{ rel.published_at|date:"d M Y" }}</div>

@@ -189,6 +189,36 @@ class SiteSettings(models.Model):
         return self.site_name
 
 
+HERO_PAGE_CHOICES = [
+    ('home',           'Homepage'),
+    ('about',          'About Us'),
+    ('products',       'Products'),
+    ('certifications', 'Certifications'),
+    ('blog',           'Blog'),
+    ('branding',       'Branding'),
+    ('contact',        'Contact'),
+    ('services',       'Services'),
+]
+
+
+class HeroMedia(models.Model):
+    page = models.CharField(max_length=50, choices=HERO_PAGE_CHOICES, unique=True,
+                            help_text='Which page this hero background is for.')
+    media_type = models.CharField(max_length=10, choices=[('image', 'Image'), ('video', 'Video')], default='image')
+    image = models.ImageField(upload_to='backgrounds/', blank=True, null=True,
+                              help_text='Upload a hero background image (JPEG, PNG, WebP).')
+    video = models.FileField(upload_to='backgrounds/videos/', blank=True, null=True,
+                             help_text='Upload a hero background video (MP4, WebM). Used only when media type is Video.')
+
+    class Meta:
+        verbose_name = 'Hero Background'
+        verbose_name_plural = 'Hero Backgrounds'
+        ordering = ['page']
+
+    def __str__(self):
+        return f"Hero — {self.get_page_display()}"
+
+
 BLOG_CATEGORY_CHOICES = [
     ('news',     'Company News'),
     ('industry', 'Industry Insights'),
@@ -207,6 +237,11 @@ class BlogPost(models.Model):
     title_pt = models.CharField(max_length=250, blank=True)
 
     slug = models.SlugField(unique=True, blank=True, max_length=260)
+    slug_fr = models.SlugField(unique=True, blank=True, null=True, max_length=260)
+    slug_ar = models.SlugField(unique=True, blank=True, null=True, max_length=260, allow_unicode=True)
+    slug_es = models.SlugField(unique=True, blank=True, null=True, max_length=260)
+    slug_it = models.SlugField(unique=True, blank=True, null=True, max_length=260)
+    slug_pt = models.SlugField(unique=True, blank=True, null=True, max_length=260)
     category = models.CharField(max_length=50, choices=BLOG_CATEGORY_CHOICES, default='news')
 
     excerpt_en = models.TextField(max_length=400, blank=True)
@@ -239,6 +274,16 @@ class BlogPost(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title_en)
+        if self.title_fr and not self.slug_fr:
+            self.slug_fr = slugify(self.title_fr)
+        if self.title_es and not self.slug_es:
+            self.slug_es = slugify(self.title_es)
+        if self.title_it and not self.slug_it:
+            self.slug_it = slugify(self.title_it)
+        if self.title_pt and not self.slug_pt:
+            self.slug_pt = slugify(self.title_pt)
+        if self.title_ar and not self.slug_ar:
+            self.slug_ar = slugify(self.title_ar, allow_unicode=True)
         super().save(*args, **kwargs)
 
     def __str__(self):

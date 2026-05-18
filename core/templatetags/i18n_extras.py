@@ -39,3 +39,14 @@ def translate_field(obj, field_name):
         
     # Try the base field
     return getattr(obj, field_name, "")
+
+
+@register.filter
+def dict_get(dictionary, key):
+    """
+    Lookup a key in a dictionary.
+    Usage: {{ hero_backgrounds|dict_get:'home' }}
+    """
+    if dictionary and hasattr(dictionary, 'get'):
+        return dictionary.get(key)
+    return None

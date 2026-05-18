@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load i18n static %}
+{% load i18n static i18n_extras %}
 {% get_current_language as LANGUAGE_CODE %}
 
 {% block title %}{% trans "Blog" %} — CAPERSMED{% endblock %}
@@ -17,6 +17,8 @@
     padding: 140px 2rem 80px;
     text-align: center;
     color: #fff;
+    position: relative;
+    overflow: hidden;
 }
 .blog-hero h1 {
     font-family: 'Playfair Display', serif;
@@ -191,10 +193,21 @@
 {% block content %}
 
 <!-- Hero -->
+{% with hero=hero_backgrounds|dict_get:'blog' %}
+{% if hero and hero.media_type == 'video' and hero.video %}
+<section class="blog-hero" style="background:linear-gradient(rgba(27,67,50,0.7),rgba(27,67,50,0.7));">
+    <video autoplay muted loop playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;">
+        <source src="{{ hero.video.url }}" type="video/mp4">
+    </video>
+{% elif hero and hero.media_type == 'image' and hero.image %}
+<section class="blog-hero" style="background:linear-gradient(rgba(27,67,50,0.7),rgba(27,67,50,0.7)),url('{{ hero.image.url }}') center/cover no-repeat;">
+{% else %}
 <section class="blog-hero">
-    <span class="blog-eyebrow">{% trans "Insights & Updates" %}</span>
-    <h1>{% trans "The CAPERSMED Journal" %}</h1>
-    <p>{% trans "Industry insights, export news, gourmet recipes, and updates from Morocco's premier condiment producer." %}</p>
+{% endif %}
+{% endwith %}
+    <span class="blog-eyebrow" style="position:relative;z-index:2;">{% trans "Insights & Updates" %}</span>
+    <h1 style="position:relative;z-index:2;">{% trans "The CAPERSMED Journal" %}</h1>
+    <p style="position:relative;z-index:2;">{% trans "Industry insights, export news, gourmet recipes, and updates from Morocco's premier condiment producer." %}</p>
 </section>
 
 <!-- Category Filters -->
@@ -216,7 +229,7 @@
 <section class="blog-section">
     <div class="blog-grid">
         {% for post in posts %}
-        <a href="{% url 'blog_detail' post.slug %}" class="blog-card fade-up">
+        <a href="{% url 'blog_detail' post|translate_field:'slug' %}" class="blog-card fade-up">
 
             <div class="blog-card-img">
                 {% if post.image %}
@@ -246,15 +259,11 @@
                 </div>
 
                 <h2 class="blog-card-title">
-                    {% if LANGUAGE_CODE == 'fr' and post.title_fr %}{{ post.title_fr }}
-                    {% elif LANGUAGE_CODE == 'ar' and post.title_ar %}{{ post.title_ar }}
-                    {% else %}{{ post.title_en }}{% endif %}
+                    {{ post|translate_field:'title' }}
                 </h2>
 
                 <p class="blog-card-excerpt">
-                    {% if LANGUAGE_CODE == 'fr' and post.excerpt_fr %}{{ post.excerpt_fr|truncatewords:25 }}
-                    {% elif LANGUAGE_CODE == 'ar' and post.excerpt_ar %}{{ post.excerpt_ar|truncatewords:25 }}
-                    {% else %}{{ post.excerpt_en|truncatewords:25 }}{% endif %}
+                    {{ post|translate_field:'excerpt'|truncatewords:25 }}
                 </p>
 
                 <div class="blog-card-footer">

@@ -16,7 +16,7 @@ msgid "products/"
 msgstr "productos/"
 
 msgid "products/<slug:slug>/"
-msgstr "productos/<slug:slug>/"
+msgstr "productos/<str:slug>/"
 
 msgid "certifications/"
 msgstr "certificaciones/"
@@ -25,7 +25,7 @@ msgid "blog/"
 msgstr "blog/"
 
 msgid "blog/<slug:slug>/"
-msgstr "blog/<slug:slug>/"
+msgstr "blog/<str:slug>/"
 
 msgid "branding/"
 msgstr "marca/"

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import (
     Product, ContactMessage, SiteSettings, BlogPost,
-    Preservation, Packaging, Certification,
+    Preservation, Packaging, Certification, HeroMedia,
 )
 
 
@@ -27,6 +27,28 @@ class CertificationAdmin(admin.ModelAdmin):
         ('Arabic Content', {'fields': ('subtitle_ar', 'description_ar')}),
         ('Spanish Content', {'fields': ('subtitle_es', 'description_es')}),
         ('Italian Content', {'fields': ('subtitle_it', 'description_it')}),
+    )
+
+
+# ─── Hero Backgrounds ────────────────────────────────────────────────────────
+
+@admin.register(HeroMedia)
+class HeroMediaAdmin(admin.ModelAdmin):
+    list_display = ('page', 'media_type', 'image', 'video')
+    list_editable = ('media_type',)
+    fieldsets = (
+        (None, {
+            'fields': ('page', 'media_type'),
+            'description': 'Select which page and whether to use an image or video.',
+        }),
+        ('Image Background', {
+            'fields': ('image',),
+            'description': 'Upload a high-quality background image (JPEG, PNG, WebP). Recommended: 1920x1080 or larger.',
+        }),
+        ('Video Background', {
+            'fields': ('video',),
+            'description': 'Upload a background video (MP4 or WebM). The video will autoplay muted in the hero section. Keep file size under 10MB for best performance.',
+        }),
     )
 
 
@@ -134,5 +156,17 @@ class BlogPostAdmin(admin.ModelAdmin):
         ('Arabic Content', {
             'classes': ('collapse',),
             'fields': ('title_ar', 'excerpt_ar', 'content_ar')
+        }),
+        ('Spanish Content', {
+            'classes': ('collapse',),
+            'fields': ('title_es', 'excerpt_es', 'content_es')
+        }),
+        ('Italian Content', {
+            'classes': ('collapse',),
+            'fields': ('title_it', 'excerpt_it', 'content_it')
+        }),
+        ('Portuguese Content', {
+            'classes': ('collapse',),
+            'fields': ('title_pt', 'excerpt_pt', 'content_pt')
         }),
     )

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load i18n %}
+{% load i18n i18n_extras %}
 
 {% block title %}{% trans "Services" %} - {{ site_settings.site_name }}{% endblock %}
 
@@ -10,6 +10,8 @@
     padding: 140px 2rem 80px;
     text-align: center;
     color: #fff;
+    position: relative;
+    overflow: hidden;
 }
 .services-hero h1 {
     font-family: 'Playfair Display', serif;
@@ -27,8 +29,19 @@
 {% endblock %}
 
 {% block content %}
+{% with hero=hero_backgrounds|dict_get:'services' %}
+{% if hero and hero.media_type == 'video' and hero.video %}
+<section class="services-hero" style="background:linear-gradient(rgba(27,67,50,0.7),rgba(27,67,50,0.7));">
+    <video autoplay muted loop playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;">
+        <source src="{{ hero.video.url }}" type="video/mp4">
+    </video>
+{% elif hero and hero.media_type == 'image' and hero.image %}
+<section class="services-hero" style="background:linear-gradient(rgba(27,67,50,0.7),rgba(27,67,50,0.7)),url('{{ hero.image.url }}') center/cover no-repeat;">
+{% else %}
 <section class="services-hero">
-    <div class="hero-content">
+{% endif %}
+{% endwith %}
+    <div class="hero-content" style="position:relative;z-index:2;">
         <h1>{% trans "Our Services" %}</h1>
         <p>{% trans "Comprehensive solutions for wholesale, export, and private label." %}</p>
     </div>

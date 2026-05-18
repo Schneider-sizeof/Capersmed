@@ -1,0 +1,24 @@
+{% comment %}
+Hero Background Include - Supports dynamic image/video from admin panel.
+Usage: {% include 'core/includes/hero_bg.html' with page_key='home' fallback_url='/media/backgrounds/hero_homepage.jpeg' %}
+
+Variables:
+  page_key     - The page identifier matching HeroMedia.page choices
+  fallback_url - Default background image URL if no admin override exists
+{% endcomment %}
+
+{% if hero_backgrounds and page_key in hero_backgrounds %}
+    {% with hero=hero_backgrounds|dictsort:page_key %}{% endwith %}
+{% endif %}
+
+{% with hero=hero_backgrounds %}
+{% if hero and page_key %}
+    {% for key, h in hero.items %}
+        {% if key == page_key and h.media_type == 'video' and h.video %}
+            <video autoplay muted loop playsinline class="hero-video-bg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;">
+                <source src="{{ h.video.url }}" type="video/mp4">
+            </video>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+{% endwith %}

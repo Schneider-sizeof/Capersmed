@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load i18n static %}
+{% load i18n static i18n_extras %}
 
 {% block title %}{% trans "About Us" %} — CAPERSMED{% endblock %}
 {% block meta_description %}{% trans "Learn about CAPERSMED.SARL — a leading Moroccan producer of premium capers, preserved lemons, and traditional condiments. Founded in Fes with a mission to deliver authentic Moroccan flavors worldwide." %}{% endblock %}
@@ -11,6 +11,8 @@
     padding: 140px 2rem 80px;
     text-align: center;
     color: #fff;
+    position: relative;
+    overflow: hidden;
 }
 .about-hero h1 {
     font-family: 'Playfair Display', serif;
@@ -159,10 +161,21 @@
 
 {% block content %}
 <!-- Hero -->
+{% with hero=hero_backgrounds|dict_get:'about' %}
+{% if hero and hero.media_type == 'video' and hero.video %}
+<section class="about-hero" style="background:linear-gradient(rgba(27,67,50,0.7),rgba(27,67,50,0.7));">
+    <video autoplay muted loop playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;">
+        <source src="{{ hero.video.url }}" type="video/mp4">
+    </video>
+{% elif hero and hero.media_type == 'image' and hero.image %}
+<section class="about-hero" style="background:linear-gradient(rgba(27,67,50,0.7),rgba(27,67,50,0.7)),url('{{ hero.image.url }}') center/cover no-repeat;">
+{% else %}
 <section class="about-hero">
-    <span class="about-eyebrow">{% trans "Crafting Tradition" %}</span>
-    <h1 class="fade-up">{% trans "About Us" %}</h1>
-    <p class="fade-up" style="animation-delay: 0.2s;">{% trans "From the fertile lands of Morocco to the tables of the world, CAPERSMED brings you the finest gourmet ingredients." %}</p>
+{% endif %}
+{% endwith %}
+    <span class="about-eyebrow" style="position:relative;z-index:2;">{% trans "Crafting Tradition" %}</span>
+    <h1 class="fade-up" style="position:relative;z-index:2;">{% trans "About Us" %}</h1>
+    <p class="fade-up" style="animation-delay: 0.2s;position:relative;z-index:2;">{% trans "From the fertile lands of Morocco to the tables of the world, CAPERSMED brings you the finest gourmet ingredients." %}</p>
 </section>
 
 <!-- Story Section -->
