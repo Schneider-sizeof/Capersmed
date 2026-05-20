@@ -131,7 +131,7 @@ def sitemap_xml(request):
     for product in products:
         page_urls = {}
         for lang in languages:
-            slug = getattr(product, f'slug_{lang}', None) or product.slug_en or product.slug
+            slug = getattr(product, f'slug_{lang}', None) or getattr(product, 'slug_en', None) or product.slug
             with lang_override(lang):
                 page_urls[lang] = base_url + reverse('product_detail', kwargs={'slug': slug})
         urls.append({
@@ -145,7 +145,7 @@ def sitemap_xml(request):
     for post in posts:
         page_urls = {}
         for lang in languages:
-            slug = getattr(post, f'slug_{lang}', None) or post.slug_en or post.slug
+            slug = getattr(post, f'slug_{lang}', None) or getattr(post, 'slug_en', None) or post.slug
             with lang_override(lang):
                 page_urls[lang] = base_url + reverse('blog_detail', kwargs={'slug': slug})
         urls.append({

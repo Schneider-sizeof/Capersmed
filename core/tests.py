@@ -28,9 +28,15 @@ class SEOTestCase(TestCase):
 
     @override_settings(SITE_URL='https://staging.capersmed.com')
     def test_sitemap_uses_site_url(self):
+        from core.models import Product, BlogPost
+        Product.objects.create(name_en="Test Product", slug="test-product", category="capers")
+        BlogPost.objects.create(title_en="Test Post", slug="test-post", content_en="Content", is_published=True)
+
         response = self.client.get(reverse('sitemap'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'https://staging.capersmed.com/en/')
+        self.assertContains(response, 'https://staging.capersmed.com/en/products/test-product/')
+        self.assertContains(response, 'https://staging.capersmed.com/en/blog/test-post/')
 
     @override_settings(SITE_URL='https://www.capersmed.com', ROBOTS_DISALLOW_ALL=True)
     def test_robots_txt_disallow_all(self):
