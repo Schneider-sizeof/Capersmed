@@ -2,6 +2,13 @@ import polib
 import os
 
 NEW_TRANSLATIONS = {
+    "Wholesale": {
+        "fr": "Vente en gros",
+        "es": "Venta al por mayor",
+        "it": "Ingrosso",
+        "ar": "الجملة",
+        "pt": "Venda por grosso"
+    },
     "From the fertile lands of Morocco to the tables of the world, CAPERSMED brings you the finest gourmet ingredients.": {
         "fr": "Des terres fertiles du Maroc aux tables du monde entier, CAPERSMED vous apporte les meilleurs ingrédients gastronomiques.",
         "es": "Desde las tierras fértiles de Marruecos hasta las mesas del mundo, CAPERSMED le ofrece los mejores ingredientes gourmet.",

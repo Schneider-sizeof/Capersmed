@@ -1393,3 +1393,6 @@ msgid ""
 msgstr ""
 "Capperi marocchini raccolti naturalmente, prodotti con cura per i "
 "professionisti della gastronomia e la distribuzione internazionale."
+
+msgid "Wholesale"
+msgstr "Ingrosso"

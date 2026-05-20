@@ -1405,3 +1405,6 @@ msgid ""
 msgstr ""
 "Câpres marocaines récoltées naturellement, produites avec soin pour les "
 "professionnels de la gastronomie et la distribution internationale."
+
+msgid "Wholesale"
+msgstr "Vente en gros"

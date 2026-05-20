@@ -1322,3 +1322,6 @@ msgid ""
 msgstr ""
 "Alcaparras marroquinas colhidas naturalmente, produzidas com cuidado para "
 "profissionais de gastronomia e distribuição internacional."
+
+msgid "Wholesale"
+msgstr "Venda por grosso"

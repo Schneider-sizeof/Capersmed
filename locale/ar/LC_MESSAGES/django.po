@@ -1325,3 +1325,6 @@ msgid ""
 "professionals and international distribution."
 msgstr ""
 "كبر مغربي مقطوف طبيعياً، ومُنتج بعناية لمهنيي فن الطهي والتوزيع الدولي."
+
+msgid "Wholesale"
+msgstr "الجملة"

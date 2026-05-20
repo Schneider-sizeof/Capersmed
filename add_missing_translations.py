@@ -97,6 +97,7 @@ MISSING = {
 "We offer special pricing for wholesale, private label, and export orders.": {"fr":"Nous offrons des prix speciaux pour les commandes en gros, marque privee et export.","es":"Ofrecemos precios especiales para pedidos mayoristas, marca privada y exportacion.","it":"Offriamo prezzi speciali per ordini all'ingrosso, marchio privato ed esportazione.","ar":"نقدم أسعاراً خاصة لطلبات الجملة والعلامة الخاصة والتصدير."},
 "We'd love to hear from you.": {"fr":"Nous serions ravis de vous entendre.","es":"Nos encantaria saber de usted.","it":"Ci piacerebbe sentirti.","ar":"يسعدنا التواصل معكم."},
 "Wholesale & Export": {"fr":"Gros et Export","es":"Mayoreo y Exportacion","it":"Ingrosso ed Esportazione","ar":"البيع بالجملة والتصدير"},
+"Wholesale": {"fr":"Vente en gros","es":"Venta al por mayor","it":"Ingrosso","ar":"الجملة"},
 "Why Choose Us": {"fr":"Pourquoi Nous Choisir","es":"Por Que Elegirnos","it":"Perche Sceglierci","ar":"لماذا تختارنا"},
 "Your brand our quality": {"fr":"Votre marque, notre qualite","es":"Su marca, nuestra calidad","it":"Il tuo marchio, la nostra qualita","ar":"علامتك التجارية، جودتنا"},
 "Need help? Chat with us!": {"fr":"Besoin d'aide ? Discutez avec nous !","es":"¿Necesitas ayuda? ¡Chatea con nosotros!","it":"Hai bisogno di aiuto? Chatta con noi!","ar":"هل تحتاج إلى مساعدة؟ دردش معنا!"},
