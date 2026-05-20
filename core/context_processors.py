@@ -1,7 +1,7 @@
 from django.conf import settings as django_settings
 from .models import SiteSettings, HeroMedia
 
-SITE_URL = 'https://www.capersmed.com'
+SITE_URL = django_settings.SITE_URL
 
 def site_settings(request):
     settings = SiteSettings.objects.first()

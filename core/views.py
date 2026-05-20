@@ -108,7 +108,7 @@ def set_language(request, language_code):
 def sitemap_xml(request):
     products = Product.objects.all()
     posts = BlogPost.objects.filter(is_published=True)
-    base_url = 'https://www.capersmed.com'
+    base_url = settings.SITE_URL
     languages = [code for code, name in settings.LANGUAGES]
     
     urls = []
@@ -162,11 +162,16 @@ def sitemap_xml(request):
 
 
 def robots_txt(request):
-    host = request.get_host()
-    is_staging = 'duckdns.org' in host or 'pythonanywhere.com' in host
-    base_url = 'https://www.capersmed.com'
+    from urllib.parse import urlparse
+    host = urlparse(settings.SITE_URL).netloc.split(':')[0]
+    
+    request_host = request.get_host()
+    is_staging = getattr(settings, 'ROBOTS_DISALLOW_ALL', False) or 'duckdns.org' in request_host or 'pythonanywhere.com' in request_host
+    
+    base_url = settings.SITE_URL
     return render(request, 'core/robots.txt', {
         'base_url': base_url,
         'is_staging': is_staging,
+        'host': host,
     }, content_type='text/plain')
 

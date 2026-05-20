@@ -28,12 +28,12 @@
 
     <!-- Canonical & Hreflang -->
     <link rel="canonical"
-        href="{% block canonical_url %}https://www.capersmed.com{{ request.path }}{% endblock %}">
+        href="{% block canonical_url %}{{ SITE_URL }}{{ request.path }}{% endblock %}">
     {% for lang_code, lang_name in LANGUAGES %}
     <link rel="alternate" hreflang="{{ lang_code }}"
-        href="https://www.capersmed.com{% translate_url lang_code %}">
+        href="{{ SITE_URL }}{% translate_url lang_code %}">
     {% endfor %}
-    <link rel="alternate" hreflang="x-default" href="https://www.capersmed.com{% translate_url 'en' %}">
+    <link rel="alternate" hreflang="x-default" href="{{ SITE_URL }}{% translate_url 'en' %}">
 
     <!-- Open Graph -->
     <meta property="og:type" content="{% block og_type %}website{% endblock %}">
@@ -41,10 +41,10 @@
     <meta property="og:description"
         content="{% block og_description %}Leading Moroccan producer of premium capers, preserved lemons, harissa, and pickled vegetables for global export.{% endblock %}">
     <meta property="og:image"
-        content="{% block og_image %}https://www.capersmed.com{% static 'images/logo.png' %}{% endblock %}">
+        content="{% block og_image %}{{ SITE_URL }}{% static 'images/logo.png' %}{% endblock %}">
     <meta property="og:image:width" content="{% block og_image_width %}1200{% endblock %}">
     <meta property="og:image:height" content="{% block og_image_height %}630{% endblock %}">
-    <meta property="og:url" content="https://www.capersmed.com{{ request.path }}">
+    <meta property="og:url" content="{{ SITE_URL }}{{ request.path }}">
     <meta property="og:site_name" content="CAPERSMED.SARL">
     <meta property="og:locale" content="{{ LANGUAGE_CODE }}">
     {% for lang_code, lang_name in LANGUAGES %}{% if lang_code != LANGUAGE_CODE %}
@@ -58,7 +58,7 @@
     <meta name="twitter:description"
         content="{% block twitter_description %}Premium Moroccan capers, preserved lemons & traditional condiments. Export quality from Fes, Morocco.{% endblock %}">
     <meta name="twitter:image"
-        content="{% block twitter_image %}https://www.capersmed.com{% static 'images/logo.png' %}{% endblock %}">
+        content="{% block twitter_image %}{{ SITE_URL }}{% static 'images/logo.png' %}{% endblock %}">
 
     <!-- Favicon & Theme -->
     <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
@@ -365,8 +365,8 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "CAPERSMED.SARL",
-      "url": "https://www.capersmed.com",
-      "logo": "https://www.capersmed.com{% static 'images/logo.png' %}",
+      "url": "{{ SITE_URL }}",
+      "logo": "{{ SITE_URL }}{% static 'images/logo.png' %}",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "{{ site_settings.phone }}",
@@ -395,11 +395,11 @@
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "CAPERSMED",
-      "url": "https://www.capersmed.com",
+      "url": "{{ SITE_URL }}",
       "inLanguage": ["en","fr","ar","es","it","pt"],
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://www.capersmed.com/en/products/?q={search_term_string}",
+        "target": "{{ SITE_URL }}/en/products/?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     }

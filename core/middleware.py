@@ -6,19 +6,35 @@ from django.http import HttpResponse, HttpResponsePermanentRedirect
 from django.utils.html import escape
 
 
+from django.conf import settings
+from urllib.parse import urlparse
+
 class DomainRedirectMiddleware:
     """
-    Redirects requests from capersmed.duckdns.org to capersmed.com with a permanent 301 redirect.
+    Redirects requests from non-canonical hosts to the canonical host.
     """
     def __init__(self, get_response):
         self.get_response = get_response
 
     def __call__(self, request):
-        host = request.get_host()
-        if 'capersmed.duckdns.org' in host:
-            new_url = request.build_absolute_uri().replace(host, 'capersmed.com')
-            return HttpResponsePermanentRedirect(new_url)
+        if getattr(settings, 'ENABLE_DOMAIN_REDIRECT', False):
+            host_with_port = request.get_host()
+            host = host_with_port.split(':')[0]
+            
+            canonical_url = settings.SITE_URL
+            parsed_canonical = urlparse(canonical_url)
+            canonical_host = parsed_canonical.netloc.split(':')[0]
+            
+            # Check if host or scheme doesn't match canonical
+            scheme_mismatch = parsed_canonical.scheme and request.scheme != parsed_canonical.scheme
+            host_mismatch = canonical_host and host != canonical_host
+            
+            if host_mismatch or scheme_mismatch:
+                path_and_query = request.get_full_path()
+                new_url = f"{parsed_canonical.scheme}://{parsed_canonical.netloc}{path_and_query}"
+                return HttpResponsePermanentRedirect(new_url)
         return self.get_response(request)
+
 
 
 

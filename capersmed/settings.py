@@ -132,3 +132,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Email backend for development
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'export@capersmed.com'
+
+# SEO Configuration
+SITE_URL = os.environ.get('SITE_URL', 'https://www.capersmed.com')
+ENABLE_DOMAIN_REDIRECT = os.environ.get('ENABLE_DOMAIN_REDIRECT', 'False') == 'True'
+ROBOTS_DISALLOW_ALL = os.environ.get('ROBOTS_DISALLOW_ALL', 'False') == 'True'
+

@@ -52,9 +52,9 @@
   "@type": "WebPage",
   "name": "CAPERSMED — Premium Moroccan Gourmet Products",
   "description": "Leading Moroccan producer of premium capers, preserved lemons, harissa and pickled vegetables.",
-  "url": "https://www.capersmed.com{{ request.path }}",
+  "url": "{{ SITE_URL }}{{ request.path }}",
   "inLanguage": "{{ LANGUAGE_CODE }}",
-  "isPartOf": { "@type": "WebSite", "name": "CAPERSMED", "url": "https://www.capersmed.com" }
+  "isPartOf": { "@type": "WebSite", "name": "CAPERSMED", "url": "{{ SITE_URL }}" }
 }
 </script>
 {% endblock %}

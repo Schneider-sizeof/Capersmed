@@ -13,5 +13,5 @@ Crawl-delay: 1
 Sitemap: {{ base_url }}/sitemap.xml
 
 # Host
-Host: www.capersmed.com
+Host: {{ host }}
 {% endif %}
