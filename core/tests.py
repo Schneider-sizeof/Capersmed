@@ -69,5 +69,13 @@ class SEOTestCase(TestCase):
         # Verify that the hreflang link for Arabic matches the canonical link exactly
         self.assertContains(response, f'<link rel="alternate" hreflang="ar" href="{expected_canonical}">', html=True)
 
+        # 2. Test with a decoded path (simulating a standard WSGI environment where request.path has decoded Unicode)
+        response_decoded = self.client.get('/ar/المنتجات/')
+        self.assertEqual(response_decoded.status_code, 200)
+        
+        # Verify that both the canonical and the alternate tags remain perfectly URL-encoded and identical
+        self.assertContains(response_decoded, f'<link rel="canonical" href="{expected_canonical}">', html=True)
+        self.assertContains(response_decoded, f'<link rel="alternate" hreflang="ar" href="{expected_canonical}">', html=True)
+
 
 

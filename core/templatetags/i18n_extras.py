@@ -12,7 +12,9 @@ def translate_url(context, lang_code):
     For detail pages (product_detail, blog_detail), also translates the slug
     so that /ar/المنتجات/ثمار-الكبار/ becomes /es/productos/alcaparrones/
     instead of /es/productos/ثمار-الكبار/.
+    The returned URL is always URL-encoded safely to match canonical URL tags.
     """
+    import urllib.parse
     request = context.get('request')
     if request is None:
         return '/{}/'.format(lang_code)
@@ -35,7 +37,8 @@ def translate_url(context, lang_code):
                 if obj:
                     translated_slug = _get_slug_for_lang(obj, lang_code)
                     with lang_override(lang_code):
-                        return reverse('product_detail', kwargs={'slug': translated_slug})
+                        res = reverse('product_detail', kwargs={'slug': translated_slug})
+                        return urllib.parse.quote(res, safe='/=&?%#+')
 
             elif url_name == 'blog_detail':
                 from core.models import BlogPost
@@ -48,13 +51,15 @@ def translate_url(context, lang_code):
                 if obj:
                     translated_slug = _get_slug_for_lang(obj, lang_code)
                     with lang_override(lang_code):
-                        return reverse('blog_detail', kwargs={'slug': translated_slug})
+                        res = reverse('blog_detail', kwargs={'slug': translated_slug})
+                        return urllib.parse.quote(res, safe='/=&?%#+')
         except Exception:
             pass  # Fall through to default translation
 
     # Default: translate URL path only (works for all non-detail pages)
     current_url = request.get_full_path()
-    return django_translate_url(current_url, lang_code)
+    translated = django_translate_url(current_url, lang_code)
+    return urllib.parse.quote(translated, safe='/=&?%#+')
 
 
 def _get_slug_for_lang(obj, lang_code):
