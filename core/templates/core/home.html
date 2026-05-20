@@ -2,12 +2,48 @@
 {% load i18n static i18n_extras %}
 {% get_current_language as LANGUAGE_CODE %}
 
-{% block title %}CAPERSMED — {% trans "Premium Moroccan Gourmet Products" %}{% endblock %}
-{% block meta_description %}{% trans "CAPERSMED is a leading Moroccan producer of premium capers, caperberries, preserved lemons, harissa, and pickled vegetables. Export quality gourmet products from Fes, Morocco." %}{% endblock %}
-{% block og_title %}CAPERSMED — {% trans "Premium Moroccan Gourmet Products" %}{% endblock %}
-{% block og_description %}{% trans "Leading Moroccan producer of premium capers, preserved lemons, harissa, and pickled vegetables for global export." %}{% endblock %}
-{% block twitter_title %}CAPERSMED — {% trans "Premium Moroccan Gourmet Products" %}{% endblock %}
-{% block twitter_description %}{% trans "Premium Moroccan capers, preserved lemons & traditional condiments. Export quality from Fes." %}{% endblock %}
+{% block title %}
+    {% get_current_language as LANGUAGE_CODE %}
+    {% if LANGUAGE_CODE == 'en' %}
+        Moroccan Capers & Piri Piri Wholesale | BRC Certified Exporter | CapersMed
+    {% elif LANGUAGE_CODE == 'it' %}
+        Capperi Marocchini all'Ingrosso | Cucunci e Piri Piri | CapersMed Esportatore
+    {% elif LANGUAGE_CODE == 'es' %}
+        Alcaparras y Alcaparrones Marroquies Granel | Piri Piri | CapersMed Exportador
+    {% elif LANGUAGE_CODE == 'pt' %}
+        Alcaparras e Pimenta Piri-Piri Marroquinas Grossista | CapersMed Exportador
+    {% elif LANGUAGE_CODE == 'fr' %}
+        Câpres et Piments Piri-Piri Marocains en Gros | Exportateur Certifié BRC | CapersMed
+    {% elif LANGUAGE_CODE == 'ar' %}
+        كبر وفلفل بيري بيري مغربي بالجملة | مصدّر معتمد BRC | كابرزميد
+    {% else %}
+        Moroccan Capers & Piri Piri Wholesale | BRC Certified Exporter | CapersMed
+    {% endif %}
+{% endblock %}
+
+{% block meta_description %}
+    {% get_current_language as LANGUAGE_CODE %}
+    {% if LANGUAGE_CODE == 'en' %}
+        CapersMed supplies non-pareil capers, caperberries and piri piri peppers in bulk from Fes, Morocco. BRC, FDA & IFS certified. FOB Casablanca. Request a quote.
+    {% elif LANGUAGE_CODE == 'it' %}
+        CapersMed produce e esporta capperi non pareil, cucunci e peperoncini piri piri dal Marocco. Cert. BRC, FDA, IFS. Fusti 180 kg SGO. FOB Casablanca.
+    {% elif LANGUAGE_CODE == 'es' %}
+        Proveedor mayorista de alcaparras no pareil, alcaparrones y pimientos piri piri de Marruecos. Cert. BRC, FDA, IFS. Envase 180 kg. FOB Casablanca.
+    {% elif LANGUAGE_CODE == 'pt' %}
+        CapersMed fornece alcaparras, alcaparroens e pimenta piri-piri em vinagre a granel de Marrocos. BRC, FDA, IFS. Tambores 180 kg. FOB Casablanca.
+    {% elif LANGUAGE_CODE == 'fr' %}
+        CapersMed fournit des câpres non-pareil, câprons et piments piri piri en vrac depuis Fès, Maroc. Certifié BRC, FDA et IFS. FOB Casablanca.
+    {% elif LANGUAGE_CODE == 'ar' %}
+        تقوم كابرزميد بتوريد الكبر، ثمار الكبر، وفلفل بيري بيري بالجملة من فاس، المغرب. معتمد BRC و FDA و IFS. فوب الدار البيضاء. اطلب عرض سعر.
+    {% else %}
+        CapersMed supplies non-pareil capers, caperberries and piri piri peppers in bulk from Fes, Morocco. BRC, FDA & IFS certified. FOB Casablanca. Request a quote.
+    {% endif %}
+{% endblock %}
+
+{% block og_title %}{{ self.title }}{% endblock %}
+{% block og_description %}{{ self.meta_description }}{% endblock %}
+{% block twitter_title %}{{ self.title }}{% endblock %}
+{% block twitter_description %}{{ self.meta_description }}{% endblock %}
 
 {% block extra_schema %}
 <script type="application/ld+json">
@@ -37,7 +73,31 @@
 <section class="hero" style="background-image: url('{{ MEDIA_URL }}backgrounds/hero_homepage.jpeg');">
 {% endif %}
 {% endwith %}    <div class="hero-content">
-        <h1>{% trans "Premium Moroccan Capers" %}<br><span style="font-size: 0.6em; opacity: 0.95; font-weight: 500; display: block; margin-top: 0.5rem;">{% trans "By CapersMed" %}</span></h1>
+        <h1>
+            {% get_current_language as LANGUAGE_CODE %}
+            {% if LANGUAGE_CODE == 'en' %}
+                Moroccan Capers, Caperberries & Piri Piri
+                <br><span style="font-size: 0.6em; opacity: 0.95; font-weight: 500; display: block; margin-top: 0.5rem;">Wholesale Export from Fes</span>
+            {% elif LANGUAGE_CODE == 'it' %}
+                Capperi e Cucunci Marocchini all'Ingrosso
+                <br><span style="font-size: 0.6em; opacity: 0.95; font-weight: 500; display: block; margin-top: 0.5rem;">Esportatore Certificato BRC</span>
+            {% elif LANGUAGE_CODE == 'es' %}
+                Alcaparras, Alcaparrones y Piri Piri Marroquies
+                <br><span style="font-size: 0.6em; opacity: 0.95; font-weight: 500; display: block; margin-top: 0.5rem;">Venta al Por Mayor Export</span>
+            {% elif LANGUAGE_CODE == 'pt' %}
+                Alcaparras, Alcaparroens e Pimenta Piri-Piri
+                <br><span style="font-size: 0.6em; opacity: 0.95; font-weight: 500; display: block; margin-top: 0.5rem;">Grossista Export desde Fez</span>
+            {% elif LANGUAGE_CODE == 'fr' %}
+                Câpres, Câprons et Piments Piri-Piri Marocains
+                <br><span style="font-size: 0.6em; opacity: 0.95; font-weight: 500; display: block; margin-top: 0.5rem;">Vente en Gros & Export</span>
+            {% elif LANGUAGE_CODE == 'ar' %}
+                الكبر، ثمار الكبر، وفلفل بيري بيري المغربي
+                <br><span style="font-size: 0.6em; opacity: 0.95; font-weight: 500; display: block; margin-top: 0.5rem;">تصدير بالجملة من فاس</span>
+            {% else %}
+                Moroccan Capers, Caperberries & Piri Piri
+                <br><span style="font-size: 0.6em; opacity: 0.95; font-weight: 500; display: block; margin-top: 0.5rem;">Wholesale Export from Fes</span>
+            {% endif %}
+        </h1>
         <p>{% trans "Naturally harvested Moroccan capers produced with care for gastronomy professionals and international distribution." %}</p>
         <div class="hero-cta">
             <a href="{% url 'contact' %}" class="btn-hero-primary">
@@ -263,7 +323,7 @@
     <div class="container">
     <div class="about-preview fade-up">
         <div class="caper-glow-wrap">
-            <img src="{{ MEDIA_URL }}products/caperpngpic.png" alt="{% trans 'Caperberries' %}">
+            <img src="{{ MEDIA_URL }}products/caperpngpic.png" alt="{% trans 'Caperberries' %}" loading="lazy">
         </div>
         <div class="about-text" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
             <div class="section-divider"><span></span><i>◆</i><span></span></div>
@@ -308,6 +368,78 @@
     </div>
 </section>
 
+<!-- B2B Specs Export Section -->
+<section class="section-padding home-specs" style="background: linear-gradient(180deg, #e8e3d8 0%, #f7f4ef 100%); border-top: 1px solid rgba(27,67,50,0.05);">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 4rem;" class="fade-up">
+            <span class="eyebrow">{% trans "Global Distribution" %}</span>
+            <h2 class="section-title" style="margin-bottom: 0;">{% trans "B2B Export Specifications" %}</h2>
+            <p style="color: #666; margin-top: 1.5rem; font-size: 1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                {% trans "CapersMed SARL is a direct-from-factory producer. We support importers, distributors, and private label clients globally with standardized premium export formats." %}
+            </p>
+        </div>
+
+        <div class="features-grid spec-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem;">
+            <!-- Card 1: Calibres -->
+            <div class="feature-box fade-up" style="display: flex; flex-direction: column; align-items: flex-start; text-align: left; background: #fff; border: 1px solid #e0ede3; border-radius: 14px; padding: 2rem; box-shadow: 0 4px 20px rgba(27,67,50,0.03); transition: transform 0.3s ease;">
+                <div class="feature-icon" style="margin-bottom: 1.5rem; font-size: 2.2rem; color: #D4AF37;">📏</div>
+                <h3 style="font-family: 'Playfair Display', serif; color: #1B4332; font-size: 1.35rem; margin-bottom: 1rem;">{% trans "Standard Calibres" %}</h3>
+                <ul style="list-style: none; padding: 0; color: #555; font-size: 0.92rem; line-height: 1.6;">
+                    <li><strong>{% trans "Non Pareil" %}:</strong> &lt; 7 mm</li>
+                    <li><strong>{% trans "Surfines" %}:</strong> 7 - 9 mm</li>
+                    <li><strong>{% trans "Capucines" %}:</strong> 9 - 11 mm</li>
+                    <li><strong>{% trans "Fines" %}:</strong> 11 - 13 mm</li>
+                    <li><strong>{% trans "Mifines" %}:</strong> 13 - 15 mm</li>
+                    <li><strong>{% trans "Hors calibre" %}:</strong> &gt; 15 mm</li>
+                </ul>
+            </div>
+
+            <!-- Card 2: Packaging -->
+            <div class="feature-box fade-up" style="display: flex; flex-direction: column; align-items: flex-start; text-align: left; background: #fff; border: 1px solid #e0ede3; border-radius: 14px; padding: 2rem; box-shadow: 0 4px 20px rgba(27,67,50,0.03); transition: transform 0.3s ease;">
+                <div class="feature-icon" style="margin-bottom: 1.5rem; font-size: 2.2rem; color: #D4AF37;">📦</div>
+                <h3 style="font-family: 'Playfair Display', serif; color: #1B4332; font-size: 1.35rem; margin-bottom: 1rem;">{% trans "Packaging & Formats" %}</h3>
+                <p style="color: #555; font-size: 0.92rem; line-height: 1.6; margin-bottom: 0.5rem;">
+                    {% trans "We offer bulk and wholesale packaging formats suited for high-volume logistics:" %}
+                </p>
+                <ul style="list-style: none; padding: 0; color: #555; font-size: 0.92rem; line-height: 1.6;">
+                    <li>• <strong>{% trans "Capers" %}:</strong> 180kg plastic drums (drained weight)</li>
+                    <li>• <strong>{% trans "Caperberries" %}:</strong> 150kg SGO drums</li>
+                    <li>• <strong>{% trans "Palletization" %}:</strong> 4 drums per pallet</li>
+                </ul>
+            </div>
+
+            <!-- Card 3: Logistics & Ports -->
+            <div class="feature-box fade-up" style="display: flex; flex-direction: column; align-items: flex-start; text-align: left; background: #fff; border: 1px solid #e0ede3; border-radius: 14px; padding: 2rem; box-shadow: 0 4px 20px rgba(27,67,50,0.03); transition: transform 0.3s ease;">
+                <div class="feature-icon" style="margin-bottom: 1.5rem; font-size: 2.2rem; color: #D4AF37;">🚢</div>
+                <h3 style="font-family: 'Playfair Display', serif; color: #1B4332; font-size: 1.35rem; margin-bottom: 1rem;">{% trans "Logistics & Supply" %}</h3>
+                <ul style="list-style: none; padding: 0; color: #555; font-size: 0.92rem; line-height: 1.6;">
+                    <li><strong>{% trans "MOQ" %}:</strong> 1 x 20ft container</li>
+                    <li><strong>{% trans "Capacity" %}:</strong> 42 drums / container (~7,560 kg net weight)</li>
+                    <li><strong>{% trans "Port of Loading" %}:</strong> FOB Casablanca, Morocco</li>
+                    <li><strong>{% trans "Availability" %}:</strong> 12-month supply (harvest June-November, stock year-round)</li>
+                </ul>
+            </div>
+
+            <!-- Card 4: Certifications -->
+            <div class="feature-box fade-up" style="display: flex; flex-direction: column; align-items: flex-start; text-align: left; background: #fff; border: 1px solid #e0ede3; border-radius: 14px; padding: 2rem; box-shadow: 0 4px 20px rgba(27,67,50,0.03); transition: transform 0.3s ease;">
+                <div class="feature-icon" style="margin-bottom: 1.5rem; font-size: 2.2rem; color: #D4AF37;">📜</div>
+                <h3 style="font-family: 'Playfair Display', serif; color: #1B4332; font-size: 1.35rem; margin-bottom: 1rem;">{% trans "Compliance & Trust" %}</h3>
+                <p style="color: #555; font-size: 0.92rem; line-height: 1.6; margin-bottom: 0.5rem;">
+                    {% trans "CapersMed guarantees complete food safety, physical control, and legal clearance:" %}
+                </p>
+                <ul style="list-style: none; padding: 0; color: #555; font-size: 0.92rem; line-height: 1.6;">
+                    <li>• <strong>BRC GS Grade A</strong> {% trans "certified" %}</li>
+                    <li>• <strong>FDA</strong> {% trans "registered facility" %}</li>
+                    <li>• <strong>IFS Food & Kosher</strong> {% trans "compliant" %}</li>
+                </ul>
+                <div style="margin-top: 1.5rem; width: 100%;">
+                    <a href="{% url 'contact' %}" class="btn btn-primary" style="display: block; text-align: center; font-size: 0.85rem; padding: 10px 15px;">{% trans "Request B2B Quote" %}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Why Choose Us -->
 <section class="section-padding home-why">
     <div class="container">
@@ -342,13 +474,34 @@
         <div class="feature-box" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
             {% if cert.image %}
             <img src="{{ cert.image.url }}" alt="{{ cert.name }}"
-                style="height: 60px; margin: 0 auto 1rem; object-fit: contain;">
+                style="height: 60px; margin: 0 auto 1rem; object-fit: contain;" loading="lazy">
             {% else %}
             <div style="font-size: 2.5rem; margin: 0 auto 1rem;">{{ cert.icon }}</div>
             {% endif %}
             <p>{% trans cert.name %}</p>
         </div>
         {% endfor %}
+    </div>
+    
+    <div style="margin-top: 4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; border-top: 1px solid #e0ede3; padding-top: 3rem;" class="fade-up">
+        <div style="text-align: left;">
+            <h4 style="color: var(--deep-green); font-family: 'Playfair Display', serif; font-size: 1.25rem; margin-bottom: 0.75rem;">BRC GS Grade A</h4>
+            <p style="color: #666; font-size: 0.92rem; line-height: 1.7; margin: 0;">
+                {% trans "Our manufacturing facility in Fes, Morocco, is certified under the BRC Global Standard for Food Safety with Grade A, confirming our commitment to superior hygiene, processing efficiency, and quality control." %}
+            </p>
+        </div>
+        <div style="text-align: left;">
+            <h4 style="color: var(--deep-green); font-family: 'Playfair Display', serif; font-size: 1.25rem; margin-bottom: 0.75rem;">{% trans "FDA Registered" %}</h4>
+            <p style="color: #666; font-size: 0.92rem; line-height: 1.7; margin: 0;">
+                {% trans "CapersMed is a fully registered Food Facility with the US Food and Drug Administration (FDA). Our export procedures comply with all FDA regulations, including product code validation and physical control clearances." %}
+            </p>
+        </div>
+        <div style="text-align: left;">
+            <h4 style="color: var(--deep-green); font-family: 'Playfair Display', serif; font-size: 1.25rem; margin-bottom: 0.75rem;">IFS Food & Kosher</h4>
+            <p style="color: #666; font-size: 0.92rem; line-height: 1.7; margin: 0;">
+                {% trans "Our processes adhere strictly to IFS Food standards and Kosher certification requirements, assuring our global retail and food service partners of maximum product integrity." %}
+            </p>
+        </div>
     </div>
     </div>
 </section>

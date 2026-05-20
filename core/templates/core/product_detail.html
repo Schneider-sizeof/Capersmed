@@ -19,8 +19,8 @@
 {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "{{ product.name_en }}",
-  "description": "{{ product.short_description_en }}",
+  "name": "{{ product|translate_field:'name' }}",
+  "description": "{{ product|translate_field:'short_description' }}",
   "url": "https://www.capersmed.com{{ request.path }}",
   {% if product.image %}"image": "https://www.capersmed.com{{ product.image.url }}",{% endif %}
   "brand": { "@type": "Brand", "name": "CAPERSMED" },

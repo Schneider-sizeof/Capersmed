@@ -1,0 +1,692 @@
+{% extends 'base.html' %}
+{% load i18n static i18n_extras %}
+
+{% block title %}
+    {% get_current_language as LANGUAGE_CODE %}
+    {% if LANGUAGE_CODE == 'it' %}
+        Logistica e Esportazione all'Ingrosso — CAPERSMED
+    {% elif LANGUAGE_CODE == 'es' %}
+        Logística y Exportación al por Mayor — CAPERSMED
+    {% elif LANGUAGE_CODE == 'pt' %}
+        Logística e Exportação por Atacado — CAPERSMED
+    {% elif LANGUAGE_CODE == 'fr' %}
+        Logistique et Vente en Gros Export — CAPERSMED
+    {% elif LANGUAGE_CODE == 'ar' %}
+        اللوجستيات وتصدير الجملة — كابرزميد
+    {% else %}
+        Wholesale & Export Logistics — CAPERSMED
+    {% endif %}
+{% endblock %}
+
+{% block meta_description %}
+    {% get_current_language as LANGUAGE_CODE %}
+    {% if LANGUAGE_CODE == 'it' %}
+        Dettagli logistici B2B di CAPERSMED. Specifiche di spedizione, volumi container, MOQ (1x20ft), termini FOB Casablanca, opzioni di confezionamento su misura.
+    {% elif LANGUAGE_CODE == 'es' %}
+        Detalles de logística B2B de CAPERSMED. Especificaciones de envío, volúmenes de contenedor, MOQ (1x20ft), términos FOB Casablanca y empaque personalizado.
+    {% elif LANGUAGE_CODE == 'pt' %}
+        Detalhes logísticos B2B da CAPERSMED. Especificações de envio, volumes de contêiner, MOQ (1x20ft), termos FOB Casablanca e embalagem personalizada.
+    {% elif LANGUAGE_CODE == 'fr' %}
+        Spécifications logistiques B2B de CAPERSMED. Volumes de conteneur, MOQ (1x20ft), conditions FOB Casablanca, délais et emballages sur mesure.
+    {% elif LANGUAGE_CODE == 'ar' %}
+        تفاصيل لوجستيات التصدير بالجملة من كابرزميد. مواصفات الشحن، حمولة الحاويات، موك (حاوية 20 قدم)، فوب الدار البيضاء، وخيارات التعبئة والتغليف.
+    {% else %}
+        Learn about CAPERSMED B2B wholesale and export options. Logistics specifications, container volumes, MOQ (1x20ft container), FOB Casablanca terms, and custom packaging.
+    {% endif %}
+{% endblock %}
+
+{% block extra_head %}
+<style>
+    .export-hero {
+        background: linear-gradient(rgba(27, 67, 50, 0.75), rgba(27, 67, 50, 0.75)), url('{% static "images/backgrounds/hero_contact.png" %}') center/cover no-repeat;
+        padding: 140px 2rem 80px;
+        text-align: center;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+    }
+    .export-hero h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        color: #fff;
+        margin-bottom: 0.75rem;
+    }
+    .export-hero p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.05rem;
+        max-width: 580px;
+        margin: 0 auto;
+    }
+    
+    .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+    
+    .export-card {
+        background: #fff;
+        border: 1px solid #e0ede3;
+        border-radius: 14px;
+        padding: 2.5rem 2rem;
+        box-shadow: 0 4px 20px rgba(27, 67, 50, 0.04);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .export-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(27, 67, 50, 0.08);
+    }
+    
+    .export-card h3 {
+        font-family: 'Playfair Display', serif;
+        color: #1B4332;
+        font-size: 1.4rem;
+        margin-bottom: 1.25rem;
+        border-bottom: 2px solid #f2f7f4;
+        padding-bottom: 0.75rem;
+    }
+    
+    .export-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .export-list li {
+        margin-bottom: 0.85rem;
+        font-size: 0.95rem;
+        color: #555;
+        line-height: 1.6;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .export-list li strong {
+        color: #1B4332;
+    }
+    
+    .export-badge {
+        display: inline-block;
+        background: #e8f4ed;
+        color: #2d6a4f;
+        font-weight: 700;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        padding: 4px 10px;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+    }
+    
+    .cta-banner {
+        background: #1B4332;
+        color: #fff;
+        border-radius: 14px;
+        padding: 3.5rem 2rem;
+        text-align: center;
+        margin-top: 4rem;
+    }
+    .cta-banner h2 {
+        font-family: 'Playfair Display', serif;
+        color: #fff;
+        margin-bottom: 1rem;
+    }
+    .cta-banner p {
+        color: #A8D5BA;
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        font-size: 1.05rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% if LANGUAGE_CODE == 'fr' %}
+<section class="export-hero">
+    <div class="hero-content" style="position:relative; z-index: 2;">
+        <span style="font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #D4AF37; display: block; margin-bottom: 1rem;">Solutions B2B</span>
+        <h1>Logistique & Vente en Gros Export</h1>
+        <p>Exportations directes d'usine de Fès, Maroc vers les ports mondiaux. Approvisionnement fiable en volume, emballages standardisés et conformité aux certifications internationales.</p>
+    </div>
+</section>
+
+<section class="section-padding container">
+    <div style="text-align: center; max-width: 750px; margin: 0 auto 3rem;" class="fade-up">
+        <h2 style="color: var(--deep-green); font-family: 'Playfair Display', serif; font-size: 2.2rem;">Spécifications d'Exportation Standard</h2>
+        <p style="color: #666; font-size: 1.05rem; line-height: 1.8; margin-top: 1rem;">
+            En tant qu'agro-processeur marocain majeur, CAPERSMED.SARL dessert les distributeurs alimentaires internationaux, les chaînes de supermarchés et les importateurs de marques privées (MDD). Nous garantissons une régularité stricte des calibres, un chargement sécurisé des conteneurs et une transparence certifiée.
+        </p>
+    </div>
+
+    <div class="grid-3 fade-up">
+        <!-- Logistics card -->
+        <div class="export-card">
+            <span class="export-badge">Logistique</span>
+            <h3>Expédition & Ports</h3>
+            <ul class="export-list">
+                <li>
+                    <span>🚢</span>
+                    <div><strong>Incoterms:</strong> FOB Casablanca (Port de Casablanca, Maroc) - options CIF disponibles sur demande.</div>
+                </li>
+                <li>
+                    <span>📦</span>
+                    <div><strong>Palettisation:</strong> Palettisation standard (4 fûts par palette, 10 palettes par conteneur 20 pieds + 2 fûts en vrac).</div>
+                </li>
+                <li>
+                    <span>⚖️</span>
+                    <div><strong>Chargement conteneur:</strong> 42 fûts par conteneur 20' (7 560 kg net pour les câpres, ou 6 300 kg net pour les câprons).</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Ordering & Terms card -->
+        <div class="export-card">
+            <span class="export-badge">Commandes</span>
+            <h3>Conditions & Disponibilité</h3>
+            <ul class="export-list">
+                <li>
+                    <span>📊</span>
+                    <div><strong>Quantité minimale (MOQ):</strong> 1 conteneur 20 pieds</div>
+                </li>
+                <li>
+                    <span>💳</span>
+                    <div><strong>Conditions de paiement:</strong> Virement bancaire (T/T) - 30% d'acompte et 70% contre copie du connaissement (B/L), ou Lettre de crédit irrévocable (L/C) à vue.</div>
+                </li>
+                <li>
+                    <span>📅</span>
+                    <div><strong>Délais de livraison:</strong> Délai standard pour les conteneurs (généralement 3 à 4 semaines selon le calibre).</div>
+                </li>
+                <li>
+                    <span>🌿</span>
+                    <div><strong>Approvisionnement annuel:</strong> Capacité d'approvisionnement sur 12 mois. Récolte de juin à novembre, stock régulé toute l'année.</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Packaging & Customization card -->
+        <div class="export-card">
+            <span class="export-badge">Emballage</span>
+            <h3>Options d'Emballage en Vrac</h3>
+            <ul class="export-list">
+                <li>
+                    <span>🛢️</span>
+                    <div><strong>Fûts plastique (180kg):</strong> Idéal pour les transformateurs, conditionneurs et grossistes alimentaires.</div>
+                </li>
+                <li>
+                    <span>🫙</span>
+                    <div><strong>Fûts SGO (150kg):</strong> Conçus spécifiquement pour les câprons et condiments, garantissant l'intégrité du produit.</div>
+                </li>
+                <li>
+                    <span>🏷️</span>
+                    <div><strong>Marque Distributeur (MDD):</strong> Spécifications personnalisées, étiquetage à façon et ajustements de saumure sur demande.</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Interactive Logistics Flow / CTA -->
+    <div class="cta-banner fade-up">
+        <h2>Demander un Devis de Gros</h2>
+        <p>Contactez notre bureau commercial avec vos calibres, vos volumes et ports de destination. Nous établirons un devis détaillé FOB Casablanca.</p>
+        <a href="{% url 'contact' %}" class="btn btn-gold" style="color: #1B1B1B; font-weight:700;">Contactez-nous</a>
+    </div>
+</section>
+
+{% elif LANGUAGE_CODE == 'it' %}
+<section class="export-hero">
+    <div class="hero-content" style="position:relative; z-index: 2;">
+        <span style="font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #D4AF37; display: block; margin-bottom: 1rem;">Soluzioni B2B</span>
+        <h1>Logistica & Esportazione all'Ingrosso</h1>
+        <p>Esportazioni dirette dallo stabilimento di Fès, Marocco verso i principali porti mondiali. Fornitura costante di volumi, imballaggi standardizzati e certificazioni internazionali.</p>
+    </div>
+</section>
+
+<section class="section-padding container">
+    <div style="text-align: center; max-width: 750px; margin: 0 auto 3rem;" class="fade-up">
+        <h2 style="color: var(--deep-green); font-family: 'Playfair Display', serif; font-size: 2.2rem;">Specifiche Standard di Esportazione</h2>
+        <p style="color: #666; font-size: 1.05rem; line-height: 1.8; margin-top: 1rem;">
+            Come principale agro-trasformatore marocchino, CAPERSMED.SARL serve distributori alimentari internazionali, catene di supermercati e importatori di marchi privati. Garantiamo la massima precisione nei calibri, carico sicuro dei container e tracciabilità certificata.
+        </p>
+    </div>
+
+    <div class="grid-3 fade-up">
+        <!-- Logistics card -->
+        <div class="export-card">
+            <span class="export-badge">Logistica</span>
+            <h3>Spedizione & Porti</h3>
+            <ul class="export-list">
+                <li>
+                    <span>🚢</span>
+                    <div><strong>Incoterms:</strong> FOB Casablanca (Porto di Casablanca, Marocco) - opzioni CIF disponibili su richiesta.</div>
+                </li>
+                <li>
+                    <span>📦</span>
+                    <div><strong>Palettizzazione:</strong> Carico pallet standard (4 fusti per pallet, 10 pallet per container 20ft + 2 fusti sfusi).</div>
+                </li>
+                <li>
+                    <span>⚖️</span>
+                    <div><strong>Carico container:</strong> 42 fusti per container 20 piedi (7.560 kg peso netto per i capperi, o 6.300 kg peso netto per i cucunci).</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Ordering & Terms card -->
+        <div class="export-card">
+            <span class="export-badge">Ordini</span>
+            <h3>Termini & Disponibilità</h3>
+            <ul class="export-list">
+                <li>
+                    <span>📊</span>
+                    <div><strong>MOQ:</strong> 1 container 20 piedi</div>
+                </li>
+                <li>
+                    <span>💳</span>
+                    <div><strong>Termini di pagamento:</strong> Bonifico Bancario (T/T) - 30% di anticipo e 70% contro copia della polizza di carico (B/L), o Lettera di Credito (L/C) irrevocabile a vista.</div>
+                </li>
+                <li>
+                    <span>📅</span>
+                    <div><strong>Tempi di consegna:</strong> Tempo standard per gli ordini (solitamente 3 o 4 settimane a seconda del calibro richiesto).</div>
+                </li>
+                <li>
+                    <span>🌿</span>
+                    <div><strong>Disponibilità annuale:</strong> Capacità di fornitura di 12 mesi. Stagione di raccolta da giugno a novembre, stock stoccato a temperatura controllata tutto l'anno.</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Packaging & Customization card -->
+        <div class="export-card">
+            <span class="export-badge">Imballaggio</span>
+            <h3>Imballaggi Industriali</h3>
+            <ul class="export-list">
+                <li>
+                    <span>🛢️</span>
+                    <div><strong>Fusti in plastica (180kg):</strong> Ideali per trasformatori alimentari, confezionatori e grossisti.</div>
+                </li>
+                <li>
+                    <span>🫙</span>
+                    <div><strong>Fusti SGO (150kg):</strong> Configurato specificamente per cucunci e frutti di cappero con gambo per preservare l'integrità del prodotto.</div>
+                </li>
+                <li>
+                    <span>🏷️</span>
+                    <div><strong>Private Label:</strong> Specifiche personalizzate, integrazione del vostro marchio privato e livelli di salamoia su misura su richiesta.</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Interactive Logistics Flow / CTA -->
+    <div class="cta-banner fade-up">
+        <h2>Richiedi un Preventivo all'Ingrosso</h2>
+        <p>Contatta il nostro ufficio commerciale indicando calibri, volumi e porto di destinazione. Emetteremo una quotazione FOB Casablanca dettagliata.</p>
+        <a href="{% url 'contact' %}" class="btn btn-gold" style="color: #1B1B1B; font-weight:700;">Entra in Contatto</a>
+    </div>
+</section>
+
+{% elif LANGUAGE_CODE == 'es' %}
+<section class="export-hero">
+    <div class="hero-content" style="position:relative; z-index: 2;">
+        <span style="font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #D4AF37; display: block; margin-bottom: 1rem;">Soluciones B2B</span>
+        <h1>Logística y Exportación al por Mayor</h1>
+        <p>Exportaciones directas de fábrica desde Fes, Marruecos a puertos globales. Suministro constante por volumen, embalaje estandarizado y cumplimiento de certificaciones.</p>
+    </div>
+</section>
+
+<section class="section-padding container">
+    <div style="text-align: center; max-width: 750px; margin: 0 auto 3rem;" class="fade-up">
+        <h2 style="color: var(--deep-green); font-family: 'Playfair Display', serif; font-size: 2.2rem;">Especificaciones de Exportación Estándar</h2>
+        <p style="color: #666; font-size: 1.05rem; line-height: 1.8; margin-top: 1rem;">
+            Como principal agroprocesador marroquí, CAPERSMED.SARL atiende a distribuidores, GMS, cadenas de supermercados e importadores de marca blanca (MDD). Garantizamos consistencia de calibres, carga segura de contenedores y transparencia certificada.
+        </p>
+    </div>
+
+    <div class="grid-3 fade-up">
+        <!-- Logistics card -->
+        <div class="export-card">
+            <span class="export-badge">Logística</span>
+            <h3>Envío y Puertos</h3>
+            <ul class="export-list">
+                <li>
+                    <span>🚢</span>
+                    <div><strong>Incoterms:</strong> FOB Casablanca (Puerto de Casablanca, Marruecos) - opciones CIF disponibles bajo petición.</div>
+                </li>
+                <li>
+                    <span>📦</span>
+                    <div><strong>Paletización:</strong> Carga de palets estándar (4 bidones por palet, 10 palets por contenedor de 20 pies + 2 bidones sueltos).</div>
+                </li>
+                <li>
+                    <span>⚖️</span>
+                    <div><strong>Carga de contenedor:</strong> 42 bidones por contenedor de 20 pies (7.560 kg de peso neto para alcaparras, o 6.300 kg de peso neto para alcaparrones con tallo).</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Ordering & Terms card -->
+        <div class="export-card">
+            <span class="export-badge">Pedidos</span>
+            <h3>Condiciones y Disponibilidad</h3>
+            <ul class="export-list">
+                <li>
+                    <span>📊</span>
+                    <div><strong>MOQ:</strong> 1 contenedor de 20 pies</div>
+                </li>
+                <li>
+                    <span>💳</span>
+                    <div><strong>Condiciones de pago:</strong> Transferencia bancaria (T/T): depósito anticipado del 30% y 70% contra copia de conocimiento de embarque (B/L), o Carta de Crédito (L/C) irrevocable a la vista.</div>
+                </li>
+                <li>
+                    <span>📅</span>
+                    <div><strong>Plazos de entrega:</strong> Plazo estándar para contenedores (de 3 a 4 semanas según el perfil de calibres solicitado).</div>
+                </li>
+                <li>
+                    <span>🌿</span>
+                    <div><strong>Suministro anual:</strong> Suministro de 12 meses. Cosecha de junio a noviembre, stock controlado todo el año.</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Packaging & Customization card -->
+        <div class="export-card">
+            <span class="export-badge">Envase</span>
+            <h3>Opciones de Envase Industrial</h3>
+            <ul class="export-list">
+                <li>
+                    <span>🛢️</span>
+                    <div><strong>Tambores plásticos (180kg):</strong> Ideal para procesadores, envasadores y mayoristas de alimentación.</div>
+                </li>
+                <li>
+                    <span>🫙</span>
+                    <div><strong>Tambores SGO (150kg):</strong> Específicos para alcaparrones con tallo y encurtidos, protegiendo el producto durante el tránsito.</div>
+                </li>
+                <li>
+                    <span>🏷️</span>
+                    <div><strong>Marca Privada (MDD):</strong> Formatos personalizados, etiquetado para marca blanca y niveles de salmuera a medida bajo pedido.</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Interactive Logistics Flow / CTA -->
+    <div class="cta-banner fade-up">
+        <h2>Solicite Presupuesto Mayorista</h2>
+        <p>Contacte con nuestra oficina de ventas detallando calibres, volumen y puerto de destino. Le enviaremos una oferta FOB Casablanca.</p>
+        <a href="{% url 'contact' %}" class="btn btn-gold" style="color: #1B1B1B; font-weight:700;">Contactar</a>
+    </div>
+</section>
+
+{% elif LANGUAGE_CODE == 'pt' %}
+<section class="export-hero">
+    <div class="hero-content" style="position:relative; z-index: 2;">
+        <span style="font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #D4AF37; display: block; margin-bottom: 1rem;">Soluções B2B</span>
+        <h1>Logística e Exportação por Atacado</h1>
+        <p>Exportações diretas de fábrica de Fez, Marrocos para portos globais. Fornecimento fiável de volume, embalagem padronizada e certificações internacionais.</p>
+    </div>
+</section>
+
+<section class="section-padding container">
+    <div style="text-align: center; max-width: 750px; margin: 0 auto 3rem;" class="fade-up">
+        <h2 style="color: var(--deep-green); font-family: 'Playfair Display', serif; font-size: 2.2rem;">Especificações de Exportação Padrão</h2>
+        <p style="color: #666; font-size: 1.05rem; line-height: 1.8; margin-top: 1rem;">
+            Como principal agroprocessador marroquino, a CAPERSMED.SARL serve distribuidores de food service, cadeias de supermercados e importadores de marca própria (MDD). Garantimos consistência de calibres, carregamento seguro de contêineres e transparência.
+        </p>
+    </div>
+
+    <div class="grid-3 fade-up">
+        <!-- Logistics card -->
+        <div class="export-card">
+            <span class="export-badge">Logística</span>
+            <h3>Envios e Portos</h3>
+            <ul class="export-list">
+                <li>
+                    <span>🚢</span>
+                    <div><strong>Incoterms:</strong> FOB Casablanca (Porto de Casablanca, Marrocos) - opções CIF sob consulta.</div>
+                </li>
+                <li>
+                    <span>📦</span>
+                    <div><strong>Paletização:</strong> Carregamento de paletes padrão (4 tambores por palete, 10 paletes por contentor de 20 pés + 2 tambores soltos).</div>
+                </li>
+                <li>
+                    <span>⚖️</span>
+                    <div><strong>Carga de contentor:</strong> 42 tambores por contentor de 20 pés (7.560 kg peso líquido para alcaparras, ou 6.300 kg peso líquido para alcaparrões).</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Ordering & Terms card -->
+        <div class="export-card">
+            <span class="export-badge">Pedidos</span>
+            <h3>Termos e Disponibilidade</h3>
+            <ul class="export-list">
+                <li>
+                    <span>📊</span>
+                    <div><strong>MOQ:</strong> 1 contentor de 20 pés</div>
+                </li>
+                <li>
+                    <span>💳</span>
+                    <div><strong>Termos de pagamento:</strong> Transferência bancária (T/T) - depósito de 30% e 70% contra cópia do conhecimento de embarque (B/L), ou Carta de Crédito (L/C) irrevogável.</div>
+                </li>
+                <li>
+                    <span>📅</span>
+                    <div><strong>Prazos de entrega:</strong> Prazo padrão de 3 a 4 semanas dependendo do perfil de calibres solicitado.</div>
+                </li>
+                <li>
+                    <span>🌿</span>
+                    <div><strong>Fornecimento anual:</strong> Capacidade de fornecimento 12 meses. Colheita de junho a novembro, com stock climatizado todo o ano.</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Packaging & Customization card -->
+        <div class="export-card">
+            <span class="export-badge">Embalagem</span>
+            <h3>Embalagens Industriais</h3>
+            <ul class="export-list">
+                <li>
+                    <span>🛢️</span>
+                    <div><strong>Tambores de plástico (180kg):</strong> Ideal para processadores, embaladores e grossistas alimentares.</div>
+                </li>
+                <li>
+                    <span>🫙</span>
+                    <div><strong>Tambores SGO (150kg):</strong> Perfeito para alcaparrões e pimentas conserva, protegendo a integridade física do produto.</div>
+                </li>
+                <li>
+                    <span>🏷️</span>
+                    <div><strong>Marca Própria (MDD):</strong> Especificações personalizadas, marca própria e níveis de salmoura personalizados sob consulta.</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Interactive Logistics Flow / CTA -->
+    <div class="cta-banner fade-up">
+        <h2>Solicite Orçamento por Atacado</h2>
+        <p>Contacte a nossa equipa comercial indicando calibres, volumes e portos de destino para receber uma cotação FOB Casablanca.</p>
+        <a href="{% url 'contact' %}" class="btn btn-gold" style="color: #1B1B1B; font-weight:700;">Entrar em Contacto</a>
+    </div>
+</section>
+
+{% elif LANGUAGE_CODE == 'ar' %}
+<section class="export-hero" dir="rtl">
+    <div class="hero-content" style="position:relative; z-index: 2;">
+        <span style="font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #D4AF37; display: block; margin-bottom: 1rem;">حلول الشركات B2B</span>
+        <h1>اللوجستيات وتصدير الجملة</h1>
+        <p>تصدير مباشر من المصنع في فاس، المغرب إلى الموانئ العالمية. إمداد موثوق بالكميات، تغليف قياسي، وامتثال كامل للشهادات الدولية.</p>
+    </div>
+</section>
+
+<section class="section-padding container" dir="rtl" style="text-align: right;">
+    <div style="text-align: center; max-width: 750px; margin: 0 auto 3rem;" class="fade-up">
+        <h2 style="color: var(--deep-green); font-family: 'Playfair Display', serif; font-size: 2.2rem;">مواصفات التصدير القياسية</h2>
+        <p style="color: #666; font-size: 1.05rem; line-height: 1.8; margin-top: 1rem;">
+            بصفتها شركة تصنيع زراعي مغربية كبرى، تلبي كابرزميد احتياجات موزعي الأغذية، سلاسل السوبرماركت، ومستوردي العلامات التجارية الخاصة (MDD). نضمن اتساقًا صارمًا في الأحجام، وتحميلًا آمنًا للحاويات.
+        </p>
+    </div>
+
+    <div class="grid-3 fade-up">
+        <!-- Logistics card -->
+        <div class="export-card">
+            <span class="export-badge">الخدمات اللوجستية</span>
+            <h3>الشحن والموانئ</h3>
+            <ul class="export-list" style="padding-right: 0;">
+                <li>
+                    <span>🚢</span>
+                    <div><strong>Incoterms:</strong> فوب الدار البيضاء (ميناء الدار البيضاء، المغرب) - تتوفر خيارات CIF عند الطلب.</div>
+                </li>
+                <li>
+                    <span>📦</span>
+                    <div><strong>التحميل:</strong> تحميل قياسي للمنصات (4 براميل لكل منصة، 10 منصات لكل حاوية 20 قدم + برميلين منفصلين).</div>
+                </li>
+                <li>
+                    <span>⚖️</span>
+                    <div><strong>حمولة الحاوية:</strong> 42 برميل لكل حاوية 20 قدم (7,560 كجم وزن صافي للكبر، أو 6,300 كجم وزن صافي لثمار الكبر).</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Ordering & Terms card -->
+        <div class="export-card">
+            <span class="export-badge">الطلبات</span>
+            <h3>الشروط والتوافر</h3>
+            <ul class="export-list" style="padding-right: 0;">
+                <li>
+                    <span>📊</span>
+                    <div><strong>الحد الأدنى للطلب (MOQ):</strong> حاوية 20 قدم كحد أدنى</div>
+                </li>
+                <li>
+                    <span>💳</span>
+                    <div><strong>شروط الدفع:</strong> تحويل بنكي (T/T) - 30% دفعة مقدمة و70% عند تقديم نسخة بوليصة الشحن، أو خطاب اعتماد مستندي (L/C) غير قابل للإلغاء.</div>
+                </li>
+                <li>
+                    <span>📅</span>
+                    <div><strong>مدة التسليم:</strong> مدة التسليم القياسية للحاويات (عادة من 3 إلى 4 أسابيع حسب الحجم المطلوب).</div>
+                </li>
+                <li>
+                    <span>🌿</span>
+                    <div><strong>التوافر السنوي:</strong> القدرة على التوريد على مدار 12 شهرًا. موسم الحصاد من يونيو إلى نوفمبر ونحتفظ بالمخزون طوال العام.</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Packaging & Customization card -->
+        <div class="export-card">
+            <span class="export-badge">التعبئة والتغليف</span>
+            <h3>خيارات التعبئة بالجملة</h3>
+            <ul class="export-list" style="padding-right: 0;">
+                <li>
+                    <span>🛢️</span>
+                    <div><strong>براميل بلاستيكية 180 كجم:</strong> (الوزن المصفى) - مثالية للمصنعين وموزعي الجملة والأغذية.</div>
+                </li>
+                <li>
+                    <span>🫙</span>
+                    <div><strong>براميل SGO سعة 150 كجم:</strong> مهيأة خصيصًا لثمار الكبر والمخللات لحماية سلامة المنتج.</div>
+                </li>
+                <li>
+                    <span>🏷️</span>
+                    <div><strong>العلامة الخاصة (MDD):</strong> المواصفات المخصصة، وتعبئة العلامات التجارية الخاصة، ومستويات المحلول المخصص عند الطلب.</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Interactive Logistics Flow / CTA -->
+    <div class="cta-banner fade-up" style="text-align: center;">
+        <h2>اطلب عرض سعر للجملة</h2>
+        <p>اتصل بمكتب المبيعات لدينا مع تحديد الأحجام والكميات وموانئ الوصول. وسنصدر لك عرض أسعار مفصلاً فوب الدار البيضاء.</p>
+        <a href="{% url 'contact' %}" class="btn btn-gold" style="color: #1B1B1B; font-weight:700;">اتصل بنا</a>
+    </div>
+</section>
+
+{% else %}
+<section class="export-hero">
+    <div class="hero-content" style="position:relative; z-index: 2;">
+        <span style="font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #D4AF37; display: block; margin-bottom: 1rem;">{% trans "B2B Solutions" %}</span>
+        <h1>{% trans "Wholesale & Export Logistics" %}</h1>
+        <p>{% trans "Direct factory exports from Fes, Morocco to global ports. Reliable volume supply, standardized packaging, and international certification compliance." %}</p>
+    </div>
+</section>
+
+<section class="section-padding container">
+    <div style="text-align: center; max-width: 750px; margin: 0 auto 3rem;" class="fade-up">
+        <h2 style="color: var(--deep-green); font-family: 'Playfair Display', serif; font-size: 2.2rem;">{% trans "Standard Export Specifications" %}</h2>
+        <p style="color: #666; font-size: 1.05rem; line-height: 1.8; margin-top: 1rem;">
+            {% trans "As a major Moroccan agro-processor, CAPERSMED.SARL serves international food service distributors, supermarket chains, and private label importers. We ensure strict consistency in calibre grades, secure logistics container loading, and certified transparency." %}
+        </p>
+    </div>
+
+    <div class="grid-3 fade-up">
+        <!-- Logistics card -->
+        <div class="export-card">
+            <span class="export-badge">{% trans "Logistics" %}</span>
+            <h3>{% trans "Shipping & Ports" %}</h3>
+            <ul class="export-list">
+                <li>
+                    <span>🚢</span>
+                    <div><strong>{% trans "Incoterms" %}:</strong> {% trans "FOB Casablanca (Port of Casablanca, Morocco) - CIF options available upon request." %}</div>
+                </li>
+                <li>
+                    <span>📦</span>
+                    <div><strong>{% trans "Palletization" %}:</strong> {% trans "Standard pallet loading (4 drums per pallet, 10 pallets per 20ft container + 2 loose drums)" %}</div>
+                </li>
+                <li>
+                    <span>⚖️</span>
+                    <div><strong>{% trans "Container Load" %}:</strong> {% trans "42 drums per 20ft container (7,560 kg net weight for capers, or 6,300 kg net weight for caperberries)" %}</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Ordering & Terms card -->
+        <div class="export-card">
+            <span class="export-badge">{% trans "Ordering" %}</span>
+            <h3>{% trans "Terms & Availability" %}</h3>
+            <ul class="export-list">
+                <li>
+                    <span>📊</span>
+                    <div><strong>{% trans "Minimum Order Quantity (MOQ)" %}:</strong> 1 x 20ft container</div>
+                </li>
+                <li>
+                    <span>💳</span>
+                    <div><strong>{% trans "Payment Terms" %}:</strong> {% trans "Bank Transfer (T/T) - 30% advance deposit and 70% against Bill of Lading (B/L) copy, or Irrevocable Letter of Credit (L/C) at sight." %}</div>
+                </li>
+                <li>
+                    <span>📅</span>
+                    <div><strong>{% trans "Lead Times" %}:</strong> {% trans "Standard lead time for container orders (usually 3 to 4 weeks depending on the calibre profile and order specifics)." %}</div>
+                </li>
+                <li>
+                    <span>🌿</span>
+                    <div><strong>{% trans "Annual Supply" %}:</strong> {% trans "12-month supply capability. Harvest season is from June to November, and we maintain temperature-controlled stock year-round." %}</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Packaging & Customization card -->
+        <div class="export-card">
+            <span class="export-badge">{% trans "Packaging" %}</span>
+            <h3>{% trans "Bulk Packaging Options" %}</h3>
+            <ul class="export-list">
+                <li>
+                    <span>🛢️</span>
+                    <div><strong>{% trans "Plastic Drums (180kg)" %}:</strong> {% trans "Ideal for high-volume processors, re-packagers, and wholesale food service providers." %}</div>
+                </li>
+                <li>
+                    <span>🫙</span>
+                    <div><strong>{% trans "SGO Drums (150kg)" %}:</strong> {% trans "Specifically configured for caperberries and pickled condiments, protecting product integrity during transit." %}</div>
+                </li>
+                <li>
+                    <span>🏷️</span>
+                    <div><strong>{% trans "Private Labeling" %}:</strong> {% trans "Custom specifications, private brand label integration, and specialized brine levels are available upon request." %}</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Interactive Logistics Flow / CTA -->
+    <div class="cta-banner fade-up">
+        <h2>{% trans "Request a Wholesale Quote" %}</h2>
+        <p>{% trans "Contact our sales office with your calibre profiles, volume requirements, and destination ports. We will issue a detailed FOB Casablanca quote." %}</p>
+        <a href="{% url 'contact' %}" class="btn btn-gold" style="color: #1B1B1B; font-weight:700;">{% trans "Get in Touch" %}</a>
+    </div>
+</section>
+{% endif %}
+
+{% endblock %}

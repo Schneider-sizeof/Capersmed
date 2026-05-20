@@ -1,53 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-{% load i18n %}
-{% get_available_languages as languages %}
-
-{% comment %} ── Static pages with full hreflang cross-references ── {% endcomment %}
-{% for page_path in static_pages %}
-{% for lang_code, lang_name in languages %}
+{% for item in urls %}
     <url>
-        <loc>{{ base_url }}/{{ lang_code }}/{{ page_path }}</loc>
-        <changefreq>{% if page_path == '' %}weekly{% else %}monthly{% endif %}</changefreq>
-        <priority>{% if page_path == '' %}1.0{% elif page_path == 'products/' %}0.9{% elif page_path == 'contact/' or page_path == 'blog/' %}0.7{% else %}0.6{% endif %}</priority>
-        {% for alt_code, alt_name in languages %}
-        <xhtml:link rel="alternate" hreflang="{{ alt_code }}" href="{{ base_url }}/{{ alt_code }}/{{ page_path }}"/>
+        <loc>{{ item.loc }}</loc>
+        <changefreq>{{ item.changefreq }}</changefreq>
+        <priority>{{ item.priority }}</priority>
+        {% if item.lastmod %}<lastmod>{{ item.lastmod }}</lastmod>{% endif %}
+        {% for link in item.links %}
+        <xhtml:link rel="alternate" hreflang="{{ link.lang }}" href="{{ link.href }}"/>
         {% endfor %}
-        <xhtml:link rel="alternate" hreflang="x-default" href="{{ base_url }}/en/{{ page_path }}"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="{{ item.loc }}"/>
     </url>
 {% endfor %}
-{% endfor %}
-
-{% comment %} ── Product pages ── {% endcomment %}
-{% for product in products %}
-{% for lang_code, lang_name in languages %}
-    <url>
-        <loc>{{ base_url }}/{{ lang_code }}/products/{{ product.slug }}/</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-        {% for alt_code, alt_name in languages %}
-        <xhtml:link rel="alternate" hreflang="{{ alt_code }}" href="{{ base_url }}/{{ alt_code }}/products/{{ product.slug }}/"/>
-        {% endfor %}
-        <xhtml:link rel="alternate" hreflang="x-default" href="{{ base_url }}/en/products/{{ product.slug }}/"/>
-    </url>
-{% endfor %}
-{% endfor %}
-
-{% comment %} ── Blog posts ── {% endcomment %}
-{% for post in posts %}
-{% for lang_code, lang_name in languages %}
-    <url>
-        <loc>{{ base_url }}/{{ lang_code }}/blog/{{ post.slug }}/</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-        {% if post.updated_at %}<lastmod>{{ post.updated_at|date:"Y-m-d" }}</lastmod>{% endif %}
-        {% for alt_code, alt_name in languages %}
-        <xhtml:link rel="alternate" hreflang="{{ alt_code }}" href="{{ base_url }}/{{ alt_code }}/blog/{{ post.slug }}/"/>
-        {% endfor %}
-        <xhtml:link rel="alternate" hreflang="x-default" href="{{ base_url }}/en/blog/{{ post.slug }}/"/>
-    </url>
-{% endfor %}
-{% endfor %}
-
 </urlset>

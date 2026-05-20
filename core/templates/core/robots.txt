@@ -1,16 +1,17 @@
 User-agent: *
+{% if is_staging %}
+Disallow: /
+{% else %}
 Allow: /
-
 Disallow: /admin/
 Disallow: /set-language/
-Disallow: /static/js/
-Disallow: /static/css/
 
 # Crawl-delay for polite crawling
 Crawl-delay: 1
 
 # Sitemap
-Sitemap: https://www.capersmed.com/sitemap.xml
+Sitemap: {{ base_url }}/sitemap.xml
 
 # Host
 Host: www.capersmed.com
+{% endif %}

@@ -2,8 +2,24 @@ import time
 import threading
 import urllib.request
 import json
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponsePermanentRedirect
 from django.utils.html import escape
+
+
+class DomainRedirectMiddleware:
+    """
+    Redirects requests from capersmed.duckdns.org to capersmed.com with a permanent 301 redirect.
+    """
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        host = request.get_host()
+        if 'capersmed.duckdns.org' in host:
+            new_url = request.build_absolute_uri().replace(host, 'capersmed.com')
+            return HttpResponsePermanentRedirect(new_url)
+        return self.get_response(request)
+
 
 
 class LicenseVerificationMiddleware:

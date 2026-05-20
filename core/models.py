@@ -174,7 +174,7 @@ class ContactMessage(models.Model):
 class SiteSettings(models.Model):
     site_name = models.CharField(max_length=200, default='CAPERSMED')
     phone = models.CharField(max_length=50, default='+212 6 61 48 28 83')
-    email = models.EmailField(default='capersmed.maroc@gmail.com')
+    email = models.EmailField(default='export@capersmed.com')
     address = models.TextField(default='Hay Namae Bensouda 371/3, Fes 30000, Morocco')
     facebook_url = models.URLField(blank=True)
     instagram_url = models.URLField(blank=True)

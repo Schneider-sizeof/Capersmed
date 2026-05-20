@@ -434,6 +434,12 @@
                         {% trans "Branding" %}
                     </a>
                 </li>
+                <li>
+                    <a href="{% url 'wholesale_export' %}"
+                        class="{% if request.resolver_match.url_name == 'wholesale_export' %}nav-active{% endif %}">
+                        {% trans "Wholesale" %}
+                    </a>
+                </li>
             </ul>
 
             <!-- CENTER: Logo -->
@@ -507,6 +513,8 @@
                         class="{% if request.resolver_match.url_name == 'certifications' %}nav-active{% endif %}">{% trans "Certifications" %}</a></li>
                 <li><a href="{% url 'branding' %}"
                         class="{% if request.resolver_match.url_name == 'branding' %}nav-active{% endif %}">{% trans "Branding" %}</a></li>
+                <li><a href="{% url 'wholesale_export' %}"
+                        class="{% if request.resolver_match.url_name == 'wholesale_export' %}nav-active{% endif %}">{% trans "Wholesale" %}</a></li>
                 <li><a href="{% url 'contact' %}"
                         class="{% if request.resolver_match.url_name == 'contact' %}nav-active{% endif %}">{% trans "Contact" %}</a></li>
                 <li><a href="{% url 'blog' %}"
@@ -627,7 +635,9 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; {% now "Y" %} CAPERSMED.SARL
+            <p>&copy; {% now "Y" %} CAPERSMED.SARL</p>
+            <p style="font-size: 0.8rem; opacity: 0.7; margin-top: 0.5rem;">
+                {% trans "Facility certified in compliance with BRC GS (Grade A), FDA registered, and IFS Food compliant." %}
             </p>
         </div>
     </footer>

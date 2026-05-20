@@ -13,6 +13,7 @@ urlpatterns = [
     path(_('branding/'), views.branding, name='branding'),
     path(_('services/'), views.services, name='services'),
     path(_('contact/'), views.contact, name='contact'),
+    path(_('wholesale-export/'), views.wholesale_export, name='wholesale_export'),
     path('set-language/<str:language_code>/', views.set_language, name='set_language'),
 ]
 

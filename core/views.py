@@ -6,6 +6,8 @@ from .models import Product, BlogPost, Certification
 from .forms import ContactForm
 from django.utils.translation import gettext as _
 from django.utils import translation
+from django.urls import reverse
+from django.utils.translation import override as lang_override
 
 def home(request):
     featured_products = Product.objects.filter(is_featured=True).order_by('id')[:3]
@@ -93,6 +95,9 @@ def contact(request):
         form = ContactForm()
     return render(request, 'core/contact.html', {'form': form})
 
+def wholesale_export(request):
+    return render(request, 'core/wholesale_export.html')
+
 def set_language(request, language_code):
     response = redirect(request.META.get('HTTP_REFERER', '/'))
     translation.activate(language_code)
@@ -104,26 +109,64 @@ def sitemap_xml(request):
     products = Product.objects.all()
     posts = BlogPost.objects.filter(is_published=True)
     base_url = 'https://www.capersmed.com'
-    static_pages = [
-        '',               # home
-        'products/',
-        'certifications/',
-        'branding/',
-        'blog/',
-        'contact/',
-        'about/',
-    ]
+    languages = [code for code, name in settings.LANGUAGES]
+    
+    urls = []
+    
+    # 1. Static Pages
+    static_names = ['home', 'products', 'certifications', 'branding', 'blog', 'contact', 'about', 'wholesale_export']
+    for name in static_names:
+        page_urls = {}
+        for lang in languages:
+            with lang_override(lang):
+                page_urls[lang] = base_url + reverse(name)
+        urls.append({
+            'loc': page_urls['en'], # default language location is 'en'
+            'changefreq': 'weekly' if name == 'home' else 'monthly',
+            'priority': '1.0' if name == 'home' else '0.9' if name == 'products' else '0.7',
+            'links': [{'lang': lang, 'href': href} for lang, href in page_urls.items()]
+        })
+        
+    # 2. Product Pages
+    for product in products:
+        page_urls = {}
+        for lang in languages:
+            slug = getattr(product, f'slug_{lang}', None) or product.slug_en or product.slug
+            with lang_override(lang):
+                page_urls[lang] = base_url + reverse('product_detail', kwargs={'slug': slug})
+        urls.append({
+            'loc': page_urls['en'],
+            'changefreq': 'monthly',
+            'priority': '0.8',
+            'links': [{'lang': lang, 'href': href} for lang, href in page_urls.items()]
+        })
+        
+    # 3. Blog Posts
+    for post in posts:
+        page_urls = {}
+        for lang in languages:
+            slug = getattr(post, f'slug_{lang}', None) or post.slug_en or post.slug
+            with lang_override(lang):
+                page_urls[lang] = base_url + reverse('blog_detail', kwargs={'slug': slug})
+        urls.append({
+            'loc': page_urls['en'],
+            'changefreq': 'monthly',
+            'priority': '0.6',
+            'lastmod': post.updated_at.strftime('%Y-%m-%d') if post.updated_at else None,
+            'links': [{'lang': lang, 'href': href} for lang, href in page_urls.items()]
+        })
+        
     return render(request, 'core/sitemap.xml', {
-        'products': products,
-        'posts': posts,
-        'base_url': base_url,
-        'static_pages': static_pages,
+        'urls': urls,
     }, content_type='application/xml')
 
 
 def robots_txt(request):
-    base_url = request.build_absolute_uri('/').rstrip('/')
+    host = request.get_host()
+    is_staging = 'duckdns.org' in host or 'pythonanywhere.com' in host
+    base_url = 'https://www.capersmed.com'
     return render(request, 'core/robots.txt', {
         'base_url': base_url,
+        'is_staging': is_staging,
     }, content_type='text/plain')
 
