@@ -52,4 +52,22 @@ class SEOTestCase(TestCase):
         self.assertContains(response, 'Allow: /')
         self.assertContains(response, 'Host: www.capersmed.com')
 
+    def test_canonical_and_hreflang_encoding(self):
+        # Visit the Arabic products page (Unicode URL resolved to /ar/%D8%A7%D9%84%D9%85%D9%86%D8%AA%D8%AC%D8%A7%D8%AA/)
+        # This will render base.html where we check that canonical and hreflang tags match and are URL-encoded.
+        from django.utils.translation import override as lang_override
+        with lang_override('ar'):
+            ar_products_path = reverse('products') # returns /ar/%D8%A7%D9%84%D9%85%D9%86%D8%AA%D8%AC%D8%A7%D8%AA/
+        
+        response = self.client.get(ar_products_path)
+        self.assertEqual(response.status_code, 200)
+        
+        # Verify that the canonical link has the URL-encoded path, not the raw Unicode path
+        expected_canonical = f'https://www.capersmed.com{ar_products_path}'
+        self.assertContains(response, f'<link rel="canonical" href="{expected_canonical}">', html=True)
+        
+        # Verify that the hreflang link for Arabic matches the canonical link exactly
+        self.assertContains(response, f'<link rel="alternate" hreflang="ar" href="{expected_canonical}">', html=True)
+
+
 

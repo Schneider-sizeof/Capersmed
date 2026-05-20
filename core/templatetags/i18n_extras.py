@@ -75,6 +75,18 @@ def _get_slug_for_lang(obj, lang_code):
 
 
 @register.filter
+def url_encode_path(value):
+    """
+    URL-encodes a path string (like request.path) safely,
+    keeping slashes intact so /ar/المنتجات/ becomes /ar/%D8%A7%D9%84%D9%85%D9%86%D8%AA%D8%AC%D8%A7%D8%AA/
+    """
+    if not value:
+        return ""
+    import urllib.parse
+    return urllib.parse.quote(value, safe='/')
+
+
+@register.filter
 def translate_field(obj, field_name):
     """
     Returns the value of a translated field on an object.
